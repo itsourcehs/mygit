@@ -19,11 +19,16 @@ public class FileOutPutStreamDemo {
                 FileOutputStream("C:\\Users\\Administrator\\IdeaProjects\\HelloWorld\\README.txt");
         //流对象方法write输出数据到文件
         //写一个字节
-        fos.write(100);
+        //fos.write(100);
 
         //写字节数组
         byte[] bytes = {65,66,67,68};
-        fos.write(bytes);
+        //fos.write(bytes);
+
+        /*写字符串 使用String类方法getBytes
+        将字符串转换为字节数组,需要查询编码表
+         */
+        fos.write("hello".getBytes());
 
         //关闭资源
         fos.close();

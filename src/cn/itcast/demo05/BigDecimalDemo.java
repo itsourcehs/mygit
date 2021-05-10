@@ -1,4 +1,4 @@
-package cn.itcast.demo5;
+package cn.itcast.demo05;
 
 import java.math.BigDecimal;
 

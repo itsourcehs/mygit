@@ -62,7 +62,7 @@ public class PropertiesDemo {
     }
 
     /**
-     * @Description: Properties集合特有方法store - 接受所有的字节或者字符的输出流,将集合值的键值对,写回文件保存
+     * @Description: Properties集合特有方法store - 接受所有的字节或者字符的输出流,将集合中的键值对,写回文件保存
      * @Param: store(OutputStream out) store(Writer w)
      * @return:
      * @Author: Mr.Huang

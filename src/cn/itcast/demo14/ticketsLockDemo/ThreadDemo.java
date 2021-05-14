@@ -1,4 +1,4 @@
-package cn.itcast.demo14.ticketsFuctionDemo;
+package cn.itcast.demo14.ticketsLockDemo;
 
 /**
  * @program: HelloWorld

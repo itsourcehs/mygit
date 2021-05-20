@@ -1,4 +1,4 @@
-package DemoForNote;
+package com.company.DemoForNote;
 
 public class Computer {
     public void openComputer(){

@@ -1,4 +1,4 @@
-package cn.itcast.hotel;
+package com.company.hotel;
 /*
  类继承员工,实现接口
  */

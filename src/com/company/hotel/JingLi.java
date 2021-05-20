@@ -1,4 +1,4 @@
-package cn.itcast.hotel;
+package com.company.hotel;
 /*
 属于员工类,不实现接口,但有奖励
  */

@@ -1,10 +1,8 @@
 package cn.itcast.demo02;
 
-import cn.itcast.hotel.ChuShi;
-import cn.itcast.hotel.FuWuYuan;
-import cn.itcast.hotel.JingLi;
-
-import java.util.Calendar;
+import com.company.hotel.ChuShi;
+import com.company.hotel.FuWuYuan;
+import com.company.hotel.JingLi;
 
 public class TestArguments {
     public static void main(String[] args) {

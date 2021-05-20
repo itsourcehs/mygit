@@ -1,4 +1,4 @@
-package cn.itcast.hotel;
+package com.company.hotel;
 
 import java.util.ArrayList;
 import java.util.Iterator;

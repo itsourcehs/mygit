@@ -1,4 +1,4 @@
-package cn.itcast.hotel;
+package com.company.hotel;
 /*
  姓名 工号 工作方法
  */

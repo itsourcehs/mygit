@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class Blog {
     /**博客id*/
-    private Long blogid;
+    private Long blogId;
     /**博客标题*/
     private String blogTitle;
     /**博客子URL*/
@@ -42,11 +42,11 @@ public class Blog {
     private String blogContent;
 
     public Long getBlogid() {
-        return blogid;
+        return blogId;
     }
 
     public void setBlogid(Long blogid) {
-        this.blogid = blogid;
+        this.blogId = blogid;
     }
 
     public String getBlogTitle() {
@@ -157,7 +157,7 @@ public class Blog {
     @Override
     public String toString() {
         return "Blog{" +
-                "blogid=" + blogid +
+                "blogid=" + blogId +
                 ", blogTitle='" + blogTitle + '\'' +
                 ", blogSubUrl='" + blogSubUrl + '\'' +
                 ", blogCoverImage='" + blogCoverImage + '\'' +

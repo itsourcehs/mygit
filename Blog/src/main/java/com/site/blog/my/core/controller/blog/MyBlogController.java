@@ -18,7 +18,7 @@ public class MyBlogController {
      */
     @GetMapping({"/","/index","index.html"})
     public String index(HttpRequest request){
-        return
+        return "1";
     }
 
 }

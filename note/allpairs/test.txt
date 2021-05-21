@@ -1,5 +1,14 @@
-通话时长	直播时长
-X大于200	Y大于200
-X等于200	Y等于200
-X小于200	Y小于200
-空	空1
+上周文字价格	上周文字收益	上周语音价格	上周视频价格	上周语音时长	上周视频时长
+默认2钻/条	0元	默认20钻/分钟	默认50钻/分钟	0小时	0小时
+3钻/条	0-50元	30钻/分钟	60钻/分钟	0-3小时	0-3小时
+4钻/条	50-80元	40钻/分钟	70钻/分钟	3-6小时	3-5小时
+5钻/条	80-150元	50钻/分钟	80钻/分钟	6-10小时	5-8小时
+	大于150元			大于10小时	大于8小时
+
+699822528: 10466764246
+{"data":
+{"msgPrice":2,"coins":2,"isalert":false,
+"switchConfig":{"hideVideoCall":false,"showQuickReply":true,"hideBottomSendBox":false,"hideCall":false,"hideVoiceCall":false},"lv":20,"avatar":"http://image.1qiyue.cc/user/regAvatar/biscuitCache1620804072901.jpg?x-oss-process=style/webp80","points":0,"second":0,"clearChatRecord":false,"targetLv":20,"nickname":"阔达的夕阳","targetUid":"821972763","age":"24岁"},"time":89620364068900,"status":0}
+
+
+867215355: 10463883383

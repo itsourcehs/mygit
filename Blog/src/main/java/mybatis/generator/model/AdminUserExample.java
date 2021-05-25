@@ -3,14 +3,14 @@ package mybatis.generator.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TbAdminUserExample {
+public class AdminUserExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public TbAdminUserExample() {
+    public AdminUserExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 

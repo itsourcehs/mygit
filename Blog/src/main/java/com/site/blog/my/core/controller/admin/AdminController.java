@@ -1,8 +1,7 @@
 package com.site.blog.my.core.controller.admin;
 
 import com.site.blog.my.core.entity.AdminUser;
-import com.site.blog.my.core.service.AdminUserService;
-import com.site.blog.my.core.service.BlogService;
+import com.site.blog.my.core.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +14,9 @@ import javax.servlet.http.HttpSession;
 /**
  * @program: Blog
  * @description:
+ *  前台访问地址:http://localhost:28083/
+ *  后台访问地址: http://localhost:28083/admin
+ *  后台登录访问地址: http://localhost:28083/admin/login
  * @author: Mr.Huang
  * @create: 2021-05-23 23:09
  **/
@@ -25,6 +27,14 @@ public class AdminController {
     private BlogService blogService;
     @Resource
     private AdminUserService adminUserService;
+    @Resource
+    private CategoryService categoryService;
+    @Resource
+    private LinkService linkService;
+    @Resource
+    private TagService tagService;
+    @Resource
+    private CommentService commentService;
 
     @GetMapping({"/login"})
     public String login(){
@@ -34,8 +44,11 @@ public class AdminController {
     @GetMapping({"","/","/index","/index.html"})
     public String index(HttpServletRequest request){
         request.setAttribute("path","index");
-
+        request.setAttribute("categoryCount",categoryService.getTotalCategories());
         request.setAttribute("blogCount",blogService.getTotalBlogs());
+        request.setAttribute("linkCount",linkService.getTotalLinks());
+        request.setAttribute("tagCount",tagService.getTotalTags());
+        request.setAttribute("commentCount",commentService.getTotalComments());
         return "admin/index";
     }
 
@@ -60,7 +73,7 @@ public class AdminController {
             return "admin/login";
         }
         String kaptchaCode = session.getAttribute("verifyCode")+"";
-        if(StringUtils.isEmpty("verifyCode") || verifyCode.equals(kaptchaCode)){
+        if(StringUtils.isEmpty(kaptchaCode) || !verifyCode.equals(kaptchaCode)){
             session.setAttribute("errorMsg","验证码错误");
             return "admin/login";
         }
@@ -69,14 +82,64 @@ public class AdminController {
         if(adminUser != null){
             session.setAttribute("loginUser",adminUser.getNickName());
             session.setAttribute("loginUserId",adminUser.getAdminUserId());
-
+            /**session过期时间设置为7200秒*/
+            session.setMaxInactiveInterval(60*60*2);
             return "redirect:/admin/index";
         }else {
             session.setAttribute("errorMsg","登录失败");
             return "admin/login";
         }
+    }
 
+    /**
+     * @Description:
+     * @Param:
+     * @return:
+     * @Author: Mr.Huang
+     * @Date: 2021/5/24
+     */
+    @GetMapping("/profile")
+    public String profile(HttpServletRequest request){
+        Integer loginUserId = (int) request
+                .getSession()
+                .getAttribute("loginUserId");
+        AdminUser adminUser = adminUserService.getUserDeteilById(loginUserId);
+        if(adminUser == null){
+            return "admin/login";
+        }
+        request.setAttribute("path","profile");
+        request.setAttribute("loginUserName",adminUser.getLoginUserName());
+        request.setAttribute("nickName",adminUser.getNickName());
+        return "admin/profile";
+    }
 
+    /**
+     * @Description: 修改密码
+     * @Param:
+     * @return:
+     * @Author: Mr.Huang
+     * @Date: 2021/5/24
+     */
+    @PostMapping("/profile/password")
+    @ResponseBody
+    public String passwordUpdate(HttpServletRequest request
+            ,@RequestParam("originalPassword") String originalPassword
+            ,@RequestParam("newPassword") String newPassword){
+        if(StringUtils.isEmpty(originalPassword) || StringUtils.isEmpty(newPassword)){
+            return "参数不能为空";
+        }
+        Integer loginUserId = (int) request
+                .getSession()
+                .getAttribute("loginUserId");
+        if(adminUserService.updatePassword(loginUserId,originalPassword,newPassword)){
+            /**修改成功后清空session中的数据,前端控制跳转到登录页*/
+            request.getSession().removeAttribute("loginUserId");
+            request.getSession().removeAttribute("loginUser");
+            request.getSession().removeAttribute("errorMsg");
+            return "密码修改成功";
+        }else {
+            return "密码修改失败";
+        }
     }
 
 

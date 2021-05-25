@@ -1,6 +1,6 @@
 package mybatis.generator.model;
 
-public class TbAdminUser {
+public class AdminUser {
     private Integer adminUserId;
 
     private String loginUserName;

@@ -1,32 +1,32 @@
 package mybatis.generator.dao;
 
 import java.util.List;
-import mybatis.generator.model.TbAdminUser;
-import mybatis.generator.model.TbAdminUserExample;
+import mybatis.generator.model.AdminUser;
+import mybatis.generator.model.AdminUserExample;
 import org.apache.ibatis.annotations.Param;
 
 public interface TbAdminUserMapper {
-    long countByExample(TbAdminUserExample example);
+    long countByExample(AdminUserExample example);
 
-    int deleteByExample(TbAdminUserExample example);
+    int deleteByExample(AdminUserExample example);
 
     int deleteByPrimaryKey(Integer adminUserId);
 
-    int insert(TbAdminUser record);
+    int insert(AdminUser record);
 
-    int insertSelective(TbAdminUser record);
+    int insertSelective(AdminUser record);
 
-    List<TbAdminUser> selectByExample(TbAdminUserExample example);
+    List<AdminUser> selectByExample(AdminUserExample example);
 
-    TbAdminUser selectByPrimaryKey(Integer adminUserId);
+    AdminUser selectByPrimaryKey(Integer adminUserId);
 
-    int updateByExampleSelective(@Param("record") TbAdminUser record, @Param("example") TbAdminUserExample example);
+    int updateByExampleSelective(@Param("record") AdminUser record, @Param("example") AdminUserExample example);
 
-    int updateByExample(@Param("record") TbAdminUser record, @Param("example") TbAdminUserExample example);
+    int updateByExample(@Param("record") AdminUser record, @Param("example") AdminUserExample example);
 
-    int updateByPrimaryKeySelective(TbAdminUser record);
+    int updateByPrimaryKeySelective(AdminUser record);
 
-    int updateByPrimaryKey(TbAdminUser record);
+    int updateByPrimaryKey(AdminUser record);
 
     /**
      * @Description: 登陆方法
@@ -35,5 +35,5 @@ public interface TbAdminUserMapper {
      * @Author: Mr.Huang
      * @Date: 2021/5/23
      */
-    TbAdminUser login(@Param("userName") String userName,@Param("password") String password);
+    AdminUser login(@Param("userName") String userName, @Param("password") String password);
 }

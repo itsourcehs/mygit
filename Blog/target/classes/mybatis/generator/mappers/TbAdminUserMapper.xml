@@ -69,7 +69,7 @@
   <sql id="Base_Column_List">
     admin_user_id, login_user_name, login_password, nick_name, locked
   </sql>
-  <select id="selectByExample" parameterType="mybatis.generator.model.TbAdminUserExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="mybatis.generator.model.AdminUserExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -93,7 +93,7 @@
     delete from tb_admin_user
     where admin_user_id = #{adminUserId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="mybatis.generator.model.TbAdminUserExample">
+  <delete id="deleteByExample" parameterType="mybatis.generator.model.AdminUserExample">
     delete from tb_admin_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -142,7 +142,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="mybatis.generator.model.TbAdminUserExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="mybatis.generator.model.AdminUserExample" resultType="java.lang.Long">
     select count(*) from tb_admin_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

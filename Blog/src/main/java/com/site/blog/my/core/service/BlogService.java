@@ -5,7 +5,7 @@ import com.site.blog.my.core.controller.vo.SimpleBlogListVO;
 import com.site.blog.my.core.entity.Blog;
 import com.site.blog.my.core.util.PageQueryUtil;
 import com.site.blog.my.core.util.PageResult;
-import mybatis.generator.model.TbBlog;
+
 
 import java.util.List;
 
@@ -24,7 +24,7 @@ public interface BlogService {
      * @Author: Mr.Huang
      * @Date: 2021/5/20
      */
-    String saveBlog(TbBlog blog);
+    String saveBlog(Blog blog);
     
     /**
      * @Description: 获取该页下所有的博客信息

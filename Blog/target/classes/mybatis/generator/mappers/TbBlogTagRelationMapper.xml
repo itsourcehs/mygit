@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mybatis.generator.dao.TbBlogTagRelationMapper">
+<mapper namespace="mybatis.generator.dao.BlogTagRelationMapper">
   <resultMap id="BaseResultMap" type="mybatis.generator.model.TbBlogTagRelation">
     <id column="relation_id" jdbcType="BIGINT" property="relationId" />
     <result column="blog_id" jdbcType="BIGINT" property="blogId" />

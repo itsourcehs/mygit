@@ -1,6 +1,6 @@
 package com.site.blog.my.core.dao;
 
-import mybatis.generator.model.TbBlogTag;
+import com.site.blog.my.core.entity.BlogTag;
 import mybatis.generator.model.TbBlogTagExample;
 import org.apache.ibatis.annotations.Param;
 
@@ -13,23 +13,23 @@ public interface BlogTagMapper {
 
     int deleteByPrimaryKey(Integer tagId);
 
-    int insert(TbBlogTag record);
+    int insert(BlogTag record);
 
-    int insertSelective(TbBlogTag record);
+    int insertSelective(BlogTag record);
 
-    List<TbBlogTag> selectByExample(TbBlogTagExample example);
+    List<BlogTag> selectByExample(TbBlogTagExample example);
 
-    TbBlogTag selectByPrimaryKey(Integer tagId);
+    BlogTag selectByPrimaryKey(Integer tagId);
 
-    TbBlogTag selectByTagName(String tagName);
+    BlogTag selectByTagName(String tagName);
 
-    int updateByExampleSelective(@Param("record") TbBlogTag record, @Param("example") TbBlogTagExample example);
+    int updateByExampleSelective(@Param("record") BlogTag record, @Param("example") TbBlogTagExample example);
 
-    int updateByExample(@Param("record") TbBlogTag record, @Param("example") TbBlogTagExample example);
+    int updateByExample(@Param("record") BlogTag record, @Param("example") TbBlogTagExample example);
 
-    int updateByPrimaryKeySelective(TbBlogTag record);
+    int updateByPrimaryKeySelective(BlogTag record);
 
-    int updateByPrimaryKey(TbBlogTag record);
+    int updateByPrimaryKey(BlogTag record);
 
-    int batchInsertBlogTag(List<TbBlogTag> tagList);
+    int batchInsertBlogTag(List<BlogTag> tagList);
 }

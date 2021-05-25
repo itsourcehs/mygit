@@ -41,12 +41,12 @@ public class Blog {
     /**博客内容*/
     private String blogContent;
 
-    public Long getBlogid() {
+    public Long getBlogId() {
         return blogId;
     }
 
-    public void setBlogid(Long blogid) {
-        this.blogId = blogid;
+    public void setBlogId(Long blogId) {
+        this.blogId = blogId;
     }
 
     public String getBlogTitle() {

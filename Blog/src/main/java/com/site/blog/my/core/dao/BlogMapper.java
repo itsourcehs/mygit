@@ -3,7 +3,7 @@ package com.site.blog.my.core.dao;
 import java.util.List;
 
 import com.site.blog.my.core.util.PageQueryUtil;
-import mybatis.generator.model.TbBlog;
+import com.site.blog.my.core.entity.Blog;
 import mybatis.generator.model.TbBlogExample;
 import org.apache.ibatis.annotations.Param;
 
@@ -14,29 +14,29 @@ public interface BlogMapper {
 
     int deleteByPrimaryKey(Long blogId);
 
-    int insert(TbBlog record);
+    int insert(Blog record);
 
-    int insertSelective(TbBlog record);
+    int insertSelective(Blog record);
 
-    List<TbBlog> selectByExampleWithBLOBs(TbBlogExample example);
+    List<Blog> selectByExampleWithBLOBs(TbBlogExample example);
 
-    List<TbBlog> selectByExample(TbBlogExample example);
+    List<Blog> selectByExample(TbBlogExample example);
 
-    TbBlog selectByPrimaryKey(Long blogId);
+    Blog selectByPrimaryKey(Long blogId);
 
-    int updateByExampleSelective(@Param("record") TbBlog record, @Param("example") TbBlogExample example);
+    int updateByExampleSelective(@Param("record") Blog record, @Param("example") TbBlogExample example);
 
-    int updateByExampleWithBLOBs(@Param("record") TbBlog record, @Param("example") TbBlogExample example);
+    int updateByExampleWithBLOBs(@Param("record") Blog record, @Param("example") TbBlogExample example);
 
-    int updateByExample(@Param("record") TbBlog record, @Param("example") TbBlogExample example);
+    int updateByExample(@Param("record") Blog record, @Param("example") TbBlogExample example);
 
-    int updateByPrimaryKeySelective(TbBlog record);
+    int updateByPrimaryKeySelective(Blog record);
 
-    int updateByPrimaryKeyWithBLOBs(TbBlog record);
+    int updateByPrimaryKeyWithBLOBs(Blog record);
 
-    int updateByPrimaryKey(TbBlog record);
+    int updateByPrimaryKey(Blog record);
 
     int getTotalBlogs(PageQueryUtil pageUtil);
 
-    TbBlog selectBySubUrl(String subUrl);
+    Blog selectBySubUrl(String subUrl);
 }

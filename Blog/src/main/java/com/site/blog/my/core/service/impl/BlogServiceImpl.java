@@ -3,20 +3,9 @@ package com.site.blog.my.core.service.impl;
 import com.site.blog.my.core.controller.vo.BlogDetailVO;
 import com.site.blog.my.core.controller.vo.SimpleBlogListVO;
 import com.site.blog.my.core.dao.*;
-import com.site.blog.my.core.entity.Blog;
-import com.site.blog.my.core.entity.BlogCategory;
+import com.site.blog.my.core.entity.*;
 import com.site.blog.my.core.service.BlogService;
-import com.site.blog.my.core.util.PageQueryUtil;
-import com.site.blog.my.core.util.PageResult;
-import mybatis.generator.dao.TbBlogCategoryMapper;
-import mybatis.generator.dao.TbBlogMapper;
-import mybatis.generator.dao.TbBlogTagMapper;
-import mybatis.generator.dao.TbBlogTagRelationMapper;
-import mybatis.generator.model.TbBlog;
-import mybatis.generator.model.TbBlogCategory;
-import mybatis.generator.model.TbBlogTag;
-import mybatis.generator.model.TbBlogTagRelation;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.site.blog.my.core.util.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
@@ -54,39 +43,39 @@ public class BlogServiceImpl implements BlogService {
      */
     @Override
     @Transactional
-    public String saveBlog(TbBlog tbblog) {
-        TbBlogCategory tbBlogCategory = blogCategoryMapper
-                .selectByPrimaryKey(tbblog.getBlogCategoryId());
-        if(tbBlogCategory == null){
-            tbblog.setBlogCategoryId(0);
-            tbblog.setBlogCategoryName("默认分类");
+    public String saveBlog(Blog blog) {
+        BlogCategory blogCategory = blogCategoryMapper
+                .selectByPrimaryKey(blog.getBlogCategoryId());
+        if(blogCategory == null){
+            blog.setBlogCategoryId(0);
+            blog.setBlogCategoryName("默认分类");
         }else {
             /**设置博客分类名称*/
-            tbblog.setBlogCategoryName(tbBlogCategory
+            blog.setBlogCategoryName(blogCategory
                     .getCategoryName());
 
             /**分类排序值+1*/
-            tbBlogCategory.setCategoryRank(tbBlogCategory
+            blogCategory.setCategoryRank(blogCategory
                     .getCategoryRank()+1);
         }
         /**处理标签数据*/
-        String[] tags = tbblog
+        String[] tags = blog
                 .getBlogTags()
                 .split(",");
         if(tags.length >6 ){
             return "标签数量限制为6";
         }
         /**保存博客文章*/
-        if(blogMapper.insertSelective(tbblog) > 0){
+        if(blogMapper.insertSelective(blog) > 0){
             /**新增的tag对象*/
-            List<TbBlogTag> tagListForInsert = new ArrayList<>();
+            List<BlogTag> tagListForInsert = new ArrayList<>();
             /**所有的tag对象,用于建立关系数据*/
-            List<TbBlogTag> allTagsList = new ArrayList<>();
+            List<BlogTag> allTagsList = new ArrayList<>();
             for(int i=0;i< tags.length;i++){
-                TbBlogTag tag = blogTagMapper.selectByTagName(tags[i]);
+                BlogTag tag = blogTagMapper.selectByTagName(tags[i]);
                 if(tag == null){
                     /**标签不存在则新增*/
-                    TbBlogTag tempTag = new TbBlogTag();
+                    BlogTag tempTag = new BlogTag();
                     tempTag.setTagName(tags[i]);
                     tagListForInsert.add(tempTag);
                 }else {
@@ -97,17 +86,17 @@ public class BlogServiceImpl implements BlogService {
             if(!CollectionUtils.isEmpty(tagListForInsert)){
                 blogTagMapper.batchInsertBlogTag(tagListForInsert);
             }
-            blogCategoryMapper.updateByPrimaryKeySelective(tbBlogCategory);
-            List<TbBlogTagRelation> tbBlogTagRelations = new ArrayList<>();
+            blogCategoryMapper.updateByPrimaryKeySelective(blogCategory);
+            List<BlogTagRelation> blogTagRelations = new ArrayList<>();
             /**新增数据关系*/
             allTagsList.addAll(tagListForInsert);
-            for(TbBlogTag tag :allTagsList){
-                TbBlogTagRelation blogTagRelation = new TbBlogTagRelation();
-                blogTagRelation.setBlogId(tbblog.getBlogId());
+            for(BlogTag tag :allTagsList){
+                BlogTagRelation blogTagRelation = new BlogTagRelation();
+                blogTagRelation.setBlogId(blog.getBlogId());
                 blogTagRelation.setTagId(tag.getTagId());
-                tbBlogTagRelations.add(blogTagRelation);
+                blogTagRelations.add(blogTagRelation);
             }
-            if(blogTagRelationMapper.batchInsert(tbBlogTagRelations)>0){
+            if(blogTagRelationMapper.batchInsert(blogTagRelations)>0){
                 return "success";
             }
         }
@@ -171,9 +160,9 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public BlogDetailVO getBlogDetailBySubUrl(String subUrl) {
-        TbBlog tbBlog = blogMapper.selectBySubUrl(subUrl);
+        Blog blog = blogMapper.selectBySubUrl(subUrl);
         /**不为空且状态为已发布*/
-        BlogDetailVO blogDetailVO = getBlogDetailVO(tbBlog);
+        BlogDetailVO blogDetailVO = getBlogDetailVO(blog);
         if(blogDetailVO != null){
             return blogDetailVO;
         }
@@ -187,7 +176,7 @@ public class BlogServiceImpl implements BlogService {
      * @Author: Mr.Huang
      * @Date: 2021/5/22
      */
-    private BlogDetailVO getBlogDetailVO(TbBlog blog){
+    private BlogDetailVO getBlogDetailVO(Blog blog){
         return null;
     }
 }

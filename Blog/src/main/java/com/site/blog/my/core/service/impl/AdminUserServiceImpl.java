@@ -1,11 +1,12 @@
 package com.site.blog.my.core.service.impl;
 
-import com.site.blog.my.core.dao.AdminUserMapper;
-import com.site.blog.my.core.entity.AdminUser;
+/**Mapper接口层 == dao层*/
+import com.site.blog.my.core.dao.*;
+/**实体类 == entity类*/
+import com.site.blog.my.core.entity.*;
 import com.site.blog.my.core.service.AdminUserService;
 import com.site.blog.my.core.util.MD5Util;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 
 /**
@@ -45,7 +46,7 @@ public class AdminUserServiceImpl implements AdminUserService {
                 /**设置新密码并修改*/
                 adminUser.setLoginPassword(newPasswordMd5);
                 /**修改成功则返回true*/
-                if(adminUserMapper.updateByExampleSelective(adminUser) > 0){
+                if(adminUserMapper.updateByPrimaryKey(adminUser) > 0){
                     return true;
                 }
             }

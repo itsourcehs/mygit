@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mybatis.generator.dao.TbConfigMapper">
+<mapper namespace="mybatis.generator.dao.ConfigMapper">
   <resultMap id="BaseResultMap" type="mybatis.generator.model.TbConfig">
     <id column="config_name" jdbcType="VARCHAR" property="configName" />
     <result column="config_value" jdbcType="VARCHAR" property="configValue" />

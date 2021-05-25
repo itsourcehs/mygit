@@ -1,32 +1,32 @@
 package com.site.blog.my.core.dao;
 
-import mybatis.generator.model.TbBlogCategory;
-import mybatis.generator.model.TbBlogCategoryExample;
+import com.site.blog.my.core.entity.*;
+import mybatis.generator.model.BlogCategoryExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 
 public interface BlogCategoryMapper {
-    long countByExample(TbBlogCategoryExample example);
+    long countByExample(BlogCategoryExample example);
 
-    int deleteByExample(TbBlogCategoryExample example);
+    int deleteByExample(BlogCategoryExample example);
 
     int deleteByPrimaryKey(Integer categoryId);
 
-    int insert(TbBlogCategory record);
+    int insert(BlogCategory record);
 
-    int insertSelective(TbBlogCategory record);
+    int insertSelective(BlogCategory record);
 
-    List<TbBlogCategory> selectByExample(TbBlogCategoryExample example);
+    List<BlogCategory> selectByExample(BlogCategoryExample example);
 
-    TbBlogCategory selectByPrimaryKey(Integer categoryId);
+    BlogCategory selectByPrimaryKey(Integer categoryId);
 
-    int updateByExampleSelective(@Param("record") TbBlogCategory record, @Param("example") TbBlogCategoryExample example);
+    int updateByExampleSelective(@Param("record") BlogCategory record, @Param("example") BlogCategoryExample example);
 
-    int updateByExample(@Param("record") TbBlogCategory record, @Param("example") TbBlogCategoryExample example);
+    int updateByExample(@Param("record") BlogCategory record, @Param("example") BlogCategoryExample example);
 
-    int updateByPrimaryKeySelective(TbBlogCategory record);
+    int updateByPrimaryKeySelective(BlogCategory record);
 
-    int updateByPrimaryKey(TbBlogCategory record);
+    int updateByPrimaryKey(BlogCategory record);
 }

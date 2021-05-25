@@ -1,7 +1,6 @@
 package com.site.blog.my.core.service.impl;
 
-import com.site.blog.my.core.dao.BlogCategoryMapper;
-import com.site.blog.my.core.dao.BlogMapper;
+import com.site.blog.my.core.dao.*;
 import com.site.blog.my.core.entity.BlogCategory;
 import com.site.blog.my.core.service.CategoryService;
 import com.site.blog.my.core.util.PageQueryUtil;

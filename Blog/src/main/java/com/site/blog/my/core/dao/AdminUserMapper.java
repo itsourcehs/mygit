@@ -1,9 +1,9 @@
 package com.site.blog.my.core.dao;
 
-import mybatis.generator.model.AdminUser;
+/**实体类 == entity类*/
+import com.site.blog.my.core.entity.*;
 import mybatis.generator.model.AdminUserExample;
 import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
 
 public interface AdminUserMapper {
@@ -13,21 +13,21 @@ public interface AdminUserMapper {
 
     int deleteByPrimaryKey(Integer adminUserId);
 
-    int insert(com.site.blog.my.core.entity.AdminUser record);
+    int insert(AdminUser record);
 
-    int insertSelective(com.site.blog.my.core.entity.AdminUser record);
+    int insertSelective(AdminUser record);
 
     List<AdminUser> selectByExample(AdminUserExample example);
 
-    com.site.blog.my.core.entity.AdminUser selectByPrimaryKey(Integer adminUserId);
+    AdminUser selectByPrimaryKey(Integer adminUserId);
 
     int updateByExampleSelective(@Param("record") AdminUser record, @Param("example") AdminUserExample example);
 
-    int updateByExample(@Param("record") com.site.blog.my.core.entity.AdminUser record, @Param("example") AdminUserExample example);
+    int updateByExample(@Param("record") AdminUser record, @Param("example") AdminUserExample example);
 
-    int updateByPrimaryKeySelective(com.site.blog.my.core.entity.AdminUser record);
+    int updateByPrimaryKeySelective(AdminUser record);
 
-    int updateByPrimaryKey(com.site.blog.my.core.entity.AdminUser record);
+    int updateByPrimaryKey(AdminUser record);
 
     /**
      * @Description: 登陆方法
@@ -36,5 +36,5 @@ public interface AdminUserMapper {
      * @Author: Mr.Huang
      * @Date: 2021/5/23
      */
-    com.site.blog.my.core.entity.AdminUser login(@Param("userName") String userName, @Param("password") String password);
+    AdminUser login(@Param("userName") String userName, @Param("password") String password);
 }

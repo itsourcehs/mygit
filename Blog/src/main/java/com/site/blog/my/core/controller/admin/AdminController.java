@@ -142,5 +142,38 @@ public class AdminController {
         }
     }
 
+    @PostMapping("/profile/name")
+    @ResponseBody
+    public String nameUpdate(HttpServletRequest request
+            ,@RequestParam("loginUserName") String loginUserName
+            ,@RequestParam("nickName") String nickName){
+        if(StringUtils.isEmpty(loginUserName) || StringUtils.isEmpty(nickName)){
+            return "参数不能为空";
+        }
+        Integer loginUserId = (int) request
+                .getSession()
+                .getAttribute("loginUserId");
+        if(adminUserService.updateName(loginUserId,loginUserName,nickName)){
+            return "用户名修改成功";
+        }else {
+            return "修改失败";
+        }
+    }
+
+    /**
+     * @Description: 退出登录
+     * @Param:
+     * @return:
+     * @Author: Mr.Huang
+     * @Date: 2021/5/25
+     */
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request){
+        request.getSession().removeAttribute("loginUserId");
+        request.getSession().removeAttribute("loginUser");
+        request.getSession().removeAttribute("errorMsg");
+
+        return "admin/login";
+    }
 
 }

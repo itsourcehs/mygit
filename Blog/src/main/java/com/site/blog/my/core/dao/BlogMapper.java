@@ -39,4 +39,6 @@ public interface BlogMapper {
     int getTotalBlogs(PageQueryUtil pageUtil);
 
     Blog selectBySubUrl(String subUrl);
+
+    List<Blog> findBlogList(PageQueryUtil pageUtil);
 }

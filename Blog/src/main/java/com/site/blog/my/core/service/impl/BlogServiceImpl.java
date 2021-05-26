@@ -1,6 +1,7 @@
 package com.site.blog.my.core.service.impl;
 
 import com.site.blog.my.core.controller.vo.BlogDetailVO;
+import com.site.blog.my.core.controller.vo.BlogListVO;
 import com.site.blog.my.core.controller.vo.SimpleBlogListVO;
 import com.site.blog.my.core.dao.*;
 import com.site.blog.my.core.entity.*;
@@ -11,8 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @program: Blog
@@ -128,9 +128,30 @@ public class BlogServiceImpl implements BlogService {
         return null;
     }
 
+    /**
+     * @Description: 获取到指定索引页面的所有博客文章
+     * @Param: page
+     * @return:
+     * @Author: Mr.Huang
+     * @Date: 2021/5/26
+     */
     @Override
     public PageResult getBlogsForIndexPage(int page) {
-        return null;
+        Map<String,Object> params = new HashMap<String,Object>();
+        params.put("page",page);
+        /**每页8条*/
+        params.put("limit",8);
+        /**过滤发布状态下的数据*/
+        params.put("blogStatus",1);
+        PageQueryUtil pageUtil = new PageQueryUtil(params);
+        List<Blog> blogList = blogMapper.findBlogList(pageUtil);
+        List<BlogListVO> blogListVOS = getBlogListVOsByBlogs(blogList); //此处方法未完善
+        int total = blogMapper.getTotalBlogs(pageUtil);
+        PageResult pageResult = new PageResult(blogListVOS
+                ,total
+                ,pageUtil.getLimit()
+                ,pageUtil.getPage());
+        return pageResult;
     }
 
     @Override
@@ -177,6 +198,10 @@ public class BlogServiceImpl implements BlogService {
      * @Date: 2021/5/22
      */
     private BlogDetailVO getBlogDetailVO(Blog blog){
+        return null;
+    }
+
+    private List<BlogListVO> getBlogListVOsByBlogs(List<Blog> blogList){
         return null;
     }
 }

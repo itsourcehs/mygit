@@ -30,7 +30,7 @@ public class AdminUserServiceImpl implements AdminUserService {
 
     @Override
     public AdminUser getUserDeteilById(Integer loginUserId) {
-        return null;
+        return adminUserMapper.selectByPrimaryKey(loginUserId);
     }
 
     @Override
@@ -56,6 +56,17 @@ public class AdminUserServiceImpl implements AdminUserService {
 
     @Override
     public Boolean updateName(Integer loginUserId, String loginUserName, String nickName) {
-        return null;
+        AdminUser adminUser = adminUserMapper.selectByPrimaryKey(loginUserId);
+        /**当前用户不为空才能修改*/
+        if(adminUser != null){
+            adminUser.setLoginUserName(loginUserName);
+            adminUser.setNickName(nickName);
+            /**修改成功返回true*/
+            if(adminUserMapper.updateByPrimaryKeySelective(adminUser) > 0){
+                return true;
+            }
+        }
+        return false;
     }
+
 }

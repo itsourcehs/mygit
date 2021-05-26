@@ -29,7 +29,7 @@ public class PageResult implements Serializable {
      * @Author: Mr.Huang
      * @Date: 2021/5/20
      */
-    public PageResult(int totalCount, int pageSize, int currPage, List<?> list) {
+    public PageResult(List<?> list, int totalCount, int pageSize, int currPage) {
         this.totalCount = totalCount;
         this.pageSize = pageSize;
         this.currPage = currPage;

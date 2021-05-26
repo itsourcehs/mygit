@@ -29,4 +29,6 @@ public interface BlogCategoryMapper {
     int updateByPrimaryKeySelective(BlogCategory record);
 
     int updateByPrimaryKey(BlogCategory record);
+
+    List<BlogCategory> selectByCategoryIds(@Param("categoryIds") List<Integer> categoryIds);
 }

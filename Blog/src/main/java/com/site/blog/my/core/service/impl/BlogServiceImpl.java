@@ -7,12 +7,14 @@ import com.site.blog.my.core.dao.*;
 import com.site.blog.my.core.entity.*;
 import com.site.blog.my.core.service.BlogService;
 import com.site.blog.my.core.util.*;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @program: Blog
@@ -137,7 +139,7 @@ public class BlogServiceImpl implements BlogService {
      */
     @Override
     public PageResult getBlogsForIndexPage(int page) {
-        Map<String,Object> params = new HashMap<String,Object>();
+        Map params = new HashMap();
         params.put("page",page);
         /**每页8条*/
         params.put("limit",8);
@@ -156,7 +158,18 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public List<SimpleBlogListVO> getBlogListForIndexPage(int type) {
-        return null;
+        List<SimpleBlogListVO> simpleBlogListVOS =
+                new ArrayList<>();
+        List<Blog> blogs = blogMapper.findBlogListByType(type,9);
+        if(!CollectionUtils.isEmpty(blogs)){
+            for(Blog blog : blogs){
+                SimpleBlogListVO simpleBlogListVO =
+                        new SimpleBlogListVO();
+                BeanUtils.copyProperties(blog,simpleBlogListVO);
+                simpleBlogListVOS.add(simpleBlogListVO);
+            }
+        }
+        return simpleBlogListVOS;
     }
 
     @Override
@@ -202,6 +215,41 @@ public class BlogServiceImpl implements BlogService {
     }
 
     private List<BlogListVO> getBlogListVOsByBlogs(List<Blog> blogList){
-        return null;
+        List<BlogListVO> blogListVOS = new ArrayList<>();
+        /**如果博客列表不为空*/
+        if(!CollectionUtils.isEmpty(blogList)){
+            List<Integer> categoryIds = blogList
+                    .stream()
+                    .map(Blog :: getBlogCategoryId)
+                    .collect(Collectors.toList());
+
+            Map<Integer,String> blogCategoryMap = new HashMap<>();
+            if(!CollectionUtils.isEmpty(categoryIds)){
+                List<BlogCategory> blogCategories = blogCategoryMapper
+                        .selectByCategoryIds(categoryIds);
+                if(!CollectionUtils.isEmpty(blogCategories)){
+                    blogCategoryMap = blogCategories
+                            .stream()
+                            .collect(Collectors.toMap(BlogCategory ::getCategoryId
+                                    ,BlogCategory ::getCategoryIcon
+                                    ,(key1,key2) -> key2));
+                }
+            }
+            for(Blog blog : blogList){
+                /**此处补充*/
+                BlogListVO blogListVO = new BlogListVO();
+                BeanUtils.copyProperties(blog,blogListVO);
+                if(blogCategoryMap.containsKey(blog.getBlogCategoryId())){
+                    blogListVO.setBlogCategoryIcon(
+                            blogCategoryMap.get(blog.getBlogCategoryId()));
+                }else {
+                    blogListVO.setBlogCategoryId(0);
+                    blogListVO.setBlogCategoryName("默认分类");
+                    blogListVO.setBlogCategoryIcon("/admin/dist/img/category/00.png");
+                }
+                blogListVOS.add(blogListVO);
+            }
+        }
+        return blogListVOS;
     }
 }

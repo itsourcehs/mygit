@@ -8,6 +8,7 @@ import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
  **/
 
 @Controller
+//@RequestMapping("") /***/
 public class MyBlogController {
     public static String theme = "amaze";
     @Resource
@@ -54,10 +56,10 @@ public class MyBlogController {
        request.setAttribute("blogPageResult",blogPageResult);
        request.setAttribute("newBlogs",blogService.getBlogListForIndexPage(1));
        request.setAttribute("hotBlogs",blogService.getBlogListForIndexPage(0));
-       request.setAttribute("hotTags",tagService);
+       request.setAttribute("hotTags",tagService.getBlogTagCountForIndex());
        request.setAttribute("pageName","首页");
-       request.setAttribute("configurations",configService);
+       request.setAttribute("configurations",configService.getAllConfigs());
 
-       return "blog/"+theme+"/index";
+       return "blog/" + theme + "/index";
     }
 }

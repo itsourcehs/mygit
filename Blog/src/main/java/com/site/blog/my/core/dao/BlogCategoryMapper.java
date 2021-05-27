@@ -23,6 +23,8 @@ public interface BlogCategoryMapper {
 
     BlogCategory selectByPrimaryKey(Integer categoryId);
 
+    BlogCategory selectByCategoryName(String categoryName);
+
     int updateByExampleSelective(@Param("record") BlogCategory record, @Param("example") BlogCategoryExample example);
 
     int updateByExample(@Param("record") BlogCategory record, @Param("example") BlogCategoryExample example);
@@ -34,4 +36,6 @@ public interface BlogCategoryMapper {
     List<BlogCategory> selectByCategoryIds(@Param("categoryIds") List<Integer> categoryIds);
 
     List<BlogCategory> findCategoryList(PageQueryUtil pageUtil);
+
+    int getTotalCategories(PageQueryUtil pageUtil);
 }

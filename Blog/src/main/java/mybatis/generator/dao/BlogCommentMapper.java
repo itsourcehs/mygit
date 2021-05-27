@@ -1,30 +1,30 @@
 package mybatis.generator.dao;
 
 import java.util.List;
-import mybatis.generator.model.TbBlogComment;
-import mybatis.generator.model.TbBlogCommentExample;
+import mybatis.generator.model.BlogComment;
+import mybatis.generator.model.BlogCommentExample;
 import org.apache.ibatis.annotations.Param;
 
 public interface BlogCommentMapper {
-    long countByExample(TbBlogCommentExample example);
+    long countByExample(BlogCommentExample example);
 
-    int deleteByExample(TbBlogCommentExample example);
+    int deleteByExample(BlogCommentExample example);
 
     int deleteByPrimaryKey(Long commentId);
 
-    int insert(TbBlogComment record);
+    int insert(BlogComment record);
 
-    int insertSelective(TbBlogComment record);
+    int insertSelective(BlogComment record);
 
-    List<TbBlogComment> selectByExample(TbBlogCommentExample example);
+    List<BlogComment> selectByExample(BlogCommentExample example);
 
-    TbBlogComment selectByPrimaryKey(Long commentId);
+    BlogComment selectByPrimaryKey(Long commentId);
 
-    int updateByExampleSelective(@Param("record") TbBlogComment record, @Param("example") TbBlogCommentExample example);
+    int updateByExampleSelective(@Param("record") BlogComment record, @Param("example") BlogCommentExample example);
 
-    int updateByExample(@Param("record") TbBlogComment record, @Param("example") TbBlogCommentExample example);
+    int updateByExample(@Param("record") BlogComment record, @Param("example") BlogCommentExample example);
 
-    int updateByPrimaryKeySelective(TbBlogComment record);
+    int updateByPrimaryKeySelective(BlogComment record);
 
-    int updateByPrimaryKey(TbBlogComment record);
+    int updateByPrimaryKey(BlogComment record);
 }

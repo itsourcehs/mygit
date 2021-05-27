@@ -36,6 +36,8 @@ public interface BlogMapper {
 
     int updateByPrimaryKey(Blog record);
 
+    int updateBlogCategorys(@Param("categoryName") String categoryName, @Param("categoryId") Integer categoryId, @Param("ids")Integer[] ids);
+
     int getTotalBlogs(PageQueryUtil pageUtil);
 
     Blog selectBySubUrl(String subUrl);

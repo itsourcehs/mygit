@@ -6,6 +6,7 @@ import com.site.blog.my.core.service.CategoryService;
 import com.site.blog.my.core.util.PageQueryUtil;
 import com.site.blog.my.core.util.PageResult;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -28,7 +29,13 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public PageResult getBlogCategoryPage(PageQueryUtil pageUtil) {
-        return null;
+        List<BlogCategory> categoryList = blogCategoryMapper.findCategoryList(pageUtil);
+        int total = blogCategoryMapper.getTotalCategories(pageUtil);
+        PageResult pageResult = new PageResult(categoryList
+                ,total
+                , pageUtil.getLimit()
+                , pageUtil.getPage());
+        return pageResult;
     }
 
     @Override
@@ -38,12 +45,31 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Boolean saveCategory(String categoryName, String categoryIcon) {
-        return null;
+        BlogCategory temp = blogCategoryMapper
+                .selectByCategoryName(categoryName);
+        if(temp == null){
+            BlogCategory blogCategory = new BlogCategory();
+            blogCategory.setCategoryName(categoryName);
+            blogCategory.setCategoryIcon(categoryIcon);
+            return blogCategoryMapper.insertSelective(blogCategory) >0;
+        }
+        return false;
     }
 
     @Override
+    @Transactional /**在实现类中开启事务*/
     public Boolean updateCategory(Integer categoryId, String categoryName, String categoryIcon) {
-        return null;
+        BlogCategory blogCategory = blogCategoryMapper.selectByPrimaryKey(categoryId);
+        if(blogCategory != null){
+            blogCategory.setCategoryIcon(categoryIcon);
+            blogCategory.setCategoryName(categoryName);
+            /**修改分类实体*/
+            blogMapper.updateBlogCategorys(categoryName
+                    ,blogCategory.getCategoryId()
+                    ,new Integer[]{categoryId});
+            return blogCategoryMapper.updateByPrimaryKeySelective(blogCategory) >0;
+        }
+        return false;
     }
 
     @Override

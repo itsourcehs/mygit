@@ -1,31 +1,50 @@
 package com.site.blog.my.core.dao;
 
-import mybatis.generator.model.TbBlogComment;
-import mybatis.generator.model.TbBlogCommentExample;
+import com.site.blog.my.core.entity.BlogComment;
+import mybatis.generator.model.BlogCommentExample;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
+import java.util.*;
+
 
 public interface BlogCommentMapper {
-    long countByExample(TbBlogCommentExample example);
+    long countByExample(BlogCommentExample example);
 
-    int deleteByExample(TbBlogCommentExample example);
+    int deleteByExample(BlogCommentExample example);
 
     int deleteByPrimaryKey(Long commentId);
 
-    int insert(TbBlogComment record);
+    int insert(BlogComment record);
 
-    int insertSelective(TbBlogComment record);
+    int insertSelective(BlogComment record);
 
-    List<TbBlogComment> selectByExample(TbBlogCommentExample example);
+    List<BlogComment> selectByExample(BlogCommentExample example);
 
-    TbBlogComment selectByPrimaryKey(Long commentId);
+    BlogComment selectByPrimaryKey(Long commentId);
 
-    int updateByExampleSelective(@Param("record") TbBlogComment record, @Param("example") TbBlogCommentExample example);
+    int updateByExampleSelective(@Param("record") BlogComment record, @Param("example") BlogCommentExample example);
 
-    int updateByExample(@Param("record") TbBlogComment record, @Param("example") TbBlogCommentExample example);
+    int updateByExample(@Param("record") BlogComment record, @Param("example") BlogCommentExample example);
 
-    int updateByPrimaryKeySelective(TbBlogComment record);
+    int updateByPrimaryKeySelective(BlogComment record);
 
-    int updateByPrimaryKey(TbBlogComment record);
+    int updateByPrimaryKey(BlogComment record);
+
+    int getTotalBlogComments(Map map);
+
+    List<BlogComment> findBlogCommentList(Map map);
+
+    /**批量审核 --
+     * 返回1表示批量审核成功
+     * 返回0表示审核状态待审核
+     * */
+    int checkDone(Integer[] ids);
+
+    /**批量删除 --
+     * 返回1表示批量删除成功
+     * 默认0
+     * */
+    int deleteBatch(Integer[] ids);
+
+
 }

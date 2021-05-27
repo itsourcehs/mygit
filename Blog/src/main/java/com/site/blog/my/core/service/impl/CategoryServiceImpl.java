@@ -53,6 +53,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<BlogCategory> getAllCategories() {
-        return null;
+        return blogCategoryMapper.findCategoryList(null);
     }
 }

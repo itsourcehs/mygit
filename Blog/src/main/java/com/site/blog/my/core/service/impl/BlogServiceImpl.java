@@ -107,7 +107,13 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public PageResult getBlogsPage(PageQueryUtil pageUtil) {
-        return null;
+        List<Blog> blogList = blogMapper.findBlogList(pageUtil);
+        int total = blogMapper.getTotalBlogs(pageUtil);
+        PageResult pageResult = new PageResult(blogList
+                , total
+                , pageUtil.getLimit()
+                , pageUtil.getPage());
+        return pageResult;
     }
 
     @Override
@@ -122,7 +128,7 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public Blog getBlogById(Long blogId) {
-        return null;
+        return blogMapper.selectByPrimaryKey(blogId);
     }
 
     @Override

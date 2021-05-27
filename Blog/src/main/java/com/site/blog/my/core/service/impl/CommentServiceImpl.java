@@ -8,6 +8,7 @@ import com.site.blog.my.core.util.PageResult;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @program: Blog
@@ -29,7 +30,13 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public PageResult getCommentsPage(PageQueryUtil pageUtil) {
-        return null;
+        List<BlogComment> comments = blogCommentMapper.findBlogCommentList(pageUtil);
+        int total = blogCommentMapper.getTotalBlogComments(pageUtil);
+        PageResult pageResult = new PageResult(comments
+                ,total
+                , pageUtil.getLimit()
+                , pageUtil.getPage());
+        return pageResult;
     }
 
     @Override

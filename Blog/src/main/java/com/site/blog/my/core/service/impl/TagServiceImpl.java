@@ -43,7 +43,13 @@ public class TagServiceImpl implements TagService {
 
     @Override
     public Boolean saveTag(String tagName) {
-        return null;
+        BlogTag temp = blogTagMapper.selectByTagName(tagName);
+        if(temp == null){
+            BlogTag blogTag = new BlogTag();
+            blogTag.setTagName(tagName);
+            return blogTagMapper.insertSelective(blogTag) >0;
+        }
+        return false;
     }
 
     @Override

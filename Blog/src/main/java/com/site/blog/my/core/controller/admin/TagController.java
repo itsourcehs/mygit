@@ -6,10 +6,7 @@ import com.site.blog.my.core.util.Result;
 import com.site.blog.my.core.util.ResultGenerator;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -44,5 +41,16 @@ public class TagController {
         return ResultGenerator.genSuccessResult(tagService.getBlogTagPage(pageUtil));
     }
 
-
+    @PostMapping("/tags/save")
+    @ResponseBody
+    public Result save(@RequestParam("tagName") String tagName){
+        if(StringUtils.isEmpty(tagName)){
+            return ResultGenerator.genFailResult("参数异常");
+        }
+        if(tagService.saveTag(tagName)){
+            return ResultGenerator.genSuccessResult();
+        }else {
+            return ResultGenerator.genFailResult("标签名称重复");
+        }
+    }
 }

@@ -21,7 +21,6 @@ import javax.servlet.http.HttpServletRequest;
  **/
 
 @Controller
-//@RequestMapping("") /***/
 public class MyBlogController {
     public static String theme = "amaze";
     @Resource

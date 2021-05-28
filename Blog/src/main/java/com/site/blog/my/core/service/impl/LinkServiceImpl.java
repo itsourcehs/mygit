@@ -26,7 +26,13 @@ public class LinkServiceImpl implements LinkService {
 
     @Override
     public PageResult getBlogLinkPage(PageQueryUtil pageUtil) {
-        return null;
+        List<BlogLink> links = blogLinkMapper.findLinkList(pageUtil);
+        int total = blogLinkMapper.getTotalLinks(pageUtil);
+        PageResult pageResult = new PageResult(links
+                ,total
+                , pageUtil.getLimit()
+                , pageUtil.getPage());
+        return pageResult;
     }
 
     @Override

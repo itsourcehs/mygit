@@ -1,6 +1,7 @@
 package com.site.blog.my.core.dao;
 
 import com.site.blog.my.core.entity.BlogTag;
+import com.site.blog.my.core.util.PageQueryUtil;
 import mybatis.generator.model.TbBlogTagExample;
 import org.apache.ibatis.annotations.Param;
 
@@ -32,4 +33,8 @@ public interface BlogTagMapper {
     int updateByPrimaryKey(BlogTag record);
 
     int batchInsertBlogTag(List<BlogTag> tagList);
+
+    List<BlogTag> findTagList(PageQueryUtil pageUtil);
+
+    int getTotalTags(PageQueryUtil pageUtil);
 }

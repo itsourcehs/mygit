@@ -2,7 +2,7 @@ package mybatis.generator.model;
 
 import java.util.Date;
 
-public class TbLink {
+public class BlogLink {
     private Integer linkId;
 
     private Byte linkType;

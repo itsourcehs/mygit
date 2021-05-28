@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mybatis.generator.dao.LinkMapper">
-  <resultMap id="BaseResultMap" type="mybatis.generator.model.TbLink">
+  <resultMap id="BaseResultMap" type="mybatis.generator.model.BlogLink">
     <id column="link_id" jdbcType="INTEGER" property="linkId" />
     <result column="link_type" jdbcType="TINYINT" property="linkType" />
     <result column="link_name" jdbcType="VARCHAR" property="linkName" />
@@ -73,7 +73,7 @@
     link_id, link_type, link_name, link_url, link_description, link_rank, is_deleted, 
     create_time
   </sql>
-  <select id="selectByExample" parameterType="mybatis.generator.model.TbLinkExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="mybatis.generator.model.BlogLinkExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -97,13 +97,13 @@
     delete from tb_link
     where link_id = #{linkId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="mybatis.generator.model.TbLinkExample">
+  <delete id="deleteByExample" parameterType="mybatis.generator.model.BlogLinkExample">
     delete from tb_link
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="mybatis.generator.model.TbLink">
+  <insert id="insert" parameterType="mybatis.generator.model.BlogLink">
     insert into tb_link (link_id, link_type, link_name, 
       link_url, link_description, link_rank, 
       is_deleted, create_time)
@@ -111,7 +111,7 @@
       #{linkUrl,jdbcType=VARCHAR}, #{linkDescription,jdbcType=VARCHAR}, #{linkRank,jdbcType=INTEGER}, 
       #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="mybatis.generator.model.TbLink">
+  <insert id="insertSelective" parameterType="mybatis.generator.model.BlogLink">
     insert into tb_link
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="linkId != null">
@@ -166,7 +166,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="mybatis.generator.model.TbLinkExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="mybatis.generator.model.BlogLinkExample" resultType="java.lang.Long">
     select count(*) from tb_link
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -218,7 +218,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="mybatis.generator.model.TbLink">
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis.generator.model.BlogLink">
     update tb_link
     <set>
       <if test="linkType != null">
@@ -245,7 +245,7 @@
     </set>
     where link_id = #{linkId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="mybatis.generator.model.TbLink">
+  <update id="updateByPrimaryKey" parameterType="mybatis.generator.model.BlogLink">
     update tb_link
     set link_type = #{linkType,jdbcType=TINYINT},
       link_name = #{linkName,jdbcType=VARCHAR},

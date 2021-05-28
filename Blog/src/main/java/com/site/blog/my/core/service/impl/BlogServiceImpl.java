@@ -153,7 +153,7 @@ public class BlogServiceImpl implements BlogService {
         params.put("blogStatus",1);
         PageQueryUtil pageUtil = new PageQueryUtil(params);
         List<Blog> blogList = blogMapper.findBlogList(pageUtil);
-        List<BlogListVO> blogListVOS = getBlogListVOsByBlogs(blogList); //此处方法未完善
+        List<BlogListVO> blogListVOS = getBlogListVOsByBlogs(blogList);
         int total = blogMapper.getTotalBlogs(pageUtil);
         PageResult pageResult = new PageResult(blogListVOS
                 ,total

@@ -1,30 +1,30 @@
 package mybatis.generator.dao;
 
 import java.util.List;
-import mybatis.generator.model.TbLink;
-import mybatis.generator.model.TbLinkExample;
+import mybatis.generator.model.BlogLink;
+import mybatis.generator.model.BlogLinkExample;
 import org.apache.ibatis.annotations.Param;
 
 public interface LinkMapper {
-    long countByExample(TbLinkExample example);
+    long countByExample(BlogLinkExample example);
 
-    int deleteByExample(TbLinkExample example);
+    int deleteByExample(BlogLinkExample example);
 
     int deleteByPrimaryKey(Integer linkId);
 
-    int insert(TbLink record);
+    int insert(BlogLink record);
 
-    int insertSelective(TbLink record);
+    int insertSelective(BlogLink record);
 
-    List<TbLink> selectByExample(TbLinkExample example);
+    List<BlogLink> selectByExample(BlogLinkExample example);
 
-    TbLink selectByPrimaryKey(Integer linkId);
+    BlogLink selectByPrimaryKey(Integer linkId);
 
-    int updateByExampleSelective(@Param("record") TbLink record, @Param("example") TbLinkExample example);
+    int updateByExampleSelective(@Param("record") BlogLink record, @Param("example") BlogLinkExample example);
 
-    int updateByExample(@Param("record") TbLink record, @Param("example") TbLinkExample example);
+    int updateByExample(@Param("record") BlogLink record, @Param("example") BlogLinkExample example);
 
-    int updateByPrimaryKeySelective(TbLink record);
+    int updateByPrimaryKeySelective(BlogLink record);
 
-    int updateByPrimaryKey(TbLink record);
+    int updateByPrimaryKey(BlogLink record);
 }

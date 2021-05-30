@@ -8,6 +8,7 @@ import com.site.blog.my.core.service.TagService;
 import com.site.blog.my.core.util.PageQueryUtil;
 import com.site.blog.my.core.util.PageResult;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -54,7 +55,13 @@ public class TagServiceImpl implements TagService {
 
     @Override
     public Boolean deleteBatch(Integer[] ids) {
-        return null;
+        /**存在关联关系的不删除*/
+        List<Long> relations = relationMapper.selectDistinctTagIds(ids);
+        if(!CollectionUtils.isEmpty(relations)){
+            return false;
+        }
+        /**不存在关联则删除*/
+        return blogTagMapper.deleteBatch(ids) >0;
     }
 
     @Override

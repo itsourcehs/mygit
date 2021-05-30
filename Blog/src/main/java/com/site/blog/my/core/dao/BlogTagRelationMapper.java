@@ -30,4 +30,6 @@ public interface BlogTagRelationMapper {
     int updateByPrimaryKey(BlogTagRelation record);
 
     int batchInsert(@Param("relationList") List<BlogTagRelation> blogTagRelationList);
+
+    List<Long> selectDistinctTagIds(Integer[] tagIds);
 }

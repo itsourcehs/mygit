@@ -53,4 +53,24 @@ public class TagController {
             return ResultGenerator.genFailResult("标签名称重复");
         }
     }
+    
+    /**
+     * @Description: 批量删除Tag
+     * @Param:
+     * @return: 
+     * @Author: Mr.Huang
+     * @Date: 2021/5/30
+     */
+    @PostMapping("/tags/delete")
+    @ResponseBody
+    public Result delete(@RequestBody Integer[] ids){
+        if(ids.length <1){
+            return ResultGenerator.genFailResult("参数异常");
+        }
+        if(tagService.deleteBatch(ids)){
+            return ResultGenerator.genSuccessResult();
+        }else {
+            return ResultGenerator.genFailResult("有关联数据请勿强行删除");
+        }
+    }
 }

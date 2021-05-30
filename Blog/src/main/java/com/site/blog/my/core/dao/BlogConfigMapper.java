@@ -1,5 +1,6 @@
 package com.site.blog.my.core.dao;
 
+import com.site.blog.my.core.entity.BlogConfig;
 import mybatis.generator.model.TbConfig;
 import mybatis.generator.model.TbConfigExample;
 import org.apache.ibatis.annotations.Param;
@@ -28,4 +29,6 @@ public interface BlogConfigMapper {
     int updateByPrimaryKeySelective(TbConfig record);
 
     int updateByPrimaryKey(TbConfig record);
+
+    List<BlogConfig> selectAll();
 }

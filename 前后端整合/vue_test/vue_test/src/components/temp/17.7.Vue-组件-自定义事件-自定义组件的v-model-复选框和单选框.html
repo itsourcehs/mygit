@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+	</head>
+  <!--
+    1.由于 v-model 默认传的是 value,不是 checked
+    2.所以对于复选框或者单选框的组件时,我们需要使用 model 选项
+    3.model选项可以指定当前的事件类型和传入的 props。
+   -->
+	<body>
+    <div id="app">
+      <child v-model="Vuelo"></child>
+        <div v-show="Vuelo">如果选择框打勾我就会显示。</div>
+    </div>
+
+    <script>
+
+      Vue.component('child',{
+        model:{
+          prop:'checked',
+          event:'change' //onchange事件
+        },
+        props:{
+          checked:Boolean
+        },
+        template: `
+            <input
+              type="checkbox"
+              v-bind:checked="checked"
+              v-on:change="$emit('change', $event.target.checked)"
+            >
+          `
+      })
+      /* 实例中 lovingVue 的值会传给 checked 的 prop
+      同时当 <base-checkbox> 触发 change 事件时
+      lovingVue 的值也会更新 */
+      new Vue({
+        el: '#app',
+          data: {
+            Vuelo: true
+          }
+      })
+    </script>
+	</body>
+</html>

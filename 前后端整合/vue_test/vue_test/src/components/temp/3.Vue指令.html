@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v- 指令</title>
+  <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <p v-if="seen">可见</p>
+    <!--指令冒号后指明参数-->
+    <pre><a v-bind:href="url">链接跳转</a></pre>
+    <pre><a :href="url">链接跳转</a></pre>
+    <template v-if="ok">
+      <h1>菜鸟教程</h1>
+      <p>学的不仅是技术，更是梦想！</p>
+      <p>哈哈哈，打字辛苦啊！！！</p>
+    </template>
+  </div>
+
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+        seen:false,
+        ok:true,
+        url:'http://www.baidu.com'
+      }
+    })
+  </script>
+</body>
+</html>

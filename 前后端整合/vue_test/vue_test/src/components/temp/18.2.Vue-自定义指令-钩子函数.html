@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+	</head>
+  <!--
+    1.钩子函数:
+      bind,inserted,update,componentUpdated,unbind
+    2.钩子函数参数:
+      el:直接操作DOM
+      binding:一个对象
+        name:
+        value:
+        oldValue:
+        expression:
+        arg:
+        modifiers:
+      vnode:Vue编译生成的虚拟节点
+      oldVnode:上一个虚拟节点,仅在 update 和 componentUpdated 钩子中可用
+
+   -->
+	<body>
+    <div id="app" v-runoob:hello.a.b="message"></div>
+
+    <script>
+      Vue.directive('runoob',{
+        bind:function(el,binding,vnode){
+          var s = JSON.stringify
+          el.innerHTML =
+            'name: '       + s(binding.name) + '<br>' +
+            'value: '      + s(binding.value) + '<br>' +
+            'expression: ' + s(binding.expression) + '<br>' +
+            'argument: '   + s(binding.arg) + '<br>' +
+            'modifiers: '  + s(binding.modifiers) + '<br>' +
+            'vnode keys: ' + Object.keys(vnode).join(', ')
+        }
+      })
+
+      new Vue({
+        el:"#app",
+        data:{
+          message:"菜鸟教程"
+        }
+      })
+    </script>
+	</body>
+</html>

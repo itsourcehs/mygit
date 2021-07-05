@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+	</head>
+  <!--
+    1.子组件要把数据传递出去,就需要使用自定义事件
+    2.可以使用v-on绑定自定义事件
+    3.每个Vue实例都实现了事件接口
+      3.1 使用$on(eventName) 监听事件
+      3.2 使用$emit(eventName) 触发事件
+    4.父组件可以在使用子组件的地方直接用v-on监听子组件触发的事件
+    5.如果想在某个组件的根元素上监听一个原生事件,可以使用native修饰v-on
+      <child v-on:click.native=""></child>
+    6.注: 下面实例中的data必须是个函数,不能为对象
+
+   -->
+	<body>
+    <div id="app">
+      <div id="counter-event-example">
+
+        <child></child>
+        <child></child>
+      </div>
+    </div>
+
+    <script>
+      var button = {count:0}
+
+      Vue.component('child',{
+        template:'<button v-on:click="count++">点击了 {{ count }} 次。</button>',
+        data:function(){
+          //data选项是一个对象,会影响其他实例
+          return button
+        },
+        /* data:function(){
+          //data选项是一个函数,不会影响其他实例
+          return{count:0}
+        } */
+      })
+
+      new Vue({
+        el:"#counter-event-example",
+      })
+    </script>
+	</body>
+</html>

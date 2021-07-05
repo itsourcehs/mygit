@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div style="color: green;font-size: 30px">菜鸟教程1</div>
+    <div :style="{color: activeColor, fontSize: fontSize + 'px'}">菜鸟教程2</div>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        activeColor: 'green',
+        fontSize: 30
+      }
+    })
+  </script>
+</body>
+</html>

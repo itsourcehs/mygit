@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+<!--样式对象数组-->
+<body>
+  <div id="app">
+    <div style="color: green;font-size: 30px">菜鸟教程1</div>
+    <div :style="[overridingStyles,baseStyles]">菜鸟教程2</div>
+  </div>
+
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+        baseStyles: {
+          color: 'green',
+          fontSize: '30px'
+        },
+        overridingStyles:{
+          "font-weight": "bold"
+        }
+      }
+    })
+  </script>
+</body>
+</html>

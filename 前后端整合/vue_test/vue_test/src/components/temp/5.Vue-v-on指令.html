@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-on 用于监听DOM事件 event</title>
+  <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <p>{{message}}</p>
+    <button v-on:click="reverseMessage">翻转字符串</button>
+    <button @click="reverseMessage">翻转字符串</button>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        message: 'Runoob!'
+      },
+      methods:{
+        reverseMessage: function () {
+          this.message = this.message
+            .split('')
+            .reverse()
+            .join('')
+        }
+      }
+    })
+  </script>
+</body>
+</html>

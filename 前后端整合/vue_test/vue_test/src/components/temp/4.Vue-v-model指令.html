@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-model 指令实现双向数据绑定</title>
+  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+  <!-- v-model 局限于 input select textarea等表单控件标签和组件-->
+  <div id="app">
+    <p>{{message}}</p>
+    <input v-model="message">
+  </div>
+
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+        message:"Runoob!"
+      }
+    })
+  </script>
+</body>
+</html>

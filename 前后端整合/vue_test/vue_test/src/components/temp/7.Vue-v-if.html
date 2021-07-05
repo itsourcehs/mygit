@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+  <!-- v-if="表达式" -->
+</head>
+<body>
+  <div id="app">
+    <div v-if="Math.random() > 0.5">大于0.5</div>
+    <div v-else>小于0.5</div>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app'
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+    <div id="app">
+      <transition
+        v-on:before-enter="beforeEnter"
+        v-on:enter="enter"
+        @after-enter="afterEnter"
+        @enter-cancelled="enterCancelled"
+        @before-leave="beforeLeave"
+        @leave="leave"
+        @after-leave="afterLeave"
+        @leave-cancelled="leaveCancelled"
+        ></transition>
+    </div>
+   
+    <script>
+      new Vue({
+        el:"#app",
+        data:{},
+        methods:{
+          //1.进入中
+          beforeEnter:function(el){},
+          
+          enter:function(el,done){
+            //此回调函数是可选项的设置,与css结合使用
+            done()
+          },
+          
+          afterEnter:function(el){},
+          
+          enterCancelled:function(el){},
+          
+          //2.离开时
+          beforeLeave:function(el){},
+          
+          leave:function(el,done){
+            //此回调函数是可选项的设置,与css结合使用
+            done()
+          },
+          
+          afterLeave:function(el){},
+          //leaveCancelled只用于v-show中
+          leaveCancelled:function(el){},
+        }
+      })
+    </script>
+	</body>
+</html>

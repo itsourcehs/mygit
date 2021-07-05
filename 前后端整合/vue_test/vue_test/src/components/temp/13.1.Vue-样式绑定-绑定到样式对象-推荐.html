@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+  <div style="color: green;font-size: 40px">菜鸟教程1</div>
+  <div :style="styleObject">菜鸟教程2</div>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      fontSize:30,
+      styleObject:{
+        color: 'green',
+        fontSize: this.fontSize + 'px'
+        /* 需要注意在data数据对象内部调用内部属性fontsize
+         * 其将会被定义为undefined故无法调用
+         * 正确的方法是使用computed
+         * 详见-菜鸟教程-Vue.js样式绑定-笔记
+         */
+      }
+    }
+  })
+</script>
+</body>
+</html>

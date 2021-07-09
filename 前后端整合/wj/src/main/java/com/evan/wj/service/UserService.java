@@ -32,4 +32,8 @@ public class UserService {
     public void add(User user){
         userDAO.save(user);
     }
+
+    /*public Result register(){
+
+    }*/
 }

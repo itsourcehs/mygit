@@ -10,8 +10,12 @@
       <el-input type="password" v-model="loginForm.password" auto-complete="off" placeholder="密码" />
       <br><br>
     </el-form-item>
+    <el-checkbox class="login_remember" v-model="checked" label-position="left">
+      <span style="color: #505458">记住密码</span>
+    </el-checkbox>
     <el-form-item style="width: 100%">
-      <el-button type="primary" style="width: 100%;background: #505458;border: none" @click="login">登录</el-button>
+      <el-button type="primary" style="width: 40%;background: #505458;border: none" @click="login">登录</el-button>
+      <router-link to="register"><el-button type="primary" style="width: 40%;background: #505458;border: none">注册</el-button></router-link>
     </el-form-item>
   </el-form>
 
@@ -23,6 +27,7 @@ export default {
 
   data () {
     return {
+      checked: true,
       loginForm: {
         username: 'admin',
         password: '123456'
@@ -45,6 +50,10 @@ export default {
             _this.$store.commit('login', _this.loginForm)
             var path = this.$route.query.redirect
             this.$router.replace({path: path === '/' || path === undefined ? '/index' : path})
+          } else {
+            this.$alert(successResponse.data.message, '提示', {
+              confirmButtonText: '确定'
+            })
           }
         })
         .catch(failResponse => {})
@@ -69,6 +78,10 @@ export default {
     margin: 0px auto 40px auto;
     text-align: center;
     color: #505458;
+  }
+  .login_remember{
+    margin: 0px 0px 35px 0px;
+    text-align: left;
   }
 
 </style>

@@ -2,10 +2,14 @@ package com.evan.wj.controller;
 
 import com.evan.wj.pojo.Book;
 import com.evan.wj.service.BookService;
+import com.evan.wj.utils.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -56,6 +60,27 @@ public class LibraryController {
             return service.list();
         }else {
             return service.Search(keywords);
+        }
+    }
+
+    @PostMapping("/api/covers")
+    @ResponseBody
+    public String coversUpload(MultipartFile file) throws Exception{
+        File imageFolder = new File("D:/workspace/img");
+        //获取的是文件的完整名称，包括文件名称+文件拓展名
+        String f1 = file.getOriginalFilename();
+        String str = StringUtils.getRandomString(6);
+        File f = new File(imageFolder,str +
+                f1.substring(f1.length() - 4));
+        if(!f.getParentFile().exists())
+            f.getParentFile().mkdirs();
+        try {
+            file.transferTo(f);
+            String imgURL = "http://localhost:8443/api/file/" + f.getName();
+            return imgURL;
+        }catch (IOException e){
+            e.printStackTrace();
+            return "";
         }
     }
 }

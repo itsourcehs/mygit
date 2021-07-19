@@ -14,7 +14,9 @@
         <i :class="item.iconCls"></i>
         {{item.nameZh}}
       </span>
-      <el-menu-item>
+      <el-menu-item v-for="child in item.children" :key="child.path" :index="child.path">
+        <i :class="child.icon"></i>
+        {{child.nameZh}}
       </el-menu-item>
     </el-submenu>
   </el-menu>
@@ -31,6 +33,9 @@ export default {
   computed: {
     adminMenus () {
       return this.$store.state.adminMenus
+    },
+    currentPath () {
+      return this.$route.path
     }
   }
 }

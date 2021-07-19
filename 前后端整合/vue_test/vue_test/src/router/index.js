@@ -47,6 +47,17 @@ export default new Router({
       component: Register
     },
     {
+      path: '/admin',
+      name: 'Admin',
+      component () {
+        import('../components/admin/AdminIndex')
+      },
+      meta: {
+        requireAuth: true
+      },
+      children: []
+    },
+    {
       path: '/',
       name: 'HelloWorld',
       component: HelloWorld

@@ -17,6 +17,15 @@ Vue.config.productionTip = false
 Vue.use(ElementUI)
 
 router.beforeEach((to, from, next) => {
+  if (store.state.user.username && to.path.startsWith('/admin')) {
+    initAdminMenu(router, store)
+  }
+  // 已登录状态下访问login,直接跳转到后台首页
+  if (store.state.username && to.path.startsWith('/login')) {
+    next({
+      path: '/admin'
+    })
+  }
   if (to.meta.requireAuth) {
     if (store.state.user) {
       axios.get('/authentication')
@@ -33,7 +42,41 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
-
+const initAdminMenu = (route, store) => {
+  if (store.state.adminMenus.length > 0) {
+    return
+  }
+  axios.get('/menu').then(res => {
+    if (res && res.status === 200) {
+      var fmtRoutes = formatRoutes(res.data.result)
+      router.addRoutes(fmtRoutes)
+      store.commit('initAdminMenu', fmtRoutes)
+    }
+  })
+}
+const formatRoutes = (routes) => {
+  let fmtRoutes = []
+  routes.forEach(route => {
+    if (route.children) {
+      route.children = formatRoutes(route.children)
+    }
+    let fmtRoute = {
+      path: route.path,
+      component: resolve => {
+        require(['./components/admin/' + route.component + '.vue'], resolve)
+      },
+      name: route.name,
+      nameZh: route.nameZh,
+      iconCls: route.iconCls,
+      meta: {
+        requireAuth: true
+      },
+      children: route.children
+    }
+    fmtRoutes.push(fmtRoute)
+  })
+  return fmtRoutes
+}
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

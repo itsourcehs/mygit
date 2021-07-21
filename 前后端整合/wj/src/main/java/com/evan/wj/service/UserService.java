@@ -33,7 +33,5 @@ public class UserService {
         userDAO.save(user);
     }
 
-    /*public Result register(){
 
-    }*/
 }

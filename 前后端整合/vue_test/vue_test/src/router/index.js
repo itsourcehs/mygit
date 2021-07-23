@@ -7,6 +7,7 @@ import Login from '@/components/Login'
 import Home from '@/components/Home'
 import LibraryIndex from '@/components/library/LibraryIndex'
 import Register from '@/components/Register'
+import AdminIndex from '@/components/admin/AdminIndex'
 Vue.use(Router)
 
 export default new Router({
@@ -21,7 +22,7 @@ export default new Router({
         {
           path: '/index',
           name: 'AppIndex',
-          component: AppIndex,
+          component: AppIndex, // 坑:之前写箭头普通函数没写return，它自带return，导致路由没定向到
           meta: {
             requireAuth: true
           }
@@ -49,9 +50,7 @@ export default new Router({
     {
       path: '/admin',
       name: 'Admin',
-      component () {
-        import('../components/admin/AdminIndex')
-      },
+      component: AdminIndex,
       meta: {
         requireAuth: true
       },

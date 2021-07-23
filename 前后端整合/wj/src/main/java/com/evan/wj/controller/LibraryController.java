@@ -64,6 +64,7 @@ public class LibraryController {
     }
 
     @PostMapping("/api/covers")
+    @CrossOrigin
     @ResponseBody
     public String coversUpload(MultipartFile file) throws Exception{
         File imageFolder = new File("D:/workspace/img");

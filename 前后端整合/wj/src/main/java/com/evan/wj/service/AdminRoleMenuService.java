@@ -16,13 +16,13 @@ import java.util.List;
  */
 @Service
 public class AdminRoleMenuService {
-    //@Resource
+    @Autowired
     AdminRoleMenuDAO adminRoleMenuDAO;
 
     public List<AdminRoleMenu> findAllByRid(int rid){
         return adminRoleMenuDAO.findAllByRid(rid);
     }
-    public List<AdminRoleMenu> findAllByRid(List<Integer> rids){
-        return adminRoleMenuDAO.findAllByRid(rids);
+    public List<AdminRoleMenu> findAllByRidIn(List<Integer> rids){
+        return adminRoleMenuDAO.findAllByRidIn(rids); // npe
     }
 }

@@ -5,6 +5,7 @@ import com.evan.wj.pojo.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @Classname UserService
@@ -31,6 +32,10 @@ public class UserService {
 
     public void add(User user){
         userDAO.save(user);
+    }
+
+    public List<User> list(){
+        return userDAO.findAll();
     }
 
 

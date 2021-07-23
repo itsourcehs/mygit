@@ -3,6 +3,7 @@ package com.evan.wj.service;
 import com.evan.wj.dao.AdminMenuDAO;
 import com.evan.wj.pojo.*;
 import org.apache.shiro.SecurityUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -17,7 +18,7 @@ import java.util.stream.Collectors;
  */
 @Service
 public class AdminMenuService {
-    //@Resource
+    @Autowired
     private AdminMenuDAO adminMenuDAO;
     @Resource
     private UserService userService;
@@ -40,7 +41,7 @@ public class AdminMenuService {
                 .map(AdminUserRole ::getRid)
                 .collect(Collectors.toList());
         // 通过rid获取到role_menu表中对应的mid列表
-        List<Integer> menuIds = adminRoleMenuService.findAllByRid(rids)
+        List<Integer> menuIds = adminRoleMenuService.findAllByRidIn(rids)
                 .stream()
                 .map(AdminRoleMenu ::getMid)
                 .collect(Collectors.toList());

@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <i class="el-icon-circle-plus-outline" @click="dialogFormVisible = true"></i>
+  <div style="text-align: left">
+<!--    <i class="el-icon-circle-plus-outline" @click="dialogFormVisible = true"></i>-->
+    <el-button class="add-button" type="success" @click="dialogFormVisible=true">添加图书</el-button>
     <el-dialog title="添加/修改图书" :visible.sync="dialogFormVisible" @close="clear">
       <el-form v-model="form" style="text-align: left" ref="dataForm">
         <el-form-item label="书名" :label-width="formLabelWidth" prop="title">
@@ -115,5 +116,8 @@ export default {
   font-size: 100px;
   float: left;
   cursor: pointer;
+}
+.add-button{
+  margin: 18px 0 0 10px;
 }
 </style>

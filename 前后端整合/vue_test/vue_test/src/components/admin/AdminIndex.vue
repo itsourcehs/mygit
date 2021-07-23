@@ -1,7 +1,8 @@
 <template>
 <el-container id="admin-body">
-  <el-header style="z-index: 1;height: 80px;margin-left: -20px;"></el-header>
-  <Header style="position: absolute;width: 98%;"></Header>
+  <el-header style="z-index: 1;height: 80px;margin-left: -20px;">
+    <Header style="position: absolute;width: 98%;"></Header>
+  </el-header>
   <el-container>
     <el-aside style="height: 112%;margin-top: -80px;width: 250px;">
       <admin-menu></admin-menu>

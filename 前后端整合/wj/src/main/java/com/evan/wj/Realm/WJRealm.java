@@ -1,6 +1,7 @@
 package com.evan.wj.Realm;
 
 import com.evan.wj.pojo.User;
+import com.evan.wj.service.AdminPermissionService;
 import com.evan.wj.service.UserService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -13,6 +14,7 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 
 import javax.annotation.Resource;
+import java.util.Set;
 
 /**
  * @Classname WJRealm
@@ -23,11 +25,20 @@ import javax.annotation.Resource;
 public class WJRealm extends AuthorizingRealm {
     @Resource
     private UserService userService;
+    @Resource
+    private AdminPermissionService adminPermissionService;
 
     //获取授权信息方法
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        return new SimpleAuthorizationInfo();
+        //return new SimpleAuthorizationInfo();
+        String username = principalCollection.getPrimaryPrincipal().toString();
+        Set<String> permissions = adminPermissionService.listPermissionURLsByUser(username);
+
+        //将权限放入授权信息中
+        SimpleAuthorizationInfo s = new SimpleAuthorizationInfo();
+        s.setStringPermissions(permissions);
+        return s;
     }
 
     //获取认证信息方法,即根据token中的用户名从数据库获取密码和盐等并返回

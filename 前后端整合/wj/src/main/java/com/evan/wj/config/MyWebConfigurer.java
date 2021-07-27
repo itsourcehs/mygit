@@ -21,6 +21,7 @@ public class MyWebConfigurer implements WebMvcConfigurer {
         return new LoginInterceptor();
     }
 
+    /*
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(getLoginInterceptor()
@@ -29,6 +30,7 @@ public class MyWebConfigurer implements WebMvcConfigurer {
                 .excludePathPatterns("/api/login")
                 .excludePathPatterns("api/logout");
     }
+     */
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {

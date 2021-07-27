@@ -1,8 +1,11 @@
 package com.evan.wj.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import java.util.List;
 
 /**
  * @Classname User
@@ -10,7 +13,11 @@ import javax.persistence.*;
  * @Date 2021/6/29 15:51
  * @Created by 123456
  */
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@ToString
 @Entity
 @Table(name = "user")
 @JsonIgnoreProperties({"handler","hibernateLazyInitializer"})
@@ -24,35 +31,14 @@ public class User {
     private String password;
     private String salt;
 
-    public int getId() {
-        return id;
-    }
+    private String name;
+    private String phone;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    @Email(message = "请输入正确的邮箱")
+    private String email;
 
-    public String getUsername() {
-        return username;
-    }
+    private boolean enabled;
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
+    @Transient
+    private List<AdminRole> roles;
 }

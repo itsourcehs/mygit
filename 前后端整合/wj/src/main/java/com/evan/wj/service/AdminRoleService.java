@@ -24,6 +24,7 @@ public class AdminRoleService {
     private UserService userService;
     @Resource
     private AdminUserRoleService adminUserRoleService;
+
     public List<AdminRole> listRolesByUser(String username){
         int uid = userService.getByName(username).getId();
         List<Integer> rids = adminUserRoleService.listAllByUid(uid)
@@ -32,5 +33,9 @@ public class AdminRoleService {
                 .collect(Collectors.toList());
 
         return adminRoleDAO.findAllById(rids);
+    }
+
+    public void addOrUpdate(AdminRole adminRole){
+        adminRoleDAO.save(adminRole);
     }
 }

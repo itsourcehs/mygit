@@ -127,6 +127,8 @@ export default {
   },
   mounted () {
     this.listRoles()
+    this.listPerms()
+    this.listMenus()
   },
   methods: {
     listRoles () {
@@ -140,8 +142,57 @@ export default {
     },
     editRole (role) {
       this.dialogFormVisible = true
+      this.selectedRole = role
+      let permIds = []
+      for (let i = 0; i < role.perms.length; i++) {
+        permIds.push(role.perms[i].id)
+      }
+      this.selectedPermsIds = permIds
+      let menuIds = []
+      for (let i = 0; i < role.menus.length; i++) {
+        menuIds.push(role.menus[i].id)
+        for (let j = 0; j < role.menus[i].children.length; j++) {
+          menuIds.push(role.menus[i].children[j].id)
+        }
+      }
+      this.selectedMenusIds = menuIds
+      // 判断树是否已经加载,第一次打开对话框前树不存在会报错，所以需要设置default-checked
+      if (this.$refs.tree) {
+        this.$refs.tree.setCheckedKeys(menuIds)
+      }
     },
-    onSubmit (role) {},
+    onSubmit (role) {
+      let _this = this
+      // 根据视图绑定的角色id向后端发送角色信息
+      let perms = []
+      for (let i = 0; i < _this.selectedPermsIds.length; i++) {
+        for (let j = 0; j < _this.perms.length; j++) {
+          if (_this.selectedPermsIds[i] === _this.perms[j].id) {
+            perms.push(_this.perms[j])
+          }
+        }
+      }
+      this.$axios.put('/admin/role', {
+        id: role.id,
+        name: role.name,
+        nameZh: role.nameZh,
+        enabled: role.enabled,
+        perms: perms
+      }).then(res => {
+        if (res && res.status === 200) {
+          // this.$alert(res.data)
+          this.dialogFormVisible = false
+          this.listRoles()
+        }
+      })
+      this.$axios.put('/admin/role/menu?rid=' + role.id, {
+        menuIds: this.$refs.tree.getCheckedKeys()
+      }).then(res => {
+        if (res && res.status === 200) {
+          console.log(res.data)
+        }
+      })
+    },
     commitStatusChange (value, role) {},
     listPerms () {
       // 功能配置列表方法

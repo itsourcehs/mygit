@@ -5,11 +5,18 @@ import com.evan.wj.dao.AdminRoleDAO;
 import com.evan.wj.pojo.AdminMenu;
 import com.evan.wj.pojo.AdminPermission;
 import com.evan.wj.pojo.AdminRole;
+import com.evan.wj.result.Result;
+import com.evan.wj.result.ResultFactory;
+import com.evan.wj.service.AdminMenuService;
+import com.evan.wj.service.AdminRoleMenuService;
+import com.evan.wj.service.AdminRolePermissionService;
+import com.evan.wj.service.AdminRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -24,6 +31,14 @@ public class RoleController {
     private AdminRoleDAO adminRoleDAO;
     @Autowired
     private AdminPermissionDAO adminPermissionDAO;
+    @Resource
+    private AdminMenuService adminMenuService;
+    @Resource
+    private AdminRoleMenuService adminRoleMenuService;
+    @Resource
+    private AdminRoleService adminRoleService;
+    @Resource
+    private AdminRolePermissionService adminRolePermissionService;
 
     /*
      * 查询所有角色列表
@@ -33,6 +48,16 @@ public class RoleController {
     public List<AdminRole> listRoles(){
         return adminRoleDAO.findAll();
     }
+
+    @PutMapping("/api/admin/role")
+    @ResponseBody
+    public Result editRole(@RequestBody AdminRole requestRole){
+        adminRoleService.addOrUpdate(requestRole);
+        adminRolePermissionService.savePermChanges(requestRole.getId(), requestRole.getPerms());
+        String message = "修改角色信息成功";
+        return ResultFactory.buildSuccessResult(message);
+    }
+
 
     /*
      * 查询所有功能配置列表
@@ -48,5 +73,17 @@ public class RoleController {
      */
     @GetMapping("/api/admin/role/menu")
     @ResponseBody
-    public List<AdminMenu> listMenus(){}
+    public List<AdminMenu> listMenus(){
+        List<AdminMenu> menus = adminMenuService.getMenusByRoleId(1);
+        return menus;
+    }
+
+    /*
+     *
+     */
+    @PutMapping("/api/admin/role/menu")
+    @ResponseBody
+    public void updateRoleMenu(@RequestParam int rid, @RequestBody LinkedHashMap menusIds){
+        adminRoleMenuService.updateRoleMenu(rid,menusIds);
+    }
 }

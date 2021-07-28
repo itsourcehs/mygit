@@ -62,4 +62,20 @@ public class AdminMenuService {
         });
         menus.removeIf(m -> m.getParentId() != 0);
     }
+
+    /*
+     * 通过rid获取到菜单列表
+     */
+    public List<AdminMenu> getMenusByRoleId(int rid){
+        List<Integer> menuIds = adminRoleMenuService.findAllByRid(rid)
+                .stream()
+                .map(AdminRoleMenu :: getMid)
+                .collect(Collectors.toList());
+
+        List<AdminMenu> menus = adminMenuDAO.findAllById(menuIds);
+
+        handleMenus(menus);
+        return menus;
+
+    }
 }

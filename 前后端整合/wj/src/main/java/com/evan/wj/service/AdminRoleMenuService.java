@@ -32,15 +32,16 @@ public class AdminRoleMenuService {
 
     @Modifying
     @Transactional
-    public void updateRoleMenu(int rid, Map menuIds){
+    public void updateRoleMenu(int rid, Map<String,List<Integer>> menuIds){
         //此方法抛出空指针异常
         adminRoleMenuDAO.deleteAllByRid(rid);
         List<AdminRoleMenu> rms = new ArrayList<>();
-        for(Integer mid : (List<Integer>)menuIds.get("menusIds")){
+        for(Integer mid : menuIds.get("menusIds")){
             AdminRoleMenu rm = new AdminRoleMenu();
             rm.setMid(mid);
             rm.setRid(rid);
             rms.add(rm);
         }
+        adminRoleMenuDAO.saveAll(rms);
     }
 }

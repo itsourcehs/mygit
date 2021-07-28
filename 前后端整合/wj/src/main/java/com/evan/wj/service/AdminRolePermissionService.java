@@ -21,6 +21,10 @@ public class AdminRolePermissionService {
     @Autowired
     AdminRolePermissionDAO adminRolePermissionDAO;
 
+    public List<AdminRolePermission> findAllByRid(int rid){
+        return adminRolePermissionDAO.findAllByRid(rid);
+    }
+
     @Transactional
     public void savePermChanges(int rid, List<AdminPermission> perms){
         adminRolePermissionDAO.deleteAllByRid(rid);
@@ -33,4 +37,5 @@ public class AdminRolePermissionService {
         });
         adminRolePermissionDAO.saveAll(rps);
     }
+
 }

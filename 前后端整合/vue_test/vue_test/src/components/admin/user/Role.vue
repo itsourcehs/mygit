@@ -141,6 +141,7 @@ export default {
         })
     },
     editRole (role) {
+      debugger
       this.dialogFormVisible = true
       this.selectedRole = role
       let permIds = []
@@ -148,6 +149,7 @@ export default {
         permIds.push(role.perms[i].id)
       }
       this.selectedPermsIds = permIds
+      // 选中的菜单列表展示
       let menuIds = []
       for (let i = 0; i < role.menus.length; i++) {
         menuIds.push(role.menus[i].id)
@@ -162,6 +164,7 @@ export default {
       }
     },
     onSubmit (role) {
+      // debugger
       let _this = this
       // 根据视图绑定的角色id向后端发送角色信息
       let perms = []
@@ -186,7 +189,7 @@ export default {
         }
       })
       this.$axios.put('/admin/role/menu?rid=' + role.id, {
-        menuIds: this.$refs.tree.getCheckedKeys()
+        menusIds: this.$refs.tree.getCheckedKeys().concat(this.$refs.tree.getHalfCheckedKeys())
       }).then(res => {
         if (res && res.status === 200) {
           console.log(res.data)

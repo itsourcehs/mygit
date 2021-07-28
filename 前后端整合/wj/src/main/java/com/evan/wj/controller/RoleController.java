@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Classname RoleController
@@ -46,7 +47,8 @@ public class RoleController {
     @GetMapping("/api/admin/role")
     @ResponseBody
     public List<AdminRole> listRoles(){
-        return adminRoleDAO.findAll();
+        //return adminRoleDAO.findAll();
+        return adminRoleService.listWithPermsAndMenus();
     }
 
     @PutMapping("/api/admin/role")
@@ -59,22 +61,22 @@ public class RoleController {
     }
 
 
-    /*
-     * 查询所有功能配置列表
-     */
-    @GetMapping("/api/admin/role/perm")
-    @ResponseBody
-    public List<AdminPermission> listPerms(){
-        return adminPermissionDAO.findAll();
-    }
+        /*
+         * 查询所有功能配置列表
+         */
+        @GetMapping("/api/admin/role/perm")
+        @ResponseBody
+        public List<AdminPermission> listPerms(){
+            return adminPermissionDAO.findAll();
+        }
 
-    /*
-     * 查询出所有菜单配置列表
-     */
-    @GetMapping("/api/admin/role/menu")
-    @ResponseBody
-    public List<AdminMenu> listMenus(){
-        List<AdminMenu> menus = adminMenuService.getMenusByRoleId(1);
+        /*
+         * 查询出所有菜单配置列表
+         */
+        @GetMapping("/api/admin/role/menu")
+        @ResponseBody
+        public List<AdminMenu> listMenus(){
+            List<AdminMenu> menus = adminMenuService.getMenusByRoleId(1);
         return menus;
     }
 
@@ -83,7 +85,7 @@ public class RoleController {
      */
     @PutMapping("/api/admin/role/menu")
     @ResponseBody
-    public void updateRoleMenu(@RequestParam int rid, @RequestBody LinkedHashMap menusIds){
+    public void updateRoleMenu(@RequestParam int rid, @RequestBody Map<String,List<Integer>> menusIds){
         adminRoleMenuService.updateRoleMenu(rid,menusIds);
     }
 }

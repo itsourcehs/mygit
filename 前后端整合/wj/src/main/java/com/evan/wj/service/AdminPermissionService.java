@@ -25,6 +25,8 @@ public class AdminPermissionService {
     private AdminRolePermissionDAO adminRolePermissionDAO;
     @Resource
     private AdminRoleService adminRoleService;
+    @Resource
+    private AdminRolePermissionService adminRolePermissionService;
     public List<AdminPermission> list(){
         return adminPermissionDAO.findAll();
     }
@@ -58,7 +60,14 @@ public class AdminPermissionService {
     }
 
 
+    public List<AdminPermission> listPermsByRoleId(int rid){
+        List<Integer> pids = adminRolePermissionService.findAllByRid(rid)
+                .stream()
+                .map(AdminRolePermission :: getPid)
+                .collect(Collectors.toList());
 
+        return adminPermissionDAO.findAllById(pids);
+    }
 
 
 

@@ -198,7 +198,7 @@ export default {
     },
     commitStatusChange (value, role) {},
     listPerms () {
-      // 功能配置列表方法
+      // 全量功能配置列表
       var _this = this
       this.$axios.get('/admin/role/perm')
         .then(res => {
@@ -208,7 +208,7 @@ export default {
         })
     },
     listMenus () {
-      // 菜单配置列表方法
+      // 全量菜单配置列表
       var _this = this
       this.$axios.get('/admin/role/menu')
         .then(res => {

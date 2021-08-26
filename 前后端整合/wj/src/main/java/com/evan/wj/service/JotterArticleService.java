@@ -24,10 +24,15 @@ public class JotterArticleService {
         return jotterArticleDAO.findAll(PageRequest.of(page,size,sort));
     }
 
-
     public void addOrUpdate(JotterArticle article){
         jotterArticleDAO.save(article);
     }
 
+    public JotterArticle findById(int id){
+        return jotterArticleDAO.findById(id);
+    }
 
+    public void delete(int id){
+        jotterArticleDAO.deleteById(id);
+    }
 }

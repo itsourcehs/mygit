@@ -3,6 +3,7 @@ package com.evan.wj.config;
 import com.evan.wj.Realm.WJRealm;
 import com.evan.wj.filter.URLPathMatchingFilter;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
+import org.apache.shiro.codec.Base64;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
@@ -70,13 +71,14 @@ public class ShiroConfiguration {
     public CookieRememberMeManager cookieRememberMeManager(){
         CookieRememberMeManager cookieObject = new CookieRememberMeManager();
         cookieObject.setCookie(rememberMeCookie());
-        cookieObject.setCipherKey("EVANNIGHTLY_WAOU".getBytes());
+        cookieObject.setCipherKey(Base64.decode("6ZmI6I2j5Y+R5aSn5ZOlAA=="));
         return cookieObject;
     }
+
     @Bean
     public SimpleCookie rememberMeCookie(){
         SimpleCookie cookie = new SimpleCookie("rememberMe");
-        cookie.setMaxAge(2592000);
+        cookie.setMaxAge(259200000);
         return cookie;
     }
     public URLPathMatchingFilter getURLPathMatchingFilter(){

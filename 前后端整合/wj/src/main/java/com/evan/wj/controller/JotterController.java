@@ -23,14 +23,27 @@ public class JotterController {
     private JotterArticleService jotterArticleService;
 
     @PostMapping("/api/admin/content/article")
-//    @ResponseBody
+    @ResponseBody
     public Result saveArticle(@RequestBody JotterArticle article){
         jotterArticleService.addOrUpdate(article);
         return ResultFactory.buildSuccessResult("保存成功");
     }
 
     @GetMapping("/api/article/{size}/{page}")
+    @ResponseBody
     public Page listArticles(@PathVariable("size") int size,@PathVariable("page") int page){
         return jotterArticleService.list(page-1,size);
+    }
+    // 根据id查询
+    @GetMapping("/api/article/{id}")
+    @ResponseBody
+    public JotterArticle getOneArticle(@PathVariable("id") int id){
+        return jotterArticleService.findById(id);
+    }
+    // 根据id删除文章
+    @DeleteMapping("/api/admin/content/article/{id}")
+    @ResponseBody
+    public void deleteArticle(@PathVariable("id") int id){
+        jotterArticleService.delete(id);
     }
 }

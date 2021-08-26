@@ -80,9 +80,6 @@ public class RoleController {
         return menus;
     }
 
-    /*
-     *
-     */
     @PutMapping("/api/admin/role/menu")
     @ResponseBody
     public void updateRoleMenu(@RequestParam int rid, @RequestBody Map<String,List<Integer>> menusIds){

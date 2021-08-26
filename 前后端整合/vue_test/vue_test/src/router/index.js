@@ -43,6 +43,16 @@ export default new Router({
           meta: {
             requireAuth: true
           }
+        },
+        {
+          path: '/jotter',
+          name: 'Jotter',
+          component: () => import('../components/jotter/Articles')
+        },
+        {
+          path: '/jotter/article',
+          name: 'Article',
+          component: () => import('../components/jotter/ArticleDetails')
         }
       ]
     },

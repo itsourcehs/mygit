@@ -25,10 +25,10 @@
         type="button"
         class="op-icon el-icon-document"
         :title="'摘要/封面'" slot="left-toolbar-after"
-        @click="dialogFormVisible = true"></button>
+        @click="dialogVisible = true"></button>
       </mavon-editor>
       <el-dialog
-      :visible.sync="dialogFormVisible"
+      :visible.sync="dialogVisible"
       width="30%">
         <el-divider content-position="left">摘要</el-divider>
         <el-input
@@ -60,7 +60,7 @@ export default {
   data () {
     return {
       article: {},
-      dialogFormVisible: false
+      dialogVisible: false
     }
   },
   mounted () {
@@ -83,7 +83,8 @@ export default {
           articleContentHtml: render,
           articleAbstract: this.article.articleAbstract,
           articleCover: this.article.articleCover,
-          articleDate: this.article.articleDate
+          // articleDate: this.article.articleDate
+          articleDate: this.formatTime()
         }).then(res => {
           if (res && res.status === 200) {
             this.$message({
@@ -101,6 +102,12 @@ export default {
     },
     uploadImg () {
       this.article.articleCover = this.$refs.imgUpload.url
+    },
+    formatTime () {
+      let date = new Date()
+      let year = date.getFullYear()
+      let month = date.getMonth()
+      return year + '-' + month
     }
   }
 }

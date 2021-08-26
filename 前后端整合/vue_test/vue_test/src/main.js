@@ -4,6 +4,7 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
+import mavonEditor from 'mavon-editor'
 
 // 设置反向代理,前端请求默认发送到 http://localhost:8443/api
 var axios = require('axios')
@@ -15,6 +16,7 @@ Vue.prototype.$axios = axios
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
+Vue.use(mavonEditor)
 
 router.beforeEach((to, from, next) => {
   if (store.state.user.username && to.path.startsWith('/admin')) {

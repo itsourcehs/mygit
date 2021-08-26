@@ -8,6 +8,7 @@ import Home from '@/components/Home'
 import LibraryIndex from '@/components/library/LibraryIndex'
 import Register from '@/components/Register'
 import AdminIndex from '@/components/admin/AdminIndex'
+import ArticleEditor from '@/components/admin/content/ArticleEditor'
 Vue.use(Router)
 
 export default new Router({
@@ -31,6 +32,14 @@ export default new Router({
           path: '/library',
           name: 'Library',
           component: LibraryIndex,
+          meta: {
+            requireAuth: true
+          }
+        },
+        {
+          path: '/admin/content/editor',
+          name: 'Editor',
+          component: ArticleEditor,
           meta: {
             requireAuth: true
           }

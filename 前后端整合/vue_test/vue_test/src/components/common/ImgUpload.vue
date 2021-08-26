@@ -2,6 +2,7 @@
   <el-upload class="img-upload"
   action="http://localhost:8443/api/covers"
   :on-preview="handlePreview"
+  with-credentials
   :on-remove="handleRemove"
   :before-remove="beforeRemove"
   :on-success="handleSuccess"

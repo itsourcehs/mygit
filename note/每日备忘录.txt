@@ -4,3 +4,4 @@ github   qq邮箱    520@itsourcehs
 django boards 源码地址:  https://github.com/sibtc/django-beginners-guide/tree/v0.4-lw
 个税登录密码; 10734@qq.com
 博客园:  手机号+验证码
+csdn: qq

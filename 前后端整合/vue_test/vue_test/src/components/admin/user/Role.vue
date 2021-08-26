@@ -141,7 +141,7 @@ export default {
         })
     },
     editRole (role) {
-      debugger
+      // debugger
       this.dialogFormVisible = true
       this.selectedRole = role
       let permIds = []
@@ -152,7 +152,8 @@ export default {
       // 选中的菜单列表展示
       let menuIds = []
       for (let i = 0; i < role.menus.length; i++) {
-        menuIds.push(role.menus[i].id)
+        // 菜单树形数据回显时,根节点加进去会把子节点全选上,回显数据取消根节点即可,因此注释下一行
+        // menuIds.push(role.menus[i].id)
         for (let j = 0; j < role.menus[i].children.length; j++) {
           menuIds.push(role.menus[i].children[j].id)
         }

@@ -58,13 +58,15 @@ public class AdminMenuService {
     private void handleMenus(List<AdminMenu> menus) {
         menus.forEach(m -> {
             List<AdminMenu> children = getAllByParentId(m.getId());
+            //有子菜单不在角色权限内也会展示出来,查询子菜单时删除不在角色菜单中的子菜单
+            children.removeIf(child -> !menus.contains(child));
             m.setChildren(children);
         });
         menus.removeIf(m -> m.getParentId() != 0);
     }
 
     /*
-     * 通过rid获取到菜单列表
+     * 通过rid获取到对应的菜单列表
      */
     public List<AdminMenu> getMenusByRoleId(int rid){
         List<Integer> menuIds = adminRoleMenuService.findAllByRid(rid)

@@ -20,7 +20,7 @@
           <div class="author">{{item.author}}</div>
         </el-card>
       </el-tooltip>
-      <edit-form @onSubmit="loadBooks()" ref="edit"></edit-form>
+      <!-- <edit-form @onSubmit="loadBooks()" ref="edit"></edit-form> -->
     </el-row>
     <el-row>
       <el-pagination @current-change="handleCurrentChange" :current-page="currentPage" :page-size="pagesize" :total="books.length"></el-pagination>

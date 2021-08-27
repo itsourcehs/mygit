@@ -106,8 +106,18 @@ export default {
     formatTime () {
       let date = new Date()
       let year = date.getFullYear()
-      let month = date.getMonth()
-      return year + '-' + month
+      let month = date.getMonth() + 1
+      month = month < 10 ? '0' + month : month
+      let Nowdate = date.getDate()
+      Nowdate = Nowdate < 10 ? '0' + Nowdate : Nowdate
+      let hour = date.getHours()
+      hour = hour < 10 ? '0' + hour : hour
+      let mintue = date.getMinutes()
+      mintue = mintue < 10 ? '0' + mintue : mintue
+      let second = date.getSeconds()
+      second = second < 10 ? '0' + second : second
+      let fullDate = year + '-' + month + '-' + Nowdate + ' ' + hour + ':' + mintue + ':' + second
+      return fullDate
     }
   }
 }

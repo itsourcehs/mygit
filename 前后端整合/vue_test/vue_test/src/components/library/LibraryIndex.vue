@@ -18,6 +18,7 @@ export default {
   components: {Books, SideMenu},
   methods: {
     listByCategory () {
+      // debugger
       var _this = this
       var cid = this.$refs.sideMenu.cid
       var url = 'categories/' + cid + '/books'
@@ -25,6 +26,7 @@ export default {
         if (resp && resp.status === 200) {
           _this.$refs.booksArea.books = resp.data
           console.log(resp.data)
+          _this.$refs.booksArea.currentPage = 1
         }
       })
     }

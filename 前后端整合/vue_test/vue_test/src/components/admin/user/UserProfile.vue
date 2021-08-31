@@ -36,6 +36,7 @@
     </el-breadcrumb>
   </el-row>
 <!--  备用一行,用来注册用户-->
+  <bulk-registration @onSubmit="listUsers()"></bulk-registration>
   <el-card style="margin: 18px 2%;width: 95%">
     <el-table
     :data="users"
@@ -97,8 +98,10 @@
 </template>
 
 <script>
+import BulkRegistration from './BulkRegistration'
 export default {
   name: 'UserProfile',
+  components: {BulkRegistration},
   data () {
     return {
       users: [],
@@ -136,7 +139,21 @@ export default {
           }
         })
     },
-    commitStatusChange (value, user) {},
+    commitStatusChange (value, user) {
+      if (user.username !== 'admin') {
+        this.$axios.put('/admin/user/status', {enabled: value, username: user.username})
+          .then(res => {
+            if (res && res.status === 200) {
+              if (value) {
+                this.$message('用户[' + user.username + '] 已启用')
+              } else { this.$message('用户[' + user.username + '] 已禁用') }
+            }
+          })
+      } else {
+        user.enabled = true
+        this.$alert('不能禁用管理员账户')
+      }
+    },
     editUser (user) {
       // debugger
       this.dialogFormVisible = true

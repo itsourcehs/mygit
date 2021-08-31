@@ -64,4 +64,9 @@ public class UserService {
         adminUserRoleService.saveRoleChanges(user1.getId(), user.getRoles());
     }
 
+    public void updateUserStatus(User user){
+        User user1 = userDAO.findByUsername(user.getUsername());
+        user1.setEnabled(user.isEnabled());
+        userDAO.save(user1);
+    }
 }

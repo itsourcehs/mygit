@@ -35,6 +35,11 @@ export default {
   name: 'BulkRegistration',
   data () {
     return {
+      dialogFormVisible: false,
+      rules: {
+        username: [{required: true, message: '用户名不能为空', trigger: 'blur'}],
+        password: [{required: true, message: '密码不能为空', trigger: 'blur'}]
+      },
       loginForm: {
         username: '',
         password: '',
@@ -56,7 +61,8 @@ export default {
       }).then(res => {
         if (res.status === 200) {
           this.$alert('注册成功', '提示', {confirmButtonText: '确定'})
-          this.clear()
+          // this.clear()
+          this.dialogFormVisible = false
           this.$emit('onSubmit')
         } else {
           this.$alert(res.data.message, '提示', {confirmButtonText: '确定'})

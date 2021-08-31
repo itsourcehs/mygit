@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -39,4 +40,9 @@ public class UserController {
         return ResultFactory.buildSuccessResult(message);
     }
 
+    @PutMapping("/api/admin/user/status")
+    @ResponseBody
+    public void updateUserStatus(@RequestBody @Valid User user){
+        userService.updateUserStatus(user);
+    }
 }

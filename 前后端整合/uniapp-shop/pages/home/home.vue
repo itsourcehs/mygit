@@ -20,7 +20,29 @@
 			<view class="floor-item" v-for="(item, i) in floorList" :key="i">
 				<image :src="item.floor_title.image_src" class="floor-title"></image>
 				<!-- 楼层图片区域 -->
-				<view class="floor-img-box"></view>
+				<view class="floor-img-box">
+					<!-- 左侧大图区域 -->
+					<navigator class="left-img-box"
+					:url="item.product_list[0].url">
+						<image
+						:src="item.product_list[0].image_src"
+						:style="{width: item.product_list[0].image_width + 'rpx'}"
+						mode="widthFix"></image>
+					</navigator>
+					<!-- 右侧四张小图区域 -->
+					<view class="right-img-box">
+						<navigator class="right-img-item"
+						v-for="(item2, i2) in item.product_list"
+						:key="i2"
+						v-if="i2 !== 0"
+						:url="item2.url">
+							<image
+							:src="item2.image_src"
+							:style="{width: item2.image_width + 'rpx'}"
+							mode="widthFix"></image>
+						</navigator>
+					</view>
+				</view>
 			</view>
 		</view>
 	</view>
@@ -59,6 +81,13 @@
 			async getFloorList () {
 				const {data: res} = await uni.$http.get('/api/public/v1/home/floordata')
 				if (res.meta.status !== 200) return uni.$showMsg()
+				
+				// 通过forEach循环返回数据,拼接自定义跳转url
+				res.message.forEach(floor => {
+					floor.product_list.forEach(prod => {
+						prod.url = '/subpkg/goods_list/goods_list?' + prod.navigator_url.split('?')[1]
+					})
+				})
 				// 如果请求成功
 				this.floorList = res.message
 			},
@@ -88,7 +117,7 @@ swiper {
 // 分类导航样式
 .nav-list {
 	display: flex;
-	// 弹性盒子横轴对齐
+	// 弹性盒子中元素横轴对齐
 	justify-content: space-around;
 	margin: 15rpx 0;
 	.nav-img {
@@ -99,4 +128,10 @@ swiper {
 
 .floor-title {height: 60rpx;width: 100%;display: flex;}
 
+.floor-img-box {display: flex;padding-left: 10rpx;}
+.right-img-box {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
 </style>

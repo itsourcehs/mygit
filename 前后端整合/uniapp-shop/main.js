@@ -2,6 +2,8 @@
 // #ifndef VUE3
 import Vue from 'vue'
 import App from './App'
+// 1. 导入 store 的实例对象
+import store from './store/store.js'
 import {myRequest} from 'common/api.js'
 Vue.prototype.$myRequest = myRequest
 import {$http} from '@escook/request-miniprogram'
@@ -38,7 +40,8 @@ Vue.config.productionTip = false
 App.mpType = 'app'
 
 const app = new Vue({
-    ...App
+    ...App,
+	store
 })
 app.$mount()
 // #endif

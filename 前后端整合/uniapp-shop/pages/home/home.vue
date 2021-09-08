@@ -1,5 +1,10 @@
 <template>
 	<view>
+		<!-- 搜索组件区域 -->
+		<view class="search-box">
+		  <my-search @click="gotoSearch"></my-search>
+		</view>
+		
 		<!-- 轮播图区域 -->
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
 			<swiper-item v-for="(item, i) in swiperList" :key="i">
@@ -49,7 +54,13 @@
 </template>
 
 <script>
+	// 接口地址 https://www.escook.cn/docs-uni-shop/mds/5.search.html#_5-1-1-%E8%87%AA%E5%AE%9A%E4%B9%89-my-search-%E7%BB%84%E4%BB%B6
+	// https://www.bilibili.com/video/BV1PU4y1n743?p=42
+	// 导入自己封装的 mixin 模块
+	import badgeMix from '@/mixins/tabbar-badge.js'
 	export default {
+		// 将 badgeMix 混入到当前的页面中进行使用
+		mixins: [badgeMix],
 		data() {
 			return {
 				swiperList: [],
@@ -99,6 +110,11 @@
 						url: '/pages/cate/cate'
 					})
 				}
+			},
+			gotoSearch () {
+				uni.navigateTo({
+					url: '/subpkg/search/search'
+				});
 			}
 		}
 	}
@@ -133,5 +149,11 @@ swiper {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
+}
+.search-box {
+	// 设置 "吸顶"定位效果: 顶部距离0 提高层级防止被轮播图覆盖z-index
+	position: sticky;
+	top: 0;
+	z-index: 999;
 }
 </style>

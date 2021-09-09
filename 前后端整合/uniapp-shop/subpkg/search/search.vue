@@ -109,7 +109,7 @@
 				});
 			},
 			cleanHistory () {
-				console.log(1);
+				debugger
 				uni.showModal({
 					title: '提示',
 					content: '确认清空全部搜索历史?',
@@ -123,9 +123,7 @@
 								title: '操作成功!',
 								icon: 'success'
 							})
-						} else if (res.cancel) {
-							console.log('用户点击取消');
-						}
+						} else if (res.cancel) {}
 					}
 				})
 			},

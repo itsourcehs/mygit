@@ -86,6 +86,9 @@
 
 <style lang="scss">
 .goods-item {
+	width: 750rpx;
+	// 设置盒模型
+	box-sizing: border-box;
 	display: flex;
 	padding: 10px 5px;
 	border-bottom: 1px solid #f0f0f0;

@@ -21,7 +21,7 @@
 		<!-- 搜索历史区域 -->
 		<view class="history-box" v-else>
 			<!-- 标题区域 -->
-			<view class="history-title">
+			<view class="history-title" v-if="historyList.length !== 0">
 			  <text>搜索历史</text>
 			  <uni-icons type="trash" size="17"
 			  @click="cleanHistory"></uni-icons>
@@ -67,11 +67,11 @@
 				clearTimeout(this.timer)
 				// 重新启动一个延时器，并把 timerId 赋值给 this.timer
 				this.timer = setTimeout(() => {
-					// 如果 500 毫秒内，没有触发新的输入事件，则为搜索关键词赋值
+					// 如果 600 毫秒内，没有触发新的输入事件，则为搜索关键词赋值
 					this.kw = e
 					// console.log(this.kw);
 					this.getSearchList()
-				},500)
+				},600)
 			},
 			saveSearchHistory () {
 				// this.historyList.push(this.kw)
@@ -109,23 +109,24 @@
 				});
 			},
 			cleanHistory () {
-				debugger
-				uni.showModal({
-					title: '提示',
-					content: '确认清空全部搜索历史?',
-					success: function (res) {
-						if (res.confirm) {
-							// 1.清空 data 中保存的搜索历史
-							this.historyList = []
-							// 2.清空本地存储中记录的搜索历史
-							uni.setStorageSync('kw', '[]')
-							uni.showToast({
-								title: '操作成功!',
-								icon: 'success'
-							})
-						} else if (res.cancel) {}
-					}
-				})
+				// uni.showModal({
+				// 	title: '提示',
+				// 	content: '确认清空全部搜索历史?',
+				// 	success: function (res) {
+				// 		if (res.confirm) {
+				// 			// 1.清空 data 中保存的搜索历史
+				// 			this.historyList = []
+				// 			// 2.清空本地存储中记录的搜索历史
+				// 			uni.setStorageSync('kw', '[]')
+				// 			uni.showToast({
+				// 				title: '操作成功!',
+				// 				icon: 'success'
+				// 			})
+				// 		} else if (res.cancel) {}
+				// 	}
+				// })
+				this.historyList = []
+				uni.setStorageSync('kw','[]')
 			},
 			gotoGoodsList (kw) {
 				uni.navigateTo({

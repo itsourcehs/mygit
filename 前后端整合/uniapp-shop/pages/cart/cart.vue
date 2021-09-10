@@ -1,5 +1,8 @@
 <template>
-	<view>
+	<view class="cart-container">
+		<!-- 收获地址区域 -->
+		<my-address></my-address>
+		
 		<!-- 购物车商品列表的标题区域 -->
 		<view class="cart-title">
 		  <!-- 左侧的图标 -->
@@ -9,13 +12,22 @@
 		</view>
 		
 		<!-- 商品列表区域 -->
-		<block v-for="(goods, i) in cart" :key="i">
-		  <my-goods :goods="goods"
-		  :showRadio="true"
-		  :show-num="true"
-		  @radio-change="radioChangeHandler"
-		  @num-change="numberChangeHandler"></my-goods>
-		</block>
+		<uni-swipe-action>
+			<block v-for="(goods, i) in cart" :key="i">
+				<uni-swipe-action-item
+				:options="options"
+				@click="swiperActionClickHandler(goods)">
+					<my-goods :goods="goods"
+					:showRadio="true"
+					:show-num="true"
+					@radio-change="radioChangeHandler"
+					@num-change="numberChangeHandler"></my-goods>
+				</uni-swipe-action-item>
+			</block>
+		</uni-swipe-action>
+		
+		<!-- 结算区域 -->
+		<my-settle></my-settle>
 	</view>
 </template>
 
@@ -33,7 +45,10 @@
 		},
 		data() {
 			return {
-				
+				options: [{
+						text: '删除',
+						style: {backgroundColor: '#C00000'}
+					}]
 			};
 		},
 		methods: {
@@ -43,13 +58,19 @@
 				console.log(e);
 				this.updateGoodsState(e)
 			},
-			...mapMutations('m_cart', ['updateGoodsState', 'updateGoodsCount']),
+			
+			...mapMutations('m_cart', ['updateGoodsState', 'updateGoodsCount', 'removeGoodsById']),
 			
 			// 商品的数量发生了变化
 			numberChangeHandler (e) {
 				// e 表示传递过来的商品Id和商品的最新数量
 				console.log(e);
 				this.updateGoodsCount(e)
+			},
+			swiperActionClickHandler (goods) {
+				console.log(goods);
+				// 调用映射的方法 removeGoodsById 传入商品id
+				this.removeGoodsById(goods.goods_id)
 			}
 		}
 	}
@@ -66,4 +87,5 @@
 	
 	.cart-title-text {margin-left: 10px;}
 }
+.cart-container {padding-bottom: 50rpx;}
 </style>

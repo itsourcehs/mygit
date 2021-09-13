@@ -35,4 +35,6 @@ public class JotterArticle {
     private String articleCover;
 //    private Date articleDate; 解决前端传递的字段类型与后端给定的Date类型不一致
     private String articleDate;
+
+    String a = "{\"nickName\":\"微信用户\",\"gender\":0,\"language\":\"\",\"city\":\"\",\"province\":\"\",\"country\":\"\",\"avatarUrl\":\"https://thirdwx.qlogo.cn/mmopen/vi_32/POgEwh4mIHO4nibH0KlMECNjjGxQUq24ZEaGT4poC6icRiccVGKSyXwibcPq4BWmiaIGuG1icwxaQX6grC9VemZoJ8rg/132\"}";
 }

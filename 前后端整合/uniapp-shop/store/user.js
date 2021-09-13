@@ -5,7 +5,13 @@ export default {
 	// 模块的 state 数据
 	state: () => ({
 		// address: {} 改成下面读取本地存储的地址信息
-		address: JSON.parse(uni.getStorageSync('address') || '{}')
+		address: JSON.parse(uni.getStorageSync('address') || '{}'),
+		
+		// 登录成功之后的 token 字符串
+		token: uni.getStorageSync('token') || '',
+		
+		// 微信用户基本信息
+		userinfo: JSON.parse(uni.getStorageSync('userinfo') || '{}')
 	}),
 	
 	// 模块的 mutations 方法
@@ -20,16 +26,41 @@ export default {
 		saveAddressToStorage (state) {
 			uni.setStorageSync('address', JSON.stringify(state.address))
 		},
+		
+		// 更新用户基本信息
+		updateUserInfo (state, userinfo) {
+			state.userinfo = userinfo
+			// 调用 m_user 模块下的 saveUserInfoToStorage 方法，将 userinfo 对象持久化存储到本地
+			this.commit('m_user/saveUserInfoToStorage')
+		},
+		
+		// 将 userinfo 持久化存储到本地
+		saveUserInfoToStorage (state) {
+			uni.setStorageSync('userinfo', JSON.stringify(state.userinfo))
+		},
+		
+		// 更新token
+		updateToken (state, token) {
+			state.token = token
+			
+			// 调用 m_user 模块下的 saveTokenToStorage 方法，将 token 字符串持久化存储到本地
+			this.commit('m_user/saveTokenToStorage')
+		},
+		
+		// 将 token 字符串持久化存储到本地
+		saveTokenToStorage (state) {
+			uni.setStorageSync('token', state.token)
+		},
 	},
 	
 	// 模块的 getters 属性
 	getters: {
 		// 收货详细地址的计算属性
-		addstr () {
-			if (!this.address.provinceName) return ''
+		addstr (state) {
+			if (!state.address.provinceName) return ''
 			
 			// 拼接省市县区详细地址的字符串并返回给用户
-			return this.address.provinceName + this.address.cityName + this.address.countyName + this.address.detailInfo
+			return state.address.provinceName + state.address.cityName + state.address.countyName + state.address.detailInfo
 		},
 	}
 }

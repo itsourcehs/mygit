@@ -1,5 +1,5 @@
 <template>
-	<view class="cart-container">
+	<view class="cart-container" v-if="cart.length !== 0">
 		<!-- 收获地址区域 -->
 		<my-address></my-address>
 		
@@ -27,7 +27,15 @@
 		</uni-swipe-action>
 		
 		<!-- 结算区域 -->
-		<my-settle></my-settle>
+		<view class="settle">
+			<my-settle></my-settle>
+		</view>
+	</view>
+	
+	<!-- 空白购物车区域 -->
+	<view class="empty-cart" v-else>
+		<image src="../../static/空空如也.svg" class="empty-img"></image>
+		<text class="tip-text">暂时木有内容呀~ ~</text>
 	</view>
 </template>
 
@@ -77,15 +85,38 @@
 </script>
 
 <style lang="scss">
-.cart-title {
-	height: 40px;
-	display: flex;
-	align-items: center;
-	font-size: 14px;
-	padding-left: 5px;
-	border-bottom: 1px solid #efefef;
-	
-	.cart-title-text {margin-left: 10px;}
+.cart-container {
+	padding-bottom: 50rpx;	
 }
-.cart-container {padding-bottom: 50rpx;}
+.cart-title {
+		height: 40px;
+		display: flex;
+		align-items: center;
+		font-size: 14px;
+		padding-left: 5rpx;
+		border-bottom: 1px solid #efefef;
+		
+		.cart-title-text {margin-left: 10px;}
+}
+.settle {
+	
+}
+
+.empty-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 150px;
+
+  .empty-img {
+    width: 164px;
+    height: 142px;
+  }
+
+  .tip-text {
+    font-size: 12px;
+    color: gray;
+    margin-top: 15px;
+  }
+}
 </style>

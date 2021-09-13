@@ -43,7 +43,6 @@
 		data() {
 			return {
 				// address: {} 由下方计算属性替换
-				
 			};
 		},
 		methods: {
@@ -51,6 +50,7 @@
 			...mapMutations('m_user', ['updateAddress']),
 			async chooseAddress () {
 				/* 
+				  注意: H5 不支持调用 chooseAddress() 方法
 				  调用小程序提供的 chooseAddress() 方法
 				  返回一个数组,数组第一项为错误对象,第二项为成功后的收货地址对象
 				 */
@@ -128,7 +128,7 @@
 
 // 收货地址信息区域
 .address-info-box {
-	font-size: 12rpx;
+	font-size: 16rpx;
 	height: 90rpx;
 	display: flex;
 	flex-direction: column;

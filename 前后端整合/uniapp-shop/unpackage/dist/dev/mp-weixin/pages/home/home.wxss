@@ -66,4 +66,10 @@ swiper image {
   -webkit-justify-content: space-around;
           justify-content: space-around;
 }
+.search-box {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
 

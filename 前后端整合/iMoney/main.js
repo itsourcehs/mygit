@@ -2,6 +2,9 @@
 // #ifndef VUE3
 import Vue from 'vue'
 import App from './App'
+import {Tab, Tabs} from 'vant'
+Vue.use(Tab)
+Vue.use(Tabs)
 
 Vue.config.productionTip = false
 

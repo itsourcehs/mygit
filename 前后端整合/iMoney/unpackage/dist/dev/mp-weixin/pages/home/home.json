@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "tab": "/components/lipan-tabs/lipan-tabs",
+    "tab-pane": "/components/lipan-tabs/lipan-tab-pane"
+  }
+}

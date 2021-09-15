@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/game/game",
+    "pages/task/task",
+    "pages/invite/invite",
+    "pages/my/my"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "selectedColor": "#b4b4b4",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "static/tabBar/home.png",
+        "selectedIconPath": "static/tabBar/home-active.png"
+      },
+      {
+        "pagePath": "pages/game/game",
+        "text": "赚钱",
+        "iconPath": "static/tabBar/game.png",
+        "selectedIconPath": "static/tabBar/game-active.png"
+      },
+      {
+        "pagePath": "pages/task/task",
+        "text": "任务中心",
+        "iconPath": "static/tabBar/task.png",
+        "selectedIconPath": "static/tabBar/task-active.png"
+      },
+      {
+        "pagePath": "pages/invite/invite",
+        "text": "邀请",
+        "iconPath": "static/tabBar/invite.png",
+        "selectedIconPath": "static/tabBar/invite-active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "static/tabBar/my.png",
+        "selectedIconPath": "static/tabBar/my-active.png"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}

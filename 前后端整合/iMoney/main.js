@@ -1,8 +1,11 @@
-
 // #ifndef VUE3
 import Vue from 'vue'
 import App from './App'
 import {Tab, Tabs} from 'vant'
+// 引入uView
+import uView from 'uview-ui'
+Vue.use(uView)
+
 Vue.use(Tab)
 Vue.use(Tabs)
 

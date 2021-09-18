@@ -2,7 +2,7 @@
 	<view class="my-container">
 		
 		<!-- 用户未登录 -->
-		<my-login v-if="!token"></my-login>
+		<my-login v-if="token"></my-login>
 		
 		<!-- 用户已登录 -->
 		<my-userinfo v-else></my-userinfo>

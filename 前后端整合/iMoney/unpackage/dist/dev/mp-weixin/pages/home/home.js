@@ -93,6 +93,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
+try {
+  components = {
+    homeHead: function() {
+      return __webpack_require__.e(/*! import() | components/home-head/home-head */ "components/home-head/home-head").then(__webpack_require__.bind(null, /*! @/components/home-head/home-head.vue */ 241))
+    }
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -131,6 +154,157 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var tab = function tab() {__webpack_require__.e(/*! require.ensure | components/lipan-tabs/lipan-tabs */ "components/lipan-tabs/lipan-tabs").then((function () {return resolve(__webpack_require__(/*! @/components/lipan-tabs/lipan-tabs.vue */ 223));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tabPane = function tabPane() {__webpack_require__.e(/*! require.ensure | components/lipan-tabs/lipan-tab-pane */ "components/lipan-tabs/lipan-tab-pane").then((function () {return resolve(__webpack_require__(/*! @/components/lipan-tabs/lipan-tab-pane.vue */ 230));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

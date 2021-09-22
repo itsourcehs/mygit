@@ -155,6 +155,8 @@
 	.list-item {
 	  flex: 0 0 auto;
 	  margin: 18px;
+	  
+	  image {margin-bottom: 10rpx;}
 	}
 }
 </style>

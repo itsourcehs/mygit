@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "签到",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "u-switch": "/node-modules/uview-ui/components/u-switch/u-switch"
+  }
+}

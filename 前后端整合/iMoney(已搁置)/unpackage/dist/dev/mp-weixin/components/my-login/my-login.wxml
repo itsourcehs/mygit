@@ -1,0 +1,1 @@
+<view class="login"><text>登录领取海量任务开始赚钱</text><u-button vue-id="2db90e82-1" type="error" size="middle" bind:__l="__l" vue-slots="{{['default']}}">登录</u-button></view>

@@ -37,7 +37,7 @@ public class CommentController {
             return ResultGenerator.genFailResult("删除失败!!!");
         }
     }
-    
+
     /**
      * @Description: 评论列表
      * @Param:
@@ -57,8 +57,8 @@ public class CommentController {
 
     /**
      * @Description: 所有评论
-     * @Param: 
-     * @return: 
+     * @Param:
+     * @return:
      * @Author: Mr.Huang
      * @Date: 2021/5/27
      */
@@ -79,7 +79,8 @@ public class CommentController {
         if(commentService.checkDone(ids)){
             return ResultGenerator.genSuccessResult();
         }else {
-            return ResultGenerator.genFailResult("审核失败!!!");
+//            return ResultGenerator.genFailResult("审核失败!!!");
+            return ResultGenerator.genFailResult("无效审核!!!");
         }
     }
 

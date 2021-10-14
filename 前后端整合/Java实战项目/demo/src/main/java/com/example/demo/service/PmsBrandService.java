@@ -10,7 +10,7 @@ public interface PmsBrandService {
     //删除品牌信息
     int deleteBrand(Long id);
     //修改品牌信息
-
+    int updateBrand(Long id, PmsBrand brand);
     //查询所有品牌信息
     List<PmsBrand> listAllBrand();
     //根据id查询某一品牌信息

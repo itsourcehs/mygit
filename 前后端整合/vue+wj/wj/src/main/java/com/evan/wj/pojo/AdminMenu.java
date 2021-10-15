@@ -17,7 +17,7 @@ import java.util.List;
 @Entity
 @Table(name = "admin_menu")
 @ToString
-@JsonIgnoreProperties({"handler","hibernateLazyInitializer"})
+@JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
 public class AdminMenu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

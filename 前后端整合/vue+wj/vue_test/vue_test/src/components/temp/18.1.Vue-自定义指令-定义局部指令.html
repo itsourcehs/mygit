@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-	</head>
-  <!--
-    在实例中使用directives选项来注册局部指令
-    这个指令只能在实例中使用
-   -->
-	<body>
-    <div id="app">
-      <p>页面载入时，input 元素自动获取焦点：</p>
-      <input v-focus>
-    </div>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+<!--
+  在实例中使用directives选项来注册局部指令
+  这个指令只能在实例中使用
+ -->
+<body>
+<div id="app">
+  <p>页面载入时，input 元素自动获取焦点：</p>
+  <input v-focus>
+</div>
 
-    <script>
-      new Vue({
-        el:"#app",
-        directives:{
-          //注册一个局部自定义的指令 v-focus
-          focus:{
-            //指令的定义
-            inserted:function(el){
-              el.focus()
-            }
-          }
+<script>
+  new Vue({
+    el: "#app",
+    directives: {
+      //注册一个局部自定义的指令 v-focus
+      focus: {
+        //指令的定义
+        inserted: function (el) {
+          el.focus()
         }
-      })
-    </script>
-	</body>
+      }
+    }
+  })
+</script>
+</body>
 </html>

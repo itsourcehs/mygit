@@ -87,18 +87,14 @@ export default{
 		
 		// 登录
 		handleLogin () {
+			debugger
 			this.loading = true
-			var _this = this
-			// 向后端发送异步请求
-			this.axios.post('/admin/login', {
-				username: this.loginForm.username,
-				password: this.loginForm.password
-			})
-			.then(res => {
-				if (res.data.code === 200) {
-					this.$router.push({path: '/'})
-				}
-			}).catch(this.loading = false)
+			// 触发store中actions下Login方法
+			this.$store.dispatch('Login', this.loginForm).then(() => {
+				this.loading = false;
+				this.$router.push({path: '/'})
+			}).catch(() => {this.loading = false})
+			
 		},
 		
 		

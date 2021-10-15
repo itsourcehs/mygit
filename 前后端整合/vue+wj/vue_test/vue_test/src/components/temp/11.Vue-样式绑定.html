@@ -7,28 +7,29 @@
 </head>
 
 <style>
-  .active{
+  .active {
     width: 100px;
     height: 100px;
     background: green;
   }
-  .text-danger{
+
+  .text-danger {
     background: red;
   }
 </style>
 <body>
-  <div id="app">
-    <div :class="{'active':isActive,'text-danger': hasError }"></div>
-  </div>
+<div id="app">
+  <div :class="{'active':isActive,'text-danger': hasError }"></div>
+</div>
 
-  <script>
-    new Vue({
-      el: '#app',
-      data:{
-        isActive:true,
-        hasError:true
-      }
-    })
-  </script>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      isActive: true,
+      hasError: true
+    }
+  })
+</script>
 </body>
 </html>

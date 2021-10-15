@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class DefaultExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseBody
-    public Result handleAuthorizationException(UnauthorizedException e){
+    public Result handleAuthorizationException(UnauthorizedException e) {
         String message = "权限认证失败";
         return ResultFactory.buildFailResult(message);
     }

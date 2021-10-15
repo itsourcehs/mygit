@@ -25,7 +25,7 @@ public class UserController {
     //@CrossOrigin
     @GetMapping("/api/admin/user")
     @ResponseBody
-    public List<User> listUsers() throws Exception{
+    public List<User> listUsers() throws Exception {
         return userService.list();
     }
 
@@ -34,7 +34,7 @@ public class UserController {
      */
     @PutMapping("/api/admin/user")
     @ResponseBody
-    public Result editUser(@RequestBody User requestUser){
+    public Result editUser(@RequestBody User requestUser) {
         userService.editUser(requestUser);
         String message = "修改用户信息成功";
         return ResultFactory.buildSuccessResult(message);
@@ -42,7 +42,7 @@ public class UserController {
 
     @PutMapping("/api/admin/user/status")
     @ResponseBody
-    public void updateUserStatus(@RequestBody @Valid User user){
+    public void updateUserStatus(@RequestBody @Valid User user) {
         userService.updateUserStatus(user);
     }
 }

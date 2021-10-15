@@ -1,7 +1,7 @@
 <template>
   <body id="paper">
   <el-form class="login-container" label-position="left"
-  label-width="0px" v-loading="loading">
+           label-width="0px" v-loading="loading">
     <h3 class="login_title">用户注册</h3>
     <el-form-item>
       <el-input v-model="loginForm.username" type="text" auto-complete="off"
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       checked: true,
       loginForm: {
@@ -31,7 +31,7 @@ export default {
     }
   },
   methods: {
-    register () {
+    register() {
       var _this = this
       this.$axios
         .post('/register', {
@@ -50,7 +50,8 @@ export default {
             })
           }
         })
-        .catch(failResponse => {})
+        .catch(failResponse => {
+        })
     }
   }
 }
@@ -58,16 +59,18 @@ export default {
 
 <style scoped>
 #paper {
-  background:url("../assets/img/bg/eva1.jpg") no-repeat;
+  background: url("../assets/img/bg/eva1.jpg") no-repeat;
   background-position: center;
   height: 100%;
   width: 100%;
   background-size: cover;
   position: fixed;
 }
-body{
+
+body {
   margin: -5px 0px;
 }
+
 .login-container {
   border-radius: 15px;
   background-clip: padding-box;
@@ -78,6 +81,7 @@ body{
   border: 1px solid #eaeaea;
   box-shadow: 0 0 25px #cac6c6;
 }
+
 .login_title {
   margin: 0px auto 40px auto;
   text-align: center;

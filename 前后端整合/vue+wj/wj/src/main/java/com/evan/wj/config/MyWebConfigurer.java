@@ -17,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @SpringBootConfiguration
 public class MyWebConfigurer implements WebMvcConfigurer {
     @Bean
-    public LoginInterceptor getLoginInterceptor(){
+    public LoginInterceptor getLoginInterceptor() {
         return new LoginInterceptor();
     }
 
@@ -38,7 +38,7 @@ public class MyWebConfigurer implements WebMvcConfigurer {
         registry.addMapping("/**")
                 .allowCredentials(true)
                 .allowedOrigins("http://localhost:8080")
-                .allowedMethods("POST","GET","PUT","OPTIONS","DELETE")
+                .allowedMethods("POST", "GET", "PUT", "OPTIONS", "DELETE")
                 .allowedHeaders("*");
     }
 

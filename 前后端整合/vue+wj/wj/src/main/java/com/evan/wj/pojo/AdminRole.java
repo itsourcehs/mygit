@@ -19,7 +19,7 @@ import java.util.List;
 @Entity
 @Table(name = "admin_role")
 @ToString
-@JsonIgnoreProperties({"handler","hibernateLazyInitializer"})
+@JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
 public class AdminRole {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

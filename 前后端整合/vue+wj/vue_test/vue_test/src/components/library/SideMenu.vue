@@ -1,8 +1,8 @@
 <template>
   <el-menu class="categories"
-  default-active="0"
-  @select="handleSelect"
-  active-text-color="red">
+           default-active="0"
+           @select="handleSelect"
+           active-text-color="red">
     <el-menu-item index="0">
       <i class="el-icon-menu"></i>
       <span slot="title">全部</span>
@@ -37,13 +37,13 @@
 <script>
 export default {
   name: 'SideMenu',
-  data () {
+  data() {
     return {
       cid: ''
     }
   },
   methods: {
-    handleSelect (key) {
+    handleSelect(key) {
       this.cid = key
       this.$emit('indexSelect')
     }
@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style scoped>
-.categories{
+.categories {
   position: fixed;
   margin-left: 50%;
   left: -600px;

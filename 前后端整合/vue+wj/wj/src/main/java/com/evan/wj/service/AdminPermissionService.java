@@ -27,32 +27,34 @@ public class AdminPermissionService {
     private AdminRoleService adminRoleService;
     @Resource
     private AdminRolePermissionService adminRolePermissionService;
-    public List<AdminPermission> list(){
+
+    public List<AdminPermission> list() {
         return adminPermissionDAO.findAll();
     }
 
-    public Set<String> listPermissionURLsByUser(String username){
+    public Set<String> listPermissionURLsByUser(String username) {
         //通过username获取当前用户的角色列表
         List<Integer> rids = adminRoleService.listRolesByUser(username)
                 .stream()
-                .map(AdminRole ::getId)
+                .map(AdminRole::getId)
                 .collect(Collectors.toList());
 
         List<Integer> pids = adminRolePermissionDAO.findAllByRidIn(rids)
                 .stream()
-                .map(AdminRolePermission :: getPid)
+                .map(AdminRolePermission::getPid)
                 .collect(Collectors.toList());
 
         List<AdminPermission> perms = adminPermissionDAO.findAllById(pids);
-        Set<String> URLs = perms.stream().map(AdminPermission :: getUrl).collect(Collectors.toSet());
+        Set<String> URLs = perms.stream().map(AdminPermission::getUrl).collect(Collectors.toSet());
 
         return URLs;
     }
+
     //判断用户请求接口是否在权限列表中
-    public boolean needFilter(String api){
+    public boolean needFilter(String api) {
         List<AdminPermission> ps = adminPermissionDAO.findAll();
-        for(AdminPermission p : ps){
-            if(p.getUrl().equals(api)){
+        for (AdminPermission p : ps) {
+            if (p.getUrl().equals(api)) {
                 return true;
             }
         }
@@ -60,15 +62,14 @@ public class AdminPermissionService {
     }
 
 
-    public List<AdminPermission> listPermsByRoleId(int rid){
+    public List<AdminPermission> listPermsByRoleId(int rid) {
         List<Integer> pids = adminRolePermissionService.findAllByRid(rid)
                 .stream()
-                .map(AdminRolePermission :: getPid)
+                .map(AdminRolePermission::getPid)
                 .collect(Collectors.toList());
 
         return adminPermissionDAO.findAllById(pids);
     }
-
 
 
 }

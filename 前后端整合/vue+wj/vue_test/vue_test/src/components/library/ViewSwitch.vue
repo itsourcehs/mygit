@@ -5,7 +5,7 @@
 <script>
 export default {
   name: 'ViewSwitch',
-  data () {
+  data() {
     return {
       value: true
     }

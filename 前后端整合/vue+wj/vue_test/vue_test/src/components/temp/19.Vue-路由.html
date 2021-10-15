@@ -1,57 +1,57 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
-    <script src="https://cdn.staticfile.org/vue-router/2.7.0/vue-router.min.js"></script>
-	</head>
-	<body>
-    <h1>Hello App!</h1>
-    <div id="app">
-      <p>
-        <!--
-          1.使用 router-link 组件来导航.
-          2.通过传入 `to` 属性指定链接.
-          3.<router-link> 默认会被渲染成一个 `<a>` 标签
-         -->
-        <router-link to="/foo">Go to Foo</router-link>
-        <router-link to="/bar">Go to Bar</router-link>
-      </p>
-      <!--
-        路由出口
-          路由匹配到的组件将渲染在这里
-       -->
-       <router-view></router-view>
-    </div>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+  <script src="https://cdn.staticfile.org/vue-router/2.7.0/vue-router.min.js"></script>
+</head>
+<body>
+<h1>Hello App!</h1>
+<div id="app">
+  <p>
+    <!--
+      1.使用 router-link 组件来导航.
+      2.通过传入 `to` 属性指定链接.
+      3.<router-link> 默认会被渲染成一个 `<a>` 标签
+     -->
+    <router-link to="/foo">Go to Foo</router-link>
+    <router-link to="/bar">Go to Bar</router-link>
+  </p>
+  <!--
+    路由出口
+      路由匹配到的组件将渲染在这里
+   -->
+  <router-view></router-view>
+</div>
 
-    <script>
-      /*
-      1.如果使用模块化机制编程，導入Vue和VueRouter，要调用 Vue.use(VueRouter)
-      */
-      //2.定义路由组件,也可以从其他文件导入进来
-      const Foo = {template:'<div>foo</div>'}
-      const Bar = {template:'<div>bar</div>'}
+<script>
+  /*
+  1.如果使用模块化机制编程，導入Vue和VueRouter，要调用 Vue.use(VueRouter)
+  */
+  //2.定义路由组件,也可以从其他文件导入进来
+  const Foo = {template: '<div>foo</div>'}
+  const Bar = {template: '<div>bar</div>'}
 
-      /*
-      3.定义路由
-        3.1 每个路由应该映射一个组件,
-        其中"component"可以是通过 Vue.extend()创建的组件构造器
-        也可以只是一个组件配置对象
-        3.2 嵌套路由:
-      */
-      const routes =[{path: '/foo', component: Foo},{path: '/bar', component: Bar}]
+  /*
+  3.定义路由
+    3.1 每个路由应该映射一个组件,
+    其中"component"可以是通过 Vue.extend()创建的组件构造器
+    也可以只是一个组件配置对象
+    3.2 嵌套路由:
+  */
+  const routes = [{path: '/foo', component: Foo}, {path: '/bar', component: Bar}]
 
-     //4.创建router实例,然后传'routes'配置,也可以传别的配置参数
-      const router = new VueRouter({
-          routes:routes // === 简写routes
-      })
+  //4.创建router实例,然后传'routes'配置,也可以传别的配置参数
+  const router = new VueRouter({
+    routes: routes // === 简写routes
+  })
 
 
-      //5.创建和挂载根实例,通过配置参数router注入路由
-      const app = new Vue({
-        router
-      }).$mount('#app')
-    </script>
-	</body>
+  //5.创建和挂载根实例,通过配置参数router注入路由
+  const app = new Vue({
+    router
+  }).$mount('#app')
+</script>
+</body>
 </html>

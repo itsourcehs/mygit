@@ -2,10 +2,10 @@
   <div style="text-align: left">
     <el-button class="add-button" type="success" @click="dialogFormVisible = true">批量添加用户</el-button>
     <el-dialog
-    title="添加用户"
-    :visible.sync="dialogFormVisible"
-    @close="clear"
-    width="25%">
+      title="添加用户"
+      :visible.sync="dialogFormVisible"
+      @close="clear"
+      width="25%">
       <el-form>
         <el-form-item prop="username">
           <el-input type="text" auto-complete="off" placeholder="账号" v-model="loginForm.username"></el-input>
@@ -33,7 +33,7 @@
 <script>
 export default {
   name: 'BulkRegistration',
-  data () {
+  data() {
     return {
       dialogFormVisible: false,
       rules: {
@@ -50,7 +50,7 @@ export default {
     }
   },
   methods: {
-    register () {
+    register() {
       // 注册
       this.$axios.post('/register', {
         username: this.loginForm.username,
@@ -67,9 +67,10 @@ export default {
         } else {
           this.$alert(res.data.message, '提示', {confirmButtonText: '确定'})
         }
-      }).catch(failResponse => {})
+      }).catch(failResponse => {
+      })
     },
-    clear () {
+    clear() {
       this.loginForm = {
         username: '',
         password: '',

@@ -13,6 +13,7 @@
     height: 100px;
     background: red;
   }
+
   .active {
     width: 100px;
     height: 100px;
@@ -21,17 +22,17 @@
 
 </style>
 <body>
-  <div id="app">
-    <div class="active text-danger"></div>
-    <div :class="[activeClass,errorClass]"></div>
-    <div :class="[errorClass,isActive ? activeClass : '']"></div>
-  </div>
+<div id="app">
+  <div class="active text-danger"></div>
+  <div :class="[activeClass,errorClass]"></div>
+  <div :class="[errorClass,isActive ? activeClass : '']"></div>
+</div>
 
 <script>
   new Vue({
     el: '#app',
     data: {
-      isActive:true,
+      isActive: true,
       activeClass: 'active',
       errorClass: 'text-danger'
     }

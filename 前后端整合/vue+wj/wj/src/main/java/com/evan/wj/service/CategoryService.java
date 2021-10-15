@@ -20,10 +20,11 @@ public class CategoryService {
     @Resource
     CategoryDAO dao;
 
-    public List<Category> list(){
-        return dao.findAll(new Sort(Sort.Direction.DESC,"id"));
+    public List<Category> list() {
+        return dao.findAll(new Sort(Sort.Direction.DESC, "id"));
     }
-    public Category get(int id){
+
+    public Category get(int id) {
         return dao.findById(id).orElse(null);
     }
 }

@@ -1,49 +1,51 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-    <style>
-      /* CSS 动画用法类似 CSS 过渡，
-      但是在动画中 v-enter 类名在节点插入 DOM 后不会立即删除
-      而是在 animationend 事件触发时删除。*/
-      /* 类名-enter-active */
-      .bounce-enter-active{
-        animation: bounce-in .5s;
-      }
-      .bounce-leave-active {
-        animation: bounce-in .5s reverse;
-      }
-      @keyframes bounce-in{
-        0% {
-            transform: scale(0);
-          }
-        50% {
-            transform: scale(1.5);
-          }
-        100% {
-            transform: scale(1);
-          }
-      }
-    </style>
-	</head>
-	<body>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+  <style>
+    /* CSS 动画用法类似 CSS 过渡，
+    但是在动画中 v-enter 类名在节点插入 DOM 后不会立即删除
+    而是在 animationend 事件触发时删除。*/
+    /* 类名-enter-active */
+    .bounce-enter-active {
+      animation: bounce-in .5s;
+    }
 
-    <div id="app">
-      <button @click="show = !show">点击</button>
-      <transition name="bounce">
-        <p v-if="show">菜鸟教程</p>
-      </transition>
-    </div>
+    .bounce-leave-active {
+      animation: bounce-in .5s reverse;
+    }
 
-    <script>
-      new Vue({
-        el:"#app",
-        data:{
-          show:true
-        }
-      })
-    </script>
-	</body>
+    @keyframes bounce-in {
+      0% {
+        transform: scale(0);
+      }
+      50% {
+        transform: scale(1.5);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div id="app">
+  <button @click="show = !show">点击</button>
+  <transition name="bounce">
+    <p v-if="show">菜鸟教程</p>
+  </transition>
+</div>
+
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      show: true
+    }
+  })
+</script>
+</body>
 </html>

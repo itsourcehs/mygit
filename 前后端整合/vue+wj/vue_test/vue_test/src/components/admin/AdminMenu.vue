@@ -1,13 +1,13 @@
 <template>
   <el-menu
     :default-active="this.$route.path"
-  class="el-menu-admin"
-  router
-  mode="vertical"
-  background-color="#cfe2f5"
-  text-color="#fff"
-  active-text-color="#ffd04b"
-  :collapse="isCollapse">
+    class="el-menu-admin"
+    router
+    mode="vertical"
+    background-color="#cfe2f5"
+    text-color="#fff"
+    active-text-color="#ffd04b"
+    :collapse="isCollapse">
     <div style="height: 80px;"></div>
     <el-submenu v-for="(item,i) in adminMenus" :key="i" :index="i.toString()" style="text-align: left">
       <span slot="title" style="font-size: 17px">
@@ -25,16 +25,16 @@
 <script>
 export default {
   name: 'AdminMenu',
-  data () {
+  data() {
     return {
       isCollapse: false
     }
   },
   computed: {
-    adminMenus () {
+    adminMenus() {
       return this.$store.state.adminMenus
     },
-    currentPath () {
+    currentPath() {
       return this.$route.path
     }
   }
@@ -42,7 +42,7 @@ export default {
 </script>
 
 <style scoped>
-.el-menu-admin{
+.el-menu-admin {
   border-radius: 5px;
   height: 100%;
 }

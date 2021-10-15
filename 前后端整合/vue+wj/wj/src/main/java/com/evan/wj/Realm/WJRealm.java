@@ -47,14 +47,14 @@ public class WJRealm extends AuthorizingRealm {
         //用户名
         String userName = token.getPrincipal().toString();
         User user = userService.getByName(userName);
-        if(user != null){
+        if (user != null) {
             String passwordInDB = user.getPassword();
             String salt = user.getSalt();
             return new SimpleAuthenticationInfo(userName
-                    ,passwordInDB
+                    , passwordInDB
                     , ByteSource.Util.bytes(salt)
-                    ,getName());
-        }else {
+                    , getName());
+        } else {
             return null;
         }
     }

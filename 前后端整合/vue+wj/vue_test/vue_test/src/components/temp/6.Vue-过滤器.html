@@ -10,25 +10,25 @@
 2.{{ 第一个参数 | 方法1 | 方法2}}
 3.{{ 第一个参数 | 方法(第二个参数,第三个参数)-->
 <body>
-  <div id="app">{{ message | capitalize}}</div>
+<div id="app">{{ message | capitalize}}</div>
 
-  <script>
-    new Vue({
-      el: '#app',
-      data: {
-        message: 'runoob'
-      },
-      filters: {
-        capitalize: function(value) {
-          if(!value) return ''
-          return value
-            .toString()
-            .charAt(0)
-            .toUpperCase()+value.slice(1)
-        }
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      message: 'runoob'
+    },
+    filters: {
+      capitalize: function (value) {
+        if (!value) return ''
+        return value
+          .toString()
+          .charAt(0)
+          .toUpperCase() + value.slice(1)
       }
-    })
+    }
+  })
 
-  </script>
+</script>
 </body>
 </html>

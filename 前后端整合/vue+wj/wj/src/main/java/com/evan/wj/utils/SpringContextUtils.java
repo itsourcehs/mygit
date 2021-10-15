@@ -12,14 +12,15 @@ import org.springframework.stereotype.Component;
  * @Created by 123456
  */
 @Component
-public class SpringContextUtils implements ApplicationContextAware{
+public class SpringContextUtils implements ApplicationContextAware {
     private static ApplicationContext context;
 
     @Override
     public void setApplicationContext(ApplicationContext context) throws BeansException {
         SpringContextUtils.context = context;
     }
-    public static ApplicationContext getContext(){
+
+    public static ApplicationContext getContext() {
         return context;
     }
 }

@@ -17,31 +17,35 @@ import java.util.List;
  */
 
 @Service
-public class BookService  {
+public class BookService {
     @Resource
     BookDAO dao;
     @Resource
     CategoryService service;
 
-    public List<Book> list(){
-        return dao.findAll(new Sort(Sort.Direction.DESC,"id"));
+    public List<Book> list() {
+        return dao.findAll(new Sort(Sort.Direction.DESC, "id"));
     }
+
     /**
-     * @Description 当主键存在时更新数据,主键不存在时插入数据
-     * @Param
      * @return
+     * @Description 当主键存在时更新数据, 主键不存在时插入数据
+     * @Param
      * @date 2021/7/1 11:01
      * @auther 123456
      */
-    public void addOrUpdate(Book book){
+    public void addOrUpdate(Book book) {
         dao.save(book);
     }
-    public void deleteById(int id){
+
+    public void deleteById(int id) {
         dao.deleteById(id);
     }
-    public List<Book> listByCategory(int cid){
+
+    public List<Book> listByCategory(int cid) {
         return dao.findAllByCategory(service.get(cid));
     }
+
     public List<Book> Search(String keywords) {
         return dao.findAllByTitleLikeOrAuthorLike('%' + keywords + '%', '%' + keywords + '%');
     }

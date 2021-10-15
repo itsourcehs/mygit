@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1042699a-8939-4458-9ce4-33d70f349042" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Java实战项目/demo/demo-admin-web/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Java实战项目/demo/demo-admin-web/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/demo/demo-admin-web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Java实战项目/demo/demo-admin-web/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/demo/demo-admin-web/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Java实战项目/demo/demo-admin-web/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/demo/demo-admin-web/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Java实战项目/demo/demo-admin-web/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/demo/demo-admin-web/src/views/home/home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Java实战项目/demo/demo-admin-web/src/views/home/home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/demo/demo-admin-web/src/views/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Java实战项目/demo/demo-admin-web/src/views/login/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/demo/src/main/java/com/example/demo/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java实战项目/demo/src/main/java/com/example/demo/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall-api/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall-api/src/main/java/com/platform/entity/AdVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/.hbuilderx/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/common/api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/common/util.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/pages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/pages/auth/btnAuth/btnAuth.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/pages/index/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/static/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/uni.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/.automator/mp-weixin/.automator.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/.sourcemap/mp-weixin/common/main.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/.sourcemap/mp-weixin/common/runtime.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/.sourcemap/mp-weixin/common/vendor.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/.sourcemap/mp-weixin/pages/auth/btnAuth/btnAuth.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/.sourcemap/mp-weixin/pages/index/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/mp-weixin/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/mp-weixin/app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/mp-weixin/app.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/mp-weixin/common/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/mp-weixin/common/main.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/mp-weixin/common/runtime.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/mp-weixin/common/vendor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/mp-weixin/pages/auth/btnAuth/btnAuth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/mp-weixin/pages/auth/btnAuth/btnAuth.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/mp-weixin/pages/auth/btnAuth/btnAuth.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/mp-weixin/pages/index/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/mp-weixin/pages/index/index.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/mp-weixin/pages/index/index.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/mp-weixin/pages/index/index.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/mp-weixin/project.config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/mp-weixin/sitemap.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mall/unpackage/dist/dev/mp-weixin/static/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/src/main/java/com/platform/demo/DemoApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java实战项目/mall/src/test/java/com/platform/demo/DemoApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/.babelrc" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/.babelrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/build/check-versions.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/build/check-versions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/build/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/build/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/build/webpack.base.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/build/webpack.base.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/build/webpack.dev.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/build/webpack.dev.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/build/webpack.prod.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/build/webpack.prod.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/config/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/HelloWorld.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/Register.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/admin/AdminIndex.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/admin/AdminIndex.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/admin/AdminMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/admin/AdminMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/admin/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/admin/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/admin/content/ArticleEditor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/admin/content/ArticleEditor.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/admin/content/ArticleManagement.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/admin/content/ArticleManagement.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/admin/content/BookManagement.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/admin/content/BookManagement.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/admin/user/BulkRegistration.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/admin/user/BulkRegistration.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/admin/user/Role.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/admin/user/Role.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/admin/user/UserProfile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/admin/user/UserProfile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/common/ImgUpload.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/common/ImgUpload.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/common/NavMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/common/NavMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/jotter/ArticleDetails.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/jotter/ArticleDetails.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/jotter/Articles.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/jotter/Articles.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/library/Books.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/library/Books.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/library/EditForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/library/EditForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/library/LibraryIndex.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/library/LibraryIndex.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/library/SearchBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/library/SearchBar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/library/SideMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/library/SideMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/library/ViewSwitch.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/library/ViewSwitch.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/1.Vue实例属性和方法.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/1.Vue实例属性和方法.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/10.1.Vue-监听属性$watch.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/10.1.Vue-监听属性$watch.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/10.Vue-监听属性watch.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/10.Vue-监听属性watch.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/11.Vue-样式绑定.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/11.Vue-样式绑定.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/12.Vue-样式绑定-class数组.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/12.Vue-样式绑定-class数组.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/13.1.Vue-样式绑定-绑定到样式对象-推荐.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/13.1.Vue-样式绑定-绑定到样式对象-推荐.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/13.2.Vue-样式绑定-将多个样式对象应用到同一个元素.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/13.2.Vue-样式绑定-将多个样式对象应用到同一个元素.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/13.Vue-样式绑定-绑定内联样式.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/13.Vue-样式绑定-绑定内联样式.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/14.1.Vue-事件处理器-方法调用.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/14.1.Vue-事件处理器-方法调用.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/14.2.Vue-事件处理器-内联JavaScript语句.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/14.2.Vue-事件处理器-内联JavaScript语句.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/14.3.Vue-事件处理器-事件修饰符.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/14.3.Vue-事件处理器-事件修饰符.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/14.Vue-事件处理器.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/14.Vue-事件处理器.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/15.Vue-表单-输入框.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/15.Vue-表单-输入框.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/16.1.Vue-组件-局部组件.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/16.1.Vue-组件-局部组件.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/16.Vue-组件-全局组件.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/16.Vue-组件-全局组件.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/17.1.Vue-组件-Prop-动态Prop.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/17.1.Vue-组件-Prop-动态Prop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/17.2.Vue-组件-Prop-动态Prop实例.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/17.2.Vue-组件-Prop-动态Prop实例.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/17.3.Vue-组件-Prop-动态Prop实例-Prop验证.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/17.3.Vue-组件-Prop-动态Prop实例-Prop验证.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/17.4.Vue-组件-自定义事件.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/17.4.Vue-组件-自定义事件.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/17.5.Vue-组件-自定义事件 - data为对象.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/17.5.Vue-组件-自定义事件 - data为对象.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/17.6.Vue-组件-自定义事件-自定义组件的v-model.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/17.6.Vue-组件-自定义事件-自定义组件的v-model.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/17.7.Vue-组件-自定义事件-自定义组件的v-model-复选框和单选框.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/17.7.Vue-组件-自定义事件-自定义组件的v-model-复选框和单选框.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/17.Vue-组件-Prop.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/17.Vue-组件-Prop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/18.1.Vue-自定义指令-定义局部指令.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/18.1.Vue-自定义指令-定义局部指令.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/18.2.Vue-自定义指令-钩子函数.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/18.2.Vue-自定义指令-钩子函数.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/18.3.Vue-自定义指令-钩子函数-指令函数简写&amp;.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/18.3.Vue-自定义指令-钩子函数-指令函数简写&amp;.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/18.Vue-自定义指令.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/18.Vue-自定义指令.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/19.Vue-路由.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/19.Vue-路由.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/2.Vue模板语法.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/2.Vue模板语法.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/20.1.Vue-过渡与动画-CSS过渡.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/20.1.Vue-过渡与动画-CSS过渡.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/20.2.Vue-过渡与动画-CSS动画.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/20.2.Vue-过渡与动画-CSS动画.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/20.3.Vue-过渡与动画-自定义过渡的类名.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/20.3.Vue-过渡与动画-自定义过渡的类名.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/20.4.1.Vue-过渡与动画-JavaScript钩子-实例.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/20.4.1.Vue-过渡与动画-JavaScript钩子-实例.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/20.4.Vue-过渡与动画-JavaScript钩子.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/20.4.Vue-过渡与动画-JavaScript钩子.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/20.Vue-过渡与动画.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/20.Vue-过渡与动画.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/21.Vue-混入.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/21.Vue-混入.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/22.1.Vue-Ajax-GET方法实例-读取json数据.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/22.1.Vue-Ajax-GET方法实例-读取json数据.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/22.2.Vue-Ajax-POST方法.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/22.2.Vue-Ajax-POST方法.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/22.Vue-Ajax-GET方法.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/22.Vue-Ajax-GET方法.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/3.Vue指令.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/3.Vue指令.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/4.Vue-v-model指令.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/4.Vue-v-model指令.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/5.Vue-v-on指令.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/5.Vue-v-on指令.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/6.Vue-过滤器.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/6.Vue-过滤器.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/7.Vue-v-if.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/7.Vue-v-if.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/8.Vue-循环语句.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/8.Vue-循环语句.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/9.1.Vue-计算属性computed.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/9.1.Vue-计算属性computed.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/9.Vue-计算属性computed.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/9.Vue-计算属性computed.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/demo.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/demo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/myvue.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/myvue.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/components/temp/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/styles/markdown.css" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/src/styles/markdown.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/test/e2e/runner.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/test/e2e/runner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/test/unit/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/test/unit/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/test/unit/karma.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/vue_test/vue_test/test/unit/karma.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/Realm/WJRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/Realm/WJRealm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/config/MyWebConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/config/MyWebConfigurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/config/ShiroConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/config/ShiroConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/controller/JotterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/controller/JotterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/controller/LibraryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/controller/LibraryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/controller/RoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/dao/AdminMenuDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/dao/AdminMenuDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/dao/AdminPermissionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/dao/AdminPermissionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/dao/AdminRoleDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/dao/AdminRoleDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/dao/AdminRoleMenuDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/dao/AdminRoleMenuDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/dao/AdminRolePermissionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/dao/AdminRolePermissionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/dao/AdminUserRoleDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/dao/AdminUserRoleDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/dao/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/dao/BookDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/dao/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/dao/CategoryDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/dao/JotterArticleDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/dao/JotterArticleDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/error/ErrorConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/error/ErrorConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/exception/DefaultExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/exception/DefaultExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/filter/URLPathMatchingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/filter/URLPathMatchingFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/interceptor/LoginInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/interceptor/LoginInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/pojo/AdminMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/pojo/AdminMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/pojo/AdminPermission.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/pojo/AdminPermission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/pojo/AdminRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/pojo/AdminRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/pojo/AdminRoleMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/pojo/AdminRoleMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/pojo/AdminRolePermission.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/pojo/AdminRolePermission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/pojo/AdminUserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/pojo/AdminUserRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/pojo/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/pojo/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/pojo/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/pojo/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/pojo/JotterArticle.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/pojo/JotterArticle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/pojo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/result/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/result/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/result/ResultCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/result/ResultCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/service/AdminMenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/service/AdminMenuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/service/AdminPermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/service/AdminPermissionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/service/AdminRoleMenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/service/AdminRoleMenuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/service/AdminRolePermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/service/AdminRolePermissionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/service/AdminRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/service/AdminRoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/service/AdminUserRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/service/AdminUserRoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/service/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/service/JotterArticleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/service/JotterArticleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/utils/SpringContextUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/utils/SpringContextUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/java/com/evan/wj/utils/StringUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/resources/static/static/css/app.241aba06d9f97474fe4c41ba100b84f9.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/resources/static/static/css/app.241aba06d9f97474fe4c41ba100b84f9.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/resources/static/static/js/0.4ff4c29842d6f37bf8d5.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/resources/static/static/js/0.4ff4c29842d6f37bf8d5.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/resources/static/static/js/app.8bb0d2b430633359506c.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/resources/static/static/js/app.8bb0d2b430633359506c.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/resources/static/static/js/manifest.bf53d2c12a07b0f954f1.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/resources/static/static/js/manifest.bf53d2c12a07b0f954f1.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue+wj/wj/src/main/resources/white_jotter.sql" beforeDir="false" afterPath="$PROJECT_DIR$/vue+wj/wj/src/main/resources/white_jotter.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1zXP78vcYSXvrNpYleAGncJM6gI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1042699a-8939-4458-9ce4-33d70f349042" name="Default Changelist" comment="" />
+      <created>1634291290304</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1634291290304</updated>
+      <workItem from="1634291291795" duration="149000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

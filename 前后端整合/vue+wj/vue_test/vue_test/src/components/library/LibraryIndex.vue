@@ -13,11 +13,12 @@
 <script>
 import SideMenu from './SideMenu'
 import Books from './Books'
+
 export default {
   name: 'AppLibrary',
   components: {Books, SideMenu},
   methods: {
-    listByCategory () {
+    listByCategory() {
       // debugger
       var _this = this
       var cid = this.$refs.sideMenu.cid

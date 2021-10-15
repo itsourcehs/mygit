@@ -19,20 +19,20 @@ public class JotterArticleService {
     @Autowired
     private JotterArticleDAO jotterArticleDAO;
 
-    public Page list(int page,int size){
-        Sort sort = new Sort(Sort.Direction.DESC,"id");
-        return jotterArticleDAO.findAll(PageRequest.of(page,size,sort));
+    public Page list(int page, int size) {
+        Sort sort = new Sort(Sort.Direction.DESC, "id");
+        return jotterArticleDAO.findAll(PageRequest.of(page, size, sort));
     }
 
-    public void addOrUpdate(JotterArticle article){
+    public void addOrUpdate(JotterArticle article) {
         jotterArticleDAO.save(article);
     }
 
-    public JotterArticle findById(int id){
+    public JotterArticle findById(int id) {
         return jotterArticleDAO.findById(id);
     }
 
-    public void delete(int id){
+    public void delete(int id) {
         jotterArticleDAO.deleteById(id);
     }
 }

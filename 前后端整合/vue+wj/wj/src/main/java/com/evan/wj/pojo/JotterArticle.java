@@ -19,7 +19,7 @@ import java.sql.Date;
 @Entity
 @Table(name = "jotter_article")
 @ToString
-@JsonIgnoreProperties({"handler","hibernateLazyInitializer"})
+@JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
 public class JotterArticle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +33,7 @@ public class JotterArticle {
     private String articleContentMd;
     private String articleAbstract;
     private String articleCover;
-//    private Date articleDate; 解决前端传递的字段类型与后端给定的Date类型不一致
+    //    private Date articleDate; 解决前端传递的字段类型与后端给定的Date类型不一致
     private String articleDate;
 
 }

@@ -32,11 +32,11 @@ public class URLPathMatchingFilter extends PathMatchingFilter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
         //1.放行options请求
-        if(HttpMethod.OPTIONS.toString().equals(req.getMethod())){
+        if (HttpMethod.OPTIONS.toString().equals(req.getMethod())) {
             res.setStatus(HttpStatus.NO_CONTENT.value());
             return true;
         }
-        if(null == adminPermissionService){
+        if (null == adminPermissionService) {
             adminPermissionService = SpringContextUtils.getContext()
                     .getBean(AdminPermissionService.class);
         }
@@ -44,34 +44,34 @@ public class URLPathMatchingFilter extends PathMatchingFilter {
         System.out.println("访问接口:" + api);
 
         Subject subject = SecurityUtils.getSubject();
-        if(!subject.isAuthenticated()){
+        if (!subject.isAuthenticated()) {
             System.out.println("需要登录");
             return false;
         }
         //判断访问接口是否需要过滤(数据库是否有对应信息)
         boolean b = adminPermissionService.needFilter(api);
-        if(!b){
+        if (!b) {
             System.out.println("接口:" + api + "无需权限");
             return true;
-        }else {
+        } else {
             System.out.println("验证访问权限:" + api);
             //判断当前用户是否有相应权限
             boolean hasPermission = false;
             String username = subject.getPrincipal().toString();
             Set<String> permissionAPIs = adminPermissionService.listPermissionURLsByUser(username);
-            for(String Api : permissionAPIs){
-                if(Api.equals(api)){
+            for (String Api : permissionAPIs) {
+                if (Api.equals(api)) {
                     hasPermission = true;
                     break;
                 }
             }
-        if(hasPermission){
-            System.out.println("访问权限:" + api + "验证成功");
-            return true;
-        }else {
-            System.out.println("当前用户没有访问接口:" + api + "的权限");
-            return false;
-        }
+            if (hasPermission) {
+                System.out.println("访问权限:" + api + "验证成功");
+                return true;
+            } else {
+                System.out.println("当前用户没有访问接口:" + api + "的权限");
+                return false;
+            }
         }
     }
 }

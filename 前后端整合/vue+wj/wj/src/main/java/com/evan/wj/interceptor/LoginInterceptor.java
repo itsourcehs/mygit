@@ -39,22 +39,22 @@ public class LoginInterceptor implements HandlerInterceptor {
         /*
          * 放行options请求,否则无法让前端带上自定义的header信息,导致sessionId改变,shiro验证失败
          */
-        if(HttpMethod.OPTIONS.toString().equals(request.getMethod())){
+        if (HttpMethod.OPTIONS.toString().equals(request.getMethod())) {
             response.setStatus(HttpStatus.NO_CONTENT.value());
             return true;
         }
         Subject subject = SecurityUtils.getSubject();
         //使用shiro验证
-        if(!subject.isAuthenticated() && !subject.isRemembered()){
+        if (!subject.isAuthenticated() && !subject.isRemembered()) {
             return false;
         }
         return true;
     }
 
-    private boolean begingWith(String page,String[] requiredAuthPages) {
+    private boolean begingWith(String page, String[] requiredAuthPages) {
         boolean result = false;
-        for(String requiredAuthPage : requiredAuthPages){
-            if(StringUtils.startsWith(page,requiredAuthPage)){
+        for (String requiredAuthPage : requiredAuthPages) {
+            if (StringUtils.startsWith(page, requiredAuthPage)) {
                 result = !result;
                 break;
             }

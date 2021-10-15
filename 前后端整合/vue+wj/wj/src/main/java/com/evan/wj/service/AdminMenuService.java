@@ -28,22 +28,22 @@ public class AdminMenuService {
     private AdminRoleMenuService adminRoleMenuService;
 
 
-    public List<AdminMenu> getAllByParentId(int parentId){
+    public List<AdminMenu> getAllByParentId(int parentId) {
         return adminMenuDAO.findAllByParentId(parentId);
     }
 
-    public List<AdminMenu> getMenusByCurrentUser(){
+    public List<AdminMenu> getMenusByCurrentUser() {
         String username = SecurityUtils.getSubject().getPrincipal().toString();
         User user = userService.getByName(username);
         // 通过userId获取到user_role表中的rid
         List<Integer> rids = adminUserRoleService.listAllByUid(user.getId())
                 .stream()
-                .map(AdminUserRole ::getRid)
+                .map(AdminUserRole::getRid)
                 .collect(Collectors.toList());
         // 通过rid获取到role_menu表中对应的mid列表
         List<Integer> menuIds = adminRoleMenuService.findAllByRidIn(rids)
                 .stream()
-                .map(AdminRoleMenu ::getMid)
+                .map(AdminRoleMenu::getMid)
                 .collect(Collectors.toList());
         // 通过mid列表获取到menu表中对应的id列表
         List<AdminMenu> menus = adminMenuDAO.findAllById(menuIds)
@@ -68,10 +68,10 @@ public class AdminMenuService {
     /*
      * 通过rid获取到对应的菜单列表
      */
-    public List<AdminMenu> getMenusByRoleId(int rid){
+    public List<AdminMenu> getMenusByRoleId(int rid) {
         List<Integer> menuIds = adminRoleMenuService.findAllByRid(rid)
                 .stream()
-                .map(AdminRoleMenu :: getMid)
+                .map(AdminRoleMenu::getMid)
                 .collect(Collectors.toList());
 
         List<AdminMenu> menus = adminMenuDAO.findAllById(menuIds);

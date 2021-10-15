@@ -46,14 +46,14 @@ public class RoleController {
      */
     @GetMapping("/api/admin/role")
     @ResponseBody
-    public List<AdminRole> listRoles(){
+    public List<AdminRole> listRoles() {
         //return adminRoleDAO.findAll();
         return adminRoleService.listWithPermsAndMenus();
     }
 
     @PutMapping("/api/admin/role")
     @ResponseBody
-    public Result editRole(@RequestBody AdminRole requestRole){
+    public Result editRole(@RequestBody AdminRole requestRole) {
         adminRoleService.addOrUpdate(requestRole);
         adminRolePermissionService.savePermChanges(requestRole.getId(), requestRole.getPerms());
         String message = "修改角色信息成功";
@@ -61,28 +61,28 @@ public class RoleController {
     }
 
 
-        /*
-         * 查询所有功能配置列表
-         */
-        @GetMapping("/api/admin/role/perm")
-        @ResponseBody
-        public List<AdminPermission> listPerms(){
-            return adminPermissionDAO.findAll();
-        }
+    /*
+     * 查询所有功能配置列表
+     */
+    @GetMapping("/api/admin/role/perm")
+    @ResponseBody
+    public List<AdminPermission> listPerms() {
+        return adminPermissionDAO.findAll();
+    }
 
-        /*
-         * 查询出所有菜单配置列表
-         */
-        @GetMapping("/api/admin/role/menu")
-        @ResponseBody
-        public List<AdminMenu> listMenus(){
-            List<AdminMenu> menus = adminMenuService.getMenusByRoleId(1);
+    /*
+     * 查询出所有菜单配置列表
+     */
+    @GetMapping("/api/admin/role/menu")
+    @ResponseBody
+    public List<AdminMenu> listMenus() {
+        List<AdminMenu> menus = adminMenuService.getMenusByRoleId(1);
         return menus;
     }
 
     @PutMapping("/api/admin/role/menu")
     @ResponseBody
-    public void updateRoleMenu(@RequestParam int rid, @RequestBody Map<String,List<Integer>> menusIds){
-        adminRoleMenuService.updateRoleMenu(rid,menusIds);
+    public void updateRoleMenu(@RequestParam int rid, @RequestBody Map<String, List<Integer>> menusIds) {
+        adminRoleMenuService.updateRoleMenu(rid, menusIds);
     }
 }

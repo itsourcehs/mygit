@@ -10,9 +10,9 @@
     </el-row>
     <el-row>
       <el-input
-      v-model="article.articleTitle"
-      style="margin: 10px 0px;font-size: 18px"
-      placehplder="请输入标题"></el-input>
+        v-model="article.articleTitle"
+        style="margin: 10px 0px;font-size: 18px"
+        placehplder="请输入标题"></el-input>
     </el-row>
     <el-row style="height: calc(100vh - 140px)">
       <mavon-editor
@@ -20,23 +20,23 @@
         style="height: 100%"
         @save="saveArticles"
         font-size="16px"
-      ref=md>
+        ref=md>
         <button
-        type="button"
-        class="op-icon el-icon-document"
-        :title="'摘要/封面'" slot="left-toolbar-after"
-        @click="dialogVisible = true"></button>
+          type="button"
+          class="op-icon el-icon-document"
+          :title="'摘要/封面'" slot="left-toolbar-after"
+          @click="dialogVisible = true"></button>
       </mavon-editor>
       <el-dialog
-      :visible.sync="dialogVisible"
-      width="30%">
+        :visible.sync="dialogVisible"
+        width="30%">
         <el-divider content-position="left">摘要</el-divider>
         <el-input
-        type="textarea"
-        v-model="article.articleAbstract"
-        rows="6"
-        maxlength="255"
-        show-word-limit></el-input>
+          type="textarea"
+          v-model="article.articleAbstract"
+          rows="6"
+          maxlength="255"
+          show-word-limit></el-input>
         <el-divider content-position="left">封面</el-divider>
         <div style="margin-top: 20px">
           <el-input v-model="article.articleCover" autocomplete="off" placeholder="图片 URL"></el-input>
@@ -54,22 +54,23 @@
 
 <script>
 import ImgUpload from '../../common/ImgUpload'
+
 export default {
   name: 'ArticleEditor',
   components: {ImgUpload},
-  data () {
+  data() {
     return {
       article: {},
       dialogVisible: false
     }
   },
-  mounted () {
+  mounted() {
     if (this.$route.params.article) {
       this.article = this.$route.params.article
     }
   },
   methods: {
-    saveArticles (value, render) {
+    saveArticles(value, render) {
       // value 是 md，render 是 html
       this.$confirm('是否保存并发布文章', '提示', {
         confirmButtonText: '确定',
@@ -100,10 +101,10 @@ export default {
         })
       })
     },
-    uploadImg () {
+    uploadImg() {
       this.article.articleCover = this.$refs.imgUpload.url
     },
-    formatTime () {
+    formatTime() {
       let date = new Date()
       let year = date.getFullYear()
       let month = date.getMonth() + 1

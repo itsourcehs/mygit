@@ -29,9 +29,10 @@ import java.util.Map;
 @Configuration
 public class ShiroConfiguration {
     @Bean
-    public static LifecycleBeanPostProcessor getLifecycleBeanPostProcessor(){
+    public static LifecycleBeanPostProcessor getLifecycleBeanPostProcessor() {
         return new LifecycleBeanPostProcessor();
     }
+
     /*
 
     @Bean
@@ -42,33 +43,36 @@ public class ShiroConfiguration {
     }
      */
     @Bean
-    public SecurityManager securityManager(){
+    public SecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         securityManager.setRealm(getWJRealm());
         return securityManager;
     }
+
     @Bean
-    public WJRealm getWJRealm(){
+    public WJRealm getWJRealm() {
         WJRealm wjRealm = new WJRealm();
         wjRealm.setCredentialsMatcher(hashedCredentialsMatcher());
         return wjRealm;
     }
+
     @Bean
-    public HashedCredentialsMatcher hashedCredentialsMatcher(){
+    public HashedCredentialsMatcher hashedCredentialsMatcher() {
         HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
         hashedCredentialsMatcher.setHashAlgorithmName("md5");
         hashedCredentialsMatcher.setHashIterations(2);
         return hashedCredentialsMatcher;
     }
+
     @Bean
-    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager){
+    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
         AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
         authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
         return authorizationAttributeSourceAdvisor;
     }
 
     @Bean
-    public CookieRememberMeManager cookieRememberMeManager(){
+    public CookieRememberMeManager cookieRememberMeManager() {
         CookieRememberMeManager cookieObject = new CookieRememberMeManager();
         cookieObject.setCookie(rememberMeCookie());
         cookieObject.setCipherKey(Base64.decode("6ZmI6I2j5Y+R5aSn5ZOlAA=="));
@@ -76,29 +80,31 @@ public class ShiroConfiguration {
     }
 
     @Bean
-    public SimpleCookie rememberMeCookie(){
+    public SimpleCookie rememberMeCookie() {
         SimpleCookie cookie = new SimpleCookie("rememberMe");
         cookie.setMaxAge(259200000);
         return cookie;
     }
-    public URLPathMatchingFilter getURLPathMatchingFilter(){
+
+    public URLPathMatchingFilter getURLPathMatchingFilter() {
         return new URLPathMatchingFilter();
     }
+
     @Bean
-    public ShiroFilterFactoryBean shiroFilter(SecurityManager sm){
+    public ShiroFilterFactoryBean shiroFilter(SecurityManager sm) {
         ShiroFilterFactoryBean sffb = new ShiroFilterFactoryBean();
         sffb.setSecurityManager(sm);
-        Map<String,String> fcdm = new LinkedHashMap<String,String>();
+        Map<String, String> fcdm = new LinkedHashMap<String, String>();
         //1.自定义过滤器设置
         Map<String, Filter> customizedFilter = new HashMap<>();
         //2.自定义过滤器设置,,命名,需要在过滤路径前
-        customizedFilter.put("url",getURLPathMatchingFilter());
+        customizedFilter.put("url", getURLPathMatchingFilter());
         //防鸡贼登录
-        fcdm.put("/api/authentication","authc");
-        fcdm.put("/api/menu","authc");
-        fcdm.put("/api/admin/**","authc");
+        fcdm.put("/api/authentication", "authc");
+        fcdm.put("/api/menu", "authc");
+        fcdm.put("/api/admin/**", "authc");
         //3.自定义过滤器设置-设置过滤路径
-        fcdm.put("/api/admin/**","url");
+        fcdm.put("/api/admin/**", "url");
         //4.启用自定义过滤器
         sffb.setFilters(customizedFilter);
         sffb.setFilterChainDefinitionMap(fcdm);

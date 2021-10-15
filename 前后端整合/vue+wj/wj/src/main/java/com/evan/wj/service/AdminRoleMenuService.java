@@ -23,20 +23,21 @@ public class AdminRoleMenuService {
     @Autowired
     AdminRoleMenuDAO adminRoleMenuDAO;
 
-    public List<AdminRoleMenu> findAllByRid(int rid){
+    public List<AdminRoleMenu> findAllByRid(int rid) {
         return adminRoleMenuDAO.findAllByRid(rid);
     }
-    public List<AdminRoleMenu> findAllByRidIn(List<Integer> rids){
+
+    public List<AdminRoleMenu> findAllByRidIn(List<Integer> rids) {
         return adminRoleMenuDAO.findAllByRidIn(rids); // npe
     }
 
     @Modifying
     @Transactional
-    public void updateRoleMenu(int rid, Map<String,List<Integer>> menuIds){
+    public void updateRoleMenu(int rid, Map<String, List<Integer>> menuIds) {
         //此方法抛出空指针异常
         adminRoleMenuDAO.deleteAllByRid(rid);
         List<AdminRoleMenu> rms = new ArrayList<>();
-        for(Integer mid : menuIds.get("menusIds")){
+        for (Integer mid : menuIds.get("menusIds")) {
             AdminRoleMenu rm = new AdminRoleMenu();
             rm.setMid(mid);
             rm.setRid(rid);

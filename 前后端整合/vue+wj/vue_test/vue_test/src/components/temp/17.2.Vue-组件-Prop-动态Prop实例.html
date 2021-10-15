@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-	</head>
-  <!-- prop 是单向绑定的：当父组件的属性变化时，将传导给子组件，但是不会反过来 -->
-	<body>
-    <div id="app">
-      <ol>
-        <!-- 子组件 -->
-        <todo-item v-for="item in sites" :todo="item"></todo-item>
-      </ol>
-    </div>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+<!-- prop 是单向绑定的：当父组件的属性变化时，将传导给子组件，但是不会反过来 -->
+<body>
+<div id="app">
+  <ol>
+    <!-- 子组件 -->
+    <todo-item v-for="item in sites" :todo="item"></todo-item>
+  </ol>
+</div>
 
-    <script>
-      //注册子组件
-      Vue.component('todo-item',{
-        props:['todo'],
-        template:'<li>{{todo.text}}</li>'
-      })
+<script>
+  //注册子组件
+  Vue.component('todo-item', {
+    props: ['todo'],
+    template: '<li>{{todo.text}}</li>'
+  })
 
-      new Vue({
-         el: '#app',
-          data: {
-            sites:[
-              { text: 'Runoob' },
-              { text: 'Google' },
-              { text: 'Taobao' }]
-          }
-      })
-    </script>
-	</body>
+  new Vue({
+    el: '#app',
+    data: {
+      sites: [
+        {text: 'Runoob'},
+        {text: 'Google'},
+        {text: 'Taobao'}]
+    }
+  })
+</script>
+</body>
 </html>

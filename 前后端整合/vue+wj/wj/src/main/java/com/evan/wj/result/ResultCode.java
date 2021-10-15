@@ -15,6 +15,6 @@ public enum ResultCode {
     public int code;
 
     ResultCode(int code) {
-    this.code = code;
+        this.code = code;
     }
 }

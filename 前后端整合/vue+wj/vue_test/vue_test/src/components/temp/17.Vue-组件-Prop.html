@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-		<title></title>
-	</head>
-  <!--
-    1.子组件接收父组件传递的数据 --- 自定义属性prop
-    2.父组件传递数据给子组件 --- 通过props传递
-    3.子组件需要显式的用props选项声明prop
-      props:
-  -->
-	<body>
-    <div id="app">
-      <child message="hello!"></child>
-    </div>
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+  <title></title>
+</head>
+<!--
+  1.子组件接收父组件传递的数据 --- 自定义属性prop
+  2.父组件传递数据给子组件 --- 通过props传递
+  3.子组件需要显式的用props选项声明prop
+    props:
+-->
+<body>
+<div id="app">
+  <child message="hello!"></child>
+</div>
 
-    <script>
-      //注册
-      Vue.component('child',{
-        //子组件需要显式的用props选项声明prop
-        props:['message'] ,//这里的prop指代message
-        // 同样可以在vm实例中像"this.message"这样使用
-        template:'<span>{{message}}</span>'
-      })
-      //创建根实例
-      new Vue({
-        el:"#app",
-      })
-    </script>
-	</body>
+<script>
+  //注册
+  Vue.component('child', {
+    //子组件需要显式的用props选项声明prop
+    props: ['message'],//这里的prop指代message
+    // 同样可以在vm实例中像"this.message"这样使用
+    template: '<span>{{message}}</span>'
+  })
+  //创建根实例
+  new Vue({
+    el: "#app",
+  })
+</script>
+</body>
 </html>

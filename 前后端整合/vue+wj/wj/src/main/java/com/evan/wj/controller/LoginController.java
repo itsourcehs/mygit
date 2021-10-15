@@ -32,9 +32,9 @@ public class LoginController {
     UserService userService;
 
     @CrossOrigin
-    @PostMapping(value="/api/login")
+    @PostMapping(value = "/api/login")
     @ResponseBody
-    public Result login(@RequestBody User requestUser){
+    public Result login(@RequestBody User requestUser) {
         /*// 对html标签转义,防止xss攻击
         String username = HtmlUtils.htmlEscape(requestUser.getUsername());
         User user = userService.get(username, requestUser.getPassword());
@@ -52,10 +52,10 @@ public class LoginController {
         try {
             subject.login(token);
             return ResultFactory.buildSuccessResult(username);
-        }catch (IncorrectCredentialsException e){
+        } catch (IncorrectCredentialsException e) {
             String message = "账号或密码错误";
             return ResultFactory.buildFailResult(message);
-        }catch (UnknownAccountException e ){
+        } catch (UnknownAccountException e) {
             return ResultFactory.buildFailResult("账号不存在");
         }
     }
@@ -63,18 +63,18 @@ public class LoginController {
     @CrossOrigin
     @PostMapping("/api/register")
     @ResponseBody
-    public Result register(@RequestBody User user){
+    public Result register(@RequestBody User user) {
         //思路: 加盐再2次hash
         String username = user.getUsername();
         String password = user.getPassword();
-        if(StringUtils.isEmpty(username) || StringUtils.isEmpty(password)){
+        if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
             String message = "用户名或密码不能为空";
             return ResultFactory.buildFailResult(message);
         }
         username = HtmlUtils.htmlEscape(username);
         user.setUsername(username);
         Boolean exist = userService.isExist(username);
-        if(exist){
+        if (exist) {
             String mess = "用户名已被使用";
             return ResultFactory.buildFailResult(mess);
         }
@@ -85,7 +85,7 @@ public class LoginController {
         int times = 2;
         //得到 hash 后的密码
         String encodedPassword = new SimpleHash("md5"
-                ,password,salt,times)
+                , password, salt, times)
                 .toString();
         //存储用户信息,包括 盐salt 与 hash后的密码
         user.setSalt(salt);
@@ -98,7 +98,7 @@ public class LoginController {
     @CrossOrigin
     @GetMapping("/api/logout")
     @ResponseBody
-    public Result logout(){
+    public Result logout() {
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
         return ResultFactory.buildSuccessResult("成功登出");
@@ -107,7 +107,7 @@ public class LoginController {
     @CrossOrigin
     @GetMapping("/api/authentication")
     @ResponseBody
-    public String authentication(){
+    public String authentication() {
         return "身份认证成功";
     }
 }

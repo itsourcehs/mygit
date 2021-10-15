@@ -1,94 +1,99 @@
 <template>
-<div>
-  <el-row style="margin: 18px 0px 0px 18px">
-    <el-breadcrumb separator-class="el-icon-arrow-right">
-      <el-breadcrumb-item :to="{path: '/admin'}">管理中心</el-breadcrumb-item>
-      <el-breadcrumb-item>内容管理</el-breadcrumb-item>
-      <el-breadcrumb-item>文章管理</el-breadcrumb-item>
-    </el-breadcrumb>
-  </el-row>
-  <el-link class="add-link" target="_blank" :underline="false" href="/admin/content/editor"><el-button type="success">写文章</el-button></el-link>
-  <el-card style="margin: 18px 2%;width: 95%">
-    <el-table
-    :data="articles"
-    stripe
-    style="width: 100%"
-    :max-height="tableHeight">
-      <el-table-column type="selection" width="55"
-      show-overflow-tooltip></el-table-column>
-      <el-table-column type="expand">
-        <template slot-scope="props">
-          <el-form label-position="left" inline>
-            <el-form-item>
-              <span>{{props.row.articleAbstract}}</span>
-            </el-form-item>
-          </el-form>
-        </template>
-      </el-table-column>
-      <el-table-column
-      prop="articleTitle"
-      label="题目(展开查看摘要)"
-      fit>
-      </el-table-column>
-      <el-table-column
-      prop="articleDate"
-      label="发布时间"
-      width="200">
-      </el-table-column>
-      <el-table-column
-      fixed="right"
-      label="操作"
-      width="180">
-        <template slot-scope="scope">
-          <el-button
-          @click.native.prevent="viewArticle(scope.row.id)"
-          type="text"
-          size="small">查看</el-button>
-          <el-button
-          @click.native.prevent="editArticle(scope.row)"
-          type="text"
-          size="small">编辑</el-button>
-          <el-button
-          @click.native.prevent="deleteArticle(scope.row.id)"
-          type="text"
-          size="small">移除</el-button>
-        </template>
-      </el-table-column>
-    </el-table>
-    <div style="margin: 20px 0 20px 0;float: left">
-      <el-pagination
-        background
-        style="float: right;"
-        layout="total, prev, pager, next, jumper"
-        @current-change="handleCurrentChange"
-        :page-size="pageSize"
-        :total="total">
-      </el-pagination>
-    </div>
-  </el-card>
-</div>
+  <div>
+    <el-row style="margin: 18px 0px 0px 18px">
+      <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item :to="{path: '/admin'}">管理中心</el-breadcrumb-item>
+        <el-breadcrumb-item>内容管理</el-breadcrumb-item>
+        <el-breadcrumb-item>文章管理</el-breadcrumb-item>
+      </el-breadcrumb>
+    </el-row>
+    <el-link class="add-link" target="_blank" :underline="false" href="/admin/content/editor">
+      <el-button type="success">写文章</el-button>
+    </el-link>
+    <el-card style="margin: 18px 2%;width: 95%">
+      <el-table
+        :data="articles"
+        stripe
+        style="width: 100%"
+        :max-height="tableHeight">
+        <el-table-column type="selection" width="55"
+                         show-overflow-tooltip></el-table-column>
+        <el-table-column type="expand">
+          <template slot-scope="props">
+            <el-form label-position="left" inline>
+              <el-form-item>
+                <span>{{props.row.articleAbstract}}</span>
+              </el-form-item>
+            </el-form>
+          </template>
+        </el-table-column>
+        <el-table-column
+          prop="articleTitle"
+          label="题目(展开查看摘要)"
+          fit>
+        </el-table-column>
+        <el-table-column
+          prop="articleDate"
+          label="发布时间"
+          width="200">
+        </el-table-column>
+        <el-table-column
+          fixed="right"
+          label="操作"
+          width="180">
+          <template slot-scope="scope">
+            <el-button
+              @click.native.prevent="viewArticle(scope.row.id)"
+              type="text"
+              size="small">查看
+            </el-button>
+            <el-button
+              @click.native.prevent="editArticle(scope.row)"
+              type="text"
+              size="small">编辑
+            </el-button>
+            <el-button
+              @click.native.prevent="deleteArticle(scope.row.id)"
+              type="text"
+              size="small">移除
+            </el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+      <div style="margin: 20px 0 20px 0;float: left">
+        <el-pagination
+          background
+          style="float: right;"
+          layout="total, prev, pager, next, jumper"
+          @current-change="handleCurrentChange"
+          :page-size="pageSize"
+          :total="total">
+        </el-pagination>
+      </div>
+    </el-card>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'ArticleManagement',
-  data () {
+  data() {
     return {
       articles: [],
       pageSize: 10,
       total: 0
     }
   },
-  mounted () {
+  mounted() {
     this.loadArticles()
   },
   computed: {
-    tableHeight () {
+    tableHeight() {
       return window.innerHeight - 320
     }
   },
   methods: {
-    loadArticles () {
+    loadArticles() {
       var _this = this
       this.$axios.get('/article/' + this.pageSize + '/1').then(resp => {
         if (resp && resp.status === 200) {
@@ -97,7 +102,7 @@ export default {
         }
       })
     },
-    handleCurrentChange (page) {
+    handleCurrentChange(page) {
       var _this = this
       this.$axios.get('/article/' + this.pageSize + '/' + page).then(resp => {
         if (resp && resp.status === 200) {
@@ -106,7 +111,7 @@ export default {
         }
       })
     },
-    viewArticle (id) {
+    viewArticle(id) {
       let articleUrl = this.$router.resolve({
         path: '../../jotter/article',
         query: {
@@ -115,7 +120,7 @@ export default {
       })
       window.open(articleUrl.href, '_blank')
     },
-    editArticle (article) {
+    editArticle(article) {
       this.$router.push({
         name: 'Editor',
         params: {
@@ -123,7 +128,7 @@ export default {
         }
       })
     },
-    deleteArticle (id) {
+    deleteArticle(id) {
       this.$confirm('此操作将永久删除该文章, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
@@ -151,5 +156,8 @@ export default {
 </script>
 
 <style scoped>
-.add-link {margin: 18px 0 15px 10px;float: left;}
+.add-link {
+  margin: 18px 0 15px 10px;
+  float: left;
+}
 </style>

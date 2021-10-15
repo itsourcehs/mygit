@@ -6,22 +6,22 @@
   <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 </head>
 <body>
-  <div id="app">
-    <p style="font-size: 25px">计数器: {{counter}}</p>
-    <button @click= "counter++" style="font-size: 25px">点击+1</button>
-  </div>
+<div id="app">
+  <p style="font-size: 25px">计数器: {{counter}}</p>
+  <button @click="counter++" style="font-size: 25px">点击+1</button>
+</div>
 
-  <script type="text/javascript">
-    var vm = new Vue({
-      el: '#app',
-      data: {
-        counter: 1
-      },
-    });
-    vm.$watch('counter', function(nval, oval) {
-      alert('计数器值的变化 :' + oval + ' 变为 ' + nval + '!');
-    });
+<script type="text/javascript">
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      counter: 1
+    },
+  });
+  vm.$watch('counter', function (nval, oval) {
+    alert('计数器值的变化 :' + oval + ' 变为 ' + nval + '!');
+  });
 
-  </script>
+</script>
 </body>
 </html>

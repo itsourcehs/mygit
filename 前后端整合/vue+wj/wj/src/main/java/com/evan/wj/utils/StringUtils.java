@@ -9,13 +9,13 @@ import java.util.Random;
  * @Created by 123456
  */
 public class StringUtils {
-    public static String getRandomString(int length){
+    public static String getRandomString(int length) {
         String base = "abcdefghigklmno" +
                 "pqrstuvwxyz" +
                 "0123456789";
         Random random = new Random();
         StringBuffer sb = new StringBuffer();
-        for(int i=0;i<length;i++){
+        for (int i = 0; i < length; i++) {
             int num = random.nextInt(base.length());
             sb.append(base.charAt(num));
         }

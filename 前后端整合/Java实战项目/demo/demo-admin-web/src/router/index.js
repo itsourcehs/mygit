@@ -6,17 +6,17 @@ Vue.use(Router)
 
 export const constantRouterMap = [
 	{path: '/login', component: () => import('@/views/login/index'), hidden: true},
-	{
-	    path: '',
-	    component: Layout,
-	    redirect: '/home',
-	    children: [{
-	      path: 'home',
-	      name: 'home',
-	      component: () => import('@/views/home/home'),
-	      meta: {title: '首页', icon: 'home'}
-	    }]
-	}
+	// {
+	//     path: '',
+	//     component: Layout,
+	//     redirect: '/home',
+	//     children: [{
+	//       path: 'home',
+	//       name: 'home',
+	//       component: () => import('@/views/home/home'),
+	//       meta: {title: '首页', icon: 'home'}
+	//     }]
+	// }
 ]
 
 export default new Router({

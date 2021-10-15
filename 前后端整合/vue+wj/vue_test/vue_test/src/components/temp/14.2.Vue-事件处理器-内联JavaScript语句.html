@@ -7,22 +7,22 @@
 </head>
 <body>
 
-  <div id="app">
-    <button v-on:click="say('hi')">Say hi</button>
-    <button v-on:click="say('what')">Say what</button>
-  </div>
+<div id="app">
+  <button v-on:click="say('hi')">Say hi</button>
+  <button v-on:click="say('what')">Say what</button>
+</div>
 
-  <script>
-    new Vue({
-      el: '#app',
-      methods: {
-        say: function (message) {
-          alert(message)
-        }
+<script>
+  new Vue({
+    el: '#app',
+    methods: {
+      say: function (message) {
+        alert(message)
       }
-    })
+    }
+  })
 
-  </script>
+</script>
 
 </body>
 </html>

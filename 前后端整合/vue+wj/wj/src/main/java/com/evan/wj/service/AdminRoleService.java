@@ -31,26 +31,26 @@ public class AdminRoleService {
     @Resource
     private AdminMenuService adminMenuService;
 
-    public List<AdminRole> listRolesByUser(String username){
+    public List<AdminRole> listRolesByUser(String username) {
         int uid = userService.getByName(username).getId();
         List<Integer> rids = adminUserRoleService.listAllByUid(uid)
                 .stream()
-                .map(AdminUserRole :: getRid)
+                .map(AdminUserRole::getRid)
                 .collect(Collectors.toList());
 
         return adminRoleDAO.findAllById(rids);
     }
 
-    public void addOrUpdate(AdminRole adminRole){
+    public void addOrUpdate(AdminRole adminRole) {
         adminRoleDAO.save(adminRole);
     }
 
 
-    public List<AdminRole> listWithPermsAndMenus(){
+    public List<AdminRole> listWithPermsAndMenus() {
         List<AdminRole> roles = adminRoleDAO.findAll();
         List<AdminPermission> perms;
         List<AdminMenu> menus;
-        for(AdminRole role : roles){
+        for (AdminRole role : roles) {
             perms = adminPermissionService.listPermsByRoleId(role.getId());
             menus = adminMenuService.getMenusByRoleId(role.getId());
             role.setPerms(perms);

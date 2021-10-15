@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
-	</head>
-  <!--
-    1.自定义过渡的类名优先级高于普通的类名
-    2.这样就能很好的与第三方（如：animate.css）的动画库结合使用
-    3.特性:
-      enter-class
-      enter-active-class
-      enter-to-class (2.1.8+)
-      leave-class
-      leave-active-class
-      leave-to-class (2.1.8+)
-  -->
-	<body>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+</head>
+<!--
+  1.自定义过渡的类名优先级高于普通的类名
+  2.这样就能很好的与第三方（如：animate.css）的动画库结合使用
+  3.特性:
+    enter-class
+    enter-active-class
+    enter-to-class (2.1.8+)
+    leave-class
+    leave-active-class
+    leave-to-class (2.1.8+)
+-->
+<body>
 
-    <div id="app">
-      <button @click="show = !show">点击</button>
-      <transition name="custom-classes-transition" enter-active-class="animated tada" leave-active-class="animated bounceOutRight">
-        <p v-if="show">菜鸟教程</p>
-      </transition>
-      
-    </div>
+<div id="app">
+  <button @click="show = !show">点击</button>
+  <transition name="custom-classes-transition" enter-active-class="animated tada"
+              leave-active-class="animated bounceOutRight">
+    <p v-if="show">菜鸟教程</p>
+  </transition>
 
-    <script>
-      new Vue({
-        el:"#app",
-        data:{
-          show:true
-        }
-      })
-    </script>
-	</body>
+</div>
+
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      show: true
+    }
+  })
+</script>
+</body>
 </html>

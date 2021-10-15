@@ -1,8 +1,9 @@
 <template>
-  <el-menu :default-active="this.$route.path" router mode="horizontal" background-color="white" text-color="#222" active-text-color="red" style="min-width: 1300px;">
+  <el-menu :default-active="this.$route.path" router mode="horizontal" background-color="white" text-color="#222"
+           active-text-color="red" style="min-width: 1300px;">
     <el-menu-item v-for="(item,i) in navList" :key="i" :index="item.name">{{item.navItem}}</el-menu-item>
-<!--    <a href="#nowhere" style="color: #222;float: right;padding: 20px;">更多功能</a>-->
-<!--    <i class="el-icon-switch-button" @click="logout" style="float: right;font-size: 45px;color: #222;padding: 10px;"></i>-->
+    <!--    <a href="#nowhere" style="color: #222;float: right;padding: 20px;">更多功能</a>-->
+    <!--    <i class="el-icon-switch-button" @click="logout" style="float: right;font-size: 45px;color: #222;padding: 10px;"></i>-->
     <span style="position: absolute;padding-top: 20px;right: 43%;font-size: 20px;font-weight: bold;">White Jotter - Your Mind Palace</span>
   </el-menu>
 </template>
@@ -10,7 +11,7 @@
 <script>
 export default {
   name: 'NavMenu',
-  data () {
+  data() {
     return {
       navList: [
         {name: '/index', navItem: '首页'},
@@ -21,7 +22,7 @@ export default {
     }
   },
   methods: {
-    logout () {
+    logout() {
       var _this = this
       this.$axios.get('/logout')
         .then(res => {
@@ -29,20 +30,23 @@ export default {
             _this.$store.commit('logout')
             _this.$router.replace('/login')
           }
-        }).catch(failResponse => {})
+        }).catch(failResponse => {
+      })
     }
   }
 }
 </script>
 
 <style scoped>
-a{
+a {
   text-decoration: none;
 }
-span{
+
+span {
   pointer-events: none;
 }
-.el-icon-switch-button{
+
+.el-icon-switch-button {
   cursor: pointer;
   outline: 0;
 }

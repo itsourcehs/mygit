@@ -1,6 +1,9 @@
 package com.evan.wj.pojo;
+
 import javax.persistence.*;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * @Classname Book
  * @Description TODO
@@ -10,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "book")
-@JsonIgnoreProperties({"handler","hibernateLazyInitializer"})
+@JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -9,6 +9,7 @@ import LibraryIndex from '@/components/library/LibraryIndex'
 import Register from '@/components/Register'
 import AdminIndex from '@/components/admin/AdminIndex'
 import ArticleEditor from '@/components/admin/content/ArticleEditor'
+
 Vue.use(Router)
 
 export default new Router({

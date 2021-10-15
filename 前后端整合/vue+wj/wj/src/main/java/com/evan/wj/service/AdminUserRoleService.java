@@ -22,7 +22,7 @@ public class AdminUserRoleService {
     @Autowired
     private AdminUserRoleDAO adminUserRoleDAO;
 
-    public List<AdminUserRole> listAllByUid(int uid){
+    public List<AdminUserRole> listAllByUid(int uid) {
         return adminUserRoleDAO.findAllByUid(uid);
     }
 
@@ -30,7 +30,7 @@ public class AdminUserRoleService {
      * 修改admin_user_role表中的内容
      */
     @Transactional
-    public void saveRoleChanges(int uid, List<AdminRole> roles){
+    public void saveRoleChanges(int uid, List<AdminRole> roles) {
         //1.删除原有用户对应的行
         adminUserRoleDAO.deleteAllByUid(uid);
         //2.再根据新传递的数据做插入操作

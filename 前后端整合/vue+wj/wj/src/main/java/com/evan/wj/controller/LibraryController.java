@@ -25,40 +25,40 @@ public class LibraryController {
 
     @GetMapping("/api/books")
     @ResponseBody
-    public List<Book> list() throws Exception{
+    public List<Book> list() throws Exception {
         return service.list();
     }
 
     @PostMapping("/api/books")
     @ResponseBody
-    public Book addOrUpdate(@RequestBody Book book) throws Exception{
+    public Book addOrUpdate(@RequestBody Book book) throws Exception {
         service.addOrUpdate(book);
         return book;
     }
 
     @PostMapping("/api/delete")
     @ResponseBody
-    public void delete(@RequestBody Book book) throws Exception{
+    public void delete(@RequestBody Book book) throws Exception {
         service.deleteById(book.getId());
     }
 
     @GetMapping("/api/categories/{cid}/books")
     @ResponseBody
-    public List<Book> listByCategory(@PathVariable("cid") int cid) throws Exception{
-        if(0 != cid){
+    public List<Book> listByCategory(@PathVariable("cid") int cid) throws Exception {
+        if (0 != cid) {
             return service.listByCategory(cid);
-        }else {
+        } else {
             return list();
         }
     }
 
     @GetMapping("/api/search")
     @ResponseBody
-    public List<Book> searchResult(@RequestParam("keywords") String keywords){
+    public List<Book> searchResult(@RequestParam("keywords") String keywords) {
         //关键字为空时查询出所有书籍
-        if("".equals(keywords)){
+        if ("".equals(keywords)) {
             return service.list();
-        }else {
+        } else {
             return service.Search(keywords);
         }
     }
@@ -66,20 +66,20 @@ public class LibraryController {
     @PostMapping("/api/covers")
     @CrossOrigin
     @ResponseBody
-    public String coversUpload(MultipartFile file) throws Exception{
+    public String coversUpload(MultipartFile file) throws Exception {
         File imageFolder = new File("D:/workspace/img");
         //获取的是文件的完整名称，包括文件名称+文件拓展名
         String f1 = file.getOriginalFilename();
         String str = StringUtils.getRandomString(6);
-        File f = new File(imageFolder,str +
+        File f = new File(imageFolder, str +
                 f1.substring(f1.length() - 4));
-        if(!f.getParentFile().exists())
+        if (!f.getParentFile().exists())
             f.getParentFile().mkdirs();
         try {
             file.transferTo(f);
             String imgURL = "http://localhost:8443/api/file/" + f.getName();
             return imgURL;
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
             return "";
         }

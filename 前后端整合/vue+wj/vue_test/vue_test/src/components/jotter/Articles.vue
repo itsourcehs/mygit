@@ -5,9 +5,11 @@
       <el-card style="text-align: left">
         <div v-for="article in articles" :key="article.id">
           <div style="float:left;width:85%;height: 150px;">
-            <router-link class="article-link" :to="{path:'jotter/article',query:{id: article.id}}"><span style="font-size: 20px"><strong>{{article.articleTitle}}</strong></span></router-link>
+            <router-link class="article-link" :to="{path:'jotter/article',query:{id: article.id}}"><span
+              style="font-size: 20px"><strong>{{article.articleTitle}}</strong></span></router-link>
             <el-divider content-position="left">{{article.articleDate}}</el-divider>
-            <router-link class="article-link" :to="{path:'jotter/article',query:{id: article.id}}"><p>{{article.articleAbstract}}</p></router-link>
+            <router-link class="article-link" :to="{path:'jotter/article',query:{id: article.id}}"><p>
+              {{article.articleAbstract}}</p></router-link>
           </div>
           <el-image
             style="margin:18px 0 0 30px;width:100px;height: 100px"
@@ -30,18 +32,18 @@
 <script>
 export default {
   name: 'Articles',
-  data () {
+  data() {
     return {
       articles: [],
       pageSize: 4,
       total: ''
     }
   },
-  mounted () {
+  mounted() {
     this.loadArticles()
   },
   methods: {
-    loadArticles () {
+    loadArticles() {
       var _this = this
       this.$axios.get('/article/' + this.pageSize + '/1').then(resp => {
         if (resp && resp.status === 200) {
@@ -50,7 +52,7 @@ export default {
         }
       })
     },
-    handleCurrentChange (page) {
+    handleCurrentChange(page) {
       var _this = this
       this.$axios.get('/article/' + this.pageSize + '/' + page)
         .then(res => {

@@ -1,8 +1,11 @@
 package com.example.demo.service;
 
 import com.example.demo.mbg.model.PmsBrand;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service
 public interface PmsBrandService {
 
     //增加品牌信息

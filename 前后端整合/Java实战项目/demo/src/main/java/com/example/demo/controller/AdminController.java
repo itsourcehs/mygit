@@ -13,6 +13,7 @@ public class AdminController {
 
     @PostMapping("/login")
     @ResponseBody
+    @CrossOrigin
     //登录
     public String login(@RequestBody UmsAdminParam umsAdminParam){
         return "1";

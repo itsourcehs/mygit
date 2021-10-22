@@ -87,12 +87,13 @@ export default{
 		
 		// 登录
 		handleLogin () {
-			debugger
+			// debugger
 			this.loading = true
 			// 触发store中actions下Login方法
 			this.$store.dispatch('Login', this.loginForm).then(() => {
 				this.loading = false;
 				this.$router.push({path: '/'})
+				console.log("登录成功");
 			}).catch(() => {this.loading = false})
 			
 		},

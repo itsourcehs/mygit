@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "",
-  "enablePullDownRefresh": true,
-  "navigationBarBackgroundColor": "#a135ff",
-  "usingComponents": {
-    "u-button": "/node-modules/uview-ui/components/u-button/u-button",
-    "my-login": "/components/my-login/my-login"
-  }
-}

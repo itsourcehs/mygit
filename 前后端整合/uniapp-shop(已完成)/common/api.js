@@ -1,4 +1,5 @@
-const BASE_URL = 'http://localhost:8082'
+// const BASE_URL = 'http://localhost:8082'
+const BASE_URL = 'https://www.uinav.com'
 export const myRequest = (options)=>{
 	return new Promise((resolve,reject)=>{
 		uni.request({

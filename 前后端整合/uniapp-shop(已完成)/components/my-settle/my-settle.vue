@@ -31,7 +31,10 @@
 		},
 		data() {
 			return {
-				
+				// 倒计时的秒数
+				seconds: 3,
+				// 定时器的id
+				timer: null
 			};
 		},
 		methods: {
@@ -53,9 +56,41 @@
 				// 2. 再判断用户是否选择了收货地址
 				if (!this.addstr) return uni.$showMsg('请选择收货地址！')
 				
-				// 3. 最后判断用户是否登录了
-				if (!this.token) return uni.$showMsg('请先登录！')
-			}
+				/*
+				 * 3. 最后判断用户是否登录了
+				 * 如果没有登录,预调方法delayNavigate()进行登录页的跳转
+				 */
+				// if (!this.token) return uni.$showMsg('请先登录！')
+				if (!this.token) return this.delayNavigate()
+			},
+			
+			// 展示倒计时的提示消息
+			showTips (number) {
+				// 调用uni.showToast(),展示提示消息
+				uni.showToast({
+					icon: 'none',
+					title: '请登录后再结算!' + number + '秒后自动跳转到登录页',
+					// 为页面添加透明遮罩,防止点击穿透
+					mask: true,
+					duration: 1500
+				})
+				
+			},
+			
+			// 延迟导航到 my 页面
+			delayNavigate () {
+				// 1.展示提示消息 seconds 初始值为3
+				this.showTips(this.seconds)
+				
+				// 2.创建定时器,每秒执行一次
+				setInterval(() => {
+					// 2.1 seconds 递减1
+					this.seconds--
+					// 2.2 再根据最新的秒数进行消息提示
+					this.showTips(this.seconds)
+				}, 1000)
+			},
+			
 		}
 	}
 </script>

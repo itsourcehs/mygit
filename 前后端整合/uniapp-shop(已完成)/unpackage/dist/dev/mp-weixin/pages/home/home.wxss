@@ -33,11 +33,8 @@ swiper image {
   height: 100%;
 }
 .nav-list {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-justify-content: space-around;
-          justify-content: space-around;
+  justify-content: space-around;
   margin: 15rpx 0;
 }
 .nav-list .nav-img {
@@ -47,24 +44,16 @@ swiper image {
 .floor-title {
   height: 60rpx;
   width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
 }
 .floor-img-box {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   padding-left: 10rpx;
 }
 .right-img-box {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-justify-content: space-around;
-          justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 .search-box {
   position: -webkit-sticky;

@@ -3,7 +3,7 @@
             "path" : "pages/home/home",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "商城",
+                "navigationBarTitleText": "首页",
                 "enablePullDownRefresh": false
             }
             

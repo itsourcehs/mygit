@@ -70,7 +70,7 @@
 		      <text>联系客服</text>
 		      <uni-icons type="arrowright" size="15"></uni-icons>
 		    </view>
-		    <view class="panel-list-item">
+		    <view class="panel-list-item" @click="logout">
 		      <text>退出登录</text>
 		      <uni-icons type="arrowright" size="15"></uni-icons>
 		    </view>
@@ -81,7 +81,7 @@
 
 <script>
 	// 按需导入 mapState 辅助函数
-	import { mapState } from 'vuex'
+	import { mapState, mapMutations } from 'vuex'
 	export default {
 		name:"my-userinfo",
 		data() {
@@ -92,6 +92,30 @@
 		computed: {
 			// 将 m_user 模块中的 userinfo 映射到当前页面中使用
 			...mapState('m_user', ['userinfo']),
+		},
+		methods: {
+			...mapMutations('m_user', ['updateUserInfo', 'updateToken', 'updateAddress']),
+			
+			// 退出登录
+			async logout () {
+				// 二次弹窗确认是否退出登录
+				const [err, success] = await uni.showModal({
+					title: '提示',
+					content: '确认退出登录吗?'
+					
+				}).catch(err => err)
+				
+				// 如果点击了确认
+				if (success && success.confirm) {
+					console.log("确定退出登录");
+					// 清空用户信息 vuex中的userinfo address token
+					this.updateUserInfo({})
+					this.updateToken('')
+					this.updateAddress({})
+				}
+			}
+			
+			
 		}
 	}
 </script>

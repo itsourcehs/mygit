@@ -44,23 +44,29 @@
 	"tabBar": {
 		"color":"#272636",
 		"selectedColor":"#00AA00",
+		"midButton": {
+			"width":"80px",
+			"height":"60px",
+			"iconPath":"./static/img/mid-button.png",
+			"backgroundImage":"./static/test.png",
+			"iconWidth":"60px"
+		},
 		"list": [
 			{
 				"pagePath":"pages/index/index",
 				"text":"首页"
 			},
 			{
-				"pagePath":"pages/homemaking/homemaking",
-				"text":"家政"
-			},
-			{
-				"pagePath":"pages/mall/mall",
-				"text":"商圈"
-			},
-			{
 				"pagePath":"pages/my/my",
 				"text":"我的"
 			}
 		]
+	},
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			"lb-tabbar": "uni-lb-tabbar/components/lb-tabbar/lb-tabbar",
+			"lb-tabbar-item": "uni-lb-tabbar/components/lb-tabbar/lb-tabbar-item"
+		}
 	}
 }

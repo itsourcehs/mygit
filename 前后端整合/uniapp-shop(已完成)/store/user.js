@@ -11,7 +11,14 @@ export default {
 		token: uni.getStorageSync('token') || '',
 		
 		// 微信用户基本信息
-		userinfo: JSON.parse(uni.getStorageSync('userinfo') || '{}')
+		userinfo: JSON.parse(uni.getStorageSync('userinfo') || '{}'),
+	
+		/*
+		 * 用于重定向的 object 对象 {openType, from}
+		 * openType: 表示以哪种方式跳转回原页面
+		 * from: 表示原页面的url
+		 */
+		redirectInfo: null
 	}),
 	
 	// 模块的 mutations 方法
@@ -50,6 +57,11 @@ export default {
 		// 将 token 字符串持久化存储到本地
 		saveTokenToStorage (state) {
 			uni.setStorageSync('token', state.token)
+		},
+		
+		// 更新重定向的信息对象
+		updateRedirectInfo (state, info) {
+			state.redirectInfo = info
 		},
 	},
 	

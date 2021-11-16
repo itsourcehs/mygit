@@ -33,13 +33,16 @@
 			return {
 				// 倒计时的秒数
 				seconds: 3,
-				// 定时器的id
-				timer: null
+				// 定时器函数返回值:intervalID,传递给 clearInterval 来取消该定时
+				intervalID: null
 			};
 		},
 		methods: {
 			// 把 m_cart 模块提供的 updateAllGoodsState 方法映射到当前组件中使用
 			...mapMutations('m_cart', ['updateAllGoodsState']),
+			// 把 m_user 模块提供的 updateRedirectInfo 方法映射到当前组件中使用
+			...mapMutations('m_user', ['updateRedirectInfo']),
+			
 			
 			changeAllState () {
 				/* 
@@ -79,13 +82,41 @@
 			
 			// 延迟导航到 my 页面
 			delayNavigate () {
+				// 0.解决多次点击"结算"未重置倒计时秒数
+				this.seconds = 3
 				// 1.展示提示消息 seconds 初始值为3
 				this.showTips(this.seconds)
 				
 				// 2.创建定时器,每秒执行一次
-				setInterval(() => {
+				this.intervalID = setInterval(() => {
 					// 2.1 seconds 递减1
 					this.seconds--
+					
+					// 2.2new 当倒计时的秒数≤0时 终止定时器
+					if (this.seconds <= 0) {
+						// 2.2.1 调用clearInterval(intervalID) 取消定时器
+						clearInterval(this.intervalID)
+						
+						// 2.2.2 跳转到 my 页面
+						uni.switchTab({
+							url: '/pages/my/my',
+							
+							// 2.2.3 页面跳转成功后,执行回调函数,将重定向的信息对象存储到vuex
+							success: () => {
+								// 调用映射过来的 updateRedirectInfo 函数
+								this.updateRedirectInfo({
+									// 跳转方式
+									openType: 'switchTab',
+									// 从哪个页面跳转过去
+									from: '/pages/cart/cart'
+								})
+							}
+						})
+						
+						// 2.3 当秒数等于0时,不再展示toast提示消息
+						return
+					}
+					
 					// 2.2 再根据最新的秒数进行消息提示
 					this.showTips(this.seconds)
 				}, 1000)

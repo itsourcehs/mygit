@@ -2,18 +2,22 @@
 	<view class="login-container">
 		<uni-icons type="contact-filled" size="100" color="#AFAFAF"></uni-icons>
 		<!-- 可以从 @getuserinfo 事件处理函数的形参中，获取到用户的基本信息 -->
-		<button
+		<!-- <button
 		type="primary"
 		class="btn-login"
 		open-type="getUserInfo"
-		@getuserinfo="getUserInfo">一键登录</button>
+		@getuserinfo="getUserInfo">一键登录(弃用)</button> -->
+		<button
+		type="primary"
+		class="btn-login"
+		@tap="getUserProfile">一键登录</button>
 		<view class="tips-text">登录后尽享更多权益</view>
 	</view>
 </template>
 
 <script>
 	// 1. 按需导入 mapMutations 辅助函数
-	import { mapMutations } from 'vuex'
+	import { mapMutations, mapState } from 'vuex'
 	export default {
 		name:"my-login",
 		data() {
@@ -21,8 +25,15 @@
 				
 			};
 		},
+		computed: {
+			// 调用mapState辅助方法,将 m_user 模块中的数据映射到当前组件使用
+			...mapState('m_user', ['redirectInfo']),
+		},
 		methods: {
-			// 获取微信用户的基本信息
+			/*
+			 * 获取微信用户的基本信息(已弃用)
+			 * 微信登录授权调整:https://developers.weixin.qq.com/community/develop/doc/000cacfa20ce88df04cb468bc52801?highLine=login
+			 */
 			getUserInfo (e) {
 				// console.log(e);
 				// 判断是否获取用户信息成功
@@ -34,12 +45,30 @@
 				this.updateUserInfo(e.detail.userInfo)
 				
 				// 获取登录成功后的 Token 字符串
-				// this.getToken(e.detail)
-				this.handleUserInfo(e.detail)
+				this.getToken(e.detail)
+				
 			},
 			
+			// 获取微信用户的基本信息
+			getUserProfile (e) {
+				// 1.调用wx.getUserProfile获取用户信息
+				wx.getUserProfile({
+					desc: '用于测试登录获取基本信息!',
+					success: (res) => {
+						// console.log(res);
+						// 2.将用户的基本信息存储到 vuex 中
+						// console.log(res.userInfo);
+						this.updateUserInfo(res.userInfo)
+						
+						// 3.获取登录成功后的 Token 字符串
+						this.getToken(res)
+					}
+				})
+			},
+			
+			
 			// 把 m_user 模块中的 updateUserInfo 映射到当前组件中使用
-			...mapMutations('m_user', ['updateUserInfo', 'updateToken']),
+			...mapMutations('m_user', ['updateUserInfo', 'updateToken', 'updateRedirectInfo']),
 			
 			async getToken (info) {
 				console.log(info);
@@ -67,51 +96,35 @@
 				const { data: loginResult } = await uni.$http.post('/api/public/v1/users/wxlogin', query)
 				console.log(loginResult);
 				
-				if (loginResult.meta.status !== 200) return uni.$showMsg('登录失败2！')
+				// if (loginResult.meta.status !== 200) return uni.$showMsg('登录失败2！')
 				
 				uni.$showMsg('登录成功')
 				
-				this.updateToken(loginResult.message.token)
+				// this.updateToken(loginResult.message.token)
+				this.updateToken("eyJhb6cioi31UzI1NiJ9") // 假token
+				
+				/*
+				 * 判断 vuex 中 redirectInfo 是否为 null
+				 * 如果不为 null,则登录成功后重新导航到对应的页面 
+				 */
+				this.navigateBack()
+			},
+			
+			// 返回登录前的页面
+			navigateBack () {
+				// 1.如果redirectInfo 不为 null 且导航方式为 switchTab
+				if (this.redirectInfo && this.redirectInfo.openType === 'switchTab') {
+					// 2.调用uni.switchTab()
+					uni.switchTab({
+						url: this.redirectInfo.from,
+						// 导航成功后,把 vuex 中的 redirectInfo 对象重置为 null
+						complete: () => {
+							this.updateRedirectInfo(null)
+						}
+					})
+				}
 			},
 		
-			handleUserInfo(e){
-				console.log(e);
-			    new Promise((resolve, reject) => {
-			        wx.login({
-			          success: (res) => {
-			            let code = res.code; //返回一个code
-			            const loadingParams = {
-			              encryptedData: e.encryptedData,
-			              rawData: e.rawData,
-			              iv: e.iv,
-			              signature: e.signature,
-			              code
-			            }; // 创建一个对象 执行resolve
-			            resolve(loadingParams); // 把创建的对象当作参数
-			          },
-			          fail(err) {
-			            reject(err);
-			          }
-			        })
-			      }).then(res => {  // res 就是resolve 中的参数
-			        console.log(res);
-			        wx.request({
-			          url: 'https://www.uinav.com/api/public/v1/users/wxlogin', // 相当于登录的接口
-			          data: res,
-			          method: 'post',
-			          success(res) { 
-			            // res中一般会包含一个token
-			            // wx.navigateBack({ // 返回上一个页面
-			            //   delta: 1
-			            // });
-						console.log(res);
-			          },
-			          fail(err) {
-			            console.log(err);
-					}
-				})
-			  })
-			},
 		}
 	}
 </script>

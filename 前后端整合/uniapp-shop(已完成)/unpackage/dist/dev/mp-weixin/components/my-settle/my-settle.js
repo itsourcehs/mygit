@@ -149,13 +149,16 @@ var _vuex = __webpack_require__(/*! vuex */ 13);function ownKeys(object, enumera
     return {
       // 倒计时的秒数
       seconds: 3,
-      // 定时器的id
-      timer: null };
+      // 定时器函数返回值:intervalID,传递给 clearInterval 来取消该定时
+      intervalID: null };
 
   },
-  methods: _objectSpread(_objectSpread({},
+  methods: _objectSpread(_objectSpread(_objectSpread({},
 
-  (0, _vuex.mapMutations)('m_cart', ['updateAllGoodsState'])), {}, {
+  (0, _vuex.mapMutations)('m_cart', ['updateAllGoodsState'])),
+
+  (0, _vuex.mapMutations)('m_user', ['updateRedirectInfo'])), {}, {
+
 
     changeAllState: function changeAllState() {
       /* 
@@ -195,13 +198,41 @@ var _vuex = __webpack_require__(/*! vuex */ 13);function ownKeys(object, enumera
 
     // 延迟导航到 my 页面
     delayNavigate: function delayNavigate() {var _this = this;
+      // 0.解决多次点击"结算"未重置倒计时秒数
+      this.seconds = 3;
       // 1.展示提示消息 seconds 初始值为3
       this.showTips(this.seconds);
 
       // 2.创建定时器,每秒执行一次
-      setInterval(function () {
+      this.intervalID = setInterval(function () {
         // 2.1 seconds 递减1
         _this.seconds--;
+
+        // 2.2new 当倒计时的秒数≤0时 终止定时器
+        if (_this.seconds <= 0) {
+          // 2.2.1 调用clearInterval(intervalID) 取消定时器
+          clearInterval(_this.intervalID);
+
+          // 2.2.2 跳转到 my 页面
+          uni.switchTab({
+            url: '/pages/my/my',
+
+            // 2.2.3 页面跳转成功后,执行回调函数,将重定向的信息对象存储到vuex
+            success: function success() {
+              // 调用映射过来的 updateRedirectInfo 函数
+              _this.updateRedirectInfo({
+                // 跳转方式
+                openType: 'switchTab',
+                // 从哪个页面跳转过去
+                from: '/pages/cart/cart' });
+
+            } });
+
+
+          // 2.3 当秒数等于0时,不再展示toast提示消息
+          return;
+        }
+
         // 2.2 再根据最新的秒数进行消息提示
         _this.showTips(_this.seconds);
       }, 1000);

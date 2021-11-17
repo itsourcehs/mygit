@@ -42,19 +42,19 @@
 		    <view class="panel-body">
 		      <!-- 面板主体中的 item 项 -->
 		      <view class="panel-item">
-		        <image src="/static/my-icons/待付款.png" class="icon"></image>
+		        <image src="/static/my-icons/Pending_payment.png" class="icon"></image>
 		        <text>待付款</text>
 		      </view>
 		      <view class="panel-item">
-		        <image src="/static/my-icons/待收货.png" class="icon"></image>
+		        <image src="/static/my-icons/Goods_received.png" class="icon"></image>
 		        <text>待收货</text>
 		      </view>
 		      <view class="panel-item">
-		        <image src="/static/my-icons/退货.png" class="icon"></image>
+		        <image src="/static/my-icons/return_goods.png" class="icon"></image>
 		        <text>退款/退货</text>
 		      </view>
 		      <view class="panel-item">
-		        <image src="/static/my-icons/全部订单.png" class="icon"></image>
+		        <image src="/static/my-icons/All_orders.png" class="icon"></image>
 		        <text>全部订单</text>
 		      </view>
 		    </view>

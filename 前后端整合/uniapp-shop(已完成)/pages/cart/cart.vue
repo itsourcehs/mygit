@@ -34,7 +34,7 @@
 	
 	<!-- 空白购物车区域 -->
 	<view class="empty-cart" v-else>
-		<image src="../../static/空空如也.svg" class="empty-img"></image>
+		<image src="../../static/empty_so.svg" class="empty-img"></image>
 		<text class="tip-text">暂时木有内容呀~ ~</text>
 	</view>
 </template>

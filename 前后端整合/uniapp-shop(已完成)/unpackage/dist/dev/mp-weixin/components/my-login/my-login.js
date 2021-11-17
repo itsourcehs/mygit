@@ -230,7 +230,7 @@ var _vuex = __webpack_require__(/*! vuex */ 13);function _interopRequireDefault(
                   signature: info.signature };
 
 
-                // 换取token
+                // 换取token(云接口存在权限问题,所以使用死数据 token 完成登录及之后的操作)
                 console.log(query);_context.next = 14;return (
                   uni.$http.post('/api/public/v1/users/wxlogin', query));case 14:_yield$uni$$http$post = _context.sent;loginResult = _yield$uni$$http$post.data;
                 console.log(loginResult);
@@ -240,7 +240,7 @@ var _vuex = __webpack_require__(/*! vuex */ 13);function _interopRequireDefault(
                 uni.$showMsg('登录成功');
 
                 // this.updateToken(loginResult.message.token)
-                _this2.updateToken("eyJhb6cioi31UzI1NiJ9"); // 假token
+                _this2.updateToken("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIzLCJpYXQiOjE1NjQ3MzAwNzksImV4cCI6MTAwMTU2NDczMDA3OH0.YPt-XeLnjV-_1ITaXGY2FhxmCe4NvXuRnRB8OMCfnPo"); // 假token
 
                 /*
                  * 判断 vuex 中 redirectInfo 是否为 null

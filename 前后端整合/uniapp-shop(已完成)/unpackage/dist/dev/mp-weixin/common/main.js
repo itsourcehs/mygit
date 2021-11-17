@@ -19,10 +19,25 @@ var _requestMiniprogram = __webpack_require__(/*! @escook/request-miniprogram */
 uni.$http = _requestMiniprogram.$http;
 _requestMiniprogram.$http.baseUrl = "https://www.uinav.com";
 // $http.baseUrl = "https://api-hmugo-web.itheima.net"
+
 _requestMiniprogram.$http.beforeRequest = function (options) {
+  // console.log(options);
   uni.showLoading({
     title: '数据加载中....' });
 
+
+  /*
+                            * 只有在登录后调用支付相关的接口,所以必须为有权限的接口添加身份认证的请求头字段
+                            * 1.判断是否是有权限的接口
+                            * 2.为请求头添加身份认证字段
+                            */
+  // 1.判断是否是有权限的接口
+  if (options.url.indexOf('/my/') !== -1) {
+    // 2.为请求头添加身份认证 token 字段，可以从 vuex 中拿到
+    options.header = {
+      Authorization: _store.default.state.m_user.token };
+
+  }
 };
 _requestMiniprogram.$http.afterRequest = function () {
   uni.hideLoading();

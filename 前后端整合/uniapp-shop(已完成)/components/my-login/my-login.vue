@@ -91,7 +91,7 @@
 					signature: info.signature
 				}
 				
-				// 换取token
+				// 换取token(云接口存在权限问题,所以使用死数据 token 完成登录及之后的操作)
 				console.log(query);
 				const { data: loginResult } = await uni.$http.post('/api/public/v1/users/wxlogin', query)
 				console.log(loginResult);
@@ -101,7 +101,7 @@
 				uni.$showMsg('登录成功')
 				
 				// this.updateToken(loginResult.message.token)
-				this.updateToken("eyJhb6cioi31UzI1NiJ9") // 假token
+				this.updateToken("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIzLCJpYXQiOjE1NjQ3MzAwNzksImV4cCI6MTAwMTU2NDczMDA3OH0.YPt-XeLnjV-_1ITaXGY2FhxmCe4NvXuRnRB8OMCfnPo") // 假token
 				
 				/*
 				 * 判断 vuex 中 redirectInfo 是否为 null

@@ -22,6 +22,8 @@
 		computed: {
 			// 映射 m_cart 模块的getters属性到当前组件
 			...mapGetters('m_cart', ['checkedCount', 'total', 'checkedGoodsAmount']),
+			...mapState('m_cart', ['cart']),
+			
 			...mapGetters('m_user', ['addstr']),
 			...mapState('m_user', ['token']),
 			// 是否全选 比较已勾选商品和总商品
@@ -65,6 +67,68 @@
 				 */
 				// if (!this.token) return uni.$showMsg('请先登录！')
 				if (!this.token) return this.delayNavigate()
+				
+				// 4.实现微信支付
+				this.payOrder()
+			},
+			
+			// 微信支付: 1.创建订单
+			async payOrder () {
+				// 1.1 创建订单信息对象 order_price consignee_addr goods
+				const orderInfo = {
+					/*
+					 * 将购物车中商品合计金额写入 this.checkedGoodsAmount
+					 * 测试时,写死为0.01
+					 */
+					// 订单总价格
+					order_price: 0.01,
+					// 收货地址
+					consignee_addr: this.addstr,
+					// 订单列表
+					goods: this.cart.filter(x => x.goods_state).map(x => ({goods_id: x.goods_id, goods_number: x.goods_count, goods_price: x.goods_price}))
+				}
+				
+				console.log(orderInfo);
+				const provider = uni.getProvider({
+					service: 'payment',
+					success: (res4) => {
+						console.log(res4);
+						console.log('调用成功.');
+					},
+					fail: () => {
+						console.log('调用失败!!!!!');
+					}
+				})
+				// 1.2 发起请求创建订单
+				const {data: res} = await uni.$http.post('/api/public/v1/my/orders/create', orderInfo)
+				// console.log(res);
+				
+				if (res.meta.status !== 200) return uni.$showMsg('创建订单失败!')
+				// uni.$showMsg('创建订单成功.')
+				
+				// 1.3 从响应数据中拿到订单编号 order_number
+				const orderNumber = res.message.order_number
+				// console.log(orderNumber);
+				
+				
+				// 2.订单预支付
+				// 2.1 发起请求获取订单的支付信息
+				const {data: result} = await uni.$http.post('/api/public/v1/my/orders/req_unifiedorder', {order_number: orderNumber})
+				// console.log(result);
+				
+				if (result.meta.status !== 200) return uni.$showMsg('预付订单生成失败!')
+				// uni.$showMsg('预付订单生成成功.')
+				// 2.2 拿到订单支付相关的必要参数
+				const payInfo = result.message.pay
+				payInfo.provider = 'wxpay'
+				payInfo.orderInfo = orderInfo
+				console.log(payInfo);
+				
+				// 3.发起微信支付  
+				// 3.1 调用 wx.requestPayment() 发起微信支付
+				const [err, succ] = await wx.requestPayment(payInfo)
+				if (err) return console.log(err);
+				
 			},
 			
 			// 展示倒计时的提示消息
@@ -129,8 +193,8 @@
 <style lang="scss">
 .my-settle-container {
 	position: fixed;
-	// bottom: 0; // 待解决H5 小程序兼容
-	bottom: 101rpx;
+	bottom: 0; // 待解决H5 小程序兼容
+	// bottom: 101rpx;
 	width: 100%;
 	height: 40px;
 	background-color: white;

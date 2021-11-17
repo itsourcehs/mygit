@@ -55,6 +55,7 @@
 
 <script>
 	// 接口地址 https://www.escook.cn/docs-uni-shop/mds/5.search.html#_5-1-1-%E8%87%AA%E5%AE%9A%E4%B9%89-my-search-%E7%BB%84%E4%BB%B6
+	// 接口文档地址 https://www.showdoc.cc/128719739414963?page_id=2612830563673346
 	// https://www.bilibili.com/video/BV1PU4y1n743?p=42
 	// 导入自己封装的 mixin 模块
 	import badgeMix from '@/mixins/tabbar-badge.js'

@@ -31,7 +31,7 @@
 		<!-- 底部边框线 -->
 		<image
 		class="address-border"
-		src="../../static/线条2.png"></image>
+		src="../../static/line_two.png"></image>
 	</view>
 </template>
 

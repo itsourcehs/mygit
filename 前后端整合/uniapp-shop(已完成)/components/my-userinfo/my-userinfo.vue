@@ -53,10 +53,10 @@
 		        <image src="/static/my-icons/return_goods.png" class="icon"></image>
 		        <text>退款/退货</text>
 		      </view>
-		      <view class="panel-item">
+		      <navigator class="panel-item" url="../../pages/order/order">
 		        <image src="/static/my-icons/All_orders.png" class="icon"></image>
 		        <text>全部订单</text>
-		      </view>
+		      </navigator>
 		    </view>
 		  </view>
 		

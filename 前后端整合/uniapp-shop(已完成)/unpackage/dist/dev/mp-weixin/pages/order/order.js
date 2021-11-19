@@ -151,7 +151,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _this = void 0; //
 //
 //
 //
@@ -167,7 +167,7 @@ var _default =
       {
         id: 1,
         value: '待付款',
-        isActive: true },
+        isActive: false },
 
       {
         id: 2,
@@ -192,7 +192,22 @@ var _default =
     handleTabsItemChange: function handleTabsItemChange(index) {
       console.log(index); // 传递过来的索引 0 1 2
       this.tabs.forEach(function (v, i) {return i === index ? v.isActive = true : v.isActive = false;});
-    } } };exports.default = _default;
+    } },
+
+  // 监听页面加载,参数 options 为上个页面传递的数据
+  onShow: function onShow(options) {
+    debugger;
+    // console.log('页面加载',options);
+    var type = options.type;
+    // 
+    var that = _this;
+    var tabs = that.tabs;
+    tabs.forEach(function (v) {
+      if (v.id === type) {
+        v.isActive = true;
+      }
+    });
+  } };exports.default = _default;
 
 /***/ })
 

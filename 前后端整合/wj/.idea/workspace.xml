@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e9e1a260-6ce9-4122-ab69-f0bfa3aeeac7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../vue_test/vue_test/src/components/admin/user/BulkRegistration.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_test/vue_test/src/components/admin/user/BulkRegistration.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_test/vue_test/src/components/admin/user/UserProfile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_test/vue_test/src/components/admin/user/UserProfile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_test/vue_test/src/components/library/LibraryIndex.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_test/vue_test/src/components/library/LibraryIndex.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/evan/wj/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/evan/wj/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/evan/wj/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/evan/wj/service/UserService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1ubyngQgzdk1kBYfcb30J1R0VTA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\123456\IdeaProjects\wj\src\main\resources\static" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="WjApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="wj" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.evan.wj.WjApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e9e1a260-6ce9-4122-ab69-f0bfa3aeeac7" name="Default Changelist" comment="" />
+      <created>1624948754862</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1624948754862</updated>
+      <workItem from="1624948756358" duration="42389000" />
+      <workItem from="1625446467692" duration="480000" />
+      <workItem from="1626185476229" duration="401000" />
+      <workItem from="1626451257125" duration="37000" />
+      <workItem from="1626867641236" duration="782000" />
+      <workItem from="1627390744568" duration="11469000" />
+      <workItem from="1627821220026" duration="7099000" />
+      <workItem from="1629420495251" duration="599000" />
+      <workItem from="1629421122337" duration="213000" />
+      <workItem from="1629634616046" duration="867000" />
+      <workItem from="1629680871492" duration="122000" />
+      <workItem from="1629681509920" duration="1739000" />
+      <workItem from="1630285514268" duration="13000" />
+      <workItem from="1630331907100" duration="3060000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>

@@ -1,0 +1,18 @@
+
+.orders {
+	padding: 22rpx;
+	border: 1px solid #d6d6d6;
+	margin-bottom: -1rpx;font-size: 30rpx;
+	color: #947876;
+}
+.orders_item {
+	display: flex;
+	justify-content: space-between;align-items: center;
+	line-height: 50rpx;
+}
+.orders_price {
+	color: var(--themeColor);
+	font-size: 34rpx;
+}
+.orders_time {color: #b1b1b1;}
+

@@ -804,11 +804,6 @@ var customize = cached(function (str) {
 });
 
 function initTriggerEvent(mpInstance) {
-  {
-    if (!wx.canIUse || !wx.canIUse('nextTick')) {
-      return;
-    }
-  }
   var oldTriggerEvent = mpInstance.triggerEvent;
   mpInstance.triggerEvent = function (event) {for (var _len3 = arguments.length, args = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {args[_key3 - 1] = arguments[_key3];}
     return oldTriggerEvent.apply(mpInstance, [customize(event)].concat(args));
@@ -1480,7 +1475,7 @@ function initScopedSlotsParams() {
     var has = center[vueId];
     if (!has) {
       parents[vueId] = this;
-      this.$on('hook:destory', function () {
+      this.$on('hook:destroyed', function () {
         delete parents[vueId];
       });
     }
@@ -1494,7 +1489,7 @@ function initScopedSlotsParams() {
       return key ? object[key] : object;
     } else {
       parents[vueId] = this;
-      this.$on('hook:destory', function () {
+      this.$on('hook:destroyed', function () {
         delete parents[vueId];
       });
     }
@@ -2055,10 +2050,10 @@ uni$1;exports.default = _default;
 
 /***/ }),
 
-/***/ 101:
-/*!*********************************************************************************************************************************!*\
-  !*** C:/Users/Administrator/IdeaProjects/HelloWorld/前后端整合/uniapp-shop(已完成)/uni_modules/uni-icons/components/uni-icons/icons.js ***!
-  \*********************************************************************************************************************************/
+/***/ 103:
+/*!********************************************************************************************************!*\
+  !*** D:/Programs/Git/mygit/前后端整合/uniapp-shop(已完成)/uni_modules/uni-icons/components/uni-icons/icons.js ***!
+  \********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2326,15 +2321,15 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 114:
-/*!****************************************************************************************************************************************************!*\
-  !*** C:/Users/Administrator/IdeaProjects/HelloWorld/前后端整合/uniapp-shop(已完成)/uni_modules/uni-swipe-action/components/uni-swipe-action-item/mpwxs.js ***!
-  \****************************************************************************************************************************************************/
+/***/ 116:
+/*!***************************************************************************************************************************!*\
+  !*** D:/Programs/Git/mygit/前后端整合/uniapp-shop(已完成)/uni_modules/uni-swipe-action/components/uni-swipe-action-item/mpwxs.js ***!
+  \***************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _isPC = __webpack_require__(/*! ./isPC */ 115);var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _isPC = __webpack_require__(/*! ./isPC */ 117);var _default =
 {
   data: function data() {
     return {
@@ -2459,10 +2454,10 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 115:
-/*!***************************************************************************************************************************************************!*\
-  !*** C:/Users/Administrator/IdeaProjects/HelloWorld/前后端整合/uniapp-shop(已完成)/uni_modules/uni-swipe-action/components/uni-swipe-action-item/isPC.js ***!
-  \***************************************************************************************************************************************************/
+/***/ 117:
+/*!**************************************************************************************************************************!*\
+  !*** D:/Programs/Git/mygit/前后端整合/uniapp-shop(已完成)/uni_modules/uni-swipe-action/components/uni-swipe-action-item/isPC.js ***!
+  \**************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2483,9 +2478,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.isPC = isP
 /***/ }),
 
 /***/ 12:
-/*!********************************************************************************************!*\
-  !*** C:/Users/Administrator/IdeaProjects/HelloWorld/前后端整合/uniapp-shop(已完成)/store/store.js ***!
-  \********************************************************************************************/
+/*!*******************************************************************!*\
+  !*** D:/Programs/Git/mygit/前后端整合/uniapp-shop(已完成)/store/store.js ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3775,9 +3770,9 @@ module.exports = index_cjs;
 /***/ }),
 
 /***/ 14:
-/*!*******************************************************************************************!*\
-  !*** C:/Users/Administrator/IdeaProjects/HelloWorld/前后端整合/uniapp-shop(已完成)/store/cart.js ***!
-  \*******************************************************************************************/
+/*!******************************************************************!*\
+  !*** D:/Programs/Git/mygit/前后端整合/uniapp-shop(已完成)/store/cart.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3901,9 +3896,9 @@ module.exports = index_cjs;
 /***/ }),
 
 /***/ 15:
-/*!*******************************************************************************************!*\
-  !*** C:/Users/Administrator/IdeaProjects/HelloWorld/前后端整合/uniapp-shop(已完成)/store/user.js ***!
-  \*******************************************************************************************/
+/*!******************************************************************!*\
+  !*** D:/Programs/Git/mygit/前后端整合/uniapp-shop(已完成)/store/user.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3989,9 +3984,9 @@ module.exports = index_cjs;
 /***/ }),
 
 /***/ 16:
-/*!*******************************************************************************************!*\
-  !*** C:/Users/Administrator/IdeaProjects/HelloWorld/前后端整合/uniapp-shop(已完成)/common/api.js ***!
-  \*******************************************************************************************/
+/*!******************************************************************!*\
+  !*** D:/Programs/Git/mygit/前后端整合/uniapp-shop(已完成)/common/api.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4026,9 +4021,9 @@ var myRequest = function myRequest(options) {
 /***/ }),
 
 /***/ 17:
-/*!************************************************************************************************************************************************!*\
-  !*** C:/Users/Administrator/IdeaProjects/HelloWorld/前后端整合/uniapp-shop(已完成)/node_modules/@escook/request-miniprogram/miniprogram_dist/index.js ***!
-  \************************************************************************************************************************************************/
+/*!***********************************************************************************************************************!*\
+  !*** D:/Programs/Git/mygit/前后端整合/uniapp-shop(已完成)/node_modules/@escook/request-miniprogram/miniprogram_dist/index.js ***!
+  \***********************************************************************************************************************/
 /*! exports provided: $http */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4935,9 +4930,9 @@ if (hadRuntime) {
 /***/ }),
 
 /***/ 27:
-/*!****************************************************************************************************!*\
-  !*** C:/Users/Administrator/IdeaProjects/HelloWorld/前后端整合/uniapp-shop(已完成)/mixins/tabbar-badge.js ***!
-  \****************************************************************************************************/
+/*!***************************************************************************!*\
+  !*** D:/Programs/Git/mygit/前后端整合/uniapp-shop(已完成)/mixins/tabbar-badge.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11489,9 +11484,9 @@ function resolveLocaleChain(locale) {
 /***/ }),
 
 /***/ 5:
-/*!****************************************************************************************!*\
-  !*** C:/Users/Administrator/IdeaProjects/HelloWorld/前后端整合/uniapp-shop(已完成)/pages.json ***!
-  \****************************************************************************************/
+/*!***************************************************************!*\
+  !*** D:/Programs/Git/mygit/前后端整合/uniapp-shop(已完成)/pages.json ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 

@@ -70,6 +70,12 @@
 		      <text>联系客服</text>
 		      <uni-icons type="arrowright" size="15"></uni-icons>
 		    </view>
+			<navigator
+			class="panel-list-item"
+			url="../../pages/feedback/feedback">
+			  <text>意见反馈</text>
+			  <uni-icons type="arrowright" size="15"></uni-icons>
+			</navigator>
 		    <view class="panel-list-item" @click="logout">
 		      <text>退出登录</text>
 		      <uni-icons type="arrowright" size="15"></uni-icons>

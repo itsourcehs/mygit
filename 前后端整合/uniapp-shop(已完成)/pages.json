@@ -43,6 +43,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/feedback/feedback",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],// 配置分包
 	"subPackages":[
 		{

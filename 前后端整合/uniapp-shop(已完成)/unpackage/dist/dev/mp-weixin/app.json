@@ -4,7 +4,8 @@
     "pages/cate/cate",
     "pages/cart/cart",
     "pages/my/my",
-    "pages/order/order"
+    "pages/order/order",
+    "pages/feedback/feedback"
   ],
   "subPackages": [
     {
@@ -51,6 +52,5 @@
     ]
   },
   "permission": {},
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

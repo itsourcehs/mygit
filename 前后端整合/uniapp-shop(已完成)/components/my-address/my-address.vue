@@ -31,7 +31,7 @@
 		<!-- 底部边框线 -->
 		<image
 		class="address-border"
-		src="../../static/line_two.png"></image>
+		src="../../static/cart_border@2x.png"></image>
 	</view>
 </template>
 
@@ -115,7 +115,7 @@
 .address-border {
 	display: block;
 	width: 100%;
-	height: 5rpx;
+	height: 10rpx;
 }
 
 // 收货地址盒子

@@ -941,7 +941,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_NAME":"my-uniapp","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"my-uniapp","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -2050,10 +2050,139 @@ uni$1;exports.default = _default;
 
 /***/ }),
 
-/***/ 103:
-/*!********************************************************************************************************!*\
-  !*** D:/Programs/Git/mygit/前后端整合/uniapp-shop(已完成)/uni_modules/uni-icons/components/uni-icons/icons.js ***!
-  \********************************************************************************************************/
+/***/ 11:
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode, /* vue-cli only */
+  components, // fixed by xxxxxx auto components
+  renderjs // fixed by xxxxxx renderjs
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // fixed by xxxxxx auto components
+  if (components) {
+    if (!options.components) {
+      options.components = {}
+    }
+    var hasOwn = Object.prototype.hasOwnProperty
+    for (var name in components) {
+      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
+        options.components[name] = components[name]
+      }
+    }
+  }
+  // fixed by xxxxxx renderjs
+  if (renderjs) {
+    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
+      this[renderjs.__module] = this
+    });
+    (options.mixins || (options.mixins = [])).push(renderjs)
+  }
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+
+/***/ 111:
+/*!*********************************************************************************************************************************!*\
+  !*** C:/Users/Administrator/IdeaProjects/HelloWorld/前后端整合/uniapp-shop(已完成)/uni_modules/uni-icons/components/uni-icons/icons.js ***!
+  \*********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2192,144 +2321,50 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 11:
-/*!**********************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \**********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode, /* vue-cli only */
-  components, // fixed by xxxxxx auto components
-  renderjs // fixed by xxxxxx renderjs
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // fixed by xxxxxx auto components
-  if (components) {
-    if (!options.components) {
-      options.components = {}
-    }
-    var hasOwn = Object.prototype.hasOwnProperty
-    for (var name in components) {
-      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
-        options.components[name] = components[name]
-      }
-    }
-  }
-  // fixed by xxxxxx renderjs
-  if (renderjs) {
-    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
-      this[renderjs.__module] = this
-    });
-    (options.mixins || (options.mixins = [])).push(renderjs)
-  }
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
-
-/***/ 116:
-/*!***************************************************************************************************************************!*\
-  !*** D:/Programs/Git/mygit/前后端整合/uniapp-shop(已完成)/uni_modules/uni-swipe-action/components/uni-swipe-action-item/mpwxs.js ***!
-  \***************************************************************************************************************************/
+/***/ 12:
+/*!********************************************************************************************!*\
+  !*** C:/Users/Administrator/IdeaProjects/HelloWorld/前后端整合/uniapp-shop(已完成)/store/store.js ***!
+  \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _isPC = __webpack_require__(/*! ./isPC */ 117);var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 3));
+var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 13));
+
+var _cart = _interopRequireDefault(__webpack_require__(/*! ./cart.js */ 14));
+var _user = _interopRequireDefault(__webpack_require__(/*! ./user.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 1. 导入 Vue 和 Vuex
+
+// 2.将 Vuex 安装为 Vue 的插件
+_vue.default.use(_vuex.default);
+
+// 3.创建 Store 的实例对象
+var store = new _vuex.default.Store({
+  // 挂载 store 模块
+  modules: {
+    // 2.挂载购物车的 vuex 模块，模块内成员的访问路径被调整为 m_cart，例如：
+    //   购物车模块中 cart 数组的访问路径是 m_cart/cart
+    m_cart: _cart.default,
+    //   用户模块中 cart 数组的访问路径是 m_user
+    m_user: _user.default } });
+
+
+
+// 4.向外共享 Store 的实例对象
+var _default = store;exports.default = _default;
+
+/***/ }),
+
+/***/ 124:
+/*!****************************************************************************************************************************************************!*\
+  !*** C:/Users/Administrator/IdeaProjects/HelloWorld/前后端整合/uniapp-shop(已完成)/uni_modules/uni-swipe-action/components/uni-swipe-action-item/mpwxs.js ***!
+  \****************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _isPC = __webpack_require__(/*! ./isPC */ 125);var _default =
 {
   data: function data() {
     return {
@@ -2454,10 +2489,10 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 117:
-/*!**************************************************************************************************************************!*\
-  !*** D:/Programs/Git/mygit/前后端整合/uniapp-shop(已完成)/uni_modules/uni-swipe-action/components/uni-swipe-action-item/isPC.js ***!
-  \**************************************************************************************************************************/
+/***/ 125:
+/*!***************************************************************************************************************************************************!*\
+  !*** C:/Users/Administrator/IdeaProjects/HelloWorld/前后端整合/uniapp-shop(已完成)/uni_modules/uni-swipe-action/components/uni-swipe-action-item/isPC.js ***!
+  \***************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2474,41 +2509,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.isPC = isP
   }
   return flag;
 }
-
-/***/ }),
-
-/***/ 12:
-/*!*******************************************************************!*\
-  !*** D:/Programs/Git/mygit/前后端整合/uniapp-shop(已完成)/store/store.js ***!
-  \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 3));
-var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 13));
-
-var _cart = _interopRequireDefault(__webpack_require__(/*! ./cart.js */ 14));
-var _user = _interopRequireDefault(__webpack_require__(/*! ./user.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 1. 导入 Vue 和 Vuex
-
-// 2.将 Vuex 安装为 Vue 的插件
-_vue.default.use(_vuex.default);
-
-// 3.创建 Store 的实例对象
-var store = new _vuex.default.Store({
-  // 挂载 store 模块
-  modules: {
-    // 2.挂载购物车的 vuex 模块，模块内成员的访问路径被调整为 m_cart，例如：
-    //   购物车模块中 cart 数组的访问路径是 m_cart/cart
-    m_cart: _cart.default,
-    //   用户模块中 cart 数组的访问路径是 m_user
-    m_user: _user.default } });
-
-
-
-// 4.向外共享 Store 的实例对象
-var _default = store;exports.default = _default;
 
 /***/ }),
 
@@ -3770,9 +3770,9 @@ module.exports = index_cjs;
 /***/ }),
 
 /***/ 14:
-/*!******************************************************************!*\
-  !*** D:/Programs/Git/mygit/前后端整合/uniapp-shop(已完成)/store/cart.js ***!
-  \******************************************************************/
+/*!*******************************************************************************************!*\
+  !*** C:/Users/Administrator/IdeaProjects/HelloWorld/前后端整合/uniapp-shop(已完成)/store/cart.js ***!
+  \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3896,9 +3896,9 @@ module.exports = index_cjs;
 /***/ }),
 
 /***/ 15:
-/*!******************************************************************!*\
-  !*** D:/Programs/Git/mygit/前后端整合/uniapp-shop(已完成)/store/user.js ***!
-  \******************************************************************/
+/*!*******************************************************************************************!*\
+  !*** C:/Users/Administrator/IdeaProjects/HelloWorld/前后端整合/uniapp-shop(已完成)/store/user.js ***!
+  \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3984,9 +3984,9 @@ module.exports = index_cjs;
 /***/ }),
 
 /***/ 16:
-/*!******************************************************************!*\
-  !*** D:/Programs/Git/mygit/前后端整合/uniapp-shop(已完成)/common/api.js ***!
-  \******************************************************************/
+/*!*******************************************************************************************!*\
+  !*** C:/Users/Administrator/IdeaProjects/HelloWorld/前后端整合/uniapp-shop(已完成)/common/api.js ***!
+  \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4021,9 +4021,9 @@ var myRequest = function myRequest(options) {
 /***/ }),
 
 /***/ 17:
-/*!***********************************************************************************************************************!*\
-  !*** D:/Programs/Git/mygit/前后端整合/uniapp-shop(已完成)/node_modules/@escook/request-miniprogram/miniprogram_dist/index.js ***!
-  \***********************************************************************************************************************/
+/*!************************************************************************************************************************************************!*\
+  !*** C:/Users/Administrator/IdeaProjects/HelloWorld/前后端整合/uniapp-shop(已完成)/node_modules/@escook/request-miniprogram/miniprogram_dist/index.js ***!
+  \************************************************************************************************************************************************/
 /*! exports provided: $http */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4930,9 +4930,9 @@ if (hadRuntime) {
 /***/ }),
 
 /***/ 27:
-/*!***************************************************************************!*\
-  !*** D:/Programs/Git/mygit/前后端整合/uniapp-shop(已完成)/mixins/tabbar-badge.js ***!
-  \***************************************************************************/
+/*!****************************************************************************************************!*\
+  !*** C:/Users/Administrator/IdeaProjects/HelloWorld/前后端整合/uniapp-shop(已完成)/mixins/tabbar-badge.js ***!
+  \****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10497,7 +10497,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_NAME":"my-uniapp","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"my-uniapp","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -10518,14 +10518,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_NAME":"my-uniapp","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"my-uniapp","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_NAME":"my-uniapp","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"my-uniapp","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -10611,7 +10611,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_NAME":"my-uniapp","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"my-uniapp","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -11484,9 +11484,9 @@ function resolveLocaleChain(locale) {
 /***/ }),
 
 /***/ 5:
-/*!***************************************************************!*\
-  !*** D:/Programs/Git/mygit/前后端整合/uniapp-shop(已完成)/pages.json ***!
-  \***************************************************************/
+/*!****************************************************************************************!*\
+  !*** C:/Users/Administrator/IdeaProjects/HelloWorld/前后端整合/uniapp-shop(已完成)/pages.json ***!
+  \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 

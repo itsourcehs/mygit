@@ -1,7 +1,5 @@
 {
   "navigationBarTitleText": "",
   "enablePullDownRefresh": false,
-  "usingComponents": {
-    "my-upload": "/components/my-upload/my-upload"
-  }
+  "usingComponents": {}
 }

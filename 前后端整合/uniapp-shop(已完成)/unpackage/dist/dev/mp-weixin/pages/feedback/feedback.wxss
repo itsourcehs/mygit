@@ -1,4 +1,5 @@
 
+page {background: #edeeec;}
 textarea {width: 100%;height: 100px;padding: 10px;}
 icon {
 	width: 30rpx;height: 30rpx;
@@ -24,6 +25,7 @@ icon {
 	width: 30%;margin-top: 20rpx;
 }
 .feedback_text {background: #fff;width: 100%;}
+.feedback_text image {width: 120rpx;height: 120rpx;}
 .btns {position: relative;}
 .btns image {
 	width: 40rpx;height: 40rpx;

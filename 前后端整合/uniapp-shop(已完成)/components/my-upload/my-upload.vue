@@ -1,21 +1,7 @@
 <template>
-	<view style="display: flex;">
-		<image :src="src"></image>
-		<view
-		style="position: relative;"
-		v-for="(item,index) in imageList"
-		:key="index">
-			<image style="margin-left: 10px;"
-			:src="item"></image>
-			<image
-			style="width: 30rpx;height: 30rpx;position: absolute;right: -5px;top: -5px;"
-			src="../../static/close_fill.png"
-			v-if="imageList.length > 0"
-			:data-index="index"
-			@tap="handleClose"></image>
-		</view>
-		
-		
+	<view class="content">
+		<image :src="imgSrc"></image>
+		<!-- <icon type="clear" color="red" size="23"></icon> -->
 	</view>
 </template>
 
@@ -23,19 +9,28 @@
 	export default {
 		name:"my-upload",
 		props: {
-			imageList: []
-		}
+			// 图片路径
+			imgSrc: {
+				type:String,
+				value:''
+			}
+		},
 		data() {
 			return {
 				
 			};
 		},
 		methods: {
-			
 		}
 	}
 </script>
 
 <style>
-
+image {width: 100%;height: 100%;}
+.content {
+	position: relative;
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 10rpx;
+}
 </style>

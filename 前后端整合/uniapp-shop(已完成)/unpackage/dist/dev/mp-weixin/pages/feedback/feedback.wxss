@@ -1,22 +1,14 @@
 
 page {background: #edeeec;}
 textarea {width: 100%;height: 100px;padding: 10px;}
-icon {
-	width: 30rpx;height: 30rpx;
-	position: absolute;
-	right: -5px;
-	top: -5px;
-}
-.feedback_main {padding: 20rpx;}
+.feedback_main {padding: 20rpx;color: #666;}
 .feedback_uploadImage {display: flex;}
-.feedback_types {
-	display: flex;
-	justify-content: space-around;
-	align-content: flex-start;
-	flex-wrap: wrap;
-	width: 100%;
-	padding: 19px 0;
-	font-size: 12px;
+.feedback_types {display: flex;flex-wrap: wrap;}
+.feedback_types text {
+	padding: 10rpx 20rpx;
+	margin: 10rpx 10rpx;
+	background-color: #fff;
+	display: flex;justify-content: center;align-items: center;
 }
 .feedback_types_item {
 	padding: 6px 13px;
@@ -26,18 +18,33 @@ icon {
 }
 .feedback_text {background: #fff;width: 100%;}
 .feedback_text image {width: 120rpx;height: 120rpx;}
-.btns {position: relative;}
-.btns image {
-	width: 40rpx;height: 40rpx;
-	position: absolute;left: 22px;top: 11px;
+.feedback_bool {display: flex;flex-wrap: wrap;}
+.tool_add {
+	width: 100rpx;
+	height: 100rpx;
+	margin: 20rpx;
+	border-radius: 10rpx;
+	background-color: #d8d8d8;
+	font-size: 60rpx;
+	font-weight: bold;
+	text-align: center;line-height: 100rpx;
 }
-.btn {
-	color: #fff;
-	width: 30% !important;
+.tool_item {margin: 20rpx;position: relative;}
+.tool_item icon {
 	position: absolute;
-	right: 0;top: 10px;
+	right: -15rpx;
+	top: -15rpx;
 }
-.add {
-	background: var(--themeColor);
+/* 提交按钮样式 */
+.feedback_submit {
+	margin-top: 20rpx;
+	display: flex;
+	justify-content: flex-end;
+}
+.feedback_submit button {
+	background-color: #c00000;
+	color: #fff;
+	margin: 0;
+	width: 30%;
 }
 

@@ -3,7 +3,7 @@
 		<view class="my-search-box" :style="{'border-radius': radius + 'px'}"
 		@click="searchBoxHandler">
 			<uni-icons type="search" size="17"></uni-icons>
-			<text class="placeholder">搜索</text>
+			<text class="placeholder">商品搜索,共246款供你选择...</text>
 		</view>
 	</view>
 </template>
@@ -55,6 +55,7 @@
 	.placeholder {
 	    font-size: 15px;
 	    margin-left: 5px;
+		color: #999999;
 	  }
 }
 </style>

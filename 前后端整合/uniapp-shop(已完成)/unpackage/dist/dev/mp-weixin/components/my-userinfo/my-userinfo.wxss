@@ -27,6 +27,7 @@
 .my-userinfo-container {
   height: 100%;
   background-color: #f4f4f4;
+  padding-bottom: 20px;
 }
 .my-userinfo-container .top-box {
   height: 400rpx;
@@ -49,6 +50,10 @@
   font-weight: bold;
   font-size: 16px;
   margin-top: 10px;
+}
+.icon {
+  width: 35px;
+  height: 35px;
 }
 .panel-list {
   padding: 0 10px;
@@ -78,16 +83,17 @@
   font-size: 13px;
   padding: 10px 0;
 }
-.panel-list .panel .panel-body .panel-item .icon {
-  width: 35px;
-  height: 35px;
-}
-.panel-list-item {
-  height: 45px;
+.panel-body-three {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.panel-body-three .panel-item-three {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  font-size: 15px;
-  padding: 0 10px;
+  justify-content: space-around;
+  font-size: 13px;
+  padding: 10px 0;
+  width: 20%;
 }
 

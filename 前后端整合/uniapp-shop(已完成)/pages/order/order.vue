@@ -2,25 +2,32 @@
 	<view>
 		<my-tabs
 		:tabs="tabs"
-		@tabsItemChange="handleTabsItemChange"></my-tabs>
-		
-		<!-- 订单数据区域 -->
-		<view class="order">
-			<view class="orders" v-for="(item, index) in orders" :key="index">
-				<view class="orders_item">
-					<view>订单编号</view>
-					<text>{{item.number}}</text>
-				</view>
-				<view class="orders_item">
-					<view>订单价格</view>
-					<text class="orders_price">￥{{item.price}}</text>
-				</view>
-				<view class="orders_item">
-					<view>订单日期</view>
-					<text class="orders_time">{{item.time}}</text>
+		@tabsItemChange="handleTabsItemChange">
+			
+			<!-- 订单数据区域 -->
+			<view class="order" v-if="orders.length != 0">
+				<view class="orders" v-for="(item, index) in orders" :key="index">
+					<view class="orders_item">
+						<view>订单编号</view>
+						<text>{{item.order_number}}</text>
+					</view>
+					<view class="orders_item">
+						<view>订单价格</view>
+						<text class="orders_price">￥{{item.order_price}}</text>
+					</view>
+					<view class="orders_item">
+						<view>订单日期</view>
+						<text class="orders_time">{{item.create_time}}</text>
+					</view>
 				</view>
 			</view>
-		</view>
+			
+			<!-- 没有订单数据区域 -->
+			<view class="empty-cart" v-else>
+				<image src="../../static/empty_so.svg" class="empty-img"></image>
+				<text class="tip-text">暂时木有内容呀~ ~</text>
+			</view>
+		</my-tabs>
 	</view>
 </template>
 
@@ -31,65 +38,56 @@ export default {
 			tabs: [
 				{
 					id:1,
-					value: '待付款',
+					value: '全部订单',
 					isActive: false
 				},
 				{
 					id:2,
-					value: '待收货',
+					value: '待付款',
 					isActive: false
 				},
 				{
 					id:3,
-					value: '退款/退货',
+					value: '待发货',
 					isActive: false
 				},
 				{
 					id:4,
-					value: '全部订单',
+					value: '退货/换货',
 					isActive: false
 				},
 			],
 			orders: [
 				{
-					number: 'GD20190111103900000123',
-					price: '2334',
-					time: '2019/11/23 上午10:01:10'
-				},
-				{
-					number: 'GD20190111103900000123',
-					price: '2334',
-					time: '2019/11/23 上午10:01:10'
-				},
-				{
-					number: 'GD20190111103900000123',
-					price: '2334',
-					time: '2019/11/23 上午10:01:10'
-				},
-				{
-					number: 'GD20190111103900000123',
-					price: '2334',
-					time: '2019/11/23 上午10:01:10'
+					order_number: '',
+					order_price: '',
+					create_time: ''
 				}
 			]
 		}
 	},
 	methods: {
+		// 获取订单列表
+		async getOrderList (type) {
+			const {data: res} = await uni.$http.get('/api/public/v1/my/orders/all', {type:type})
+			this.orders = res.message.orders
+		},
+		
 		// 父组件自定义事件
 		handleTabsItemChange (index) {
-			console.log(index); // 传递过来的索引 0 1 2
-			this.tabs.forEach((v, i) => i === index?v.isActive = true: v.isActive = false)
+			console.log(index); // 传递过来的索引 0 1 2 	1:全部订单 2:待付款 3:待发货
+			this.tabs.forEach((v, i) => i + 1 === index?v.isActive = true: v.isActive = false)
 			
 			// 发送网络请求,返回对应列(待付款,待收货,退货,全部订单)的数据
+			this.getOrderList(index)
 		}
 	},
 	
 	// 监听页面加载,参数 options 为上个页面传递的数据  坑: 生命周期函数不能使用箭头函数
 	/*
-	 *	
-	// onShow: () => {
+	 * onShow: () => {
 		生命周期钩子不能使用 箭头函数 , 官网已说明
-	// }
+	}
 	 */
 	onShow () {
 		/*
@@ -114,20 +112,16 @@ export default {
 				v.isActive = true
 			}
 			// 5.数据回填,重新设置
-			this.tabs = tabs
+			// this.tabs = tabs
 		})
-		// for (let i = 0;i < tabs.length;i++) {
-		// 	console.log(tabs[i]);
-		// 	if (tabs[i].id == type) {
-		// 		tabs[i].isActive = true
-		// 	}
-		// }
 		
+		// 5.调用对应 type 的订单列表方法
+		this.getOrderList(type)
 	}
 }
 </script>
 
-<style>
+<style lang="scss">
 .orders {
 	padding: 22rpx;
 	border: 1px solid #d6d6d6;
@@ -145,4 +139,23 @@ export default {
 	font-size: 34rpx;
 }
 .orders_time {color: #b1b1b1;}
+
+/* 重复内容,需要改为全局样式 */
+.empty-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 150px;
+
+  .empty-img {
+    width: 164px;
+    height: 142px;
+  }
+
+  .tip-text {
+    font-size: 12px;
+    color: gray;
+    margin-top: 15px;
+  }
+}
 </style>

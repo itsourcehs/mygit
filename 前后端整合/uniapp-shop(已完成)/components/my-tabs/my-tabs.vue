@@ -8,7 +8,7 @@
 			v-for="(item, index) in tabs"
 			:key="item.value"
 			@tap="handleTap"
-			:data-index="index">{{item.value}}</view>
+			:data-index="index +1">{{item.value}}</view>
 		</view>
 		
 		
@@ -64,7 +64,8 @@
 	padding: 20rpx;
 }
 .active {
-	color: var(--themeColor);
+	// color: var(--themeColor);
+	color: #c08875;
 	border-bottom: 3px solid #c08875;
 }
 </style>

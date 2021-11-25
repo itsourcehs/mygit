@@ -17,7 +17,10 @@
 				placeholder="请描述你的问题..."
 				placeholder-class="place"></textarea>
 				<view class="feedback_bool">
-					<view class="tool_add" @tap="handleAddImgs">+</view>
+					<view
+					class="tool_add"
+					@tap="handleAddImgs"
+					v-if="imageList.length == 0">+</view>
 					<view
 					class="tool_item"
 					v-for="(item,index) in imageList"
@@ -38,7 +41,8 @@
 					<icon type="success_no_circle" size="23" color="white"></icon>
 					提交
 				</button>
-			</view>	
+			</view>
+			
 		</view>
 	</view>
 </template>
@@ -49,18 +53,54 @@
 			return {
 				textContent: '',
 				// 默认不添加样式
-				inpStatus: false,
+				inpStatus: true,
 				imageList: [],
 				// 默认图片
 				src: '../../static/upload.png',
-				// 选择的图片张数
-				length: '1',
 				// 外网的图片路径数组
 				uploadImages: [],
 				
 			}
 		},
 		methods: {
+			// 提交
+			handleSubmit () {
+				const that = this
+				// 1.判断文本域输入内容是否合法
+				if (!that.textContent.trim()) uni.$showMsg('输入内容不合法!!!')
+				// 2.显示正在上传中
+				uni.showLoading({
+					title:'提交中,请稍候......'
+				})
+				
+				// 3.判断是否选择了图片,如果没有选择图片就仅提交文本
+				if (that.imageList.length != 0) {
+					// 3.1 需要循环上传每一张
+					that.imageList.forEach((temfile,i) => {
+						uni.uploadFile({
+							filePath: temfile,
+							name: 'file',
+							url: 'https://imgchr.com/i/MjaXxU',
+							success: res => {
+								console.log(res);
+							}
+						})
+					})
+				} else {}
+				// 4.隐藏加载中并返回至上一个页面
+				setTimeout(back => {
+					uni.hideLoading();
+					uni.navigateBack({
+						delta: 1
+					})
+				},5000)
+			},
+			
+			// 处理文本域输入内容 接收并赋值给 textContent
+			handleInput (e) {
+				this.textContent = e.detail.value
+			},
+			
 			// 移除已选择的图片
 			handleRemoveImgs (e) {
 				// 1.获取图片元素对应的索引 e.currentTarget.dataset.index
@@ -86,60 +126,12 @@
 				})
 			},
 			
-			handleChooseImg () {
-				const len = _this.length
-				if (len > 2) {
-					uni.$showMsg('最多上传三张照片...')
-					return;
-				}
-			},
-			
-			// 上传图片到服务器(待完善)
-			handleToServer () {
-				
-				uni.showLoading({
-					title: '正在上传中....',
-				})
-				
-				console.log(imageList);
-				imageList.forEach((file, i) => {
-					uni.uploadFile({
-						// 上传的图片路径
-						filePath: file,
-						name: 'images', // 上传的文件名称,后台用来获取文件 file (自定义名称)
-						url: 'https://api.uomg.com/api/image.baidu',
-						success: (res) => {
-							// console.log('上传到服务器成功...', res);
-							console.log(res);
-							
-							
-						},
-						fail: (err) => {}
-					})
-				})
-			},
-			
-			// 提交
-			handleSubmit () {
-				console.log('正常点击提交按钮...');
-			},
-			
 			// 处理改变问题类型
 			handleTypeBtn (e) {
 				console.log('e的值是:', e.currentTarget.dataset.id.id); // 拿到对应id
 				const title = e.currentTarget.dataset.id.title
 				uni.$showMsg('您选择的是:' + title)
 			},
-			
-			// 文本域处理函数
-			handleInput (e) {
-				console.log('文本框里的内容是:',e);
-				const inp = e.detail.value
-				this.textContent = inp
-				
-				if (inp) this.inpStatus = true
-				
-			}
 		}
 	}
 </script>

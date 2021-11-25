@@ -43,42 +43,58 @@
 		      <!-- 面板主体中的 item 项 -->
 		      <navigator class="panel-item" url="../../pages/order/order?type=1">
 		        <image src="/static/my-icons/Pending_payment.png" class="icon"></image>
-		        <text>待付款</text>
+		        <text>全部订单</text>
 		      </navigator>
 		      <navigator class="panel-item" url="../../pages/order/order?type=2">
 		        <image src="/static/my-icons/Goods_received.png" class="icon"></image>
-		        <text>待收货</text>
+		        <text>待付款</text>
 		      </navigator>
 		      <navigator class="panel-item" url="../../pages/order/order?type=3">
 		        <image src="/static/my-icons/return_goods.png" class="icon"></image>
-		        <text>退款/退货</text>
+		        <text>待发货</text>
 		      </navigator>
 		      <navigator class="panel-item" url="../../pages/order/order?type=4">
 		        <image src="/static/my-icons/All_orders.png" class="icon"></image>
-		        <text>全部订单</text>
+		        <text>退货/换货</text>
 		      </navigator>
 		    </view>
 		  </view>
 		
 		  <!-- 第三个面板 -->
 		  <view class="panel">
-		    <view class="panel-list-item">
-		      <text>收货地址</text>
-		      <uni-icons type="arrowright" size="15"></uni-icons>
-		    </view>
-		    <view class="panel-list-item">
-		      <text>联系客服</text>
-		      <uni-icons type="arrowright" size="15"></uni-icons>
-		    </view>
-			<navigator
-			class="panel-list-item"
-			url="../../pages/feedback/feedback">
-			  <text>意见反馈</text>
-			  <uni-icons type="arrowright" size="15"></uni-icons>
-			</navigator>
-		    <view class="panel-list-item" @click="logout">
-		      <text>退出登录</text>
-		      <uni-icons type="arrowright" size="15"></uni-icons>
+		    <!-- 面板的标题 -->
+		    <view class="panel-title">我的服务</view>
+		    <!-- 面板的主体 -->
+		    <view class="panel-body-three">
+				<!-- 面板主体中的 item 项 -->
+				<view class="panel-item-three">
+				  <image src="/static/my-icons/Collage.png" class="icon"></image>
+				  <text>我的拼团</text>
+				</view>
+				<view class="panel-item-three">
+				  <image src="/static/my-icons/address.png" class="icon"></image>
+				  <text>收货地址</text>
+				</view>
+				<navigator class="panel-item-three" url="../../pages/feedback/feedback">
+				  <image src="/static/my-icons/feedback.png" class="icon"></image>
+				  <text>意见反馈</text>
+				</navigator>
+				<view class="panel-item-three">
+					<image src="/static/my-icons/about.png" class="icon"></image>
+					<text>关于</text>
+				</view>
+				<view class="panel-item-three">
+				  <image src="/static/my-icons/call.png" class="icon"></image>
+				  <text>联系客服</text>
+				</view>
+				<view class="panel-item-three" @click="logout">
+				  <image src="../../static/my-icons/logout.png" class="icon"></image>
+				  <text>退出登录</text>
+				</view>
+				<view class="panel-item-three">
+					<image src="/static/my-icons/update.png" class="icon"></image>
+					<text>更新版本</text>
+				</view>
 		    </view>
 		  </view>
 		</view>
@@ -130,6 +146,7 @@
 .my-userinfo-container {
 	height: 100%;
 	background-color: #f4f4f4;
+	padding-bottom: 20px;
 	
 	.top-box {
 		height: 400rpx;
@@ -156,7 +173,10 @@
 		margin-top: 10px;
 	}
 }
-
+.icon {
+	width: 35px;
+	height: 35px;
+}
 .panel-list {
 	padding: 0 10px;
 	position: relative;
@@ -177,7 +197,6 @@
 		.panel-body {
 			display: flex;
 			justify-content: space-around;
-			
 			.panel-item {
 				display: flex;
 				flex-direction: column;
@@ -185,22 +204,22 @@
 				justify-content: space-around;
 				font-size: 13px;
 				padding: 10px 0;
-				
-				.icon {
-					width: 35px;
-					height: 35px;
-				}
 			}
 		}
 	}
 }
 
-.panel-list-item {
-	height: 45px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	font-size: 15px;
-	padding: 0 10px;
+// 第三个面板主体
+.panel-body-three {
+	display: flex;flex-wrap: wrap;
+	.panel-item-three {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		font-size: 13px;
+		padding: 10px 0;
+		width: 20%;
+	}
 }
 </style>

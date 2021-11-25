@@ -198,24 +198,64 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
       textContent: '',
       // 默认不添加样式
-      inpStatus: false,
+      inpStatus: true,
       imageList: [],
       // 默认图片
       src: '../../static/upload.png',
-      // 选择的图片张数
-      length: '1',
       // 外网的图片路径数组
       uploadImages: [] };
 
 
   },
   methods: {
+    // 提交
+    handleSubmit: function handleSubmit() {
+      var that = this;
+      // 1.判断文本域输入内容是否合法
+      if (!that.textContent.trim()) uni.$showMsg('输入内容不合法!!!');
+      // 2.显示正在上传中
+      uni.showLoading({
+        title: '提交中,请稍候......' });
+
+
+      // 3.判断是否选择了图片,如果没有选择图片就仅提交文本
+      if (that.imageList.length != 0) {
+        // 3.1 需要循环上传每一张
+        that.imageList.forEach(function (temfile, i) {
+          uni.uploadFile({
+            filePath: temfile,
+            name: 'file',
+            url: 'https://imgchr.com/i/MjaXxU',
+            success: function success(res) {
+              console.log(res);
+            } });
+
+        });
+      } else {}
+      // 4.隐藏加载中并返回至上一个页面
+      setTimeout(function (back) {
+        uni.hideLoading();
+        uni.navigateBack({
+          delta: 1 });
+
+      }, 5000);
+    },
+
+    // 处理文本域输入内容 接收并赋值给 textContent
+    handleInput: function handleInput(e) {
+      this.textContent = e.detail.value;
+    },
+
     // 移除已选择的图片
     handleRemoveImgs: function handleRemoveImgs(e) {
       // 1.获取图片元素对应的索引 e.currentTarget.dataset.index
@@ -241,59 +281,11 @@ var _default =
 
     },
 
-    handleChooseImg: function handleChooseImg() {
-      var len = _this.length;
-      if (len > 2) {
-        uni.$showMsg('最多上传三张照片...');
-        return;
-      }
-    },
-
-    // 上传图片到服务器(待完善)
-    handleToServer: function handleToServer() {
-
-      uni.showLoading({
-        title: '正在上传中....' });
-
-
-      console.log(imageList);
-      imageList.forEach(function (file, i) {
-        uni.uploadFile({
-          // 上传的图片路径
-          filePath: file,
-          name: 'images', // 上传的文件名称,后台用来获取文件 file (自定义名称)
-          url: 'https://api.uomg.com/api/image.baidu',
-          success: function success(res) {
-            // console.log('上传到服务器成功...', res);
-            console.log(res);
-
-
-          },
-          fail: function fail(err) {} });
-
-      });
-    },
-
-    // 提交
-    handleSubmit: function handleSubmit() {
-      console.log('正常点击提交按钮...');
-    },
-
     // 处理改变问题类型
     handleTypeBtn: function handleTypeBtn(e) {
       console.log('e的值是:', e.currentTarget.dataset.id.id); // 拿到对应id
       var title = e.currentTarget.dataset.id.title;
       uni.$showMsg('您选择的是:' + title);
-    },
-
-    // 文本域处理函数
-    handleInput: function handleInput(e) {
-      console.log('文本框里的内容是:', e);
-      var inp = e.detail.value;
-      this.textContent = inp;
-
-      if (inp) this.inpStatus = true;
-
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

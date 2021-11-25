@@ -1,4 +1,3 @@
-
 // #ifndef VUE3
 import Vue from 'vue'
 import App from './App'
@@ -43,6 +42,7 @@ uni.$showMsg = function (title= '数据加载失败！', duration= 1500) {
 	})
 }
 
+// 格式化日期
 Vue.filter('formatDate',(date)=>{
 	const nDate = new Date(date)
 	const year = nDate.getFullYear()

@@ -41,5 +41,6 @@
 .my-search-box .placeholder {
   font-size: 15px;
   margin-left: 5px;
+  color: #999999;
 }
 

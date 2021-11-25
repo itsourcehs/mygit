@@ -8,7 +8,6 @@
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni, createApp) {__webpack_require__(/*! uni-pages */ 5);
-
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 3));
 var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 6));
 
@@ -52,6 +51,7 @@ uni.$showMsg = function () {var title = arguments.length > 0 && arguments[0] !==
 
 };
 
+// 格式化日期
 _vue.default.filter('formatDate', function (date) {
   var nDate = new Date(date);
   var year = nDate.getFullYear();

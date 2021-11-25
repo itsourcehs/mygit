@@ -39,7 +39,7 @@
   padding: 20rpx;
 }
 .active {
-  color: var(--themeColor);
+  color: #c08875;
   border-bottom: 3px solid #c08875;
 }
 

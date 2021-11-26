@@ -91,10 +91,10 @@
 				  <image src="../../static/my-icons/logout.png" class="icon"></image>
 				  <text>退出登录</text>
 				</view>
-				<view class="panel-item-three">
+				<navigator class="panel-item-three" url="/subpkg/goods_collect/goods_collect">
 					<image src="/static/my-icons/update.png" class="icon"></image>
-					<text>更新版本</text>
-				</view>
+					<text>测试区</text>
+				</navigator>
 		    </view>
 		  </view>
 		</view>

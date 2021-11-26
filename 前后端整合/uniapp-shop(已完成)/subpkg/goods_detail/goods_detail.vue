@@ -24,7 +24,7 @@
 		    </view>
 		  </view>
 		  <!-- 运费 -->
-		  <view class="yf">快递：免运费 -- {{cart.length}}</view>
+		  <view class="yf">快递：免运费</view>
 		</view>
 		
 		<!-- 商品详情信息区域 -->

@@ -47,6 +47,18 @@
           "pathName": "pages/feedback/feedback",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "subpkg/goods_detail/goods_detail",
+          "query": "goods_id=56177",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "subpkg/goods_collect/goods_collect",
+          "query": "",
+          "scene": null
         }
       ]
     }

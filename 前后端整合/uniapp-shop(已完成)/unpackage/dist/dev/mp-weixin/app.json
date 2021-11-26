@@ -13,7 +13,8 @@
       "pages": [
         "goods_detail/goods_detail",
         "goods_list/goods_list",
-        "search/search"
+        "search/search",
+        "goods_collect/goods_collect"
       ]
     }
   ],

@@ -17,7 +17,7 @@
 					</view>
 					<view class="orders_item">
 						<view>订单日期</view>
-						<text class="orders_time">{{item.create_time}}</text>
+						<text class="orders_time">{{item.create_time | formatDate}}</text>
 					</view>
 				</view>
 			</view>

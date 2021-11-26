@@ -84,6 +84,15 @@
                 }
                 
                 }
+                ,{
+                    "path" : "goods_collect/goods_collect",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
             ]
 		}
 	],

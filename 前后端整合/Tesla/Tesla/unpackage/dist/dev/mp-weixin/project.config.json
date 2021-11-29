@@ -38,13 +38,12 @@
     "minifyWXSS": true,
     "disableUseStrict": false,
     "showES6CompileOption": false,
-    "useCompilerPlugins": false,
-    "minifyWXML": true
+    "useCompilerPlugins": false
   },
   "compileType": "miniprogram",
   "libVersion": "",
   "appid": "wx7620c49485e69410",
-  "projectname": "my-uniapp",
+  "projectname": "WechatOwnerService",
   "condition": {
     "search": {
       "list": []
@@ -61,7 +60,7 @@
           "name": "",
           "query": "",
           "id": 0,
-          "pathName": "/pages/home/home"
+          "pathName": "/pages/tesla/tesla"
         }
       ]
     }

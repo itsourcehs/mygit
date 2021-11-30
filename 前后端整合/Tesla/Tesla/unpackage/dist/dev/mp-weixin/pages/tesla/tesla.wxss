@@ -38,11 +38,31 @@
 	flex-direction: column;
 	align-items: center;
 }
+@-webkit-keyframes fadeIn{
+0% {
+		opacity: 0;
+}
+100% {
+		opacity: 1;
+}
+}
+@keyframes fadeIn{
+0% {
+		opacity: 0;
+}
+100% {
+		opacity: 1;
+}
+}
 .swiper-float-content .descriptions-area .description .description-title {
 	font-size: 40rpx;
+	-webkit-animation: fadeIn 1s;
+	        animation: fadeIn 1s;
 }
 .swiper-float-content .descriptions-area .description .description-subtitle {
 	font-size: 25rpx;
+	-webkit-animation: fadeIn 2s;
+	        animation: fadeIn 2s;
 }
 .swiper-float-content .action-btn {
 	margin-top: 54rpx;

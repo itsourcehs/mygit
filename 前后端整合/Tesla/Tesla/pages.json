@@ -17,6 +17,15 @@
 		    }
 		    
 		}
+        ,{
+            "path" : "pages/activity/activity",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTitleText": "Tesla",
@@ -45,6 +54,12 @@
 				"text":"地图",
 				"iconPath":"static/images/nav/map.png",
 				"selectedIconPath":"static/images/nav/map-active.png"
+			},
+			{
+				"pagePath":"pages/activity/activity",
+				"text":"活动",
+				"iconPath":"static/images/nav/activity.png",
+				"selectedIconPath":"static/images/nav/activity-active.png"
 			}
 		]
 	},

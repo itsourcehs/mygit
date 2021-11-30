@@ -67,8 +67,8 @@
 						title: 'Model s',
 						config: [
 							{title: '637',subtitle:'公里续航'},
-							{title: '627',subtitle:'公里续航'},
-							{title: '617',subtitle:'公里续航'}
+							{title: '2.1秒',subtitle:'百公里加速'},
+							{title: '322公里/小时',subtitle:'最高车速'}
 						]
 					},
 					{
@@ -76,8 +76,8 @@
 						title: 'Model x',
 						config: [
 							{title: '537',subtitle:'公里续航'},
-							{title: '527',subtitle:'公里续航'},
-							{title: '517',subtitle:'公里续航'}
+							{title: '3.1秒',subtitle:'百公里加速'},
+							{title: '122公里/小时',subtitle:'最高车速'}
 						]
 					},
 					{
@@ -85,8 +85,8 @@
 						title: 'Model y',
 						config: [
 							{title: '437',subtitle:'公里续航'},
-							{title: '427',subtitle:'公里续航'},
-							{title: '417',subtitle:'公里续航'}
+							{title: '1.1秒',subtitle:'百公里加速'},
+							{title: '222公里/小时',subtitle:'最高车速'}
 						]
 					}
 				],

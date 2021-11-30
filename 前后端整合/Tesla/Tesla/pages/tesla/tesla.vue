@@ -66,27 +66,27 @@
 						imgUrl: '../../static/images/swiper/car.png',
 						title: 'Model s',
 						config: [
-							{title: '637',subtitle:'公里续航',
-							title: '627',subtitle:'公里续航',
-							title: '617',subtitle:'公里续航'}
+							{title: '637',subtitle:'公里续航'},
+							{title: '627',subtitle:'公里续航'},
+							{title: '617',subtitle:'公里续航'}
 						]
 					},
 					{
 						imgUrl: '../../static/images/swiper/car.png',
 						title: 'Model x',
 						config: [
-							{title: '537',subtitle:'公里续航',
-							title: '527',subtitle:'公里续航',
-							title: '517',subtitle:'公里续航'}
+							{title: '537',subtitle:'公里续航'},
+							{title: '527',subtitle:'公里续航'},
+							{title: '517',subtitle:'公里续航'}
 						]
 					},
 					{
 						imgUrl: '../../static/images/swiper/car.png',
 						title: 'Model y',
 						config: [
-							{title: '437',subtitle:'公里续航',
-							title: '427',subtitle:'公里续航',
-							title: '417',subtitle:'公里续航'}
+							{title: '437',subtitle:'公里续航'},
+							{title: '427',subtitle:'公里续航'},
+							{title: '417',subtitle:'公里续航'}
 						]
 					}
 				],

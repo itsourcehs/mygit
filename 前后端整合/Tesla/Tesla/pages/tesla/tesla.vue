@@ -1,58 +1,73 @@
 <template>
 	<view class="page">
-		<view class="swiper">
-			<swiper @change="handleChange">
-				<swiper-item v-for="(item, index) in swiperList" :key="index">
-					<image :src="item.imgUrl" mode="aspectFill"></image>
-				</swiper-item>
-			</swiper>
-			
-			<view class="swiper-float-content">
-				<view
-				class="title"
-				v-for="(item3,index3) in swiperList"
-				:key="index3"
-				v-if="currentSwiperIndex === index3"
-				>
-					{{item3.title}}
-				</view>
-				
-				<view
-				class="descriptions-area"
-				v-for="(item4,index4) in swiperList"
-				:key="index4"
-				v-if="currentSwiperIndex === index4">
-					<view
-					class="description"
-					v-for="(item5,index5) in item4.config"
-					:key="index5">
-						<view class="description-title">
-							{{item5.title}}
-						</view>
-						
-						<view class="description-subtitle">
-							{{item5.subtitle}}
-						</view>
-					</view>
-				</view>
-				
-				<view class="action-btn">
-					预约试驾
-				</view>
-				
-				<view class="view-config">
-					查看参数
-				</view>
-				
-				<view class="swiper-dots">
-					<view
-					class="dot"
-					:class="[currentSwiperIndex !== index2 || 'active']"
-					v-for="(item2,index2) in swiperList"
-					:key="index2"></view>
+		<tesla-swiper @bookClick="handleBookClick" style="width: 100%;"></tesla-swiper>
+		
+		<!-- 月刊杂志 -->
+		<view class="magazine-area">
+			<view class="title">T zone</view>
+			<image class="magazine-cover" src="@/static/images/swiper/car.png" @tap="handleClickMagazine"></image>
+			<view class="magazine-title">杂志摘要....</view>
+		</view>
+		
+		<!-- 贷款计算器 -->
+		<view class="icon-banner" @tap="goToToolbox">
+			<image class="banner-bg credit-card" src="@/static/images/icon/credit-card.jpg" mode="widthFix"></image>
+			<view class="content">
+				<view class="info">
+					<view class="title">贷款计算器</view>
+					<view class="subtitle">定制我的金融方案</view>
 				</view>
 			</view>
 		</view>
+		
+		<!-- 新手视频 -->
+		<view class="icon-banner" @tap="goToVideo">
+			<image class="banner-bg credit-card" src="@/static/images/icon/video.png" mode="widthFix"></image>
+			<view class="content">
+				<view class="info">
+					<view class="title">新手视频</view>
+					<view class="subtitle">观看视频</view>
+				</view>
+			</view>
+		</view>
+		
+		<!-- 新能源政策 -->
+		<view class="icon-box-area">
+			<view class="icon-box tradin">
+				<image class="icon" src="@/static/images/icon/energy.png" mode="aspectFit"></image>
+				<!-- <view class="title">新能源政策</view> -->
+				<view class="title"></view>
+			</view>
+			<view class="icon-box tradin">
+				<image class="icon" src="@/static/images/icon/exchange.png" mode="aspectFit"></image>
+				<!-- <view class="title">车辆置换</view> -->
+				<view class="title"></view>
+			</view>
+		</view>
+		
+		<!-- 弹出层 -->
+		<uni-popup ref="popup" type="bottom">
+			<view class="popup-menu">
+				<view class="head">
+					<view class="title">选择车型</view>
+					<image class="close-icon" src="@/static/images/icon/close.png" @tap="handleClosePopupMenu"></image>
+				</view>
+				<view class="content">
+					<view class="item-box">
+						<view class="title">Model s</view>
+						<image src="@/static/images/swiper/car.png"></image>
+					</view>
+					<view class="item-box">
+						<view class="title">Model x</view>
+						<image src="@/static/images/swiper/car.png"></image>
+					</view>
+					<view class="item-box">
+						<view class="title">Model y</view>
+						<image src="@/static/images/swiper/car.png"></image>
+					</view>
+				</view>
+			</view>
+		</uni-popup>
 	</view>
 </template>
 
@@ -60,44 +75,25 @@
 	export default {
 		data() {
 			return {
-				// 模拟轮播图数据
-				swiperList: [
-					{
-						imgUrl: '../../static/images/swiper/car.png',
-						title: 'Model s',
-						config: [
-							{title: '637',subtitle:'公里续航'},
-							{title: '2.1秒',subtitle:'百公里加速'},
-							{title: '322公里/小时',subtitle:'最高车速'}
-						]
-					},
-					{
-						imgUrl: '../../static/images/swiper/car.png',
-						title: 'Model x',
-						config: [
-							{title: '537',subtitle:'公里续航'},
-							{title: '3.1秒',subtitle:'百公里加速'},
-							{title: '122公里/小时',subtitle:'最高车速'}
-						]
-					},
-					{
-						imgUrl: '../../static/images/swiper/car.png',
-						title: 'Model y',
-						config: [
-							{title: '437',subtitle:'公里续航'},
-							{title: '1.1秒',subtitle:'百公里加速'},
-							{title: '222公里/小时',subtitle:'最高车速'}
-						]
-					}
-				],
-				currentSwiperIndex: 0
+				popupMenu: false
 			}
 		},
 		methods: {
-			// swiper 元素改变时
-			handleChange (e) {
-				console.log(e.detail.current);
-				this.currentSwiperIndex = e.detail.current
+			// 预约试驾
+			handleBookClick () {
+				// 通过组件定义的ref调用uni-popup方法
+				this.$refs.popup.open()
+			},
+			// 杂志封面
+			handleClickMagazine () {},
+			// 到工具箱
+			goToToolbox () {},
+			// 新手视频
+			goToVideo () {},
+			// 关闭弹出层 && 页面发生改变时也应关闭
+			handleClosePopupMenu () {
+				// 通过组件定义的ref调用uni-popup close方法
+				this.$refs.popup.close()
 			}
 		}
 	}

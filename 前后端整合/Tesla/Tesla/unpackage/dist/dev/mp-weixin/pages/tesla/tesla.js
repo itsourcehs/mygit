@@ -101,6 +101,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
+try {
+  components = {
+    teslaSwiper: function() {
+      return __webpack_require__.e(/*! import() | components/tesla-swiper/tesla-swiper */ "components/tesla-swiper/tesla-swiper").then(__webpack_require__.bind(null, /*! @/components/tesla-swiper/tesla-swiper.vue */ 34))
+    },
+    uniPopup: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/uni-popup/components/uni-popup/uni-popup */ "uni_modules/uni-popup/components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-popup/components/uni-popup/uni-popup.vue */ 42))
+    }
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -194,48 +220,44 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
-      // 模拟轮播图数据
-      swiperList: [
-      {
-        imgUrl: '../../static/images/swiper/car.png',
-        title: 'Model s',
-        config: [
-        { title: '637', subtitle: '公里续航' },
-        { title: '2.1秒', subtitle: '百公里加速' },
-        { title: '322公里/小时', subtitle: '最高车速' }] },
-
-
-      {
-        imgUrl: '../../static/images/swiper/car.png',
-        title: 'Model x',
-        config: [
-        { title: '537', subtitle: '公里续航' },
-        { title: '3.1秒', subtitle: '百公里加速' },
-        { title: '122公里/小时', subtitle: '最高车速' }] },
-
-
-      {
-        imgUrl: '../../static/images/swiper/car.png',
-        title: 'Model y',
-        config: [
-        { title: '437', subtitle: '公里续航' },
-        { title: '1.1秒', subtitle: '百公里加速' },
-        { title: '222公里/小时', subtitle: '最高车速' }] }],
-
-
-
-      currentSwiperIndex: 0 };
+      popupMenu: false };
 
   },
   methods: {
-    // swiper 元素改变时
-    handleChange: function handleChange(e) {
-      console.log(e.detail.current);
-      this.currentSwiperIndex = e.detail.current;
+    // 预约试驾
+    handleBookClick: function handleBookClick() {
+      // 通过组件定义的ref调用uni-popup方法
+      this.$refs.popup.open();
+    },
+    // 杂志封面
+    handleClickMagazine: function handleClickMagazine() {},
+    // 到工具箱
+    goToToolbox: function goToToolbox() {},
+    // 新手视频
+    goToVideo: function goToVideo() {},
+    // 关闭弹出层 && 页面发生改变时也应关闭
+    handleClosePopupMenu: function handleClosePopupMenu() {
+      // 通过组件定义的ref调用uni-popup close方法
+      this.$refs.popup.close();
     } } };exports.default = _default;
 
 /***/ }),

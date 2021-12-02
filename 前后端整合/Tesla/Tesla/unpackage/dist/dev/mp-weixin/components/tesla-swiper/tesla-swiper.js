@@ -114,7 +114,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uniCloud) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -205,6 +205,11 @@ var _default =
 
   },
   methods: {
+    getIndexSwiperList: function getIndexSwiperList() {
+      var db = uniCloud.database();
+
+    },
+
     // swiper 元素改变时
     handleChange: function handleChange(e) {
       // console.log(e.detail.current);
@@ -218,6 +223,7 @@ var _default =
 
     // 查看配置
     handleViewConfig: function handleViewConfig() {} } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 56)["default"]))
 
 /***/ }),
 

@@ -1,0 +1,29 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 0,
+          "name": "",
+          "pathName": "/pages/tesla/tesla",
+          "query": ""
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/activity",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

@@ -89,6 +89,11 @@ export default {
 		};
 	},
 	methods: {
+		getIndexSwiperList () {
+			const db = uniCloud.database();
+			
+		},
+		
 		// swiper 元素改变时
 		handleChange (e) {
 			// console.log(e.detail.current);

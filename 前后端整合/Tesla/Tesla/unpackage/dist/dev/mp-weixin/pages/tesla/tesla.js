@@ -107,7 +107,7 @@ try {
       return Promise.all(/*! import() | components/tesla-swiper/tesla-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/tesla-swiper/tesla-swiper")]).then(__webpack_require__.bind(null, /*! @/components/tesla-swiper/tesla-swiper.vue */ 34))
     },
     uniPopup: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-popup/components/uni-popup/uni-popup */ "uni_modules/uni-popup/components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-popup/components/uni-popup/uni-popup.vue */ 42))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-popup/components/uni-popup/uni-popup */ "uni_modules/uni-popup/components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-popup/components/uni-popup/uni-popup.vue */ 46))
     }
   }
 } catch (e) {

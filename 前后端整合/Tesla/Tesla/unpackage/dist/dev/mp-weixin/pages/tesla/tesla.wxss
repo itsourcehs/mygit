@@ -127,8 +127,8 @@
 	font-size: 30rpx;
 }
 .icon-box-area .icon-box .icon {
-	width: 80rpx;
-	height: 80rpx;
+	width: 70rpx;
+	height: 70rpx;
 }
 .tradin image {
 	height: 72rpx;

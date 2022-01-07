@@ -6,5 +6,5 @@ import com.tesla.entity.*;
 
 public interface teslaService {
 
-    TeslaCar findOne();
+    TeslaCar findAllCars();
 }

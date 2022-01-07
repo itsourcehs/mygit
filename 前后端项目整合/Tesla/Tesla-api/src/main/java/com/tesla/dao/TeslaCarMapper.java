@@ -2,10 +2,11 @@ package com.tesla.dao;
 
 import java.util.List;
 import com.tesla.entity.TeslaCarExample;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.*;
 import com.tesla.entity.TeslaCar;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public interface TeslaCarMapper {
     long countByExample(TeslaCarExample example);
 

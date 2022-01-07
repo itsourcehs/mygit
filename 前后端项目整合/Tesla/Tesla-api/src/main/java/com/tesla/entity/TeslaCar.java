@@ -12,6 +12,16 @@ public class TeslaCar {
 
     private List<Map<String,String>> carConfig;
 
+    public TeslaCar() {
+    }
+
+    public TeslaCar(Integer carId, String carTitle, String carImgurl, List<Map<String, String>> carConfig) {
+        this.carId = carId;
+        this.carTitle = carTitle;
+        this.carImgurl = carImgurl;
+        this.carConfig = carConfig;
+    }
+
     public Integer getCarId() {
         return carId;
     }

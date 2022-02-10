@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.generator.dao.TeslacarMapper">
+  <resultMap id="BaseResultMap" type="mybatis.generator.entity.Teslacar">
+    <id column="carId" jdbcType="INTEGER" property="carid" />
+    <result column="carTitle" jdbcType="VARCHAR" property="cartitle" />
+    <result column="carImgurl" jdbcType="VARCHAR" property="carimgurl" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="mybatis.generator.entity.Teslacar">
+    <result column="carConfig" jdbcType="LONGVARCHAR" property="carconfig" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    carId, carTitle, carImgurl
+  </sql>
+  <sql id="Blob_Column_List">
+    carConfig
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="mybatis.generator.entity.TeslacarExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from teslacar
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="mybatis.generator.entity.TeslacarExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from teslacar
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from teslacar
+    where carId = #{carid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from teslacar
+    where carId = #{carid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="mybatis.generator.entity.TeslacarExample">
+    delete from teslacar
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="mybatis.generator.entity.Teslacar">
+    insert into teslacar (carId, carTitle, carImgurl, 
+      carConfig)
+    values (#{carid,jdbcType=INTEGER}, #{cartitle,jdbcType=VARCHAR}, #{carimgurl,jdbcType=VARCHAR}, 
+      #{carconfig,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis.generator.entity.Teslacar">
+    insert into teslacar
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="carid != null">
+        carId,
+      </if>
+      <if test="cartitle != null">
+        carTitle,
+      </if>
+      <if test="carimgurl != null">
+        carImgurl,
+      </if>
+      <if test="carconfig != null">
+        carConfig,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="carid != null">
+        #{carid,jdbcType=INTEGER},
+      </if>
+      <if test="cartitle != null">
+        #{cartitle,jdbcType=VARCHAR},
+      </if>
+      <if test="carimgurl != null">
+        #{carimgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="carconfig != null">
+        #{carconfig,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="mybatis.generator.entity.TeslacarExample" resultType="java.lang.Long">
+    select count(*) from teslacar
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update teslacar
+    <set>
+      <if test="record.carid != null">
+        carId = #{record.carid,jdbcType=INTEGER},
+      </if>
+      <if test="record.cartitle != null">
+        carTitle = #{record.cartitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carimgurl != null">
+        carImgurl = #{record.carimgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carconfig != null">
+        carConfig = #{record.carconfig,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update teslacar
+    set carId = #{record.carid,jdbcType=INTEGER},
+      carTitle = #{record.cartitle,jdbcType=VARCHAR},
+      carImgurl = #{record.carimgurl,jdbcType=VARCHAR},
+      carConfig = #{record.carconfig,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update teslacar
+    set carId = #{record.carid,jdbcType=INTEGER},
+      carTitle = #{record.cartitle,jdbcType=VARCHAR},
+      carImgurl = #{record.carimgurl,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis.generator.entity.Teslacar">
+    update teslacar
+    <set>
+      <if test="cartitle != null">
+        carTitle = #{cartitle,jdbcType=VARCHAR},
+      </if>
+      <if test="carimgurl != null">
+        carImgurl = #{carimgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="carconfig != null">
+        carConfig = #{carconfig,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where carId = #{carid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="mybatis.generator.entity.Teslacar">
+    update teslacar
+    set carTitle = #{cartitle,jdbcType=VARCHAR},
+      carImgurl = #{carimgurl,jdbcType=VARCHAR},
+      carConfig = #{carconfig,jdbcType=LONGVARCHAR}
+    where carId = #{carid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis.generator.entity.Teslacar">
+    update teslacar
+    set carTitle = #{cartitle,jdbcType=VARCHAR},
+      carImgurl = #{carimgurl,jdbcType=VARCHAR}
+    where carId = #{carid,jdbcType=INTEGER}
+  </update>
+</mapper>

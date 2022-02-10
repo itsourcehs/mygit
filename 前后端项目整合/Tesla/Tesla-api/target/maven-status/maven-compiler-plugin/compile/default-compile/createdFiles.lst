@@ -1,0 +1,13 @@
+mybatis\generator\controller\teslaController.class
+mybatis\generator\entity\TeslacarExample$GeneratedCriteria.class
+mybatis\generator\utils\JsonResult.class
+mybatis\generator\entity\TeslacarExample.class
+mybatis\generator\entity\TeslacarExample$Criterion.class
+mybatis\generator\entity\TeslacarExample$Criteria.class
+mybatis\generator\entity\Teslacar.class
+mybatis\generator\config\SwaggerConfig.class
+mybatis\generator\dao\TeslacarMapper.class
+mybatis\generator\teslaApplication.class
+mybatis\generator\service\Impl\teslaServiceImpl.class
+mybatis\generator\service\teslaService.class
+mybatis\generator\config\fastJsonConfig.class

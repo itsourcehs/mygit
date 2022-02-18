@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/tesla/tesla",
+    "pages/map/map",
+    "pages/activity/activity",
+    "pages/product/product",
+    "pages/test-drive/test-drive"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTitleText": "特斯拉Tesla",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#c3c3c3",
+    "selectedColor": "#1b1b1b",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/tesla/tesla",
+        "text": "Tesla",
+        "iconPath": "static/images/nav/tesla.png",
+        "selectedIconPath": "static/images/nav/tesla-active.png"
+      },
+      {
+        "pagePath": "pages/map/map",
+        "text": "地图",
+        "iconPath": "static/images/nav/map.png",
+        "selectedIconPath": "static/images/nav/map-active.png"
+      },
+      {
+        "pagePath": "pages/activity/activity",
+        "text": "活动",
+        "iconPath": "static/images/nav/activity.png",
+        "selectedIconPath": "static/images/nav/activity-active.png"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}

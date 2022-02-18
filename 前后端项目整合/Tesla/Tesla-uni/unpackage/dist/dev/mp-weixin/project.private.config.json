@@ -1,0 +1,42 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 0,
+          "name": "",
+          "pathName": "/pages/tesla/tesla",
+          "query": ""
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/activity",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/product/product",
+          "pathName": "pages/product/product",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/test-drive/test-drive",
+          "pathName": "pages/test-drive/test-drive",
+          "query": "id=d78wawy7aawd9",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

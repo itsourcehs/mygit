@@ -1,0 +1,50 @@
+.input-item {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	box-sizing: border-box;
+	margin-bottom: 25rpx;
+}
+.input-item .label {
+	padding: 20rpx 25rpx;
+	font-size: 25rpx;
+}
+.input-item input {
+	padding: 24rpx 25rpx;
+	background-color: #fff;
+	font-size: 30rpx;
+	font-weight: bold;
+	color: #000;
+	border-radius: 50rpx;
+	border: #000 solid 2rpx;
+}
+.input-item .error{
+	
+    border-color: red;
+}
+.input-item .disable {
+	background-color: #e2e2e3;
+	color: #9e9e9f;
+}
+.input-item .error-message {
+	position: absolute;
+	left: 25rpx;
+	font-size: 20rpx;
+	bottom: -35rpx;
+	color: red;
+}
+.input-item .tips {
+	position: absolute;
+	right: 25rpx;
+	font-size: 20rpx;
+	bottom: -35rpx;
+	color: #848484;
+}
+.slot-right-item {
+	position: absolute;
+	right: 25rpx;
+	bottom: 25rpx;
+	overflow: hidden;
+	z-index: 2;
+}

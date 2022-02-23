@@ -7,9 +7,9 @@
 		</el-row>
 		
 		<el-row gutter="32">
-			<el-col xs="24" sm="24" lg="8"></el-col>
-			<el-col xs="24" sm="24" lg="8"></el-col>
-			<el-col xs="24" sm="24" lg="8"></el-col>
+			<el-col xs="24" sm="24" lg="8">1</el-col>
+			<el-col xs="24" sm="24" lg="8">2</el-col>
+			<el-col xs="24" sm="24" lg="8">3</el-col>
 		</el-row>
 	</div>
   </div>

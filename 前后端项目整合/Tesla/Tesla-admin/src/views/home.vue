@@ -1,4 +1,5 @@
 <template>
+	<!-- 仪表盘主体 -->
   <div class="dashboard-container">
     <div class="dashboard-editor-container">
 		
@@ -29,7 +30,9 @@ export default {
 
 <style scoped lang="scss">
 .dashboard-editor-container {
-	
+	padding: 32px;
+	background-color: rgb(240,242,245);
+	position: relative;
 }
 .dashboard-el-row {
 	background: #ff557f;

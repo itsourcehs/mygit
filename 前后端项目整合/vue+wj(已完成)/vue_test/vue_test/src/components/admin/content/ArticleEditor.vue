@@ -58,19 +58,19 @@ import ImgUpload from '../../common/ImgUpload'
 export default {
   name: 'ArticleEditor',
   components: {ImgUpload},
-  data() {
+  data () {
     return {
       article: {},
       dialogVisible: false
     }
   },
-  mounted() {
+  mounted () {
     if (this.$route.params.article) {
       this.article = this.$route.params.article
     }
   },
   methods: {
-    saveArticles(value, render) {
+    saveArticles (value, render) {
       // value 是 md，render 是 html
       this.$confirm('是否保存并发布文章', '提示', {
         confirmButtonText: '确定',
@@ -101,10 +101,10 @@ export default {
         })
       })
     },
-    uploadImg() {
+    uploadImg () {
       this.article.articleCover = this.$refs.imgUpload.url
     },
-    formatTime() {
+    formatTime () {
       let date = new Date()
       let year = date.getFullYear()
       let month = date.getMonth() + 1

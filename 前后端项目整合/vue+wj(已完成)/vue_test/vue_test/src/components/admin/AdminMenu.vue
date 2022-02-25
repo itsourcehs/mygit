@@ -4,7 +4,7 @@
     class="el-menu-admin"
     router
     mode="vertical"
-    background-color="#cfe2f5"
+    background-color="#495060"
     text-color="#fff"
     active-text-color="#ffd04b"
     :collapse="isCollapse">
@@ -25,16 +25,16 @@
 <script>
 export default {
   name: 'AdminMenu',
-  data() {
+  data () {
     return {
       isCollapse: false
     }
   },
   computed: {
-    adminMenus() {
+    adminMenus () {
       return this.$store.state.adminMenus
     },
-    currentPath() {
+    currentPath () {
       return this.$route.path
     }
   }

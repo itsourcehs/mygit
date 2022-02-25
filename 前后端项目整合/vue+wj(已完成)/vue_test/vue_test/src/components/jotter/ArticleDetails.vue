@@ -15,16 +15,16 @@
 <script>
 export default {
   name: 'ArticleDetails',
-  data() {
+  data () {
     return {
       article: []
     }
   },
-  mounted() {
+  mounted () {
     this.loadArticle()
   },
   methods: {
-    loadArticle() {
+    loadArticle () {
       var _this = this
       this.$axios.get('/article/' + this.$route.query.id)
         .then(res => {

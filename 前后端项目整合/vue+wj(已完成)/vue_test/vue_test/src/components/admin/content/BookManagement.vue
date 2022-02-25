@@ -80,21 +80,21 @@ import EditForm from '../../library/EditForm'
 export default {
   name: 'BookManagement',
   components: {EditForm},
-  data() {
+  data () {
     return {
       books: []
     }
   },
-  mounted() {
+  mounted () {
     this.loadBooks()
   },
   computed: {
-    tableHeight() {
+    tableHeight () {
       return window.innerHeight - 320
     }
   },
   methods: {
-    loadBooks() {
+    loadBooks () {
       var _this = this
       this.$axios.get('/books')
         .then(res => {
@@ -103,14 +103,14 @@ export default {
           }
         })
     },
-    deleteBook(id) {
+    deleteBook (id) {
       this.$confirm('此操作将永久删除该书籍, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-          this.$axios
-            .post('/delete', {id: id}).then(resp => {
+        this.$axios
+          .post('/delete', {id: id}).then(resp => {
             if (resp && resp.status === 200) {
               this.$message({
                 type: 'success',
@@ -119,7 +119,7 @@ export default {
               this.loadBooks()
             }
           })
-        }
+      }
       ).catch(() => {
         this.$message({
           type: 'info',
@@ -127,7 +127,7 @@ export default {
         })
       })
     },
-    editBook(item) {
+    editBook (item) {
       this.$refs.edit.dialogFormVisible = true
       this.$refs.edit.form = {
         id: item.id,

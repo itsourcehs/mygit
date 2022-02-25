@@ -77,23 +77,23 @@
 <script>
 export default {
   name: 'ArticleManagement',
-  data() {
+  data () {
     return {
       articles: [],
       pageSize: 10,
       total: 0
     }
   },
-  mounted() {
+  mounted () {
     this.loadArticles()
   },
   computed: {
-    tableHeight() {
+    tableHeight () {
       return window.innerHeight - 320
     }
   },
   methods: {
-    loadArticles() {
+    loadArticles () {
       var _this = this
       this.$axios.get('/article/' + this.pageSize + '/1').then(resp => {
         if (resp && resp.status === 200) {
@@ -102,7 +102,7 @@ export default {
         }
       })
     },
-    handleCurrentChange(page) {
+    handleCurrentChange (page) {
       var _this = this
       this.$axios.get('/article/' + this.pageSize + '/' + page).then(resp => {
         if (resp && resp.status === 200) {
@@ -111,7 +111,7 @@ export default {
         }
       })
     },
-    viewArticle(id) {
+    viewArticle (id) {
       let articleUrl = this.$router.resolve({
         path: '../../jotter/article',
         query: {
@@ -120,7 +120,7 @@ export default {
       })
       window.open(articleUrl.href, '_blank')
     },
-    editArticle(article) {
+    editArticle (article) {
       this.$router.push({
         name: 'Editor',
         params: {
@@ -128,7 +128,7 @@ export default {
         }
       })
     },
-    deleteArticle(id) {
+    deleteArticle (id) {
       this.$confirm('此操作将永久删除该文章, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',

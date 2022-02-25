@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'NavMenu',
-  data() {
+  data () {
     return {
       navList: [
         {name: '/index', navItem: '首页'},
@@ -22,7 +22,7 @@ export default {
     }
   },
   methods: {
-    logout() {
+    logout () {
       var _this = this
       this.$axios.get('/logout')
         .then(res => {
@@ -30,8 +30,7 @@ export default {
             _this.$store.commit('logout')
             _this.$router.replace('/login')
           }
-        }).catch(failResponse => {
-      })
+        }).catch(failResponse => {})
     }
   }
 }

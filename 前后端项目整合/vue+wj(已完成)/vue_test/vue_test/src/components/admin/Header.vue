@@ -1,9 +1,11 @@
 <template>
   <el-card class="admin-header">
-    <a href="/index">
-      <img src="" alt="" width="55px" style="float: left;margin-top: -5px;">
-    </a>
-    <span style="font-size: 32px;font-weight: bold;position: absolute;left: 100px;"></span>
+    <div style="background-color: #495060;">
+      <a href="/index">
+        <img src="" alt="" width="55px" style="float: left;margin-top: -5px;">
+      </a>
+      <span style="font-size: 32px;font-weight: bold;position: absolute;left: 100px;">Admin</span>
+    </div>
     <i class="el-icon-switch-button" @click="logout" style="font-size: 40px;float: right;"></i>
   </el-card>
 </template>
@@ -13,7 +15,7 @@
 export default {
   name: 'Header',
   methods: {
-    logout() {
+    logout () {
       var _this = this
       this.$axios.get('/logout')
         .then(res => {
@@ -24,8 +26,7 @@ export default {
             // const newRouter = createRouter()
             // _this.$router.matcher = newRouter.matcher
           }
-        }).catch(failResponse => {
-      })
+        }).catch(failResponse => {})
     }
   }
 }

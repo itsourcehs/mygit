@@ -12,7 +12,7 @@
 <script>
 export default {
   name: 'SearchBar',
-  data() {
+  data () {
     return {
       keywords: '',
       books: [],
@@ -20,7 +20,7 @@ export default {
     }
   },
   methods: {
-    searchClick() {
+    searchClick () {
       this.$emit('onSearch')
     }
   }

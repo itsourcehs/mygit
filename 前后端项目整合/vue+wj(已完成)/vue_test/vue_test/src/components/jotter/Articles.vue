@@ -32,18 +32,18 @@
 <script>
 export default {
   name: 'Articles',
-  data() {
+  data () {
     return {
       articles: [],
       pageSize: 4,
       total: ''
     }
   },
-  mounted() {
+  mounted () {
     this.loadArticles()
   },
   methods: {
-    loadArticles() {
+    loadArticles () {
       var _this = this
       this.$axios.get('/article/' + this.pageSize + '/1').then(resp => {
         if (resp && resp.status === 200) {
@@ -52,7 +52,7 @@ export default {
         }
       })
     },
-    handleCurrentChange(page) {
+    handleCurrentChange (page) {
       var _this = this
       this.$axios.get('/article/' + this.pageSize + '/' + page)
         .then(res => {

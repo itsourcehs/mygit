@@ -103,7 +103,7 @@ import BulkRegistration from './BulkRegistration'
 export default {
   name: 'UserProfile',
   components: {BulkRegistration},
-  data() {
+  data () {
     return {
       users: [],
       selectedUser: [],
@@ -113,16 +113,16 @@ export default {
     }
   },
   computed: {
-    tableHeight() {
+    tableHeight () {
       return window.innerHeight - 320
     }
   },
-  mounted() {
+  mounted () {
     this.listUsers()
     this.listRoles()
   },
   methods: {
-    listUsers() {
+    listUsers () {
       var _this = this
       this.$axios.get('/admin/user')
         .then(res => {
@@ -131,7 +131,7 @@ export default {
           }
         })
     },
-    listRoles() {
+    listRoles () {
       var _this = this
       this.$axios.get('/admin/role')
         .then(res => {
@@ -140,7 +140,7 @@ export default {
           }
         })
     },
-    commitStatusChange(value, user) {
+    commitStatusChange (value, user) {
       if (user.username !== 'admin') {
         this.$axios.put('/admin/user/status', {enabled: value, username: user.username})
           .then(res => {
@@ -157,7 +157,7 @@ export default {
         this.$alert('不能禁用管理员账户')
       }
     },
-    editUser(user) {
+    editUser (user) {
       // debugger
       this.dialogFormVisible = true
       this.selectedUser = user
@@ -167,7 +167,7 @@ export default {
       }
       this.selectedRolesIds = roleIds
     },
-    onSubmit(user) {
+    onSubmit (user) {
       let _this = this
       // 根据视图绑定的角色id,向后端传递角色信息
       let roles = []

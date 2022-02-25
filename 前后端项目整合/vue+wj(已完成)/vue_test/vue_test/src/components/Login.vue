@@ -27,7 +27,7 @@
 export default {
   name: 'Login',
 
-  data() {
+  data () {
     return {
       checked: true,
       loginForm: {
@@ -39,7 +39,7 @@ export default {
   },
 
   methods: {
-    login() {
+    login () {
       var _this = this
       console.log(this.$store.state)
       this.$axios

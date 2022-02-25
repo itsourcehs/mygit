@@ -41,7 +41,7 @@
 <script>
 export default {
   name: 'HelloWorld',
-  data() {
+  data () {
     return {
       msg: '欢迎来到菜鸟教程！'
     }

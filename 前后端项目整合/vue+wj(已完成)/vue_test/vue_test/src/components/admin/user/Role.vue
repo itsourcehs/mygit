@@ -104,7 +104,7 @@
 <script>
 export default {
   name: 'Role',
-  data() {
+  data () {
     return {
       roles: [],
       menus: [],
@@ -121,17 +121,17 @@ export default {
     }
   },
   computed: {
-    tableHeight() {
+    tableHeight () {
       return window.innerHeight - 320
     }
   },
-  mounted() {
+  mounted () {
     this.listRoles()
     this.listPerms()
     this.listMenus()
   },
   methods: {
-    listRoles() {
+    listRoles () {
       var _this = this
       this.$axios.get('/admin/role')
         .then(res => {
@@ -140,7 +140,7 @@ export default {
           }
         })
     },
-    editRole(role) {
+    editRole (role) {
       // debugger
       this.dialogFormVisible = true
       this.selectedRole = role
@@ -164,7 +164,7 @@ export default {
         this.$refs.tree.setCheckedKeys(menuIds)
       }
     },
-    onSubmit(role) {
+    onSubmit (role) {
       // debugger
       let _this = this
       // 根据视图绑定的角色id向后端发送角色信息
@@ -197,9 +197,9 @@ export default {
         }
       })
     },
-    commitStatusChange(value, role) {
+    commitStatusChange (value, role) {
     },
-    listPerms() {
+    listPerms () {
       // 全量功能配置列表
       var _this = this
       this.$axios.get('/admin/role/perm')
@@ -209,7 +209,7 @@ export default {
           }
         })
     },
-    listMenus() {
+    listMenus () {
       // 全量菜单配置列表
       var _this = this
       this.$axios.get('/admin/role/menu')

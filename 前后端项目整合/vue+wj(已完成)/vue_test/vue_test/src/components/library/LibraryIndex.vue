@@ -18,7 +18,7 @@ export default {
   name: 'AppLibrary',
   components: {Books, SideMenu},
   methods: {
-    listByCategory() {
+    listByCategory () {
       // debugger
       var _this = this
       var cid = this.$refs.sideMenu.cid

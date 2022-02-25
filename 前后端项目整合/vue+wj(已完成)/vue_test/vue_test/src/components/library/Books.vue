@@ -39,7 +39,7 @@ import ViewSwitch from './ViewSwitch'
 export default {
   name: 'Books',
   components: {EditForm, SearchBar, ViewSwitch},
-  data() {
+  data () {
     return {
       books: [],
       currentPage: 1,
@@ -50,7 +50,7 @@ export default {
     this.loadBooks()
   },
   methods: {
-    loadBooks() {
+    loadBooks () {
       var _this = this
       this.$axios.get('/books')
         .then(res => {
@@ -59,7 +59,7 @@ export default {
           }
         })
     },
-    searchResult() {
+    searchResult () {
       var _this = this
       this.$axios.get('/search?keywords=' + this.$refs.searchBar.keywords, {})
         .then(res => {
@@ -72,7 +72,7 @@ export default {
       this.currentPage = currentPage
       console.log(this.currentPage)
     },
-    editBook(item) {
+    editBook (item) {
       this.$refs.edit.dialogFormVisible = true
       this.$refs.edit.form = {
         id: item.id,
@@ -88,19 +88,19 @@ export default {
         }
       }
     },
-    deleteBook(id) {
+    deleteBook (id) {
       this.$confirm('此操作将永久删除该书籍, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-          this.$axios
-            .post('/delete', {id: id}).then(resp => {
+        this.$axios
+          .post('/delete', {id: id}).then(resp => {
             if (resp && resp.status === 200) {
               this.loadBooks()
             }
           })
-        }
+      }
       ).catch(() => {
         this.$message({
           type: 'info',

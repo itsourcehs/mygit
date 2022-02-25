@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       checked: true,
       loginForm: {
@@ -31,7 +31,7 @@ export default {
     }
   },
   methods: {
-    register() {
+    register () {
       var _this = this
       this.$axios
         .post('/register', {

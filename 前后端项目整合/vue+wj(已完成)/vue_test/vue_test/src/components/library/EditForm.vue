@@ -51,7 +51,7 @@ import ImgUpload from '../common/ImgUpload'
 export default {
   name: 'EditForm',
   components: {ImgUpload},
-  data() {
+  data () {
     return {
       dialogFormVisible: false,
       form: {
@@ -71,7 +71,7 @@ export default {
     }
   },
   methods: {
-    clear() {
+    clear () {
       this.$refs.imgUpload.clear()
       this.form = {
         id: '',
@@ -87,7 +87,7 @@ export default {
         }
       }
     },
-    onSubmit() {
+    onSubmit () {
       this.$axios
         .post('/books', {
           id: this.form.id,
@@ -99,13 +99,13 @@ export default {
           abs: this.form.abs,
           category: this.form.category
         }).then(resp => {
-        if (resp && resp.status === 200) {
-          this.dialogFormVisible = false
-          this.$emit('onSubmit')
-        }
-      })
+          if (resp && resp.status === 200) {
+            this.dialogFormVisible = false
+            this.$emit('onSubmit')
+          }
+        })
     },
-    uploadImg() {
+    uploadImg () {
       this.form.cover = this.$refs.imgUpload.url
     }
   }

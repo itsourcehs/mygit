@@ -29,7 +29,7 @@
 			<el-checkbox v-model="loginForm.rememberMe" style="margin: 0 0 25px;">记住我</el-checkbox>
 			
 			<el-form-item style="width: 100%;">
-				<el-button @click.native.prevent="handleLogin" :loading="loading" size="medium" type="primary" style="width: 100%;">
+				<el-button @click.native.prevent="handleLogin" :loading="loading" size="medium" type="primary" style="width: 13%;">
 					<span v-if="!loading">登 录</span>
 					<span v-else>登录中...</span>
 				</el-button>
@@ -65,5 +65,18 @@ export default {
 </script>
 
 <style lang="scss">
+.login {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	background-size: cover;
+}
+.login-form {
+	border-radius: 6px;
+	width: 385px;
+	padding: 25px 25px 5px;
+	background: #ffffff;
+}
 
 </style>

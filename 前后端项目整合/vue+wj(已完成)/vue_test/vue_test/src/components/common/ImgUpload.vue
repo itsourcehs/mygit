@@ -19,29 +19,29 @@
 <script>
 export default {
   name: 'ImgUpload',
-  data() {
+  data () {
     return {
       fileList: [],
       url: ''
     }
   },
   methods: {
-    handleRemove(file, fileList) {
+    handleRemove (file, fileList) {
     },
-    handlePreview(file) {
+    handlePreview (file) {
     },
-    handleExceed(files, fileList) {
+    handleExceed (files, fileList) {
       this.$message.warning(`当前限制选择 1 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`)
     },
-    beforeRemove(file, fileList) {
+    beforeRemove (file, fileList) {
       return this.$confirm(`确定移除 ${file.name}？`)
     },
-    handleSuccess(res) {
+    handleSuccess (res) {
       this.url = res
       this.$emit('onUpload')
       this.$message.warning(`上传成功`)
     },
-    clear() {
+    clear () {
       this.$refs.upload.clearFiles()
     }
   }

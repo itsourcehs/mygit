@@ -33,7 +33,7 @@
 <script>
 export default {
   name: 'BulkRegistration',
-  data() {
+  data () {
     return {
       dialogFormVisible: false,
       rules: {
@@ -50,7 +50,7 @@ export default {
     }
   },
   methods: {
-    register() {
+    register () {
       // 注册
       this.$axios.post('/register', {
         username: this.loginForm.username,
@@ -70,7 +70,7 @@ export default {
       }).catch(failResponse => {
       })
     },
-    clear() {
+    clear () {
       this.loginForm = {
         username: '',
         password: '',

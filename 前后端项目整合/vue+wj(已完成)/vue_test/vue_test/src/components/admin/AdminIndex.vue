@@ -21,7 +21,7 @@ import Header from './Header.vue'
 export default {
   name: 'AdminIndex',
   components: {AdminMenu, Header},
-  data() {
+  data () {
     return {
       dialogVisble: false
     }

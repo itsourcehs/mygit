@@ -11,14 +11,14 @@ export default new Vuex.Store({
     adminMenus: []
   },
   mutations: {
-    initAdminMenu(state, menus) {
+    initAdminMenu (state, menus) {
       state.adminMenus = menus
     },
-    login(state, user) {
+    login (state, user) {
       state.user = user
       window.localStorage.setItem('user', JSON.stringify(user))
     },
-    logout(state) {
+    logout (state) {
       state.user = []
       window.localStorage.removeItem('user')
     }

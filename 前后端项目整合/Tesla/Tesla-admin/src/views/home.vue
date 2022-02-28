@@ -63,7 +63,5 @@
 
 
 <style scoped lang="scss">
-.el-header {
 
-}
 </style>

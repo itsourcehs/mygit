@@ -1,6 +1,6 @@
 <template>
   <el-card class="admin-header">
-    <div style="background-color: #495060;">
+    <div style="">
       <a href="/index">
         <img src="" alt="" width="55px" style="float: left;margin-top: -5px;">
       </a>
@@ -38,6 +38,7 @@ export default {
   opacity: 0.85;
   line-height: 40px;
   min-width: 900px;
+  /*background-color: #495060;*/
 }
 
 .el-icon-switch-button {

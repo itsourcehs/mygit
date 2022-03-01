@@ -1,27 +1,18 @@
 <template>
-  <el-container
-    style="height: 100vh;
-    border: 1px solid #eee">
-<!--    左侧导航区-->
-    <el-aside
-      width="200px"
-      style="height: 100vh;
-      background-color: rgb(73, 80, 96);">
-      <img src="../assets/img/admin_icon.jpg" style="height: 44px">
+  <el-container>
+    <el-aside width="200px">
+      <el-menu text-color="#fff"
+               active-text-color="#ffd04b">
+        <el-submenu>
+          <span><i  class="el-icon-location"></i>导航一</span>
+          <el-menu-item><i  class="el-icon-location"></i>选项一</el-menu-item>
+        </el-submenu>
+      </el-menu>
     </el-aside>
-<!--    右侧顶部区-->
-    <el-container>
-      <el-header
-        style="text-align: right;
-        font-size: 12px;
-        height: 60px;
-        background: #fff;
-        border: 1px solid #eee;">
 
-      </el-header>
-      <el-main>
-
-      </el-main>
+    <el-container class="demo">
+      <el-header></el-header>
+      <el-main></el-main>
     </el-container>
   </el-container>
 </template>
@@ -63,5 +54,35 @@
 
 
 <style scoped lang="scss">
+.el-aside {
+  background-color: #495060;
+  color: #333;
+  text-align: center;
+  line-height: 200px;
+  height: 100%;
+  padding: 0;
+}
+/*占满全屏*/
+.el-container{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 0;
+  .demo {
+    width: 89.5%;
+    margin-left: 200px;
+  }
+}
+.el-header {
+  background-color: #ffffff;
+  color: #333;
+  border: 1px solid #dbdcdd;
+}
 
+.el-menu {
+  margin-top: 0;
+  list-style-type: none;
+}
 </style>

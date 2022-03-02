@@ -1,16 +1,16 @@
 <template>
   <el-container>
     <el-aside width="200px">
-      <el-menu text-color="#fff"
+      <!-- <el-menu text-color="#fff"
                active-text-color="#ffd04b">
         <el-submenu>
           <span><i  class="el-icon-location"></i>导航一</span>
           <el-menu-item><i  class="el-icon-location"></i>选项一</el-menu-item>
         </el-submenu>
-      </el-menu>
+      </el-menu> -->
     </el-aside>
 
-    <el-container class="demo">
+    <el-container>
       <el-header></el-header>
       <el-main></el-main>
     </el-container>
@@ -22,30 +22,6 @@
 		name: 'Home',
 		data() {
 			return {
-				adminMenus: [
-					{
-						iconCls: '',
-						nameZh: '导航一',
-						children: [
-							{
-								icon: '',
-								nameZh: '选项1.1'
-							},
-							{
-								icon: '',
-								nameZh: '选项1.2'
-							},
-							{
-								icon: '',
-								nameZh: '选项1.3'
-							}
-						]
-					},
-					{
-						iconCls: '',
-						nameZh: '导航二'
-					}
-				]
 
 			}
 		}
@@ -81,8 +57,4 @@
   border: 1px solid #dbdcdd;
 }
 
-.el-menu {
-  margin-top: 0;
-  list-style-type: none;
-}
 </style>

@@ -10,7 +10,7 @@
       <!--面包屑-->
         <div class="header-main">
           <el-row style="margin: 18px 0px 0px 18px">
-            <el-breadcrumb separator-class="el-icon-arrow-right">
+            <el-breadcrumb separator="/">
               <el-breadcrumb-item :to="{path: '/admin'}">管理中心</el-breadcrumb-item>
               <el-breadcrumb-item>内容管理</el-breadcrumb-item>
               <el-breadcrumb-item>图书管理</el-breadcrumb-item>
@@ -18,8 +18,8 @@
           </el-row>
 
           <div class="user-avatar">
-            <span>hs</span>
-            <el-avatar shape="circle" :size="large" :fit="fit" src="@/assets/img/eva1.jpg"></el-avatar>
+            <span style="color: #2d8cf0">hs</span>
+            <el-avatar shape="circle" :size="large" :fit="fit" :src="avatarUrl"></el-avatar>
           </div>
         </div>
       </el-header>
@@ -39,6 +39,8 @@
 		},
 		data() {
 			return {
+			  // avatarUrl: '@/assets/img/eva1.jpg',
+        avatarUrl: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
 
 			}
 		}
@@ -78,6 +80,14 @@
 
   .user-avatar {
     margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      margin-right: 15px;
+    }
   }
 }
 </style>

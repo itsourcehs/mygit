@@ -1,0 +1,14 @@
+
+TEST CASES
+case	平台	声网	pairings
+1	android	1	1
+2	android	2	1
+3	ios	1	1
+4	ios	2	1
+
+PAIRING DETAILS
+var1	var2	value1	value2	appearances	cases
+平台	声网	android	1	1	1
+平台	声网	android	2	1	2
+平台	声网	ios	1	1	3
+平台	声网	ios	2	1	4

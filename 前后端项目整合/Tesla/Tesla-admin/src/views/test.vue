@@ -3,7 +3,7 @@
     <el-tag
       v-for="tag in tags"
       :key="tag.name"
-      closable
+      closable="true"
       :type="tag.type">
       {{tag.name}}
     </el-tag>

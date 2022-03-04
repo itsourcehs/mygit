@@ -5,8 +5,10 @@
 </template>
 
 <script>
+import CommonViews from "./views/CommonViews";
 export default {
-  name: 'App'
+  name: 'App',
+  components: {CommonViews}
 }
 </script>
 

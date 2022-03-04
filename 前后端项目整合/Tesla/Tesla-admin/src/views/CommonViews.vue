@@ -7,23 +7,24 @@
 
     <el-container style="width: 89%;margin-left: 200px">
       <el-header>
-      <!--面包屑-->
+        <!--面包屑-->
         <div class="header-main">
           <el-row style="margin: 18px 0px 0px 18px">
             <el-breadcrumb separator="/">
-              <el-breadcrumb-item :to="{path: '/admin'}">管理中心</el-breadcrumb-item>
-              <el-breadcrumb-item>内容管理</el-breadcrumb-item>
-              <el-breadcrumb-item>图书管理</el-breadcrumb-item>
+              <el-breadcrumb-item :to="{path: '/admin'}">首页</el-breadcrumb-item>
+              <el-breadcrumb-item>车辆管理</el-breadcrumb-item>
+              <el-breadcrumb-item>Tesla配置</el-breadcrumb-item>
             </el-breadcrumb>
           </el-row>
 
           <div class="user-avatar">
             <span style="color: #2d8cf0">hs</span>
-            <el-avatar shape="circle" :size="large" :fit="fit" :src="avatarUrl"></el-avatar>
+            <el-avatar shape="circle" :size="avatarSize" :fit="avatarFit" :src="avatarUrl"></el-avatar>
           </div>
         </div>
       </el-header>
       <el-main>
+        <admin-tags></admin-tags>
         <router-view></router-view>
       </el-main>
     </el-container>
@@ -31,22 +32,23 @@
 </template>
 
 <script>
-	import AdminMenu from '../components/AdminMenu.vue'; // 引用方法需要{} 引用组件不需要加{}
-	export default {
-		name: 'Home',
-		components: {
-			AdminMenu
-		},
-		data() {
-			return {
-			  // avatarUrl: '@/assets/img/eva1.jpg',
-        avatarUrl: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
-
-			}
-		}
-	}
+import AdminMenu from '../components/AdminMenu.vue'; // 引用方法需要{} 引用组件不需要加{}
+import AdminTags from "../components/AdminTags";
+export default {
+  name: "CommonViews",
+  components: {
+    AdminMenu,
+    AdminTags
+  },
+  data () {
+    return {
+      avatarSize: 'large',
+      avatarFit: 'fit',
+      avatarUrl: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+    }
+  }
+}
 </script>
-
 
 <style scoped lang="scss">
 .el-aside {
@@ -78,16 +80,16 @@
   flex-direction: row;
   justify-content: space-between;
 
-  .user-avatar {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+.user-avatar {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 
-    span {
-      margin-right: 15px;
-    }
-  }
+span {
+  margin-right: 15px;
+}
+}
 }
 </style>

@@ -8,16 +8,16 @@ export default new Router({
 	routes: [
     {
       path: '/',
-      name: 'AdminIndex',
+      name: 'index',
       meta: {title: '首页'}, // 配置meta属性，实现动态面包屑导航
-      component: () => import('@/views/AdminIndex'),
+      component: () => import('@/components/CommonViews'),
     },
-
+    // 车辆管理
     {
-      path: '/carManage',
-      name: 'carManagement',
+      path: '/car',
+      name: '',
       meta: {title: '车辆管理'},
-      component: () => import('@/views/CommonViews'),
+      component: () => import('@/components/CommonViews'),
       // 使用嵌套路由进行渲染 统一header和导航菜单，不同内容main
       children: [
         {
@@ -32,14 +32,26 @@ export default new Router({
           meta: {title: 'Tesla零件'},
           component: () => import('@/views/CarParts'),
         },
+
+      ]
+
+    },
+    // 用户管理
+    {
+      path: '/user',
+      name: 'User',
+      meta: {title: '用户管理'},
+      component: () => import('@/components/CommonViews'),
+      children: [
         {
           path: '/user/add',
           name: 'UserAdd',
-          meta: {title: '添加用户'},
+          meta: {title: '新增用户'},
           component: () => import('@/views/UserCenter'),
         }
       ]
     },
+
     {
       path: '/login',
       name: 'login',

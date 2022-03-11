@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import CommonViews from "./views/CommonViews";
+import CommonViews from "./components/CommonViews";
 export default {
   name: 'App',
   components: {CommonViews}

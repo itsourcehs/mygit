@@ -1,5 +1,7 @@
 <template>
-  <div>这里是用户中心</div>
+  <div>
+    这里是用户中心
+  </div>
 </template>
 
 <script>

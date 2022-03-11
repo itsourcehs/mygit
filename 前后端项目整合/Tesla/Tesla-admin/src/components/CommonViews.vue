@@ -1,0 +1,153 @@
+<template>
+  <el-container style="height: 100%">
+    <el-aside width="200px">
+      <img src="@/assets/img/admin_icon.jpg" style="height: 44px;width: auto">
+      <admin-menu></admin-menu>
+    </el-aside>
+
+    <el-container style="width: 89%;margin-left: 200px">
+      <el-header>
+        <!--面包屑-->
+        <div class="header-main">
+          <el-row style="margin: 18px 0px 0px 18px">
+            <el-breadcrumb separator="/">
+              <el-breadcrumb-item :to="{path: ''}">首页</el-breadcrumb-item>
+              <el-breadcrumb-item v-for="(item,index) in breadList" :key="index">{{item.meta.title}}</el-breadcrumb-item>
+            </el-breadcrumb>
+          </el-row>
+
+          <div class="user-avatar">
+            <span style="color: #2d8cf0">hs</span>
+            <el-avatar shape="circle" :size="avatarSize" :fit="avatarFit" :src="avatarUrl"></el-avatar>
+          </div>
+        </div>
+      </el-header>
+      <el-main>
+        <div style="position: absolute;left: 0">
+          <el-tag
+            v-for="tag in tags"
+            :key="tag.name"
+            style="margin: 0 10px"
+            closable
+            @close="handleClose(tag)"
+            @click="handleClick(tag)"
+            :type="tag.type">
+            {{tag.name}}
+          </el-tag>
+        </div>
+        <router-view></router-view>
+      </el-main>
+    </el-container>
+  </el-container>
+</template>
+
+<script>
+import AdminMenu from './AdminMenu.vue'; // 引用方法需要{} 引用组件不需要加{}
+import AdminTags from "./AdminTags";
+export default {
+  name: "CommonViews",
+  components: {
+    AdminMenu,
+    AdminTags
+  },
+  data () {
+    return {
+      avatarSize: 'large',
+      avatarFit: 'fit',
+      avatarUrl: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+      breadList: [],
+      tags: [
+        { name: '首页', type: '' },
+      ]
+    }
+  },
+  // 监听属性
+  watch: {
+    // 监听路由变化
+    $route (val) {
+      this.getBreadList(val)
+      this.getTagsList(val)
+    }
+  },
+
+  methods: {
+    // 获取路由数组 参数val为 路由参数
+    getBreadList (val) {
+      // console.log(val)
+      // 过滤路由matched对象
+      if (val.matched) {
+        let matched = val.matched.filter(item => item.meta && item.meta.title);
+        // 拿到过滤好的路由v-for遍历出来
+        this.breadList = matched;
+        let item = matched[matched.length -1].meta.title
+        let nobject = {name: ''+ item }
+
+        // 每次追加前判断 数组 tags中是否已存在该值
+        if(JSON.stringify(this.tags).indexOf(JSON.stringify(nobject))==-1){
+          this.tags.push(nobject); // 进行动态的操作
+        }
+      }
+    },
+
+    // 删除tag标签
+    handleClose (tag) {
+      const tagName = tag.name
+      // 首页tag不可删除
+      if (tagName !== '首页') {
+        this.tags.splice(this.tags.indexOf(tag), 1);
+      } else {
+        this.$message('禁止删除！')
+      }
+
+    },
+    // 点击tag标签
+    handleClick (tag) {
+
+    }
+  }
+}
+</script>
+
+<style scoped lang="scss">
+.el-aside {
+  background-color: #495060;
+  color: #333;
+  text-align: center;
+  line-height: 100px;
+}
+/*占满全屏*/
+.el-container{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 0;
+}
+.el-header {
+  background-color: #ffffff;
+  color: #333;
+  padding: 0;
+}
+.el-main {
+  background-color: #f0f0f0;
+}
+
+.header-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+.user-avatar {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+span {
+  margin-right: 15px;
+}
+}
+}
+</style>

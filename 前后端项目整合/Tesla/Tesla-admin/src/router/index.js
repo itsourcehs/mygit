@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import CommonViews from "@/components/CommonViews"
 
 Vue.use(Router)
 
@@ -17,7 +18,7 @@ export default new Router({
       path: '/car',
       name: '',
       meta: {title: '车辆管理'},
-      component: () => import('@/components/CommonViews'),
+      component: CommonViews,
       // 使用嵌套路由进行渲染 统一header和导航菜单，不同内容main
       children: [
         {
@@ -41,7 +42,7 @@ export default new Router({
       path: '/user',
       name: 'User',
       meta: {title: '用户管理'},
-      component: () => import('@/components/CommonViews'),
+      component: CommonViews,
       children: [
         {
           path: '/user/add',

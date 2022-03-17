@@ -33,7 +33,7 @@
             @click="handleClick(tag)"
             :type="tag.type">
             {{tag.name}}
-          </el-tag>
+		  </el-tag>
         </div>
         <router-view></router-view>
       </el-main>
@@ -57,7 +57,11 @@ export default {
       avatarUrl: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
       breadList: [],
       tags: [
-        { name: '首页', type: '' },
+        { 
+			name: '首页',
+			type: '',
+			path: '' ,
+		},
       ]
     }
   },
@@ -66,7 +70,7 @@ export default {
     // 监听路由变化
     $route (val) {
       this.getBreadList(val)
-      this.getTagsList(val)
+      // this.getTagsList(val)
     }
   },
 
@@ -80,7 +84,9 @@ export default {
         // 拿到过滤好的路由v-for遍历出来
         this.breadList = matched;
         let item = matched[matched.length -1].meta.title
-        let nobject = {name: ''+ item }
+		let path = matched[matched.length -1].path
+		
+        let nobject = {name: ''+ item, path: '' + path}
 
         // 每次追加前判断 数组 tags中是否已存在该值
         if(JSON.stringify(this.tags).indexOf(JSON.stringify(nobject))==-1){
@@ -91,18 +97,21 @@ export default {
 
     // 删除tag标签
     handleClose (tag) {
-      const tagName = tag.name
-      // 首页tag不可删除
-      if (tagName !== '首页') {
-        this.tags.splice(this.tags.indexOf(tag), 1);
-      } else {
-        this.$message('禁止删除！')
-      }
-
+		const tagName = tag.name
+		// 首页tag不可删除
+		if (tagName == '首页') return this.$message('禁止删除！');
+		this.tags.splice(this.tags.indexOf(tag), 1);
+		// 删除标签后，跳转到最近的路由页面
+		let endPath = this.tags[this.tags.length -1].path
+		console.log(endPath);
+		this.$router.push(''+ endPath).catch(()=>{})
     },
+	
     // 点击tag标签
     handleClick (tag) {
-
+		// 如果当前路由跟 tag.path 不相等，则跳转路由
+		if (this.$route.path == tag.path) return;
+		this.$router.push('' + tag.path).catch(()=>{})
     }
   }
 }

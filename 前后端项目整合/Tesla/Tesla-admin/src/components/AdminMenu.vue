@@ -1,7 +1,7 @@
 <template>
 	<el-menu
 	  router
-	  default-active="config"
+	  default-active=""
 	  class="el-menu-vertical-demo"
 	  @open="handleOpen"
 	  @close="handleClose"

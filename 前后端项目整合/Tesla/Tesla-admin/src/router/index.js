@@ -8,11 +8,18 @@ export default new Router({
 	mode: 'history',
 	routes: [
     {
-      path: '/',
-      name: 'index',
-      meta: {title: '首页'}, // 配置meta属性，实现动态面包屑导航
-      component: () => import('@/components/CommonViews'),
-    },
+		path: '/',
+		component: CommonViews,
+		children: [
+			{
+			  path: '/index',
+			  name: 'index',
+			  meta: {title: '首页'}, // 配置meta属性，实现动态面包屑导航
+			  component: () => import('@/views/index'),
+			},
+		]
+	},
+	
     // 车辆管理
     {
       path: '/car',

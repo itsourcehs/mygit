@@ -11,8 +11,13 @@
         <div class="header-main">
           <el-row style="margin: 18px 0px 0px 18px">
             <el-breadcrumb separator="/">
-              <el-breadcrumb-item :to="{path: ''}">首页</el-breadcrumb-item>
-              <el-breadcrumb-item v-for="(item,index) in breadList" :key="index">{{item.meta.title}}</el-breadcrumb-item>
+              <el-breadcrumb-item>首页</el-breadcrumb-item>
+              <el-breadcrumb-item
+			  v-if="item.meta.title !== '首页'"
+			  v-for="(item,index) in breadList"
+			  :key="index">
+			  {{item.meta.title}}
+			  </el-breadcrumb-item>
             </el-breadcrumb>
           </el-row>
 
@@ -60,7 +65,7 @@ export default {
         { 
 			name: '首页',
 			type: '',
-			path: '' ,
+			path: '/index',
 		},
       ]
     }
@@ -83,13 +88,14 @@ export default {
         let matched = val.matched.filter(item => item.meta && item.meta.title);
         // 拿到过滤好的路由v-for遍历出来
         this.breadList = matched;
+		console.log(this.breadList);
         let item = matched[matched.length -1].meta.title
 		let path = matched[matched.length -1].path
 		
         let nobject = {name: ''+ item, path: '' + path}
 
         // 每次追加前判断 数组 tags中是否已存在该值
-        if(JSON.stringify(this.tags).indexOf(JSON.stringify(nobject))==-1){
+        if(JSON.stringify(this.tags).indexOf(JSON.stringify(nobject))==-1 && item !== '首页'){
           this.tags.push(nobject); // 进行动态的操作
         }
       }
@@ -97,13 +103,14 @@ export default {
 
     // 删除tag标签
     handleClose (tag) {
+		console.log(tag);
+		console.log(this.tags);
 		const tagName = tag.name
 		// 首页tag不可删除
 		if (tagName == '首页') return this.$message('禁止删除！');
 		this.tags.splice(this.tags.indexOf(tag), 1);
 		// 删除标签后，跳转到最近的路由页面
 		let endPath = this.tags[this.tags.length -1].path
-		console.log(endPath);
 		this.$router.push(''+ endPath).catch(()=>{})
     },
 	

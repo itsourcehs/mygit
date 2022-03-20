@@ -32,8 +32,9 @@
 			<div class="block">
 			  <el-pagination
 				style="position: absolute;right: 0;bottom: 0;"
-			    layout="prev, pager, next"
-			    :total="1000">
+				layout="prev, pager, next"
+				:total="1000"
+				>
 			  </el-pagination>
 			</div>
 		</el-card>

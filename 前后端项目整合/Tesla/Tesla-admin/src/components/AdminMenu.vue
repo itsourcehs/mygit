@@ -7,10 +7,10 @@
 	  @close="handleClose"
 	  background-color="#495060"
 	  text-color="#fff"
-    unique-opened
+	unique-opened
 	  active-text-color="#ffd04b">
 
-    <el-menu-item index="">
+    <el-menu-item index="/index">
       <i class="el-icon-menu"></i>
       <span slot="title">首页</span>
     </el-menu-item>
@@ -50,6 +50,11 @@
 <script>
 export default {
   name: "AdminMenu",
+	data () {
+		return {
+			
+		}
+	},
   methods: {
     handleOpen (key, keyPath) {
       console.log(key, keyPath);

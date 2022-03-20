@@ -7,7 +7,8 @@
 
     <el-container style="width: 89%;margin-left: 200px">
       <el-header>
-        <!--面包屑-->
+        
+		<!--面包屑-->
         <div class="header-main">
           <el-row style="margin: 18px 0px 0px 18px">
             <el-breadcrumb separator="/">
@@ -21,6 +22,7 @@
             </el-breadcrumb>
           </el-row>
 
+		  <!-- 用户头像 -->
           <div class="user-avatar">
             <span style="color: #2d8cf0">hs</span>
             <el-avatar shape="circle" :size="avatarSize" :fit="avatarFit" :src="avatarUrl"></el-avatar>
@@ -48,12 +50,11 @@
 
 <script>
 import AdminMenu from './AdminMenu.vue'; // 引用方法需要{} 引用组件不需要加{}
-import AdminTags from "./AdminTags";
+
 export default {
   name: "CommonViews",
   components: {
     AdminMenu,
-    AdminTags
   },
   data () {
     return {
@@ -96,7 +97,7 @@ export default {
 
         // 每次追加前判断 数组 tags中是否已存在该值
         if(JSON.stringify(this.tags).indexOf(JSON.stringify(nobject))==-1 && item !== '首页'){
-          this.tags.push(nobject); // 进行动态的操作
+          this.tags.push(nobject); // 进行动态的tags列表追加操作
         }
       }
     },
@@ -154,16 +155,16 @@ export default {
   flex-direction: row;
   justify-content: space-between;
 
-.user-avatar {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+	.user-avatar {
+		margin-top: 10px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
 
-span {
-  margin-right: 15px;
-}
-}
+		span {
+			margin-right: 15px;
+		}
+	}
 }
 </style>

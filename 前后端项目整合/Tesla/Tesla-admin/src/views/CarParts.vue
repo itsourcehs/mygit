@@ -1,5 +1,5 @@
 <template>
-  <div>这里是零件</div>
+  <div>Tesla零件</div>
 </template>
 
 <script>

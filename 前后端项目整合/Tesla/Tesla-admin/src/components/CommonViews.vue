@@ -83,13 +83,11 @@ export default {
   methods: {
     // 获取路由数组 参数val为 路由参数
     getBreadList (val) {
-      // console.log(val)
       // 过滤路由matched对象
       if (val.matched) {
         let matched = val.matched.filter(item => item.meta && item.meta.title);
         // 拿到过滤好的路由v-for遍历出来
         this.breadList = matched;
-		console.log(this.breadList);
         let item = matched[matched.length -1].meta.title
 		let path = matched[matched.length -1].path
 		
@@ -104,8 +102,6 @@ export default {
 
     // 删除tag标签
     handleClose (tag) {
-		console.log(tag);
-		console.log(this.tags);
 		const tagName = tag.name
 		// 首页tag不可删除
 		if (tagName == '首页') return this.$message('禁止删除！');
@@ -117,9 +113,12 @@ export default {
 	
     // 点击tag标签
     handleClick (tag) {
-		// 如果当前路由跟 tag.path 不相等，则跳转路由
+		// 1.如果当前路由跟 tag.path 不相等，则跳转路由
 		if (this.$route.path == tag.path) return;
 		this.$router.push('' + tag.path).catch(()=>{})
+		
+		// 2.激活导航菜单对应项
+		console.log(tag.path);
     }
   }
 }

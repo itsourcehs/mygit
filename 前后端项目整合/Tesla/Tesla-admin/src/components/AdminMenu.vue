@@ -1,7 +1,7 @@
 <template>
 	<el-menu
 	  router
-	  default-active=""
+	  default-active="/index"
 	  class="el-menu-vertical-demo"
 	  @open="handleOpen"
 	  @close="handleClose"
@@ -57,10 +57,10 @@ export default {
 	},
   methods: {
     handleOpen (key, keyPath) {
-      console.log(key, keyPath);
+      // console.log(key, keyPath);
     },
     handleClose (key, keyPath) {
-      console.log(key, keyPath);
+      // console.log(key, keyPath);
     }
   }
 }

@@ -29,7 +29,7 @@
 			<el-checkbox v-model="loginForm.rememberMe" style="margin: 0 0 25px;">记住我</el-checkbox>
 			
 			<el-form-item style="width: 100%;">
-				<el-button @click.native.prevent="handleLogin" :loading="loading" size="medium" type="primary" style="width: 13%;">
+				<el-button @click.native.prevent="handleLogin" :loading="loading" size="medium" type="primary" style="width: 23%;">
 					<span v-if="!loading">登 录</span>
 					<span v-else>登录中...</span>
 				</el-button>
@@ -60,18 +60,19 @@ export default {
 		
 		// 处理登录
 		handleLogin () {
-			// debugger
+			const _this = this
 			// 获取登录表单的账号，密码，验证码信息
-			const username = this.loginForm.username
-			const password = this.loginForm.password
-			const code = this.loginForm.code
+			const username = _this.loginForm.username
+			const password = _this.loginForm.password
+			const code = _this.loginForm.code
 			
 			console.log('用户名:'+ username, '密码:'+password, '验证码:'+code);
 			
 			// 1.如果用户名，密码，验证码验证通过
 			if (username !== 'admin' || password !== '1234' || code !== '1234') return this.$message.error('用户验证失败!')
+			_this.loading = true
+			setTimeout(function() {_this.$router.push('/index')}, 2000);
 			// 2.登录成功后路由跳转到首页
-			
 			
 		}
 	}

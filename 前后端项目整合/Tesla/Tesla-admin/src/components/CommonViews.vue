@@ -2,7 +2,7 @@
   <el-container style="height: 100%">
     <el-aside width="200px">
       <img src="@/assets/img/admin_icon.jpg" style="height: 44px;width: auto">
-      <admin-menu></admin-menu>
+      <admin-menu :activepath="activePath"></admin-menu>
     </el-aside>
 
     <el-container style="width: 89%;margin-left: 200px">
@@ -68,7 +68,8 @@ export default {
 			type: '',
 			path: '/index',
 		},
-      ]
+      ],
+	  activePath: ''
     }
   },
   // 监听属性
@@ -118,7 +119,9 @@ export default {
 		this.$router.push('' + tag.path).catch(()=>{})
 		
 		// 2.激活导航菜单对应项
-		console.log(tag.path);
+		// console.log(tag.path);
+		this.activePath = tag.path
+		console.log(this.activePath);
     }
   }
 }
@@ -139,6 +142,7 @@ export default {
   left: 0;
   bottom: 0;
   padding: 0;
+  
 }
 .el-header {
   background-color: #ffffff;

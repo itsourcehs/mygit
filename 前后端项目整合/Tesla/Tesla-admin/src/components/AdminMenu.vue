@@ -1,7 +1,7 @@
 <template>
 	<el-menu
 	  router
-	  default-active="/index"
+	  :default-active="activePath"
 	  class="el-menu-vertical-demo"
 	  @open="handleOpen"
 	  @close="handleClose"
@@ -50,9 +50,13 @@
 <script>
 export default {
   name: "AdminMenu",
+  props: {
+	  activepath: String
+  },
 	data () {
 		return {
-			
+			// 当前激活项
+			activePath: ''
 		}
 	},
   methods: {
@@ -62,6 +66,11 @@ export default {
     handleClose (key, keyPath) {
       // console.log(key, keyPath);
     }
+  },
+  watch: {
+	  activePath (newval,oldval) {
+		  console.log(newval);
+	  }
   }
 }
 </script>

@@ -49,7 +49,7 @@ export default {
 				username: 'admin',
 				password: '1234',
 				rememberMe: false,
-				code: ''
+				code: '1234'
 			},
 			loading: false
 		}
@@ -59,7 +59,21 @@ export default {
 		getCode () {},
 		
 		// 处理登录
-		handleLogin () {}
+		handleLogin () {
+			// debugger
+			// 获取登录表单的账号，密码，验证码信息
+			const username = this.loginForm.username
+			const password = this.loginForm.password
+			const code = this.loginForm.code
+			
+			console.log('用户名:'+ username, '密码:'+password, '验证码:'+code);
+			
+			// 1.如果用户名，密码，验证码验证通过
+			if (username !== 'admin' || password !== '1234' || code !== '1234') return this.$message.error('用户验证失败!')
+			// 2.登录成功后路由跳转到首页
+			
+			
+		}
 	}
 }
 </script>
@@ -77,6 +91,10 @@ export default {
 	width: 385px;
 	padding: 25px 25px 5px;
 	background: #ffffff;
+}
+
+.el-button {
+	padding: 10px;
 }
 
 </style>

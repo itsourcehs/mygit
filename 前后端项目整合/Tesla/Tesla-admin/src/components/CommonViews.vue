@@ -10,7 +10,11 @@
         
 		<!--面包屑-->
         <div class="header-main">
-          <el-row style="margin: 18px 0px 0px 18px">
+          <el-row style="margin: 18px 0px 0px 18px;display: flex;">
+			<span
+			class="el-icon-s-fold"
+			style="margin-right: 10px;"
+			v-model="isCollapse"></span>
             <el-breadcrumb separator="/">
               <el-breadcrumb-item>首页</el-breadcrumb-item>
               <el-breadcrumb-item
@@ -69,7 +73,7 @@ export default {
 			path: '/index',
 		},
       ],
-	  activePath: ''
+	  activePath: '/index',
     }
   },
   // 监听属性

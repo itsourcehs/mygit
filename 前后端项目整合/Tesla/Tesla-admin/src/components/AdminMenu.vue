@@ -1,18 +1,18 @@
 <template>
 	<el-menu
 	  router
-	  :default-active="activePath"
+	  default-active="/index"
 	  class="el-menu-vertical-demo"
 	  @open="handleOpen"
 	  @close="handleClose"
 	  background-color="#495060"
 	  text-color="#fff"
-	unique-opened
+		unique-opened
 	  active-text-color="#ffd04b">
 
     <el-menu-item index="/index">
       <i class="el-icon-menu"></i>
-      <span slot="title">首页</span>
+      <span slot="title">管理中心</span>
     </el-menu-item>
 
 	  <el-submenu index="carManage">
@@ -38,7 +38,7 @@
 	    </template>
 	    <el-menu-item-group>
 	      <el-menu-item index="/user/add">新增用户</el-menu-item>
-<!--	      <el-menu-item index="2-2">选项2</el-menu-item>-->
+	      <el-menu-item index="2-2">选项2</el-menu-item>
 <!--	      <el-menu-item index="2-3">选项3</el-menu-item>-->
 	    </el-menu-item-group>
 	  </el-submenu>
@@ -67,11 +67,7 @@ export default {
       // console.log(key, keyPath);
     }
   },
-  watch: {
-	  activePath (newval,oldval) {
-		  console.log(newval);
-	  }
-  }
+
 }
 </script>
 

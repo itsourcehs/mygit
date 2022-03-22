@@ -86,12 +86,12 @@ export default {
 	align-items: center;
 	height: 100%;
 	background-size: cover;
+	// background-image: url(../../static/image/login.png);
 }
 .login-form {
 	border-radius: 6px;
 	width: 385px;
 	padding: 25px 25px 5px;
-	background: #ffffff;
 }
 
 .el-button {

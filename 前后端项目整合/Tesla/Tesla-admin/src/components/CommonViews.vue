@@ -5,7 +5,7 @@
       <admin-menu :activepath="activePath"></admin-menu>
     </el-aside>
 
-    <el-container style="width: 89%;margin-left: 200px">
+    <el-container style="width: 89%;margin-left: 190px;">
       <el-header>
         
 		<!--面包屑-->
@@ -74,6 +74,7 @@ export default {
 		},
       ],
 	  activePath: '/index',
+	  isCollapse: true
     }
   },
   // 监听属性
@@ -146,6 +147,7 @@ export default {
   left: 0;
   bottom: 0;
   padding: 0;
+  background-color: #f0f0f0;
   
 }
 .el-header {

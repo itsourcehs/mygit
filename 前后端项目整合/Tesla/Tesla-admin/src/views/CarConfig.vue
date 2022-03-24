@@ -2,10 +2,10 @@
   <div class="card" style="margin-top: 50px;">
 		<el-card style="position: relative;">
 			<el-row style="text-align: left;">
-			  <el-button type="primary" size="medium">增加</el-button>
+			  <!-- <el-button type="primary" size="medium">增加</el-button>
 			  <el-button type="success" size="medium">删除</el-button>
 			  <el-button type="info" size="medium">修改</el-button>
-			  <el-button type="warning" size="medium">查询</el-button>
+			  <el-button type="warning" size="medium">查询</el-button> -->
 			</el-row>
 		<div style="margin: 20px 0;">
 			<el-table

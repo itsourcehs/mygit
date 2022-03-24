@@ -12,7 +12,7 @@
 
     <el-menu-item index="/index">
       <i class="el-icon-menu"></i>
-      <span slot="title">管理中心</span>
+      <span slot="title">首页</span>
     </el-menu-item>
 
 	  <el-submenu index="carManage">
@@ -76,6 +76,6 @@ export default {
   border-right: none;
 }
 .el-menu-item {
-  padding-right: 5px;
+  padding-right: 18px;
 }
 </style>

@@ -1,7 +1,10 @@
 <template>
   <el-container style="height: 100%">
     <el-aside width="200px">
-      <img src="@/assets/img/admin_icon.jpg" style="height: 44px;width: auto">
+		<div style="background-color: #363e4f;padding-top: 10px;">
+			<img src="@/assets/img/admin_icon.jpg" style="height: 44px;width: auto">
+		</div>
+      
       <admin-menu :activepath="activePath"></admin-menu>
     </el-aside>
 
@@ -137,14 +140,14 @@ export default {
   background-color: #495060;
   color: #333;
   text-align: center;
-  line-height: 100px;
+  line-height: 40px;
 }
 /*占满全屏*/
 .el-container{
   position: absolute;
   width: 100%;
   top: 0;
-  left: 0;
+  left: 0;right: 0;
   bottom: 0;
   padding: 0;
   background-color: #f0f0f0;

@@ -10,6 +10,7 @@ export default new Router({
     {
 		path: '/',
 		component: CommonViews,
+		redirect: '/login',
 		children: [
 			{
 			  path: '/index',

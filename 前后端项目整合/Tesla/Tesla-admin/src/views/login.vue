@@ -26,7 +26,7 @@
 				</div>
 			</el-form-item>
 			
-			<el-checkbox v-model="loginForm.rememberMe" style="margin: 0 0 25px;">记住我</el-checkbox>
+			<!-- <el-checkbox v-model="loginForm.rememberMe" style="margin: 0 0 25px;">记住我</el-checkbox> -->
 			
 			<el-form-item style="width: 100%;">
 				<el-button @click.native.prevent="handleLogin" :loading="loading" size="medium" type="primary" style="width: 23%;">

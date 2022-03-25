@@ -2,11 +2,11 @@
   <div class="card" style="margin-top: 50px;">
   	<el-card style="position: relative;">
   		<el-row style="text-align: left;">
-			<span>零件编号: </span><el-input placeholder="请输入零件编号" clearable v-model="input"></el-input>
-			<span>零件名称: </span><el-input placeholder="请输入零件名称" clearable v-model="input1"></el-input>
+			<span>零件编号: </span><el-input placeholder="请输入零件编号" clearable v-model="inputNumber"></el-input>
+			<span>零件名称: </span><el-input placeholder="请输入零件名称" clearable v-model="inputName"></el-input>
 			
 			<div class="valbutton">
-				<el-button type="primary">查询</el-button>
+				<el-button type="primary" @click="handleSelect">查询</el-button>
 				<el-button>重置</el-button>
 			</div>	
   		</el-row>
@@ -73,8 +73,8 @@ export default {
   name: "CarParts",
   data () {
 	return {
-		input: '',
-		input1: '',
+		inputNumber: '',
+		inputName: '',
 		tableData: [{
 		date: '2016-05-02',
 		name: '王小虎',
@@ -93,7 +93,15 @@ export default {
 		address: '上海市普陀区金沙江路 1516 号'
 		}]
 	}
-  }
+  },
+  methods: {
+  	handleSelect () {
+  		if (this.inputNumber.length == 0 && this.inputName.length == 0) return this.$message.error('请输入查询内容!')
+  	},
+	handleClick (val) {
+		console.log(val);
+	}
+  },
 }
 </script>
 

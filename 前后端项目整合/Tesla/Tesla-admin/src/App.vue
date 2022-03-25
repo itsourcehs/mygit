@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import CommonViews from "./components/CommonViews";
+import main from "./components/main";
 export default {
   name: 'App',
-  components: {CommonViews}
+  components: {main}
 }
 </script>
 

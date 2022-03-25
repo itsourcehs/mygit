@@ -1,6 +1,7 @@
 <template>
   <el-container style="height: 100%">
     <el-aside width="200px">
+		
 		<div style="background-color: #363e4f;padding-top: 10px;">
 			<img src="@/assets/img/admin_icon.jpg" style="height: 44px;width: auto">
 		</div>
@@ -36,18 +37,11 @@
           </div>
         </div>
       </el-header>
-      <el-main>
+      
+	  <el-main>
+		<!-- 动态导航标签卡 -->
         <div style="position: absolute;left: 0">
-          <el-tag
-            v-for="tag in tags"
-            :key="tag.name"
-            style="margin: 0 10px"
-            closable
-            @close="handleClose(tag)"
-            @click="handleClick(tag)"
-            :type="tag.type">
-            {{tag.name}}
-		  </el-tag>
+          <admin-tab></admin-tab>
         </div>
         <router-view></router-view>
       </el-main>
@@ -56,12 +50,14 @@
 </template>
 
 <script>
-import AdminMenu from './AdminMenu.vue'; // 引用方法需要{} 引用组件不需要加{}
+import AdminMenu from './menu.vue'; // 引用方法需要{} 引用组件不需要加{}
+import AdminTab from './tabs.vue';
 
 export default {
-  name: "CommonViews",
+  name: "main",
   components: {
     AdminMenu,
+	AdminTab
   },
   data () {
     return {
@@ -69,13 +65,6 @@ export default {
       avatarFit: 'fit',
       avatarUrl: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
       breadList: [],
-      tags: [
-        { 
-			name: '首页',
-			type: '',
-			path: '/index',
-		},
-      ],
 	  activePath: '/index',
 	  isCollapse: true
     }
@@ -108,29 +97,6 @@ export default {
         }
       }
     },
-
-    // 删除tag标签
-    handleClose (tag) {
-		const tagName = tag.name
-		// 首页tag不可删除
-		if (tagName == '首页') return this.$message('禁止删除！');
-		this.tags.splice(this.tags.indexOf(tag), 1);
-		// 删除标签后，跳转到最近的路由页面
-		let endPath = this.tags[this.tags.length -1].path
-		this.$router.push(''+ endPath).catch(()=>{})
-    },
-	
-    // 点击tag标签
-    handleClick (tag) {
-		// 1.如果当前路由跟 tag.path 不相等，则跳转路由
-		if (this.$route.path == tag.path) return;
-		this.$router.push('' + tag.path).catch(()=>{})
-		
-		// 2.激活导航菜单对应项
-		// console.log(tag.path);
-		this.activePath = tag.path
-		console.log(this.activePath);
-    }
   }
 }
 </script>

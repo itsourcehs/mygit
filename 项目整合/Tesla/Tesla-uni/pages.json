@@ -41,6 +41,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/lenders-toolbox/lenders-toolbox",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTitleText": "特斯拉Tesla",

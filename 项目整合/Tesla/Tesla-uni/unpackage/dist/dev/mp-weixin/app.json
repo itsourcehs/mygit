@@ -4,7 +4,8 @@
     "pages/map/map",
     "pages/activity/activity",
     "pages/product/product",
-    "pages/test-drive/test-drive"
+    "pages/test-drive/test-drive",
+    "pages/lenders-toolbox/lenders-toolbox"
   ],
   "subPackages": [],
   "window": {
@@ -37,6 +38,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

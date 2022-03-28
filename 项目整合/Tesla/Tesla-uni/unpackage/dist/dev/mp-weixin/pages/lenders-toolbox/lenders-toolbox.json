@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "tesla-picker": "/components/tesla-picker/tesla-picker",
+    "tesla-selection": "/components/tesla-selection/tesla-selection",
+    "tesla-input": "/components/tesla-input/tesla-input"
+  }
+}

@@ -10,7 +10,7 @@
 		</view>
 		
 		<!-- 贷款计算器 -->
-		<view class="icon-banner" @tap="goToToolbox">
+		<view class="icon-banner" @tap="goToLendersToolbox">
 			<image class="banner-bg credit-card" src="@/static/images/icon/credit-card.jpg" mode="widthFix"></image>
 			<view class="content">
 				<view class="info">
@@ -88,6 +88,12 @@
 			}
 		},
 		methods: {
+			// 工具箱
+			goToLendersToolbox () {
+				uni.navigateTo({
+					url: '../lenders-toolbox/lenders-toolbox'
+				})
+			},
 			
 			clickProduct (e) {
 				const id = e.currentTarget.dataset.id
@@ -105,8 +111,7 @@
 			},
 			// 杂志封面
 			handleClickMagazine () {},
-			// 到工具箱
-			goToToolbox () {},
+			
 			// 新手视频
 			goToVideo () {},
 			// 关闭弹出层 && 页面发生改变时也应关闭

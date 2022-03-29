@@ -1,1 +1,1 @@
-<view></view>
+<view><picker class="picker" value="{{index}}" range="{{optionList}}" data-event-opts="{{[['change',[['onChange',['$event']]]]]}}" bindchange="__e"><tesla-input vue-id="69370d82-1" writable="{{false}}" required="{{true}}" label="{{title}}" val="{{value}}" bind:__l="__l" vue-slots="{{['default']}}"><image class="icon-down" src="/static/images/ic_arrow_down.svg"></image></tesla-input></picker></view>

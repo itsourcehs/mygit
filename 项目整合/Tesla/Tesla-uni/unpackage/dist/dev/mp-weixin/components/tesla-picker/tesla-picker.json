@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "tesla-input": "/components/tesla-input/tesla-input"
+  },
   "component": true
 }

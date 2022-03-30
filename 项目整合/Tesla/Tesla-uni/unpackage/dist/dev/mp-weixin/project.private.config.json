@@ -41,6 +41,18 @@
           "pathName": "pages/lenders-toolbox/lenders-toolbox",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/article/detail/detail",
+          "query": "id=28371ada13",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/magazine/magazine",
+          "query": "id=1234",
+          "scene": null
         }
       ]
     }

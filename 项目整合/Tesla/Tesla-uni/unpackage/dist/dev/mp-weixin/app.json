@@ -5,7 +5,9 @@
     "pages/activity/activity",
     "pages/product/product",
     "pages/test-drive/test-drive",
-    "pages/lenders-toolbox/lenders-toolbox"
+    "pages/lenders-toolbox/lenders-toolbox",
+    "pages/article/detail/detail",
+    "pages/magazine/magazine"
   ],
   "subPackages": [],
   "window": {

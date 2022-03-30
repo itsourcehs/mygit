@@ -2,7 +2,7 @@
 	<view>
 		<picker class="picker" @change="onChange" :value="index" :range="optionList">
 			<tesla-input :writable="false" required :label="title" :val="value">
-				<image class="icon-down" src="@/static/images/ic_arrow_down.svg"></image>
+				<image class="icon-down" src="@/static/images/icon/ic_arrow_down.svg"></image>
 			</tesla-input>
 		</picker>
 	</view>
@@ -43,7 +43,12 @@
 			};
 		},
 		methods: {
-			
+			onChange (e) {
+				debugger
+				const val = this.optionList[e.detail.value]
+				this.value = val
+				this.$emit('change',{val, index: e.detail.value})
+			}
 		}
 	}
 </script>

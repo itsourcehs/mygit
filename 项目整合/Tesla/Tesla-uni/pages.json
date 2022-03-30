@@ -45,6 +45,24 @@
             "path" : "pages/lenders-toolbox/lenders-toolbox",
             "style" :                                                                                    
             {
+                "navigationBarTitleText": "贷款计算器",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/article/detail/detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/magazine/magazine",
+            "style" :                                                                                    
+            {
                 "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }

@@ -1,1 +1,1 @@
-<view><view class="content">{{content}}</view></view>
+<view class="map-page"><block wx:if="{{!isSearching}}"><map class="map" id="myMap" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" show-location="{{true}}" data-event-opts="{{[['markertap',[['onMarkerTap',['$event']]]]]}}" bindmarkertap="__e"></map></block><image class="current-location-icon" src="{{locationImage}}" data-event-opts="{{[['tap',[['onCurrentLocationClick',['$event']]]]]}}" bindtap="__e"></image></view>

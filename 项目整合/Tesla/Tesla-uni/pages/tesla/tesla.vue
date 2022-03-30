@@ -5,7 +5,7 @@
 		<!-- 月刊杂志 -->
 		<view class="magazine-area">
 			<view class="title">T zone</view>
-			<image class="magazine-cover" src="@/static/images/swiper/car.png" @tap="handleClickMagazine"></image>
+			<image class="magazine-cover" src="@/static/images/swiper/car.png" @tap="handleClickMagazine" data-id="1234"></image>
 			<view class="magazine-title">杂志摘要....</view>
 		</view>
 		
@@ -33,15 +33,15 @@
 		
 		<!-- 新能源政策 -->
 		<view class="icon-box-area">
-			<view class="icon-box tradin">
+			<view class="icon-box tradin" @tap="gotoCleanEnergy">
 				<image class="icon" src="@/static/images/icon/energy.png" mode="aspectFit"></image>
 				<!-- <view class="title">新能源政策</view> -->
-				<view class="title"></view>
+				<view class="title">新能源政策</view>
 			</view>
 			<view class="icon-box tradin">
 				<image class="icon" src="@/static/images/icon/exchange.png" mode="aspectFit"></image>
 				<!-- <view class="title">车辆置换</view> -->
-				<view class="title"></view>
+				<view class="title">车辆置换</view>
 			</view>
 		</view>
 		
@@ -88,6 +88,11 @@
 			}
 		},
 		methods: {
+			gotoCleanEnergy () {
+				uni.navigateTo({
+					url: '../article/detail/detail?id=28371ada13'
+				})
+			},
 			// 工具箱
 			goToLendersToolbox () {
 				uni.navigateTo({
@@ -110,7 +115,13 @@
 				this.$refs.popup.open()
 			},
 			// 杂志封面
-			handleClickMagazine () {},
+			handleClickMagazine (e) {
+				let id = e.currentTarget.dataset.id
+				uni.navigateTo({
+					url: '../magazine/magazine?id=' +id
+				})
+				
+			},
 			
 			// 新手视频
 			goToVideo () {},

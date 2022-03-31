@@ -53,6 +53,12 @@
           "pathName": "pages/magazine/magazine",
           "query": "id=1234",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/map/map",
+          "query": "",
+          "scene": null
         }
       ]
     }

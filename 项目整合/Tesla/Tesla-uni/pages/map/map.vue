@@ -1,5 +1,5 @@
 <template>
-	<view class="map-page">
+	<view class="map-page" style="position: relative;">
 		<map
 		v-if="!isSearching"
 		id="myMap"
@@ -11,6 +11,31 @@
 		show-location></map>
 		
 		<image class="current-location-icon" @tap="onCurrentLocationClick" :src="locationImage"></image>
+		
+		<tesla-search-input @confirm="onSearch" @clear="onClear" style="position: absolute;top: 104rpx;left: 44rpx;z-index: 1;"></tesla-search-input>
+		
+		<!-- 可滑动区域 -->
+		<scroll-view v-if="!isSearching" scroll-x class="marker-classification-area">
+			<view>
+				<view>
+					<image class="icon"></image>
+					<view class="title">标题</view>
+				</view>
+			</view>
+		</scroll-view>
+		
+		<view class="search-area" v-if="isSearching">
+			<view class="search-content">
+				<view class="location-box">
+					<image></image>
+					<view class="info-box">
+						<view class="name">姓名</view>
+						<view class="address">四川省成都市....</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
 	</view>
 </template>
 

@@ -2,3 +2,9 @@
 	width: 100vw;
 	height: 100vh;
 }
+.map-page .current-location-icon {
+	width: 80rpx;height: 80rpx;
+	position: absolute;
+	right: 44rpx;
+	bottom: 50rpx;
+}

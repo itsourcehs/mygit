@@ -1,4 +1,6 @@
 {
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "tesla-search-input": "/components/tesla-search-input/tesla-search-input"
+  }
 }

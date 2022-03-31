@@ -11,7 +11,7 @@
   ],
   "subPackages": [],
   "window": {
-    "navigationBarTitleText": "特斯拉Tesla",
+    "navigationBarTitleText": "Tesla",
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTextStyle": "black"
   },
@@ -40,6 +40,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

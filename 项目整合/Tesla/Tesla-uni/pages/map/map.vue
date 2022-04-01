@@ -32,7 +32,7 @@
 				:key="index"
 				@tap="gotoLocation"
 				:data-location="item">
-					<image></image>
+					<image class="icon" src="../../static/images/nav/map.png"></image>
 					<view class="info-box">
 						<view class="name">姓名</view>
 						<view class="address">四川省成都市....</view>

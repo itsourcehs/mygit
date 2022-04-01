@@ -8,4 +8,16 @@
 	right: 44rpx;
 	bottom: 50rpx;
 }
+.marker-classification-area {
+	float: left;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	box-shadow: 0 1px 5px rgba(0,0,0,.1);
+	width: 200rpx;height: 50rpx;
+	background-color: #fff;
+	border-radius: 25rpx;
+	overflow: hidden;
+	margin-right: 22rpx;
+}
 

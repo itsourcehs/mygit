@@ -26,7 +26,12 @@
 		
 		<view class="search-area" v-if="isSearching">
 			<view class="search-content">
-				<view class="location-box">
+				<view
+				class="location-box"
+				v-for="(item,index) in locationResult"
+				:key="index"
+				@tap="gotoLocation"
+				:data-location="item">
 					<image></image>
 					<view class="info-box">
 						<view class="name">姓名</view>

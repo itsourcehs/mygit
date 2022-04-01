@@ -17,7 +17,7 @@
 		<!-- 可滑动区域 -->
 		<scroll-view v-if="!isSearching" scroll-x class="marker-classification-area">
 			<view>
-				<view>
+				<view class="marker-classification">
 					<image class="icon"></image>
 					<view class="title">标题</view>
 				</view>

@@ -9,6 +9,14 @@
 	bottom: 50rpx;
 }
 .marker-classification-area {
+	position: absolute;
+	top: 170rpx;
+	left: 44rpx;
+	display: flex;
+	flex-direction: row;
+	height: 50rpx;
+}
+.marker-classification {
 	float: left;
 	display: flex;
 	flex-direction: row;
@@ -19,4 +27,9 @@
 	border-radius: 25rpx;
 	overflow: hidden;
 	margin-right: 22rpx;
+}
+.marker-classification .icon {
+	width: 44rpx;height: 44rpx;
+	margin: 8rpx 12rpx 0 12rpx;
+	opacity: 0.3;
 }

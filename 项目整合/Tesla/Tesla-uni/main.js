@@ -1,7 +1,15 @@
-
 // #ifndef VUE3
 import Vue from 'vue'
 import App from './App'
+
+// 全局注册,之后可在其他组件中通过 this.$axios发送数据
+var axios = require('axios')
+Vue.prototype.$axios = axios
+
+// 引入mock服务并使用
+import mock from "mock/index.js"
+Vue.use(mock)
+
 
 Vue.config.productionTip = false
 

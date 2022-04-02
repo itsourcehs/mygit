@@ -20,7 +20,7 @@ public interface TeslacarMapper {
 
     List<Teslacar> selectByExample(TeslacarExample example);
 
-    Teslacar selectByPrimaryKey(Integer carid);
+    Teslacar selectByPrimaryKey(Integer car_id);
 
     int updateByExampleSelective(@Param("record") Teslacar record, @Param("example") TeslacarExample example);
 

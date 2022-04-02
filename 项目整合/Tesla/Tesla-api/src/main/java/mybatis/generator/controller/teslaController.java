@@ -68,10 +68,10 @@ public class teslaController {
     public int addCar(){
         return testservice.insertCar();
     }
-	
+
 	@GetMapping("/delete")
     @ApiOperation(value = "删除car信息")
-    public int deleteCar(){
-        return null;
+    public void deleteCar(){
+        return ;
     }
 }

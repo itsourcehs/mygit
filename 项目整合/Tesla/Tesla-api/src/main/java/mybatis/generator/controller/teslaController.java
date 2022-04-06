@@ -63,15 +63,4 @@ public class teslaController {
         return new JsonResult<>(teslacar);
     }
 
-    @GetMapping("/insert")
-    @ApiOperation(value = "添加car信息")
-    public int addCar(){
-        return testservice.insertCar();
-    }
-
-	@GetMapping("/delete")
-    @ApiOperation(value = "删除car信息")
-    public void deleteCar(){
-        return ;
-    }
 }

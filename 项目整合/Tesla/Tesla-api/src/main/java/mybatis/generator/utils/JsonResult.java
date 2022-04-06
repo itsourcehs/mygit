@@ -9,9 +9,10 @@ package mybatis.generator.utils;
 
 public class JsonResult<T> {
 
-    private T data; //返回数据
+
     private String code;//返回状态码
     private String msg;//返回信息
+    private T data; //返回数据
 
 
     //若没有数据返回，默认状态码为0，提示信息为：操作成功！

@@ -210,7 +210,7 @@
         car_title = #{cartitle,jdbcType=VARCHAR},
       </if>
       <if test="carimgurl != null">
-        carImgurl = #{carimgurl,jdbcType=VARCHAR},
+        car_imgurl = #{carimgurl,jdbcType=VARCHAR},
       </if>
       <if test="carconfig != null">
         car_config = #{carconfig,jdbcType=LONGVARCHAR},
@@ -221,14 +221,14 @@
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="mybatis.generator.entity.Teslacar">
     update tesla_car
     set car_title = #{cartitle,jdbcType=VARCHAR},
-      carImgurl = #{carimgurl,jdbcType=VARCHAR},
+      car_imgurl = #{carimgurl,jdbcType=VARCHAR},
         car_config = #{carconfig,jdbcType=LONGVARCHAR}
     where car_id = #{carid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="mybatis.generator.entity.Teslacar">
     update tesla_car
     set car_title = #{cartitle,jdbcType=VARCHAR},
-      carImgurl = #{carimgurl,jdbcType=VARCHAR}
+      car_imgurl = #{carimgurl,jdbcType=VARCHAR}
     where car_id = #{carid,jdbcType=INTEGER}
   </update>
 </mapper>

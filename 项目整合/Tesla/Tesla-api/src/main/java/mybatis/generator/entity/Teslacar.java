@@ -2,8 +2,12 @@ package mybatis.generator.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+
+import java.util.List;
 
 /**
  * @ApiModel 注解用于实体类，表示对类进行说明，用于参数用实体类接收。
@@ -11,6 +15,8 @@ import org.springframework.data.annotation.Id;
  */
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @ApiModel(value = "car实体类")
 public class Teslacar {
     @Id
@@ -25,46 +31,4 @@ public class Teslacar {
 
     @ApiModelProperty(value = "car的配置信息")
     private String carconfig;
-
-    public Teslacar() {
-    }
-
-    public Teslacar(Integer carid, String cartitle, String carimgurl, String carconfig) {
-        this.carid = carid;
-        this.cartitle = cartitle;
-        this.carimgurl = carimgurl;
-        this.carconfig = carconfig;
-    }
-
-    public Integer getCarid() {
-        return carid;
-    }
-
-    public void setCarid(Integer carid) {
-        this.carid = carid;
-    }
-
-    public String getCartitle() {
-        return cartitle;
-    }
-
-    public void setCartitle(String cartitle) {
-        this.cartitle = cartitle == null ? null : cartitle.trim();
-    }
-
-    public String getCarimgurl() {
-        return carimgurl;
-    }
-
-    public void setCarimgurl(String carimgurl) {
-        this.carimgurl = carimgurl == null ? null : carimgurl.trim();
-    }
-
-    public String getCarconfig() {
-        return carconfig;
-    }
-
-    public void setCarconfig(String carconfig) {
-        this.carconfig = carconfig == null ? null : carconfig.trim();
-    }
 }

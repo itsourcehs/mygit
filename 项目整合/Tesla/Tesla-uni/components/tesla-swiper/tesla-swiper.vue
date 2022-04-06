@@ -90,7 +90,6 @@ export default {
 	},
 	methods: {
 		getIndexSwiperList () {
-			const db = uniCloud.database();
 			
 		},
 		

@@ -2,12 +2,15 @@
 import Vue from 'vue'
 import App from './App'
 
-// 全局注册,之后可在其他组件中通过 this.$axios发送数据
-var axios = require('axios')
-Vue.prototype.$axios = axios
+// 1.全局注册,之后可在其他组件中通过发送数据请求
+import api from 'common/api.js'
+// 2.挂载到Vue原型上
+Vue.prototype.$http = api
 
-// 引入mock服务并使用
+
+// 1.引入mock服务
 import mock from "mock/index.js"
+// 2.使用
 Vue.use(mock)
 
 

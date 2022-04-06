@@ -28,8 +28,15 @@ public class teslaServiceImpl implements teslaService {
 
     @Override
     public int insertCar() {
+        return 0;
+    }
+    /*
+
+    @Override
+    public int insertCar() {
         Teslacar teslacar = new Teslacar(2,"","2","2");
         return testmapper.insert(teslacar);
     }
+    */
 
 }

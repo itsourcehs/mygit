@@ -33,10 +33,11 @@ public class teslaController {
     private teslaService testservice;
 
     //通过id获得car
-    @GetMapping("/hello")
-    public String getString(){
-        String jsonString = JSON.toJSONString(testservice.findCarById());
-        return jsonString;
+    @GetMapping("/car/list")
+    @ApiOperation(value = "获取car列表")
+    public JsonResult<Teslacar> getString(){
+        //String jsonString = JSON.toJSONString();
+        return new JsonResult<>(testservice.findCarById());
     }
 
     //获得car信息返回json处理
@@ -45,6 +46,7 @@ public class teslaController {
         Teslacar teslacar = new Teslacar(2,"2","2","2");
         return new JsonResult<>(teslacar);
     }
+
 
     //获得car信息返回json处理
     @GetMapping("/list")
@@ -62,5 +64,4 @@ public class teslaController {
         Teslacar teslacar = new Teslacar(id,"5","5","5");
         return new JsonResult<>(teslacar);
     }
-
 }

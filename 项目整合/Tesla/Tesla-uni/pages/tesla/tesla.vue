@@ -113,6 +113,8 @@
 			handleBookClick () {
 				// 通过组件定义的ref调用uni-popup方法
 				this.$refs.popup.open()
+				// 模拟发送请求
+				this.$http({url:'/car/list'})
 			},
 			// 杂志封面
 			handleClickMagazine (e) {

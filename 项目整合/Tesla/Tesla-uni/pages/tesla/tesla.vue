@@ -117,7 +117,7 @@
 				this.$http({url:'/car/list'})
 			},
 			// 杂志封面
-			handleClickMagazine (e) {
+			handleClickMagazine () {
 				let id = e.currentTarget.dataset.id
 				uni.navigateTo({
 					url: '../magazine/magazine?id=' +id

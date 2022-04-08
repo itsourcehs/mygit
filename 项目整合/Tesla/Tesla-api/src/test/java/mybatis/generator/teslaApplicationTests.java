@@ -8,6 +8,7 @@ public class teslaApplicationTests {
 
     @Test
     void contextLoads() {
+        System.out.println("t3est");
     }
 }
 

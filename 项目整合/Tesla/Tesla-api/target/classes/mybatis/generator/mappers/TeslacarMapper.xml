@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mybatis.generator.dao.TeslacarMapper">
-  <resultMap id="BaseResultMap" type="mybatis.generator.entity.Teslacar">
-    <id column="car_id" jdbcType="INTEGER" property="carid" />
-    <result column="car_title" jdbcType="VARCHAR" property="cartitle" />
-    <result column="car_imgurl" jdbcType="VARCHAR" property="carimgurl" />
-  </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="mybatis.generator.entity.Teslacar">
-    <result column="car_config" jdbcType="LONGVARCHAR" property="carconfig" />
+<mapper namespace="mybatis.generator.dao.TeslaCarMapper">
+  <resultMap id="BaseResultMap" type="mybatis.generator.entity.TeslaCar">
+    <id column="car_id" jdbcType="INTEGER" property="carId" />
+    <result column="car_title" jdbcType="VARCHAR" property="carTitle" />
+    <result column="car_imgurl" jdbcType="VARCHAR" property="carImgurl" />
+    <result column="car_endurance" jdbcType="VARCHAR" property="carEndurance" />
+    <result column="car_accelerate" jdbcType="VARCHAR" property="carAccelerate" />
+    <result column="car_maxspeed" jdbcType="VARCHAR" property="carMaxspeed" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,28 +68,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    car_id, car_title, car_imgurl
+    car_id, car_title, car_imgurl, car_endurance, car_accelerate, car_maxspeed
   </sql>
-  <sql id="Blob_Column_List">
-    car_config
-  </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="mybatis.generator.entity.TeslacarExample" resultMap="ResultMapWithBLOBs">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from tesla_car
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByExample" parameterType="mybatis.generator.entity.TeslacarExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="mybatis.generator.entity.TeslaCarExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -103,62 +84,85 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from tesla_car
-    where car_id = #{carid,jdbcType=INTEGER}
+    where car_id = #{carId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+
+  <select id="findAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tesla_car
+  </select>
+
+<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from tesla_car
-    where car_id = #{carid,jdbcType=INTEGER}
+    where car_id = #{carId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="mybatis.generator.entity.TeslacarExample">
+  <delete id="deleteByExample" parameterType="mybatis.generator.entity.TeslaCarExample">
     delete from tesla_car
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="mybatis.generator.entity.Teslacar">
-    insert into tesla_car (car_id, car_title, car_imgurl,
-                           car_config)
-    values (#{carid,jdbcType=INTEGER}, #{cartitle,jdbcType=VARCHAR}, #{carimgurl,jdbcType=VARCHAR},
-      #{carconfig,jdbcType=LONGVARCHAR})
+  <insert id="insert" parameterType="mybatis.generator.entity.TeslaCar">
+    insert into tesla_car (car_id, car_title, car_imgurl,car_endurance, car_accelerate, car_maxspeed
+      )
+    values (#{carId,jdbcType=INTEGER}, #{carTitle,jdbcType=VARCHAR}, #{carImgurl,jdbcType=VARCHAR},
+      #{
+carEndurance,jdbcType=VARCHAR}, #{carAccelerate,jdbcType=VARCHAR}, #{carMaxspeed,jdbcType=VARCHAR}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="mybatis.generator.entity.Teslacar">
+  <insert id="insertSelective" parameterType="mybatis.generator.entity.TeslaCar">
     insert into tesla_car
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="carid != null">
+      <if test="carId != null">
         car_id,
       </if>
-      <if test="cartitle != null">
+      <if test="carTitle != null">
         car_title,
       </if>
-      <if test="carimgurl != null">
-        carImgurl,
+      <if test="carImgurl != null">
+        car_imgurl,
       </if>
-      <if test="carconfig != null">
-        car_config,
+      <if test="
+carEndurance != null">
+
+        car_endurance,
+      </if>
+      <if test="carAccelerate != null">
+        car_accelerate,
+      </if>
+      <if test="carMaxspeed != null">
+        car_maxspeed,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="carid != null">
-        #{carid,jdbcType=INTEGER},
+      <if test="carId != null">
+        #{carId,jdbcType=INTEGER},
       </if>
-      <if test="cartitle != null">
-        #{cartitle,jdbcType=VARCHAR},
+      <if test="carTitle != null">
+        #{carTitle,jdbcType=VARCHAR},
       </if>
-      <if test="carimgurl != null">
-        #{carimgurl,jdbcType=VARCHAR},
+      <if test="carImgurl != null">
+        #{carImgurl,jdbcType=VARCHAR},
       </if>
-      <if test="carconfig != null">
-        #{carconfig,jdbcType=LONGVARCHAR},
+      <if test="
+carEndurance != null">
+        #{
+carEndurance,jdbcType=VARCHAR},
+      </if>
+      <if test="carAccelerate != null">
+        #{carAccelerate,jdbcType=VARCHAR},
+      </if>
+      <if test="carMaxspeed != null">
+        #{carMaxspeed,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="mybatis.generator.entity.TeslacarExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="mybatis.generator.entity.TeslaCarExample" resultType="java.lang.Long">
     select count(*) from tesla_car
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -167,68 +171,75 @@
   <update id="updateByExampleSelective" parameterType="map">
     update tesla_car
     <set>
-      <if test="record.carid != null">
-        car_id = #{record.carid,jdbcType=INTEGER},
+      <if test="record.carId != null">
+        car_id = #{record.carId,jdbcType=INTEGER},
       </if>
-      <if test="record.cartitle != null">
-        car_title = #{record.cartitle,jdbcType=VARCHAR},
+      <if test="record.carTitle != null">
+        car_title = #{record.carTitle,jdbcType=VARCHAR},
       </if>
-      <if test="record.carimgurl != null">
-        carImgurl = #{record.carimgurl,jdbcType=VARCHAR},
+      <if test="record.carImgurl != null">
+        car_imgurl = #{record.carImgurl,jdbcType=VARCHAR},
       </if>
-      <if test="record.carconfig != null">
-        car_config = #{record.carconfig,jdbcType=LONGVARCHAR},
+      <if test="record.
+carEndurance != null">
+
+        car_endurance = #{record.
+carEndurance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carAccelerate != null">
+        car_accelerate = #{record.carAccelerate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carMaxspeed != null">
+        car_maxspeed = #{record.carMaxspeed,jdbcType=VARCHAR},
       </if>
     </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExampleWithBLOBs" parameterType="map">
-    update tesla_car
-    set car_id = #{record.carid,jdbcType=INTEGER},
-    car_title = #{record.cartitle,jdbcType=VARCHAR},
-      car_imgurl = #{record.carimgurl,jdbcType=VARCHAR},
-      car_config = #{record.carconfig,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
     update tesla_car
-    set car_id = #{record.carid,jdbcType=INTEGER},
-    car_title = #{record.cartitle,jdbcType=VARCHAR},
-      car_imgurl = #{record.carimgurl,jdbcType=VARCHAR}
+    set car_id = #{record.carId,jdbcType=INTEGER},
+      car_title = #{record.carTitle,jdbcType=VARCHAR},
+      car_imgurl = #{record.carImgurl,jdbcType=VARCHAR},
+    car_endurance = #{record.carEndurance,jdbcType=VARCHAR},
+      car_accelerate = #{record.carAccelerate,jdbcType=VARCHAR},
+      car_maxspeed = #{record.carMaxspeed,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="mybatis.generator.entity.Teslacar">
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis.generator.entity.TeslaCar">
     update tesla_car
     <set>
-      <if test="cartitle != null">
-        car_title = #{cartitle,jdbcType=VARCHAR},
+      <if test="carTitle != null">
+        car_title = #{carTitle,jdbcType=VARCHAR},
       </if>
-      <if test="carimgurl != null">
-        car_imgurl = #{carimgurl,jdbcType=VARCHAR},
+      <if test="carImgurl != null">
+        car_imgurl = #{carImgurl,jdbcType=VARCHAR},
       </if>
-      <if test="carconfig != null">
-        car_config = #{carconfig,jdbcType=LONGVARCHAR},
+      <if test="
+carEndurance != null">
+
+        car_endurance = #{
+carEndurance,jdbcType=VARCHAR},
+      </if>
+      <if test="carAccelerate != null">
+        car_accelerate = #{carAccelerate,jdbcType=VARCHAR},
+      </if>
+      <if test="carMaxspeed != null">
+        car_maxspeed = #{carMaxspeed,jdbcType=VARCHAR},
       </if>
     </set>
-    where car_id = #{carid,jdbcType=INTEGER}
+    where car_id = #{carId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="mybatis.generator.entity.Teslacar">
+  <update id="updateByPrimaryKey" parameterType="mybatis.generator.entity.TeslaCar">
     update tesla_car
-    set car_title = #{cartitle,jdbcType=VARCHAR},
-      car_imgurl = #{carimgurl,jdbcType=VARCHAR},
-        car_config = #{carconfig,jdbcType=LONGVARCHAR}
-    where car_id = #{carid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="mybatis.generator.entity.Teslacar">
-    update tesla_car
-    set car_title = #{cartitle,jdbcType=VARCHAR},
-      car_imgurl = #{carimgurl,jdbcType=VARCHAR}
-    where car_id = #{carid,jdbcType=INTEGER}
+    set car_title = #{carTitle,jdbcType=VARCHAR},
+      car_imgurl = #{carImgurl,jdbcType=VARCHAR},
+        car_endurance = #{carEndurance,jdbcType=VARCHAR},
+      car_accelerate = #{carAccelerate,jdbcType=VARCHAR},
+      car_maxspeed = #{carMaxspeed,jdbcType=VARCHAR}
+    where car_id = #{carId,jdbcType=INTEGER}
   </update>
 </mapper>

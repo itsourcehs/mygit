@@ -41,7 +41,7 @@
 	  <el-main>
 		<!-- 动态导航标签卡 -->
         <div style="position: absolute;left: 0">
-          <admin-tab></admin-tab>
+          <!-- <admin-tab></admin-tab> -->
         </div>
         <router-view></router-view>
       </el-main>

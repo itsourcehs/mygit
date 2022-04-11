@@ -8,23 +8,59 @@
 			  <el-button type="warning" size="medium">查询</el-button> -->
 			</el-row>
 		<div style="margin: 20px 0;">
+			<el-row style="text-align: left;">
+				<span>零件编号: </span><el-input placeholder="请输入零件编号" clearable v-model="inputNumber"></el-input>
+			</el-row>
+			
 			<el-table
 			:data="tableData"
-			border
 			style="width: 100%">
+			
 			<el-table-column
-			  prop="date"
-			  label="日期"
+			  prop="carId"
+			  label="id"
 			  width="180">
 			</el-table-column>
 			<el-table-column
-			  prop="name"
-			  label="姓名"
+			  prop="carTitle"
+			  label="名称"
+			  width="180">
+			</el-table-column>
+			
+			<el-table-column
+			  prop="carImgurl"
+			  label="图片地址">
+			   <!-- 图片的显示 -->
+			   <template   slot-scope="scope">
+				   <img :src="scope.row.carImgurl"  min-width="70" height="70"/>
+			   </template>
+			</el-table-column>
+			
+			<el-table-column
+			  prop="carEndurance"
+			  label="公里续航"
 			  width="180">
 			</el-table-column>
 			<el-table-column
-			  prop="address"
-			  label="地址">
+			  prop="carAccelerate"
+			  label="百公里加速"
+			  >
+			</el-table-column>
+			<el-table-column
+			  prop="carMaxspeed"
+			  label="最高车速"
+			  >
+			</el-table-column>
+			
+			<el-table-column
+			      fixed="right"
+			      label="操作"
+			      width="200px">
+			      <template slot-scope="scope">
+			        <el-button @click="handleClick(scope.row)" type="text" size="small">修改</el-button>
+			        <el-button type="text" size="small">删除</el-button>
+					<el-button type="text" size="small">查看</el-button>
+			      </template>
 			</el-table-column>
 			</el-table>
 		</div>
@@ -43,28 +79,24 @@
 
 <script>
 export default {
-  name: "CarConfig",
-  data() {
-	return {
-	  tableData: [{
-		date: '2016-05-02',
-		name: '王小虎',
-		address: '上海市普陀区金沙江路 1518 号'
-	  }, {
-		date: '2016-05-04',
-		name: '王小虎',
-		address: '上海市普陀区金沙江路 1517 号'
-	  }, {
-		date: '2016-05-01',
-		name: '王小虎',
-		address: '上海市普陀区金沙江路 1519 号'
-	  }, {
-		date: '2016-05-03',
-		name: '王小虎',
-		address: '上海市普陀区金沙江路 1516 号'
-	  }]
+	name: "CarConfig",
+	data() {
+		return {
+		  tableData: []
 	}
-  }
+  },
+  mounted() {
+  	this.getCarList()
+  },
+  methods: {
+	// 获取car列表
+	async getCarList() {
+		await this.$axios.get('/car/all')
+		.then(res => {
+			if (res.status ===200) return this.tableData = res.data.data
+		})
+	}
+}
 }
 </script>
 

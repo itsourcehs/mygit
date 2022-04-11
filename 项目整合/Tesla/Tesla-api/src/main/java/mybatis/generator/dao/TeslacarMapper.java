@@ -1,36 +1,32 @@
 package mybatis.generator.dao;
 
 import java.util.List;
-import mybatis.generator.entity.Teslacar;
-import mybatis.generator.entity.TeslacarExample;
+import mybatis.generator.entity.TeslaCar;
+import mybatis.generator.entity.TeslaCarExample;
 import org.apache.ibatis.annotations.Param;
 
-public interface TeslacarMapper {
-    long countByExample(TeslacarExample example);
+public interface TeslaCarMapper {
+    long countByExample(TeslaCarExample example);
 
-    int deleteByExample(TeslacarExample example);
+    int deleteByExample(TeslaCarExample example);
 
-    int deleteByPrimaryKey(Integer carid);
+    int deleteByPrimaryKey(Integer carId);
 
-    int insert(Teslacar record);
+    int insert(TeslaCar record);
 
-    int insertSelective(Teslacar record);
+    int insertSelective(TeslaCar record);
 
-    List<Teslacar> selectByExampleWithBLOBs(TeslacarExample example);
+    List<TeslaCar> selectByExample(TeslaCarExample example);
 
-    List<Teslacar> selectByExample(TeslacarExample example);
+    TeslaCar selectByPrimaryKey(Integer carId);
 
-    Teslacar selectByPrimaryKey(Integer car_id);
+    int updateByExampleSelective(@Param("record") TeslaCar record, @Param("example") TeslaCarExample example);
 
-    int updateByExampleSelective(@Param("record") Teslacar record, @Param("example") TeslacarExample example);
+    int updateByExample(@Param("record") TeslaCar record, @Param("example") TeslaCarExample example);
 
-    int updateByExampleWithBLOBs(@Param("record") Teslacar record, @Param("example") TeslacarExample example);
+    int updateByPrimaryKeySelective(TeslaCar record);
 
-    int updateByExample(@Param("record") Teslacar record, @Param("example") TeslacarExample example);
+    int updateByPrimaryKey(TeslaCar record);
 
-    int updateByPrimaryKeySelective(Teslacar record);
-
-    int updateByPrimaryKeyWithBLOBs(Teslacar record);
-
-    int updateByPrimaryKey(Teslacar record);
+    List<TeslaCar> findAll();
 }

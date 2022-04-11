@@ -1,9 +1,14 @@
 package  mybatis.generator.service;
 
-import mybatis.generator.entity.Teslacar;
+import mybatis.generator.entity.TeslaCar;
+
+import java.util.List;
 
 public interface teslaService {
 
-    Teslacar findCarById();
-    int insertCar();
+    TeslaCar findCarById(Integer id);
+
+    List<TeslaCar> findAllCar();
+
+    int insertCar(TeslaCar car);
 }

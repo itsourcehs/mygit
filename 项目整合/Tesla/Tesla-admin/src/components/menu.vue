@@ -42,7 +42,7 @@ export default {
 					path: '/car',
 					child: [
 						{
-							title: 'Tesla配置',
+							title: 'Tesla',
 							childPath: '/config'
 						},
 						{

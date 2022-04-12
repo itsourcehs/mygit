@@ -28,18 +28,24 @@ public class teslaController {
     @Qualifier("teslaServiceImpl")
     private teslaService service;
 
+    @RequestMapping("/cars/{pageSize}/{currentPage}")
+    @ApiOperation(value = "根据当前页查询数据")
+    public JsonResult<List<TeslaCar>> findCarsByPage(@PathVariable("pageSize") Integer pageSize,@PathVariable("currentPage") Integer currentPage){
 
-    //查询所有car
+        return new JsonResult<>( service.findByPage(pageSize,currentPage),"获取数据成功");
+    }
+
+
     @GetMapping("/car/all")
     @ApiOperation(value = "获取所有car列表")
-    public JsonResult<List<TeslaCar>> getAll(){
+    public JsonResult<List<TeslaCar>> findAll(){
         return new JsonResult<>(service.findAllCar(),"获取数据成功");
     }
 
-    //通过id获得car
+
     @GetMapping("/car/{id}")
     @ApiOperation(value = "获取car列表")
-    public JsonResult<TeslaCar> getCar(@PathVariable("id") Integer id){
+    public JsonResult<TeslaCar> findCar(@PathVariable("id") Integer id){
         return new JsonResult<>(service.findCarById(id),"获取数据成功");
     }
 

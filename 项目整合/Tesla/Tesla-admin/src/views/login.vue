@@ -3,7 +3,7 @@
 		
 		<!-- 登录表单 -->
 		<el-form v-model="loginForm" class="login-form" ref="loginForm">
-			<h3 class="title">Admin后台管理系统</h3>
+			<h3 class="title">后台管理系统</h3>
 			
 			<el-form-item prop="username">
 				<el-input v-model="loginForm.username" type="text" auto-complete="off" placeholder="账号">

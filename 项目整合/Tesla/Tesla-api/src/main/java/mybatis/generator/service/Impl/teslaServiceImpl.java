@@ -33,6 +33,11 @@ public class teslaServiceImpl implements teslaService {
     }
 
     @Override
+    public List<TeslaCar> findByPage(Integer pageSize,Integer currentPage) {
+        return mapper.findByPage(pageSize,currentPage);
+    }
+
+    @Override
     public int insertCar(TeslaCar car) {
         return mapper.insert(car);
     }

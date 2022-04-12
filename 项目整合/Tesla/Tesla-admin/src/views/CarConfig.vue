@@ -8,8 +8,8 @@
 			  <el-button type="warning" size="medium">查询</el-button> -->
 			</el-row>
 		<div style="margin: 20px 0;">
-			<el-row style="text-align: left;">
-				<span>id: </span><el-input placeholder="请输入id" clearable v-model="inputId"></el-input>
+			<el-row style="text-align: left;margin-bottom: 10px;">
+				<span>id: </span><el-input placeholder="请输入id" clearable v-model="inputId" style="width: 20%;margin-right: 30px;"></el-input>
 			</el-row>
 			
 			<el-table
@@ -57,19 +57,28 @@
 			      label="操作"
 			      width="200px">
 			      <template slot-scope="scope">
-			        <el-button @click="handleClick(scope.row)" type="text" size="small">修改</el-button>
+			        <el-button @click="handleModify(scope.row)" type="text" size="small">修改</el-button>
 			        <el-button type="text" size="small">删除</el-button>
-					<el-button type="text" size="small">查看</el-button>
+					<el-button @click="handleView(scope.row)" type="text" size="small">查看</el-button>
 			      </template>
 			</el-table-column>
 			</el-table>
 		</div>
 		
+		<el-dialog :visible.sync="dialogFormVisible" width="30%" title="Tesla配置">
+			<el-form :model="form">
+				<el-form-item label="名称:" :label-width="formLabelWidth">
+					<el-input disabled="true" v-model="form.carTitle" autocomplete="off" style="width: 70%;"></el-input>
+				</el-form-item>
+			</el-form>
+		</el-dialog>
+		
 			<div class="block">
 			  <el-pagination
 				style="position: absolute;right: 0;bottom: 0;"
 				layout="prev, pager, next"
-				:total="1000"
+				:total="page.total"
+				:page-size="page.pageSize"
 				>
 			  </el-pagination>
 			</div>
@@ -83,21 +92,48 @@ export default {
 	data() {
 		return {
 		  tableData: [],
-		  inputId: ''
-	}
-  },
+		  inputId: '',
+		  dialogFormVisible: false,
+		  formLabelWidth: '120px',
+		  form: {},
+		  page: {
+			/*
+			 1  0-4   当前页1-1*每页显示5条  每页显示5条
+			 2  5-7   当前页2-1*每页显示5条  每页显示5条
+			*/
+			pageSize: 5 ,// 每页展示5条记录
+			currentPage: 1, // 当前页
+			total: 8 // 总条数
+		  },
+		}
+	},
   mounted() {
-  	this.getCarList()
+  	// this.getCarList()
+	this.getCarByPage()
   },
   methods: {
-	// 获取car列表
+	// 获取第一页的car列表
+	async getCarByPage () {
+		await this.$axios.get('/cars/' + this.page.pageSize + '/'+this.page.currentPage)
+		.then(res => {
+			console.log(res);
+		})
+	},
+	
+	// 获取所有car列表
 	async getCarList() {
 		await this.$axios.get('/car/all')
 		.then(res => {
 			if (res.status ===200) return this.tableData = res.data.data
 		})
+	},
+	
+	handleView (val) {
+		this.dialogFormVisible = true
+		this.form = val
+	},
+	handleModify (val) {}
 	}
-}
 }
 </script>
 
@@ -107,7 +143,6 @@ span {
 	font-weight: 100;
 }
 .el-input {
-	width: 30%;
-	margin-right: 30px;
+	
 }
 </style>

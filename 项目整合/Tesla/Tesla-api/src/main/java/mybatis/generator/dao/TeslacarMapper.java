@@ -29,4 +29,6 @@ public interface TeslaCarMapper {
     int updateByPrimaryKey(TeslaCar record);
 
     List<TeslaCar> findAll();
+
+    List<TeslaCar> findByPage(Integer pageSize,Integer currentPage);
 }

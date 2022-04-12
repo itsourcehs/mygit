@@ -1,9 +1,10 @@
 package mybatis.generator.dao;
 
-import java.util.List;
 import mybatis.generator.entity.TeslaCar;
 import mybatis.generator.entity.TeslaCarExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface TeslaCarMapper {
     long countByExample(TeslaCarExample example);

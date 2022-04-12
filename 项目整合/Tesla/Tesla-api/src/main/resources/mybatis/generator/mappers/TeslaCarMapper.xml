@@ -97,11 +97,6 @@
     from tesla_car
   </select>
 
-  <select id="findByPage" resultMap="BaseResultMap">
---     select * from tesla_car limit #{(currentPage-1)*pageSize},#{pageSize}
-    select * from tesla_car limit #{0},#{5}
-  </select>
-
 <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from tesla_car
     where car_id = #{carId,jdbcType=INTEGER}

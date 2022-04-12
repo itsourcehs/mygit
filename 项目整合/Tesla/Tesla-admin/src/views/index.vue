@@ -5,10 +5,8 @@
 			<el-avatar shape="circle" :size="avatarSize" :fit="avatarFit" :src="avatarUrl"></el-avatar>
 			<div class="text">
 				<span style="font-size: 18px;">您好，管理员，祝您开心每一天!</span>
-				<span style="
-		font-size: 13px;
-		font-weight: 100;">我们用代码编写梦想，用梦想改变世界。</span>
-			</div>	
+				<span style="font-size: 13px;font-weight: 100;">我们用代码编写梦想，用梦想改变世界。</span>
+			</div>
 		</div>
 		<div class="index-header-right">
 			<div class="right-span">
@@ -24,8 +22,7 @@
 				<span>2,223</span>
 			</div>
 		</div>
-		
-	  </div>
+		</div>
 	  
 	  <div class="index-main">
 		  <div class="main-left">

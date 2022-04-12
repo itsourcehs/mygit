@@ -1,7 +1,7 @@
 <template>
 	<el-menu
 	  router
-	  default-active="/index"
+	  :default-active="this.$route.path"
 	  class="el-menu-vertical-demo"
 	  @open="handleOpen"
 	  @close="handleClose"
@@ -42,7 +42,7 @@ export default {
 					path: '/car',
 					child: [
 						{
-							title: 'Tesla',
+							title: 'Tesla配置',
 							childPath: '/config'
 						},
 						{
@@ -59,10 +59,6 @@ export default {
 							title: '新增用户',
 							childPath: '/user/add'
 						},
-						{
-							title: '选项2',
-							childPath: '2-2'
-						}
 					]
 				}
 			]

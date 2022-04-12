@@ -9,7 +9,7 @@
 			</el-row>
 		<div style="margin: 20px 0;">
 			<el-row style="text-align: left;">
-				<span>零件编号: </span><el-input placeholder="请输入零件编号" clearable v-model="inputNumber"></el-input>
+				<span>id: </span><el-input placeholder="请输入id" clearable v-model="inputId"></el-input>
 			</el-row>
 			
 			<el-table
@@ -82,7 +82,8 @@ export default {
 	name: "CarConfig",
 	data() {
 		return {
-		  tableData: []
+		  tableData: [],
+		  inputId: ''
 	}
   },
   mounted() {
@@ -101,5 +102,12 @@ export default {
 </script>
 
 <style scoped>
-
+span {
+	font-size: 13px;
+	font-weight: 100;
+}
+.el-input {
+	width: 30%;
+	margin-right: 30px;
+}
 </style>

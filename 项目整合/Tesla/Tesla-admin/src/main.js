@@ -17,8 +17,6 @@ Vue.prototype.$axios = axios
 
 
 
-
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

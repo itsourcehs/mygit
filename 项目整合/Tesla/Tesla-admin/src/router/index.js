@@ -32,7 +32,7 @@ export default new Router({
         {
           path: '/config',
           name: 'carconfig',
-          meta: {title: 'Tesla'},
+          meta: {title: 'Tesla配置'},
           component: () => import('@/views/CarConfig'),
         },
         {

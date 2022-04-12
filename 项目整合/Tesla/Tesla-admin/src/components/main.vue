@@ -43,7 +43,7 @@
         <div style="position: absolute;left: 0">
           <!-- <admin-tab></admin-tab> -->
         </div>
-        <router-view></router-view>
+        <router-view v-if="routerAlive"></router-view>
       </el-main>
     </el-container>
   </el-container>
@@ -66,7 +66,8 @@ export default {
       avatarUrl: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
       breadList: [],
 	  activePath: '/index',
-	  isCollapse: true
+	  isCollapse: true,
+	  routerAlive: true // 1.router-view中加上条件渲染 v-if 默认为true.
     }
   },
   // 监听属性
@@ -97,6 +98,12 @@ export default {
         }
       }
     },
+  },
+  mounted() {
+  	this.routerAlive = false // 2.在父路由重新渲染完成后，将条件渲染的值变为false
+	this.$nextTick(() => {
+		this.routerAlive = true // 3.在修改渲染条件数据之后使用 $nextTick，再将条件渲染的值变为true，相当于重新加载了一次子路由。
+	})
   }
 }
 </script>

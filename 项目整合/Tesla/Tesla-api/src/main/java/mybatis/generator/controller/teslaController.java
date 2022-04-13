@@ -28,6 +28,13 @@ public class teslaController {
     @Qualifier("teslaServiceImpl")
     private teslaService service;
 
+    @RequestMapping("/cars/count")
+    @ApiOperation(value = "统计所有car记录数")
+    public long countCars(){
+        return service.count();
+    }
+
+
     @RequestMapping("/cars/{pageSize}/{currentPage}")
     @ApiOperation(value = "根据当前页查询数据")
     public JsonResult<List<TeslaCar>> findCarsByPage(@PathVariable("pageSize") Integer pageSize,@PathVariable("currentPage") Integer currentPage){

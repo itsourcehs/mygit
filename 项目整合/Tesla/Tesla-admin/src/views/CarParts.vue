@@ -100,7 +100,8 @@ export default {
   	},
 	handleClick (val) {
 		console.log(val);
-	}
+	},
+	handleSelectionChange () {}
   },
 }
 </script>

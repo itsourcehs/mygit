@@ -64,18 +64,16 @@ export default {
       avatarSize: 'large',
       avatarFit: 'fit',
       avatarUrl: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
-      breadList: [],
 	  activePath: '/index',
 	  isCollapse: true,
-	  routerAlive: true // 1.router-view中加上条件渲染 v-if 默认为true.
+	  routerAlive: true, // 1.router-view中加上条件渲染 v-if 默认为true.
+      breadList: []
     }
   },
-  // 监听属性
   watch: {
     // 监听路由变化
     $route (val) {
       this.getBreadList(val)
-      // this.getTagsList(val)
     }
   },
 
@@ -87,15 +85,6 @@ export default {
         let matched = val.matched.filter(item => item.meta && item.meta.title);
         // 拿到过滤好的路由v-for遍历出来
         this.breadList = matched;
-        let item = matched[matched.length -1].meta.title
-		let path = matched[matched.length -1].path
-		
-        let nobject = {name: ''+ item, path: '' + path}
-
-        // 每次追加前判断 数组 tags中是否已存在该值
-        if(JSON.stringify(this.tags).indexOf(JSON.stringify(nobject))==-1 && item !== '首页'){
-          this.tags.push(nobject); // 进行动态的tags列表追加操作
-        }
       }
     },
   },

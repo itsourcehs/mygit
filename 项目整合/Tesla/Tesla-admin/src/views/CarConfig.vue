@@ -57,7 +57,7 @@
 			      label="操作"
 			      width="200px">
 			      <template slot-scope="scope">
-			        <el-button @click="handleModify(scope.row)" type="text" size="small">修改</el-button>
+			        <el-button type="text" size="small">修改</el-button>
 			        <el-button type="text" size="small">删除</el-button>
 					<el-button @click="handleView(scope.row)" type="text" size="small">查看</el-button>
 			      </template>
@@ -68,7 +68,7 @@
 		<el-dialog :visible.sync="dialogFormVisible" width="30%" title="Tesla配置">
 			<el-form :model="form">
 				<el-form-item label="名称:" :label-width="formLabelWidth">
-					<el-input disabled="true" v-model="form.carTitle" autocomplete="off" style="width: 70%;"></el-input>
+					<el-input :disabled="disabled" v-model="form.carTitle" autocomplete="off" style="width: 70%;"></el-input>
 				</el-form-item>
 			</el-form>
 		</el-dialog>
@@ -79,6 +79,7 @@
 				layout="prev, pager, next"
 				:total="page.total"
 				:page-size="page.pageSize"
+				@current-change="handleCurrentChange"
 				>
 			  </el-pagination>
 			</div>
@@ -103,36 +104,31 @@ export default {
 			*/
 			pageSize: 5 ,// 每页展示5条记录
 			currentPage: 1, // 当前页
-			total: 8 // 总条数
+			total: 13 // 总条数
 		  },
+		  disabled: true
 		}
 	},
   mounted() {
-  	// this.getCarList()
-	this.getCarByPage()
+	this.getCount()
+	this.test(1)
   },
   methods: {
-	// 获取第一页的car列表
-	async getCarByPage () {
-		await this.$axios.get('/cars/' + this.page.pageSize + '/'+this.page.currentPage)
-		.then(res => {
-			console.log(res);
-		})
-	},
-	
-	// 获取所有car列表
-	async getCarList() {
-		await this.$axios.get('/car/all')
-		.then(res => {
-			if (res.status ===200) return this.tableData = res.data.data
-		})
-	},
+	// 获取记录总数
+	async getCount(){
+		await this.$axios.get('/cars/count').then(res => {this.page.total = res.data})},
+	  
+	async handleCurrentChange (page) {this.test(page)},
 	
 	handleView (val) {
 		this.dialogFormVisible = true
 		this.form = val
 	},
-	handleModify (val) {}
+	async test (page) {
+		this.page.currentPage = page
+		await this.$axios.get('/cars/' + this.page.pageSize + '/'+this.page.currentPage)
+		.then(res => {this.tableData = res.data.data})
+	}
 	}
 }
 </script>

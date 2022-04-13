@@ -1,7 +1,6 @@
 package mybatis.generator;
 
 import mybatis.generator.dao.TeslaCarMapper;
-import mybatis.generator.entity.TeslaCarExample;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -20,8 +19,8 @@ public class teslaApplicationTests {
 
 
     @Test
-    long testCount(){
-        return mapper.count();
+    void testCount(){
+        System.out.println(mapper.count());
     }
 
 }

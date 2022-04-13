@@ -79,6 +79,7 @@ export default {
 <style scoped>
 .el-menu-vertical-demo {
   border-right: none;
+  text-align: left;
 }
 .el-menu-item {
   padding-right: 18px;

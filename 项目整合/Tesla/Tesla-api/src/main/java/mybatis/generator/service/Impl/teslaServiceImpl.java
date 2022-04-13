@@ -42,4 +42,9 @@ public class teslaServiceImpl implements teslaService {
         return mapper.insert(car);
     }
 
+    @Override
+    public long count() {
+        return mapper.count();
+    }
+
 }

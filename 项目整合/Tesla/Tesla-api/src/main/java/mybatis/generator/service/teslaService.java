@@ -12,4 +12,6 @@ public interface teslaService {
     List<TeslaCar> findByPage(Integer currentPage,Integer pageSize);
 
     int insertCar(TeslaCar car);
+
+    long count();
 }

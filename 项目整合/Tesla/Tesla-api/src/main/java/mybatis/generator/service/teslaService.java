@@ -9,7 +9,7 @@ public interface teslaService {
 
     List<TeslaCar> findAllCar();
 
-    List<TeslaCar> findByPage(Integer pageSize,Integer currentPage);
+    List<TeslaCar> findByPage(Integer currentPage,Integer pageSize);
 
     int insertCar(TeslaCar car);
 }

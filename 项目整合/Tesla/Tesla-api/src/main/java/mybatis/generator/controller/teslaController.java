@@ -31,8 +31,8 @@ public class teslaController {
     @RequestMapping("/cars/{pageSize}/{currentPage}")
     @ApiOperation(value = "根据当前页查询数据")
     public JsonResult<List<TeslaCar>> findCarsByPage(@PathVariable("pageSize") Integer pageSize,@PathVariable("currentPage") Integer currentPage){
-
-        return new JsonResult<>( service.findByPage(pageSize,currentPage),"获取数据成功");
+        Integer current = (currentPage - 1)*pageSize;
+        return new JsonResult<>( service.findByPage(current,pageSize),"获取数据成功");
     }
 
 

@@ -9,6 +9,8 @@ import java.util.List;
 public interface TeslaCarMapper {
     long countByExample(TeslaCarExample example);
 
+    long count();
+
     int deleteByExample(TeslaCarExample example);
 
     int deleteByPrimaryKey(Integer carId);
@@ -31,5 +33,5 @@ public interface TeslaCarMapper {
 
     List<TeslaCar> findAll();
 
-    List<TeslaCar> findByPage(Integer pageSize,Integer currentPage);
+    List<TeslaCar> findByPage(@Param("currentPage") Integer currentPage,@Param("pageSize") Integer pageSize);
 }

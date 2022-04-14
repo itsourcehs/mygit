@@ -60,10 +60,7 @@ public class teslaController {
     @RequestMapping(value = "/carAdd",method = RequestMethod.GET)
     @ApiOperation(value = "新增car信息")
     public JsonResult addCar(){
-        /*
-        TeslaCar car = new TeslaCar(4,"4","model v","123","657","234");
-        service.insertCar(car);
-         */
+        
         return new JsonResult<>("0","新增成功");
     }
 

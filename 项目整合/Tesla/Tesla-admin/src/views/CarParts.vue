@@ -1,5 +1,5 @@
 <template>
-  <div class="card" style="margin-top: 50px;">
+  <div class="card" style="margin-top: 20px;">
   	<el-card style="position: relative;">
   		<el-row style="text-align: left;">
 			<span>零件编号: </span><el-input placeholder="请输入零件编号" clearable v-model="inputNumber"></el-input>

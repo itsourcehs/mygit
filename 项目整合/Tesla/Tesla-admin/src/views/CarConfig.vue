@@ -1,5 +1,5 @@
 <template>
-  <div class="card" style="margin-top: 50px;">
+  <div class="card" style="margin-top: 20px;">
 		<el-card style="position: relative;">
 			<el-row style="text-align: left;">
 			  <!-- <el-button type="primary" size="medium">增加</el-button>
@@ -9,7 +9,7 @@
 			</el-row>
 		<div style="margin: 20px 0;">
 			<el-row style="text-align: left;margin-bottom: 10px;">
-				<span>id: </span><el-input placeholder="请输入id" clearable v-model="inputId" style="width: 20%;margin-right: 30px;"></el-input>
+				<span>car id: </span><el-input placeholder="请输入id" clearable v-model="inputId" style="width: 20%;margin-right: 30px;"></el-input>
 			</el-row>
 			
 			<el-table
@@ -134,11 +134,8 @@ export default {
 </script>
 
 <style scoped>
-span {
+.el-row span {
 	font-size: 13px;
 	font-weight: 100;
-}
-.el-input {
-	
 }
 </style>

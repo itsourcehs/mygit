@@ -23,7 +23,7 @@ function showLoading(target) {
   if (needLoadingRequestCount === 0 && !loading) {
     loading = Loading.service({
       lock: true,
-      text: "Loading...",
+      text: "数据加载中...",
       background: 'rgba(255, 255, 255, 0.5)',
       target: target || "body"
     });

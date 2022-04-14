@@ -84,4 +84,9 @@ export default {
 .el-menu-item {
   padding-right: 18px;
 }
+.el-menu-item.is-active {
+    color: #619fe7 !important;
+	background-color: #3a404d !important;
+}
+
 </style>

@@ -71,7 +71,7 @@
 .index-header {
 	display: flex;
 	flex-direction: row;
-	margin: 40px 0;
+	margin: 20px 0;
 	padding-top: 20px;
 	padding-left: 20px;
 	height: 75px;

@@ -3,13 +3,15 @@
 		<el-card style="position: relative;">
 			<el-row style="text-align: left;">
 			  <!-- <el-button type="primary" size="medium">增加</el-button>
-			  <el-button type="success" size="medium">删除</el-button>
-			  <el-button type="info" size="medium">修改</el-button>
 			  <el-button type="warning" size="medium">查询</el-button> -->
 			</el-row>
 		<div style="margin: 20px 0;">
-			<el-row style="text-align: left;margin-bottom: 10px;">
-				<span>car id: </span><el-input placeholder="请输入id" clearable v-model="inputId" style="width: 20%;margin-right: 30px;"></el-input>
+			<el-row class="config-row">
+				<div>
+					<span>输入id: </span><el-input placeholder="请输入id" clearable v-model="inputId" style="width: 20%;margin-right: 30px;"></el-input>
+				</div>
+				
+				<el-button type="primary" icon="el-icon-plus" @click="handleAddCar">新增</el-button>
 			</el-row>
 			
 			<el-table
@@ -66,7 +68,7 @@
 		</div>
 		
 		<el-dialog :visible.sync="dialogFormVisible" width="30%" title="Tesla配置">
-			<el-form :model="form">
+			<el-form :model="form" label-position="right">
 				<el-form-item label="名称:" :label-width="formLabelWidth">
 					<el-input :disabled="disabled" v-model="form.carTitle" autocomplete="off" style="width: 70%;"></el-input>
 				</el-form-item>
@@ -84,11 +86,15 @@
 			  </el-pagination>
 			</div>
 		</el-card>
+		
+		<eform ref="edit"></eform>
 	</div>
 </template>
 
 <script>
+import eform from '../components/eform.vue'
 export default {
+	components: {eform},
 	name: "CarConfig",
 	data() {
 		return {
@@ -114,12 +120,18 @@ export default {
 	this.test(1)
   },
   methods: {
+	// 添加car
+	handleAddCar () {
+		this.$refs.edit.dialogFormVisible = true
+	},
+	
 	// 获取记录总数
 	async getCount(){
 		await this.$axios.get('/cars/count').then(res => {this.page.total = res.data})},
 	  
 	async handleCurrentChange (page) {this.test(page)},
 	
+	// 查看记录
 	handleView (val) {
 		this.dialogFormVisible = true
 		this.form = val
@@ -135,7 +147,17 @@ export default {
 
 <style scoped>
 .el-row span {
-	font-size: 13px;
+	font-size: 15px;
 	font-weight: 100;
+}
+.config-row {
+	text-align: left;
+	margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+}
+.config-row .el-button {
+	width: 5%;
+	margin-top: 20px;
 }
 </style>

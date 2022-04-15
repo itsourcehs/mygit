@@ -1,6 +1,7 @@
 package mybatis.generator;
 
 import mybatis.generator.dao.TeslaCarMapper;
+import mybatis.generator.utils.StringUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -21,6 +22,11 @@ public class teslaApplicationTests {
     @Test
     void testCount(){
         System.out.println(mapper.count());
+    }
+
+    @Test
+    void testString(){
+        System.out.println(StringUtils.getRandomString(6));
     }
 
 }

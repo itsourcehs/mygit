@@ -6,10 +6,14 @@ import io.swagger.annotations.ApiOperation;
 import mybatis.generator.entity.TeslaCar;
 import mybatis.generator.service.teslaService;
 import mybatis.generator.utils.JsonResult;
+import mybatis.generator.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /*
@@ -27,6 +31,7 @@ public class teslaController {
     @Autowired
     @Qualifier("teslaServiceImpl")
     private teslaService service;
+
 
     @RequestMapping("/cars/count")
     @ApiOperation(value = "统计所有car记录数")
@@ -57,11 +62,32 @@ public class teslaController {
     }
 
     //新增car
-    @RequestMapping(value = "/carAdd",method = RequestMethod.GET)
+    @RequestMapping(value = "/carAdd")
     @ApiOperation(value = "新增car信息")
-    public JsonResult addCar(){
-        
+    public JsonResult addCar(@RequestBody TeslaCar car){
+        service.insertCar(car);
         return new JsonResult<>("0","新增成功");
     }
 
+
+    @RequestMapping(value = "/covers")
+    @ApiOperation(value = "返回 car 图片地址")
+    public String coversUpload(MultipartFile file) throws Exception {
+        File imageFolder = new File("D:/workspace/img");
+        //获取的是文件的完整名称，包括文件名称+文件拓展名
+        String f1 = file.getOriginalFilename();
+        String str = StringUtils.getRandomString(6);
+        File f = new File(imageFolder, str +
+                f1.substring(f1.length() - 4));
+        if (!f.getParentFile().exists())
+            f.getParentFile().mkdirs();
+        try {
+            file.transferTo(f);
+            String imgURL = "http://localhost:8081/api/file/" + f.getName();
+            return imgURL;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
 }

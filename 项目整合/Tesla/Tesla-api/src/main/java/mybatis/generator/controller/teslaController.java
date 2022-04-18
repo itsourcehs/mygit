@@ -33,6 +33,14 @@ public class teslaController {
     private teslaService service;
 
 
+    @GetMapping("/car/del/{carId}")
+    @ApiOperation(value = "根据carId删除car")
+    public JsonResult delCar(@PathVariable("carId") Integer carId){
+        service.delCar(carId);
+        return new JsonResult<>("0","删除成功");
+    }
+
+
     @RequestMapping("/cars/count")
     @ApiOperation(value = "统计所有car记录数")
     public long countCars(){

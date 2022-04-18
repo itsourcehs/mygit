@@ -29,6 +29,7 @@
 <script>
 import upload from '@/components/eupload'
 export default {
+	inject: ['reload'],
 	components:{upload},
 	name: "eform",
 	data () {
@@ -62,6 +63,8 @@ export default {
 					message: ''+ res.data.msg,
 					type: 'success'
 				})
+				// 刷新当前页面
+				this.reload()
 			})
 		}
 	}

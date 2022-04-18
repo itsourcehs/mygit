@@ -47,4 +47,9 @@ public class teslaServiceImpl implements teslaService {
         return mapper.count();
     }
 
+    @Override
+    public int delCar(Integer id) {
+        return mapper.deleteByPrimaryKey(id);
+    }
+
 }

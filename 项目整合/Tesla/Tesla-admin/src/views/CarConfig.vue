@@ -59,8 +59,8 @@
 			      label="操作"
 			      width="200px">
 			      <template slot-scope="scope">
-			        <el-button type="text" size="small">修改</el-button>
-			        <el-button type="text" size="small">删除</el-button>
+			        <el-button @click="handleAlter(scope.row)" type="text" size="small">修改</el-button>
+			        <el-button @click="handleDel(scope.row)" type="text" size="small">删除</el-button>
 					<el-button @click="handleView(scope.row)" type="text" size="small">查看</el-button>
 			      </template>
 			</el-table-column>
@@ -94,6 +94,8 @@
 <script>
 import eform from '../components/eform.vue'
 export default {
+	// 注入App.vue组件提供（provide）的 reload 依赖  this.reload 调用控制页面刷新
+	inject: ['reload'],
 	components: {eform},
 	name: "CarConfig",
 	data() {
@@ -117,9 +119,31 @@ export default {
 	},
   mounted() {
 	this.getCount()
-	this.test(1)
+	this.carByPage(1)
   },
   methods: {
+	// 修改car
+	handleAlter (obj) {
+		console.log(obj);
+		this.dialogFormVisible = true
+		this.disabled = false
+		this.form = obj
+	},
+	
+	// 删除car
+	async handleDel (obj) {
+		let carId = obj.carId
+		await this.$axios.get('/car/del/' + carId).then(res => {
+			// 提示删除成功
+			this.$message({
+				message: '删除成功.',
+				type: 'success'
+			})
+			// 刷新当前页面
+			this.reload()
+		})
+	},
+	
 	// 添加car
 	handleAddCar () {
 		this.$refs.edit.dialogFormVisible = true
@@ -129,14 +153,16 @@ export default {
 	async getCount(){
 		await this.$axios.get('/cars/count').then(res => {this.page.total = res.data})},
 	  
-	async handleCurrentChange (page) {this.test(page)},
+	async handleCurrentChange (page) {this.carByPage(page)},
 	
 	// 查看记录
 	handleView (val) {
 		this.dialogFormVisible = true
 		this.form = val
 	},
-	async test (page) {
+	
+	// 获取当前页car列表信息
+	async carByPage (page) {
 		this.page.currentPage = page
 		await this.$axios.get('/cars/' + this.page.pageSize + '/'+this.page.currentPage)
 		.then(res => {this.tableData = res.data.data})
@@ -157,7 +183,7 @@ export default {
 	flex-direction: column;
 }
 .config-row .el-button {
-	width: 5%;
+	width: 8%;
 	margin-top: 20px;
 }
 </style>

@@ -14,4 +14,6 @@ public interface teslaService {
     int insertCar(TeslaCar car);
 
     long count();
+
+    int delCar(Integer id);
 }

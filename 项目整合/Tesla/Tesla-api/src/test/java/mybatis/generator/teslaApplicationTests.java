@@ -1,7 +1,7 @@
 package mybatis.generator;
 
-import mybatis.generator.dao.TeslaCarMapper;
-import mybatis.generator.utils.StringUtils;
+import com.hs.dao.TeslaCarMapper;
+import com.hs.utils.StringUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

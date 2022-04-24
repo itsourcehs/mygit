@@ -6,6 +6,8 @@ django boards 源码地址:  https://github.com/sibtc/django-beginners-guide/tre
 博客园:  手机号+验证码
 csdn: qq
 xuexin： 158....2651  qq密码
+百度网盘二级密码:  je***2019970708
+
 
 在线设计:  https://js.design/f/m96yL_?p=WzziBv-G6s  登录名:huangjjm 或手机号  密码:qq密码
 https://ps.gaoding.com/#/

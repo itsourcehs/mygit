@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiOperation;
 import com.hs.entity.TeslaCar;
 import com.hs.service.teslaService;
 import com.hs.utils.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ import java.util.List;
  * @ApiOperation 注解用于方法，表示一个 http 请求的操作。
  * @ApiParam 注解用于参数上，用来标明参数信息。
  */
-
+@Slf4j
 @RestController
 @Api(value = "特斯拉在线接口文档~")
 @RequestMapping("/api")
@@ -50,6 +51,7 @@ public class teslaController {
     @RequestMapping("/cars/{pageSize}/{currentPage}")
     @ApiOperation(value = "根据当前页查询数据")
     public JsonResult<List<TeslaCar>> findCarsByPage(@PathVariable("pageSize") Integer pageSize,@PathVariable("currentPage") Integer currentPage){
+        log.info("[api/cars/"+pageSize+"/"+currentPage+"]");
         Integer current = (currentPage - 1)*pageSize;
         return new JsonResult<>( service.findByPage(current,pageSize),"获取数据成功");
     }

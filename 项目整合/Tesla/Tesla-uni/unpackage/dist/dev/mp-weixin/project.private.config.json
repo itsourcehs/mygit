@@ -59,6 +59,12 @@
           "pathName": "pages/map/map",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "subpkg/activity-detail/activity-detail",
+          "query": "id=485d2738am56213124",
+          "scene": null
         }
       ]
     }

@@ -1,0 +1,113 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.cover {
+  width: 100vw;
+  height: 383rpx;
+  margin-bottom: 45rpx;
+}
+.main {
+  padding: 0 45rpx;
+}
+.main .title {
+  max-height: 82rpx;
+  width: 100%;
+  font-size: 30rpx;
+  font-weight: bold;
+  overflow: hidden;
+  margin-bottom: 38rpx;
+}
+.icon-bar {
+  width: 100rpx;
+  height: 25rpx;
+  font-size: 15rpx;
+  color: #fff;
+  background-color: #000;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16rpx;
+}
+.date-area {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin-bottom: 18rpx;
+}
+.date-area .date {
+  color: #808081;
+  font-size: 24rpx;
+  margin-right: 16rpx;
+}
+.date-area .status-tag {
+  padding: 5rpx;
+  font-size: 16rpx;
+}
+.date-area .status-tag.signing-up {
+  background-color: #000;
+  color: #fff;
+}
+.date-area .status-tag.signing-end {
+  background-color: #f5f5f6;
+  color: #b1b1b1;
+}
+.date-area .status-tag.signed {
+  background-color: green;
+  color: #fff;
+}
+.address {
+  color: #a5a5a6;
+  font-size: 20rpx;
+  margin-bottom: 72rpx;
+}
+.description-label {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+.apply-timerange {
+  margin-top: 120rpx;
+  font-size: 26rpx;
+  text-align: center;
+  margin-bottom: 24rpx;
+}
+.activity-apply-btn {
+  background-color: #486ada;
+  color: #fff;
+  line-height: 80rpx;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30rpx;
+  width: 100%;
+  height: 80rpx;
+  border-radius: 80rpx;
+  margin-bottom: 80rpx;
+}
+.activity-apply-btn.disable {
+  background-color: #999999;
+}
+

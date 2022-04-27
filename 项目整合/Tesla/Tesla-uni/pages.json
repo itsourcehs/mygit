@@ -68,6 +68,15 @@
             }
             
         }
+        ,{
+            "path" : "subpkg/activity-detail/activity-detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTitleText": "Tesla",

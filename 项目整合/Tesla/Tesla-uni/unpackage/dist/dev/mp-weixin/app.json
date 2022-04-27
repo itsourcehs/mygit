@@ -7,7 +7,8 @@
     "pages/test-drive/test-drive",
     "pages/lenders-toolbox/lenders-toolbox",
     "pages/article/detail/detail",
-    "pages/magazine/magazine"
+    "pages/magazine/magazine",
+    "subpkg/activity-detail/activity-detail"
   ],
   "subPackages": [],
   "window": {

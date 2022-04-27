@@ -7,4 +7,6 @@ import java.util.List;
 public interface teslaActivityService {
 
     List<TeslaActivity> findAllActivity();
+
+    TeslaActivity findActivityById(String id);
 }

@@ -24,4 +24,9 @@ public class teslaActivityServiceImpl implements teslaActivityService {
     public List<TeslaActivity> findAllActivity() {
         return teslaActivityMapper.findAllActivity();
     }
+
+    @Override
+    public TeslaActivity findActivityById(String id) {
+        return teslaActivityMapper.selectByPrimaryKey(id);
+    }
 }

@@ -13,7 +13,7 @@ const request = (options) => {
 			},
 			fail: (err) => {
 				uni.showToast({
-					title: '请求接口失败'
+					title: '接口请求失败'
 				})
 				reject(err)
 			}

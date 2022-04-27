@@ -8,7 +8,8 @@
     "pages/lenders-toolbox/lenders-toolbox",
     "pages/article/detail/detail",
     "pages/magazine/magazine",
-    "subpkg/activity-detail/activity-detail"
+    "subpkg/activity-detail/activity-detail",
+    "subpkg/activity-apply/activity-apply"
   ],
   "subPackages": [],
   "window": {

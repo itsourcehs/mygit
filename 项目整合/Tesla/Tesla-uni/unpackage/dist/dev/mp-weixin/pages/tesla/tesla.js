@@ -96,10 +96,10 @@ var components
 try {
   components = {
     teslaSwiper: function() {
-      return __webpack_require__.e(/*! import() | components/tesla-swiper/tesla-swiper */ "components/tesla-swiper/tesla-swiper").then(__webpack_require__.bind(null, /*! @/components/tesla-swiper/tesla-swiper.vue */ 82))
+      return __webpack_require__.e(/*! import() | components/tesla-swiper/tesla-swiper */ "components/tesla-swiper/tesla-swiper").then(__webpack_require__.bind(null, /*! @/components/tesla-swiper/tesla-swiper.vue */ 92))
     },
     uniPopup: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-popup/components/uni-popup/uni-popup */ "uni_modules/uni-popup/components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-popup/components/uni-popup/uni-popup.vue */ 89))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-popup/components/uni-popup/uni-popup */ "uni_modules/uni-popup/components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-popup/components/uni-popup/uni-popup.vue */ 99))
     }
   }
 } catch (e) {

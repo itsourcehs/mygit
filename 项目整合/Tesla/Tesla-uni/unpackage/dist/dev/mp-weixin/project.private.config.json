@@ -65,6 +65,12 @@
           "pathName": "subpkg/activity-detail/activity-detail",
           "query": "id=485d2738am56213124",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/test-drive/test-drive",
+          "query": "id=fa241ce1a6178",
+          "scene": null
         }
       ]
     }

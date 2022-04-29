@@ -22,13 +22,15 @@
 					<button class="get-phone-btn" open-type="getPhoneNumber" slot="right-item" @getphonenumber="getPhoneNumber" type="primary">获取手机号码</button>
 				</tesla-input>
 				
-				<picker @change="bindProvinceChange" :value="currentProvinceIndex" range-key="fullname" :range="provincesAndCitiesTree">
+				<picker mode="region" @change="bindProvinceChange" :value="currentProvinceIndex" range-key="fullname" :range="provincesAndCitiesTree">
 					<tesla-input writable="false" required label="省份" :value="province" />
 				</picker>
 				
 				<picker @change="bindCityChange" :value="currentCityIndex" range-key="fullname" :range="cities">
 					<tesla-input  writable="false" required label="城市" :value="city" />
 				</picker>
+				
+				<uni-data-picker ></uni-data-picker>
 				
 				<view class="form-item">
 					<checkbox value="cb" checked="true" color="#000"><view class="label">获取Tesla最新资讯</view></checkbox>
@@ -64,6 +66,11 @@
 			}
 		},
 		methods: {
+			// 选择省份
+			bindProvinceChange (e) {
+				console.log(e.detail.value); // ["北京市", "北京市", "丰台区"]
+			},
+			
 			onSubmit () {
 				console.log('试驾');
 			},

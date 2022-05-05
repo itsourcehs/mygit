@@ -99,7 +99,7 @@ try {
       return __webpack_require__.e(/*! import() | components/tesla-input/tesla-input */ "components/tesla-input/tesla-input").then(__webpack_require__.bind(null, /*! @/components/tesla-input/tesla-input.vue */ 122))
     },
     uniDataPicker: function() {
-      return Promise.all(/*! import() | uni_modules/uni-data-picker/components/uni-data-picker/uni-data-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-data-picker/components/uni-data-picker/uni-data-picker")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-data-picker/components/uni-data-picker/uni-data-picker.vue */ 166))
+      return Promise.all(/*! import() | uni_modules/uni-data-picker/components/uni-data-picker/uni-data-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-data-picker/components/uni-data-picker/uni-data-picker")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-data-picker/components/uni-data-picker/uni-data-picker.vue */ 129))
     }
   }
 } catch (e) {
@@ -226,13 +226,16 @@ var _default =
   methods: {
     // 选择省份
     bindProvinceChange: function bindProvinceChange(e) {
-      console.log(e.detail.value); // ["北京市", "北京市", "丰台区"]
+      var proList = e.detail.value; // ["北京市", "北京市", "丰台区"]
+      console.log(proList[this.currentProvinceIndex]);
+      this.province = proList[this.currentProvinceIndex];
     },
 
     onSubmit: function onSubmit() {
       console.log('试驾');
     },
 
+    // 只有企业主体认证的账号才能用这个api
     getPhoneNumber: function getPhoneNumber(e) {
       console.log(e);
     } } };exports.default = _default;

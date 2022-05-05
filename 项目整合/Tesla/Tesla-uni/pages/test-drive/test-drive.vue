@@ -19,15 +19,15 @@
 				<tesla-input class="tesla-input" required :rules="[{type: 'email'}]" label="电子邮箱" :val="email"></tesla-input>
 				
 				<tesla-input class="tesla-input" required :rules="[{type: 'phone'}]" label="手机号" :val="phone">
-					<button class="get-phone-btn" open-type="getPhoneNumber" slot="right-item" @getphonenumber="getPhoneNumber" type="primary">获取手机号码</button>
+					<!-- <button class="get-phone-btn" open-type="getPhoneNumber" slot="right-item" @getphonenumber="getPhoneNumber" type="primary">获取手机号码</button> -->
 				</tesla-input>
 				
 				<picker mode="region" @change="bindProvinceChange" :value="currentProvinceIndex" range-key="fullname" :range="provincesAndCitiesTree">
-					<tesla-input writable="false" required label="省份" :value="province" />
+					<tesla-input writable="false" required label="省份" :val="province" />
 				</picker>
 				
 				<picker @change="bindCityChange" :value="currentCityIndex" range-key="fullname" :range="cities">
-					<tesla-input  writable="false" required label="城市" :value="city" />
+					<tesla-input  writable="false" required label="城市" :val="city" />
 				</picker>
 				
 				<uni-data-picker ></uni-data-picker>
@@ -68,13 +68,16 @@
 		methods: {
 			// 选择省份
 			bindProvinceChange (e) {
-				console.log(e.detail.value); // ["北京市", "北京市", "丰台区"]
+				let proList = e.detail.value // ["北京市", "北京市", "丰台区"]
+				console.log(proList[this.currentProvinceIndex])
+				this.province = proList[this.currentProvinceIndex]
 			},
 			
 			onSubmit () {
 				console.log('试驾');
 			},
 			
+			// 只有企业主体认证的账号才能用这个api
 			getPhoneNumber (e) {
 				console.log(e);
 			}

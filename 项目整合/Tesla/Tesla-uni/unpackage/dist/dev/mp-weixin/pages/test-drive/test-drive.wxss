@@ -5,7 +5,7 @@
 	font-size: 28rpx;
 	color: #888888;
 	text-align: center;
-	margin: 40rpx auto;
+	margin: 20rpx auto;
 }
 .form {
 	padding: 0 30rpx;

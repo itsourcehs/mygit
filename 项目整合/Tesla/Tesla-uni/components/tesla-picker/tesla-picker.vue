@@ -1,9 +1,10 @@
 <template>
 	<view>
 		<picker class="picker" @change="onChange" :value="index" :range="optionList">
-			<tesla-input :writable="false" required :label="title" :val="value">
-				<image class="icon-down" src="@/static/images/icon/ic_arrow_down.svg"></image>
-			</tesla-input>
+			
+			<tesla-input :writable="false" required :label="title" :val="value"></tesla-input>
+			
+			<image class="icon-down" src="../../static/images/icon/ic_arrow_down.svg"></image>
 		</picker>
 	</view>
 </template>
@@ -37,14 +38,13 @@
 		},
 		data() {
 			return {
-				value: '',
+				value: this.defaultValue, // 子组件属性接收父组件传递过来的值,再次传递给孙组件
 				index: 0,
-				optionList: []
+				optionList: this.options // 子组件属性接收父组件传递过来的值,再次传递给孙组件
 			};
 		},
 		methods: {
 			onChange (e) {
-				debugger
 				const val = this.optionList[e.detail.value]
 				this.value = val
 				this.$emit('change',{val, index: e.detail.value})

@@ -1,1 +1,1 @@
-<view></view>
+<view class="tesla-selection"><block wx:for="{{options}}" wx:for-item="option" wx:for-index="index" wx:key="index"><view class="item" data-index="{{index}}" data-event-opts="{{[['tap',[['onTap',['$event']]]]]}}" bindtap="__e"><view class="selection"><view class="selection-circle"><block wx:if="{{selectedIndex===index}}"><view class="check-circle"></view></block></view></view><view class="label">{{option}}</view></view></block></view>

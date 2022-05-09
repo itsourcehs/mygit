@@ -31,7 +31,8 @@
 		data() {
 			return {
 				isError: false,
-				errorMessage: ''
+				errorMessage: '',
+				inputValue: ''
 			};
 		},
 		// 组件自定义属性列表
@@ -52,7 +53,7 @@
 				type:String || Number,
 				value: ''
 			},
-			 disabled: {
+			disabled: {
 				type: Boolean,
 				value: false
 			},
@@ -65,21 +66,58 @@
 				value: ''
 			}
 		},
+		
 		methods: {
 			onInput (e) {
-				console.log(e.detail.value);
+				const _value = e.detail.value
+				this.checkError(_value)
+				this.inputValue = _value
 			},
-			checkError () {
-				
+			
+			// 校验输入
+			checkError (newval) {
+				this.handleRequired(newval)
+				this.handleRules(newval)
 			},
-			_handleRequired () {
-				
+			handleRequired (newval) {
+				if (newval === '') {
+					this.isError = true
+					this.errorMessage = '请输入' + this.$props.label
+				} else {
+					this.isError = false
+				}
 			},
-			_handleRules () {},
-			_handleRule (rule) {},
-			_handleEmailCheck () {},
-			_handlePhoneCheck () {},
-			isReady () {}
+			handleRules (newval) {
+				this.$props.rules.forEach(rule => {
+					this.handleRule(rule,newval)
+				})
+			},
+			handleRule (rule,newval) {
+				switch (rule.type) {
+					case 'email': this.handleEmailCheck(newval);break;
+					case 'phone': this.handlePhoneCheck(newval);break;
+				}
+			},
+			// 校验输入邮箱
+			handleEmailCheck (newval) {
+				let format = /^[A-Za-z0-9+]+[A-Za-z0-9\.\_\-+]*@([A-Za-z0-9\-]+\.)+[A-Za-z0-9]+$/;
+				if (!this.$props.val.match(format) && newval === '') {
+					this.isError = true
+					this.errorMessage = '请输入正确的电子邮件地址...'
+				} else {
+					this.isError = false
+				}
+			},
+			
+			// 校验输入手机号
+			handlePhoneCheck (newval) {
+				if (!(/^1[3456789]\d{9}$/.test(this.$props.val)) && newval === '') {
+					this.isError = true
+					this.errorMessage = '请输入正确的手机号码...'
+				} else {
+					this.isError = false
+				}
+			}
 		}
 	}
 </script>

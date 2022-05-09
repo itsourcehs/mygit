@@ -96,10 +96,10 @@ var components
 try {
   components = {
     teslaSwiper: function() {
-      return __webpack_require__.e(/*! import() | components/tesla-swiper/tesla-swiper */ "components/tesla-swiper/tesla-swiper").then(__webpack_require__.bind(null, /*! @/components/tesla-swiper/tesla-swiper.vue */ 101))
+      return __webpack_require__.e(/*! import() | components/tesla-swiper/tesla-swiper */ "components/tesla-swiper/tesla-swiper").then(__webpack_require__.bind(null, /*! @/components/tesla-swiper/tesla-swiper.vue */ 102))
     },
     uniPopup: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-popup/components/uni-popup/uni-popup */ "uni_modules/uni-popup/components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-popup/components/uni-popup/uni-popup.vue */ 108))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-popup/components/uni-popup/uni-popup */ "uni_modules/uni-popup/components/uni-popup/uni-popup").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-popup/components/uni-popup/uni-popup.vue */ 109))
     }
   }
 } catch (e) {
@@ -272,7 +272,7 @@ var _default =
       // 通过组件定义的ref调用uni-popup方法
       this.$refs.popup.open();
       // 模拟发送请求
-      this.$http({ url: '/car/list' });
+      this.$api({ url: '/car/list' });
     },
     // 杂志封面
     handleClickMagazine: function handleClickMagazine() {

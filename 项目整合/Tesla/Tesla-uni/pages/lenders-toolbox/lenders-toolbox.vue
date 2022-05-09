@@ -6,29 +6,29 @@
 			
 			<view class="section product-selection-area">
 				<view class="title">请选择你感兴趣的车型</view>
-				<view class="form-item"><tesla-picker title="选择车系"></tesla-picker></view>
-				<view class="form-item"><tesla-picker title="选择车型"></tesla-picker></view>
-				<view class="form-item"><tesla-input label="车辆价格(元)"></tesla-input></view>
+				<view class="form-item"><tesla-picker title="选择车系" :defaultValue="product" :options="products" @change="onProductSelected"></tesla-picker></view>
+				<view class="form-item"><tesla-picker title="选择车型" :defaultValue="productLine" :options="productLines" @change="onProductLineSelected"></tesla-picker></view>
+				<view class="form-item"><tesla-input label="车辆价格(元)" :writable="true" :val="price"></tesla-input></view>
 			</view>
 			
 			<view class="section" style="margin-bottom: 106rpx;">
 				<view class="title">选择金融方案</view>
-				<view class="form-item"><tesla-selection></tesla-selection></view>
-				<view class="tips">特斯拉官方推出了全新的金融服务，消费者只需签订租赁合同，不用任何首付，即可将特斯拉新车开回家，然后每月分期付款支付租金，直至1－5年的租赁期满，便可获得该车的所有权。</view>
-				<view class="form-item"><tesla-picker title="金融产品"></tesla-picker></view>
-				<view class="form-item"><tesla-picker title="期数"></tesla-picker></view>
-				<view class="form-item"><tesla-input label="首付/保障金比例(%)"></tesla-input></view>
-				<view class="form-item"><tesla-input label="年化率(%)" disabled tips="折合年化率7.30%"></tesla-input></view>
+				<view class="form-item"><tesla-selection :options="financePlans" @planchange="onFinancePlanChange"></tesla-selection></view>
+				<view class="tips">特斯拉官方推出了全新的金融服务，消费者只需签订租赁合同，不用任何首付，即可将特斯拉新车开回家</view>
+				<view class="form-item"><tesla-picker title="金融产品" :defaultValue="financeProduct" :options="financeProducts"></tesla-picker></view>
+				<view class="form-item"><tesla-picker title="期数" :defaultValue="periods" :options="periodsOptions" @periodchange="onPeriodsChange"></tesla-picker></view>
+				<view class="form-item"><tesla-input label="首付/保障金比例(%)" :val="rate" @input="onRateInput"></tesla-input></view>
+				<view class="form-item"><tesla-input label="年化率(%)" :writable="true" tips="折合年化率7.30%" :val="annualizedRate"></tesla-input></view>
 			</view>
 			
 			<view class="section">
 				<view class="title">查看适用金融机构</view>
-				<view class="form-item"><tesla-picker title="上牌省份"></tesla-picker></view>
-				<view class="form-item"><tesla-picker title="上牌城市"></tesla-picker></view>
+				<view class="form-item"><tesla-picker title="上牌省份" :defaultValue="currentProvince" :options="allProvinces"></tesla-picker></view>
+				<view class="form-item"><tesla-picker title="上牌城市" :defaultValue="currentCity" :options="cities"></tesla-picker></view>
 			</view>
 			
 			<view class="section">
-				<view class="tips">特斯拉官方推出了全新的金融服务，消费者只需签订租赁合同，不用任何首付，即可将特斯拉新车开回家，然后每月分期付款支付租金，直至1－5年的租赁期满，便可获得该车的所有权。</view>
+				<view class="tips">特斯拉官方推出了全新的金融服务，消费者只需签订租赁合同，不用任何首付，即可将特斯拉新车开回家</view>
 				<view class="bank-area">
 					<view class="bank-box" v-for="(item,index) in financeOrgs" :key="index">
 						<image :src="item.logo" mode="heightFix"></image>
@@ -99,7 +99,7 @@
 				price: 0,
 				priceList: [],
 				financePlan: '合作贷款机构',
-				financePlans: [],
+				financePlans: ['微信','支付宝','花呗'],
 				financeProduct: '标准贷款',
 				financeProducts: ['标准贷款'],
 				periodsOptions: ['12期', '24期'],
@@ -111,25 +111,37 @@
 				originProductData: [],
 				downPayment: 0,
 				loan: 0,
-				allProvinces: [],
+				allProvinces: ['北京市','河北省','云南省','河南省'],
 				allCities: [],
 				allFinanceOrgs: [],
 				financeOrgs: [
-					{logo: 'https://cdn.mos.cms.futurecdn.net/BQwukuZwwwXrg27B9Le2Q6-970-80.png.webp'},
-					{logo: 'https://cdn.mos.cms.futurecdn.net/BQwukuZwwwXrg27B9Le2Q6-970-80.png.webp'},
-					{logo: 'https://cdn.mos.cms.futurecdn.net/BQwukuZwwwXrg27B9Le2Q6-970-80.png.webp'}
+					{logo: 'https://bkimg.cdn.bcebos.com/pic/0dd7912397dda144ad34aae2d2f8c7a20cf431ad2819?x-bce-process=image/resize,m_lfit,w_536,limit_1/format,f_jpg'},
+					{logo: 'http://bank.pingan.com/app_images/pingan/v30/newbank/payh_logo.png'},
+					{logo: 'https://wap.boc.cn/images/boc2013_logo.png'}
 				],
 				province: [],
-				cities: [],
-				currentProvince: '',
-				currentCity: '',
+				cities: ['北京市','廊坊市','昆明市','张家口市'],
+				currentProvince: '四川省',
+				currentCity: '成都市',
 				currentProductImage: 'https://cdn.mos.cms.futurecdn.net/BQwukuZwwwXrg27B9Le2Q6-970-80.png.webp',
 				minusCircle: '../../static/images/icon/minus-circle.png',
 				plusCircle: '../../static/images/icon/plus-circle.png'
 			};
 		},
 		methods: {
-			toggleCollapse () {}
+			toggleCollapse () {},
+			
+			onProductSelected () {},
+			
+			onProductLineSelected () {},
+			
+			onFinancePlanChange (e) {
+				console.log(e); // {index: 1 label: "支付宝"} {index: 2 label: "花呗"}
+			},
+			
+			onPeriodsChange () {},
+			
+			onRateInput () {}
 		}
 	}
 </script>

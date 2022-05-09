@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hs.dao.TeslaApplyMapper">
+  <resultMap id="BaseResultMap" type="com.hs.entity.TeslaApply">
+    <id column="apply_id" jdbcType="INTEGER" property="applyId" />
+    <result column="apply_firstName" jdbcType="VARCHAR" property="applyFirstname" />
+    <result column="apply_lastName" jdbcType="VARCHAR" property="applyLastname" />
+    <result column="apply_email" jdbcType="VARCHAR" property="applyEmail" />
+    <result column="apply_phone" jdbcType="VARCHAR" property="applyPhone" />
+    <result column="apply_province" jdbcType="VARCHAR" property="applyProvince" />
+    <result column="apply_city" jdbcType="VARCHAR" property="applyCity" />
+    <result column="apply_status" jdbcType="VARCHAR" property="applyStatus" />
+    <result column="apply_productId" jdbcType="VARCHAR" property="applyProductid" />
+    <result column="apply_createTime" jdbcType="TIMESTAMP" property="applyCreatetime" />
+    <result column="apply_updteTime" jdbcType="TIMESTAMP" property="applyUpdtetime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    apply_id, apply_firstName, apply_lastName, apply_email, apply_phone, apply_province, 
+    apply_city, apply_status, apply_productId, apply_createTime, apply_updteTime
+  </sql>
+  <select id="selectByExample" parameterType="com.hs.entity.TeslaApplyExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tesla_apply
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tesla_apply
+    where apply_id = #{applyId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tesla_apply
+    where apply_id = #{applyId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hs.entity.TeslaApplyExample">
+    delete from tesla_apply
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.hs.entity.TeslaApply">
+    insert into tesla_apply (apply_id, apply_firstName, apply_lastName, 
+      apply_email, apply_phone, apply_province, 
+      apply_city, apply_status, apply_productId, 
+      apply_createTime, apply_updteTime)
+    values (#{applyId,jdbcType=INTEGER}, #{applyFirstname,jdbcType=VARCHAR}, #{applyLastname,jdbcType=VARCHAR}, 
+      #{applyEmail,jdbcType=VARCHAR}, #{applyPhone,jdbcType=VARCHAR}, #{applyProvince,jdbcType=VARCHAR}, 
+      #{applyCity,jdbcType=VARCHAR}, #{applyStatus,jdbcType=VARCHAR}, #{applyProductid,jdbcType=VARCHAR}, 
+      #{applyCreatetime,jdbcType=TIMESTAMP}, #{applyUpdtetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hs.entity.TeslaApply">
+    insert into tesla_apply
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="applyId != null">
+        apply_id,
+      </if>
+      <if test="applyFirstname != null">
+        apply_firstName,
+      </if>
+      <if test="applyLastname != null">
+        apply_lastName,
+      </if>
+      <if test="applyEmail != null">
+        apply_email,
+      </if>
+      <if test="applyPhone != null">
+        apply_phone,
+      </if>
+      <if test="applyProvince != null">
+        apply_province,
+      </if>
+      <if test="applyCity != null">
+        apply_city,
+      </if>
+      <if test="applyStatus != null">
+        apply_status,
+      </if>
+      <if test="applyProductid != null">
+        apply_productId,
+      </if>
+      <if test="applyCreatetime != null">
+        apply_createTime,
+      </if>
+      <if test="applyUpdtetime != null">
+        apply_updteTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="applyId != null">
+        #{applyId,jdbcType=INTEGER},
+      </if>
+      <if test="applyFirstname != null">
+        #{applyFirstname,jdbcType=VARCHAR},
+      </if>
+      <if test="applyLastname != null">
+        #{applyLastname,jdbcType=VARCHAR},
+      </if>
+      <if test="applyEmail != null">
+        #{applyEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="applyPhone != null">
+        #{applyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="applyProvince != null">
+        #{applyProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="applyCity != null">
+        #{applyCity,jdbcType=VARCHAR},
+      </if>
+      <if test="applyStatus != null">
+        #{applyStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="applyProductid != null">
+        #{applyProductid,jdbcType=VARCHAR},
+      </if>
+      <if test="applyCreatetime != null">
+        #{applyCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="applyUpdtetime != null">
+        #{applyUpdtetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.hs.entity.TeslaApplyExample" resultType="java.lang.Long">
+    select count(*) from tesla_apply
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tesla_apply
+    <set>
+      <if test="record.applyId != null">
+        apply_id = #{record.applyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.applyFirstname != null">
+        apply_firstName = #{record.applyFirstname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applyLastname != null">
+        apply_lastName = #{record.applyLastname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applyEmail != null">
+        apply_email = #{record.applyEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applyPhone != null">
+        apply_phone = #{record.applyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applyProvince != null">
+        apply_province = #{record.applyProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applyCity != null">
+        apply_city = #{record.applyCity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applyStatus != null">
+        apply_status = #{record.applyStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applyProductid != null">
+        apply_productId = #{record.applyProductid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applyCreatetime != null">
+        apply_createTime = #{record.applyCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.applyUpdtetime != null">
+        apply_updteTime = #{record.applyUpdtetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tesla_apply
+    set apply_id = #{record.applyId,jdbcType=INTEGER},
+      apply_firstName = #{record.applyFirstname,jdbcType=VARCHAR},
+      apply_lastName = #{record.applyLastname,jdbcType=VARCHAR},
+      apply_email = #{record.applyEmail,jdbcType=VARCHAR},
+      apply_phone = #{record.applyPhone,jdbcType=VARCHAR},
+      apply_province = #{record.applyProvince,jdbcType=VARCHAR},
+      apply_city = #{record.applyCity,jdbcType=VARCHAR},
+      apply_status = #{record.applyStatus,jdbcType=VARCHAR},
+      apply_productId = #{record.applyProductid,jdbcType=VARCHAR},
+      apply_createTime = #{record.applyCreatetime,jdbcType=TIMESTAMP},
+      apply_updteTime = #{record.applyUpdtetime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hs.entity.TeslaApply">
+    update tesla_apply
+    <set>
+      <if test="applyFirstname != null">
+        apply_firstName = #{applyFirstname,jdbcType=VARCHAR},
+      </if>
+      <if test="applyLastname != null">
+        apply_lastName = #{applyLastname,jdbcType=VARCHAR},
+      </if>
+      <if test="applyEmail != null">
+        apply_email = #{applyEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="applyPhone != null">
+        apply_phone = #{applyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="applyProvince != null">
+        apply_province = #{applyProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="applyCity != null">
+        apply_city = #{applyCity,jdbcType=VARCHAR},
+      </if>
+      <if test="applyStatus != null">
+        apply_status = #{applyStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="applyProductid != null">
+        apply_productId = #{applyProductid,jdbcType=VARCHAR},
+      </if>
+      <if test="applyCreatetime != null">
+        apply_createTime = #{applyCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="applyUpdtetime != null">
+        apply_updteTime = #{applyUpdtetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where apply_id = #{applyId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hs.entity.TeslaApply">
+    update tesla_apply
+    set apply_firstName = #{applyFirstname,jdbcType=VARCHAR},
+      apply_lastName = #{applyLastname,jdbcType=VARCHAR},
+      apply_email = #{applyEmail,jdbcType=VARCHAR},
+      apply_phone = #{applyPhone,jdbcType=VARCHAR},
+      apply_province = #{applyProvince,jdbcType=VARCHAR},
+      apply_city = #{applyCity,jdbcType=VARCHAR},
+      apply_status = #{applyStatus,jdbcType=VARCHAR},
+      apply_productId = #{applyProductid,jdbcType=VARCHAR},
+      apply_createTime = #{applyCreatetime,jdbcType=TIMESTAMP},
+      apply_updteTime = #{applyUpdtetime,jdbcType=TIMESTAMP}
+    where apply_id = #{applyId,jdbcType=INTEGER}
+  </update>
+</mapper>

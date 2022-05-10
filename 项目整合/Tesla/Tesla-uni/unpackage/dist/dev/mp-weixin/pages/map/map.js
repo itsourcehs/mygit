@@ -203,6 +203,7 @@ var _default =
 {
   data: function data() {
     return {
+      mapKey: '754763664aa5e35f1788229a5a5d3f0b',
       latitude: 0, // 中心纬度
       longitude: 0, // 中心经度
       markers: [],

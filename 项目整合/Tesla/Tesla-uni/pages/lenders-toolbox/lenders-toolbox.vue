@@ -96,7 +96,7 @@
 				products: ['Model3', 'Model Y', 'Model S'],
 				productLine: '高性能版',
 				productLines: ['高性能版', '标准续航版'],
-				price: 0,
+				price: 100,
 				priceList: [],
 				financePlan: '合作贷款机构',
 				financePlans: ['微信','支付宝','花呗'],

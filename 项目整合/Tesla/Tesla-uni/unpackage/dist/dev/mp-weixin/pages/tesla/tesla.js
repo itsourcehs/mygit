@@ -275,16 +275,14 @@ var _default =
       this.$api({ url: '/car/list' });
     },
     // 杂志封面
-    handleClickMagazine: function handleClickMagazine() {
+    handleClickMagazine: function handleClickMagazine(e) {
       var id = e.currentTarget.dataset.id;
-      uni.navigateTo({
-        url: '../magazine/magazine?id=' + id });
-
-
+      uni.navigateTo({ url: '../magazine/magazine?id=' + id });
     },
 
     // 新手视频
     goToVideo: function goToVideo() {},
+
     // 关闭弹出层 && 页面发生改变时也应关闭
     handleClosePopupMenu: function handleClosePopupMenu() {
       // 通过组件定义的ref调用uni-popup close方法
